@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fj8l8f2bw4yd"
+path="res://.godot/imported/bucket.obj-9bf708cf5ee069be77c7b1e2aba62f37.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bucket.obj-9bf708cf5ee069be77c7b1e2aba62f37.mesh"]
+
+source_file="res://asset/3d/collision/bucket.obj"
+dest_files=["res://.godot/imported/bucket.obj-9bf708cf5ee069be77c7b1e2aba62f37.mesh", "res://.godot/imported/bucket.obj-9bf708cf5ee069be77c7b1e2aba62f37.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

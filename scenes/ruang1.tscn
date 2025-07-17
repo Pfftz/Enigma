@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3tkb4mwprx1g"]
+
+[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/player.tscn" id="1_kvag1"]
+[ext_resource type="ArrayMesh" uid="uid://toccg5whc1of" path="res://asset/3d/room/evencare/evencare1_furniture.obj" id="2_kvag1"]
+[ext_resource type="Shader" uid="uid://c8lsw8dhkavwq" path="res://shaders/psx_unlit.gdshader" id="3_6xuro"]
+[ext_resource type="ArrayMesh" uid="uid://b5knwwiu0fmi" path="res://asset/3d/room/evencare/evencare1.obj" id="4_rw2xt"]
+[ext_resource type="ArrayMesh" uid="uid://c3xet8otx5hsg" path="res://asset/3d/room/oddcare/oddcare1.obj" id="6_h7rm7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_timk0"]
+sky_top_color = Color(0.237229, 0.294337, 0.144143, 1)
+sky_horizon_color = Color(0.479556, 0.486083, 0.439535, 1)
+ground_horizon_color = Color(0.479556, 0.486083, 0.439535, 1)
+
+[sub_resource type="Sky" id="Sky_kvag1"]
+sky_material = SubResource("ProceduralSkyMaterial_timk0")
+
+[sub_resource type="Environment" id="Environment_6xuro"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_kvag1")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(1, 1, 1, 1)
+fog_density = 1.0
+fog_depth_begin = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7coyi"]
+render_priority = 0
+shader = ExtResource("3_6xuro")
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_timk0"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_162ku"]
+data = PackedVector3Array(-0.5, 1, -0.5, 2.5, 0, -0.5, -0.5, 0, -0.5, 12.5, 0, 1, -0.5, 1, 1, -0.5, 0, 1, 4.5, 1, -12.5, 7.5, 0, -12.5, 4.5, 0, -12.5, 4.5, 1, -2.6, 4.5, 0, -12.5, 4.5, 0, -2.6, 2.5, 1, -0.5, 2.5, 0, -1.5, 2.5, 0, -0.5, 11, 1, -6.5, 14.5, 0, -6.5, 11, 0, -6.5, 17.5, 1, -4, 12.5, 0, -4, 17.5, 0, -4, 14.5, 1, -5.5, 17.5, 0, -5.5, 14.5, 0, -5.5, 14.5, 0, -6.5, 14.5, 1, -5.5, 14.5, 0, -5.5, 12.5, 1, -4, 12.5, 0, -2, 12.5, 0, -4, 2.5, 1, -1.5, 5.5, 0, -1.5, 2.5, 0, -1.5, 5.5, 1, -1.5, 5.5, 0, -2.6, 5.5, 0, -1.5, 5.5, 0, -2.6, 4.5, 1, -2.6, 4.5, 0, -2.6, 12.5, 1, -0.5, 12.5, 0, 1, 12.5, 0, -0.5, 11, 0, -0.5, 12.5, 1, -0.5, 12.5, 0, -0.5, 11, 0, -2, 11, 1, -0.5, 11, 0, -0.5, 11, 1, -2, 12.5, 0, -2, 12.5, 1, -2, 7.5, 1, -5, 11, 0, -5, 7.5, 0, -5, 7.5, 1, -12.5, 7.5, 0, -5, 7.5, 0, -12.5, 11, 0, -5, 11, 1, -6.5, 11, 0, -6.5, 2.5, 1, -0.5, 2.5, 0, -0.5, -0.5, 1, -0.5, 12.5, 1, 1, -0.5, 1, 1, 12.5, 0, 1, 7.5, 1, -12.5, 7.5, 0, -12.5, 4.5, 1, -12.5, 4.5, 1, -12.5, 4.5, 0, -12.5, 4.5, 1, -2.6, 2.5, 1, -1.5, 2.5, 0, -1.5, 2.5, 1, -0.5, 14.5, 1, -6.5, 14.5, 0, -6.5, 11, 1, -6.5, 12.5, 1, -4, 12.5, 0, -4, 17.5, 1, -4, 17.5, 1, -5.5, 17.5, 0, -5.5, 14.5, 1, -5.5, 14.5, 1, -6.5, 14.5, 1, -5.5, 14.5, 0, -6.5, 12.5, 1, -2, 12.5, 0, -2, 12.5, 1, -4, 5.5, 1, -1.5, 5.5, 0, -1.5, 2.5, 1, -1.5, 5.5, 1, -2.6, 5.5, 0, -2.6, 5.5, 1, -1.5, 5.5, 1, -2.6, 4.5, 1, -2.6, 5.5, 0, -2.6, 12.5, 1, 1, 12.5, 0, 1, 12.5, 1, -0.5, 11, 1, -0.5, 12.5, 1, -0.5, 11, 0, -0.5, 11, 1, -2, 11, 1, -0.5, 11, 0, -2, 11, 0, -2, 12.5, 0, -2, 11, 1, -2, 11, 1, -5, 11, 0, -5, 7.5, 1, -5, 7.5, 1, -5, 7.5, 0, -5, 7.5, 1, -12.5, 11, 1, -5, 11, 1, -6.5, 11, 0, -5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvag1"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ltnl0"]
+data = PackedVector3Array(12.5, 1, 1, 2.5, 1, 1, 12.5, 0, 1, 6.6, 0, -12.5, 7.5, 1, -12.5, 7.5, 0, -12.5, 4.5, 1, -2.6, 4.5, 0, -12.5, 4.5, 0, -2.6, 2.5, 1, 1, 2.5, 0, -1.5, 2.5, 0, 1, 11, 1, -6.5, 14.5, 0, -6.5, 11, 0, -6.5, 17.5, 1, -4, 12.5, 0, -4, 17.5, 0, -4, 14.5, 1, -5.5, 17.5, 0, -5.5, 14.5, 0, -5.5, 14.5, 0, -6.5, 14.5, 1, -5.5, 14.5, 0, -5.5, 12.5, 1, -4, 12.5, 0, -2, 12.5, 0, -4, 2.5, 1, -1.5, 5.5, 0, -1.5, 2.5, 0, -1.5, 5.5, 1, -1.5, 5.5, 0, -2.6, 5.5, 0, -1.5, 5.5, 0, -2.6, 4.5, 1, -2.6, 4.5, 0, -2.6, 12.5, 1, -0.5, 12.5, 0, 1, 12.5, 0, -0.5, 11, 0, -0.5, 12.5, 1, -0.5, 12.5, 0, -0.5, 11, 0, -2, 11, 1, -0.5, 11, 0, -0.5, 11, 1, -2, 12.5, 0, -2, 12.5, 1, -2, 7.5, 1, -5, 11, 0, -5, 7.5, 0, -5, 7.5, 1, -12.5, 7.5, 0, -5, 7.5, 0, -12.5, 11, 0, -5, 11, 1, -6.5, 11, 0, -6.5, 12.5, 0, 1, 2.5, 1, 1, 2.5, 0, 1, 6.6, 0, -15.5, 6.6, 1, -12.5, 6.6, 0, -12.5, 4.5, 1, -12.5, 4.5, 0, -12.5, 4.5, 1, -2.6, 2.5, 1, -1.5, 2.5, 0, -1.5, 2.5, 1, 1, 14.5, 1, -6.5, 14.5, 0, -6.5, 11, 1, -6.5, 12.5, 1, -4, 12.5, 0, -4, 17.5, 1, -4, 17.5, 1, -5.5, 17.5, 0, -5.5, 14.5, 1, -5.5, 14.5, 1, -6.5, 14.5, 1, -5.5, 14.5, 0, -6.5, 12.5, 1, -2, 12.5, 0, -2, 12.5, 1, -4, 5.5, 1, -1.5, 5.5, 0, -1.5, 2.5, 1, -1.5, 5.5, 1, -2.6, 5.5, 0, -2.6, 5.5, 1, -1.5, 5.5, 1, -2.6, 4.5, 1, -2.6, 5.5, 0, -2.6, 12.5, 1, 1, 12.5, 0, 1, 12.5, 1, -0.5, 11, 1, -0.5, 12.5, 1, -0.5, 11, 0, -0.5, 11, 1, -2, 11, 1, -0.5, 11, 0, -2, 11, 0, -2, 12.5, 0, -2, 11, 1, -2, 11, 1, -5, 11, 0, -5, 7.5, 1, -5, 7.5, 1, -5, 7.5, 0, -5, 7.5, 1, -12.5, 11, 1, -5, 11, 1, -6.5, 11, 0, -5, 4.5, 0, -12.5, 5.4, 1, -12.5, 5.4, 0, -12.5, 5.4, 1, -15.5, 5.4, 0, -12.5, 5.4, 1, -12.5, 6.6, 1, -12.5, 7.5, 1, -12.5, 6.6, 0, -12.5, 6.6, 1, -15.5, 6.6, 1, -12.5, 6.6, 0, -15.5, 4.5, 1, -12.5, 5.4, 1, -12.5, 4.5, 0, -12.5, 5.4, 0, -15.5, 5.4, 0, -12.5, 5.4, 1, -15.5)
+
+[node name="Room1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6xuro")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.062122, 0.996802, -0.0502577, -0.0317306, 0.052302, 0.998127, 0.997564, -0.0604109, 0.0348782, 9.61014, 4.25436, -6.22456)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_kvag1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41152, 0.494928, 0.0862216)
+
+[node name="FurnitureMesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_kvag1")
+surface_material_override/0 = SubResource("ShaderMaterial_7coyi")
+
+[node name="GenSpecific3" type="Node" parent="."]
+
+[node name="EvenCareMesh" type="MeshInstance3D" parent="GenSpecific3"]
+material_override = SubResource("ShaderMaterial_timk0")
+mesh = ExtResource("4_rw2xt")
+skeleton = NodePath("../..")
+
+[node name="LevelBody" type="StaticBody3D" parent="GenSpecific3"]
+
+[node name="LevelCollision" type="CollisionShape3D" parent="GenSpecific3/LevelBody"]
+shape = SubResource("ConcavePolygonShape3D_162ku")
+
+[node name="GenSpecific4" type="Node" parent="."]
+
+[node name="OddCareMesh" type="MeshInstance3D" parent="GenSpecific4"]
+material_override = SubResource("ShaderMaterial_kvag1")
+mesh = ExtResource("6_h7rm7")
+
+[node name="LevelBody" type="StaticBody3D" parent="GenSpecific4"]
+
+[node name="LevelCollision" type="CollisionShape3D" parent="GenSpecific4/LevelBody"]
+shape = SubResource("ConcavePolygonShape3D_ltnl0")
