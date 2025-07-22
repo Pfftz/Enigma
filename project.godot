@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/global.gd"
+EventBus="*res://scripts/event_bus.gd"
+SaveManager="*res://scripts/save/save_manager.gd"
 
 [display]
 
@@ -25,6 +27,10 @@ window/size/viewport_width=320
 window/size/viewport_height=240
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
+
+[global_group]
+
+player=""
 
 [input]
 
