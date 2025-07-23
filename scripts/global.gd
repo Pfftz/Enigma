@@ -5,6 +5,7 @@ var player_spawn_info: Array = []
 var current_scene_path: String = ""
 var textbox
 var player_node: Node3D = null # Store reference to player
+var global_data: GlobalData = preload("res://resource/management/global_data.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

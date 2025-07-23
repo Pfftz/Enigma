@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://db15qus3wxy4q"]
+
+[ext_resource type="Script" uid="uid://coo6tjtp65wv7" path="res://scripts/HUD.gd" id="1_abc123"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_abc123")
+
+[node name="CounterContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[node name="PieceCounter" type="Label" parent="CounterContainer"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "Pieces: 0"
+horizontal_alignment = 2

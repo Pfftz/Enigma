@@ -7,3 +7,4 @@ class_name PlayerStats
 @export var current_level: int = 0
 @export var health: int = 100
 @export var experience: int = 0
+@export var piece_amount: int = 0 # For piece collection system

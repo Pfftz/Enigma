@@ -18,3 +18,6 @@ class_name SaveData
 @export var volume_master: float = 1.0
 @export var volume_sfx: float = 1.0
 @export var volume_music: float = 1.0
+
+# Piece collection system (for Petscop-like functionality)
+@export var piece_log: Dictionary = {} ## A log of collected pieces per room
