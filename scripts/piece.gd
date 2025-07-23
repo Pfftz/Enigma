@@ -99,10 +99,20 @@ func _on_body_entered(body: Node3D) -> void:
 			# Increase piece count
 			SaveManager.get_data().player_data.piece_amount += 1
 			
-			# Update HUD if available
-			if has_node("/root/HUD"):
-				get_node("/root/HUD").update_counter()
-				get_node("/root/HUD").show_counter()
+			# Emit signal for piece collection
+			EventBus.piece_collected.emit(SaveManager.get_data().player_data.piece_amount)
+			
+			# Find HUD - now it's a child of the player
+			var player = get_tree().get_first_node_in_group("player")
+			var hud_node = null
+			if player:
+				hud_node = player.get_node_or_null("HUD")
+			
+			# Update HUD if found
+			if hud_node and hud_node.has_method("update_counter"):
+				hud_node.update_counter()
+			if hud_node and hud_node.has_method("show_counter"):
+				hud_node.show_counter()
 			
 			# Disable collision
 			piece_collision.queue_free()

@@ -7,6 +7,9 @@ var textbox
 var player_node: Node3D = null # Store reference to player
 var global_data: GlobalData = preload("res://resource/management/global_data.tres")
 
+# Environment system time tracking
+var clock_float: float = 0.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	textbox = load("res://scenes/control.tscn")
@@ -14,7 +17,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# Update global time for environment effects
+	clock_float += delta
 	
 func create_Textbox(textboxText: PackedStringArray, parent: Node):
 	var newTextbox = textbox.instantiate()

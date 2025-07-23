@@ -10,6 +10,19 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y200a"]
 render_priority = 0
 shader = ExtResource("2_vvfn8")
+shader_parameter/use_fog = true
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/albedoTex = ExtResource("3_cvlhu")
+shader_parameter/alpha_color = Color(1, 0, 1, 1)
+shader_parameter/fixed_size = false
+shader_parameter/billboard = true
+shader_parameter/y_billboard = false
+shader_parameter/animate = true
+shader_parameter/animation_frames = Vector2i(20, 5)
+shader_parameter/animation_speed = Vector2i(10, 0)
+shader_parameter/per_quad_depth = false
+shader_parameter/adjustable_depth = false
+shader_parameter/depth_offset = Vector3(0, 0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cewfo"]
 size = Vector3(0.5, 0.5, 0.5)

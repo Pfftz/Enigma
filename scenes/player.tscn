@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://b40lipydi20xn"]
+[gd_scene load_steps=27 format=3 uid="uid://b40lipydi20xn"]
 
 [ext_resource type="Script" uid="uid://bh3og4py7fhpp" path="res://scripts/Player.gd" id="1_urvre"]
 [ext_resource type="Texture2D" uid="uid://delxxqh1c0ymc" path="res://sprites/guardian (1).png" id="2_daxs2"]
+[ext_resource type="PackedScene" uid="uid://db15qus3wxy4q" path="res://scenes/HUD.tscn" id="3_qhqgy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0jprm"]
 
@@ -220,3 +221,5 @@ billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_rro66")
 animation = &"idleDown"
+
+[node name="HUD" parent="." instance=ExtResource("3_qhqgy")]

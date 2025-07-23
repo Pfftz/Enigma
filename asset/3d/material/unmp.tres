@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bvy5cv0fajqeu"]
 
-[ext_resource type="Shader" path="res://shader/spatial/psx_lit.gdshader" id="1_2rml2"]
+[ext_resource type="Shader" path="res://shaders/psx_lit.gdshader" id="1_2rml2"]
 [ext_resource type="Texture2D" uid="uid://f40rhprpw6tx" path="res://asset/3d/room/under_nmp/unmp_hallway_placeholder.png" id="2_06omh"]
 
 [resource]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/LevelEnvironmentManager.gd" id="1"]
+[ext_resource type="Resource" path="res://resource/environment/dark_foggy.tres" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1"]
+size = Vector3(2, 0.1, 2)
+
+[node name="EnvironmentTest" type="Node3D"]
+
+[node name="LevelEnvironmentManager" type="Node3D" parent="."]
+script = ExtResource("1")
+environment_settings = ExtResource("2")
+
+[node name="Player" parent="." instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="TestGround" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_1")
+
+[node name="TestCube1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
+mesh = SubResource("BoxMesh_1")
+
+[node name="TestCube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 0)
+mesh = SubResource("BoxMesh_1")
+
+[node name="TestCube3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
+mesh = SubResource("BoxMesh_1")
+
+[node name="TestCube4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
+mesh = SubResource("BoxMesh_1")

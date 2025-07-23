@@ -4,4 +4,4 @@ shader_type spatial;
 #define CULL cull_disabled
 #define SPRITE
 
-#include "res://shader/spatial/include/psx_base.gdshaderinc"
+#include "res://shaders/include/psx_base.gdshaderinc"

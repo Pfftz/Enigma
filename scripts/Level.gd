@@ -16,3 +16,13 @@ func _ready():
 	if room_name == "":
 		var scene_path = get_tree().current_scene.scene_file_path
 		room_name = scene_path.get_file().get_basename()
+
+	setup_room_textures()
+
+func setup_room_textures():
+	# Find all textured objects
+	var textured_objects = get_tree().get_nodes_in_group("textured")
+	
+	for obj in textured_objects:
+		if obj.has_method("apply_texture"):
+			obj.apply_texture("res://textures/room_texture.png")

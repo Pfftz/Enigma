@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn6hdyapwjmyp"]
+[gd_scene load_steps=7 format=3 uid="uid://dn6hdyapwjmyp"]
 
 [ext_resource type="Script" uid="uid://b74b0c7s7glq2" path="res://scripts/warp.gd" id="1_gnr67"]
 [ext_resource type="Shader" uid="uid://bfsc4h7ys7kus" path="res://shaders/psx_unlit_sprite.gdshader" id="2_yolch"]
 [ext_resource type="Texture2D" uid="uid://cpk71vjtl76ti" path="res://asset/2d/ui/editor/warp_directions.png" id="3_4daxd"]
+[ext_resource type="Texture2D" uid="uid://bfkyptjb4hwmo" path="res://icon/warp.png" id="3_lycur"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qy0te"]
 resource_local_to_scene = true
@@ -11,6 +12,19 @@ size = Vector3(2, 2, 0)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v268w"]
 render_priority = 0
 shader = ExtResource("2_yolch")
+shader_parameter/use_fog = true
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/albedoTex = ExtResource("3_lycur")
+shader_parameter/alpha_color = Color(1, 0, 1, 1)
+shader_parameter/fixed_size = false
+shader_parameter/billboard = true
+shader_parameter/y_billboard = true
+shader_parameter/animate = false
+shader_parameter/animation_frames = Vector2i(0, 0)
+shader_parameter/animation_speed = Vector2i(0, 0)
+shader_parameter/per_quad_depth = false
+shader_parameter/adjustable_depth = false
+shader_parameter/depth_offset = Vector3(0, 0, 0)
 
 [node name="Warp" type="Area3D"]
 process_mode = 1

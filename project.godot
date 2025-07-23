@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 Global="*res://scripts/global.gd"
 EventBus="*res://scripts/event_bus.gd"
 SaveManager="*res://scripts/save/save_manager.gd"
-HUD="*res://scenes/HUD.tscn"
 
 [display]
 
@@ -47,10 +46,6 @@ precision_multiplier={
 "type": "float",
 "value": 1.0
 }
-fog_color={
-"type": "vec4",
-"value": Vector4(0, 0, 0, 0)
-}
 sphere_size={
 "type": "float",
 "value": 5.0
@@ -58,4 +53,24 @@ sphere_size={
 player_pos={
 "type": "vec3",
 "value": Vector3(0, 0, 0)
+}
+float_time={
+"type": "float",
+"value": 0.0
+}
+fog_color={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+fog_enabled={
+"type": "bool",
+"value": false
+}
+fog_pos={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+fog_size={
+"type": "float",
+"value": 13.5
 }

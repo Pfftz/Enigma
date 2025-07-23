@@ -3,6 +3,8 @@ class_name SaveData
 
 ## The template Resource used for Openscop's save data, it is also used to store save data in recordings in the [RecordingData] [Resource]. 
 
+const LoadingPreset = preload("res://scripts/LoadingPreset.gd")
+
 #BASIC DATA
 @export var save_seed: int = 0 ## Save file specific randomization seed used by some random events in the game, such as where Randice is going to move to when there are more than 3 possible positions for it.
 @export var player_data: PlayerStats = PlayerStats.new() ## The player's data, uses a [PlayerStats] [Resource].
@@ -26,7 +28,7 @@ class_name SaveData
 @export var anna_phone: Array[int] ## Stores the states for all the phones in the game. By default only Anna's phone is saved.
 @export var wheel: Dictionary ## Stores the states for all the wheels in the game. By default only the Machine Room and Child Library wheel are saved.
 @export var library_pet: Array[String] ## Stores the pets stored in the Child Library.
-@export var library_face: FaceResource = null ## Stores the currently loaded face bedroom in the Child Library. Default value is [code]null[/code]
+@export var library_face: Resource = null ## Stores the currently loaded face bedroom in the Child Library. Default value is [code]null[/code]
 #MISC
 ## Stores all the sounds unlocked in the Sound Test so far.
 @export var sounds: Array[String] = [

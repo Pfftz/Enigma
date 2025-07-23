@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dsbhgneeo4h22"]
 
-[ext_resource type="Shader" path="res://shader/spatial/psx_unlit_alpha.gdshader" id="1_jo3qp"]
+[ext_resource type="Shader" path="res://shaders/psx_unlit_alpha.gdshader" id="1_jo3qp"]
 [ext_resource type="Texture2D" uid="uid://bfjbg622tpn6d" path="res://asset/3d/room/evencare/texture.png" id="2_4kivt"]
 
 [resource]

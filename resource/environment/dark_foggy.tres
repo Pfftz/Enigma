@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnvironmentResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/EnvironmentResource.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+sky_color = Color(0.2, 0.3, 0.6, 1)
+sky_texture = null
+scroll_speed = 0.0
+offset_y = 0.0
+ambient_color = Color(0.8, 0.9, 1, 1)
+environment_darkness = 0.6
+enable_fog = true
+fog_color = Color(0.6, 0.7, 0.9, 1)
+fog_radius = 12.0
+fog_follow_player = true
+enable_directional_light = false
+light_direction = Vector3(-0.5, -1, -0.5)
+light_color = Color(1, 0.95, 0.8, 1)
+light_energy = 1.0
