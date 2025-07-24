@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://c2otdph3noodx"]
 
-[ext_resource type="Script" path="res://scripts/LevelEnvironmentManager.gd" id="1"]
+[ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/LevelEnvironmentManager.gd" id="1"]
 [ext_resource type="Resource" path="res://resource/environment/dark_foggy.tres" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/player.tscn" id="3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1"]
 size = Vector3(2, 0.1, 2)

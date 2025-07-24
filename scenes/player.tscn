@@ -213,7 +213,7 @@ script = ExtResource("1_urvre")
 shape = SubResource("BoxShape3D_0jprm")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.99999, -0.00353187, 0.00264899, 0.00146247, 0.831138, 0.556065, -0.00416562, -0.556056, 0.831135, 0, 1.53812, 2.46022)
+transform = Transform3D(0.99999, -0.00353187, 0.00264899, 0.00146247, 0.831138, 0.556065, -0.00416562, -0.556056, 0.831135, 0, 2.35642, 4.29295)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1.54177, 0, 0, 0, 1.54177, 0, 0, 0, 1.54177, 0, 0, 0)
