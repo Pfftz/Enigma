@@ -4,7 +4,7 @@ shader_type sky;
 global uniform float float_time;
 
 // Sky texture properties
-uniform bool use_texture : hint_default(false) = false;
+uniform bool use_texture = false;
 uniform sampler2D sky_texture : source_color, filter_nearest, repeat_enable;
 uniform vec2 texture_size = vec2(320.0, 240.0);
 uniform float scroll_speed : hint_range(-2.0, 2.0) = 0.25;

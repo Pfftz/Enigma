@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dguysikyfdbkc"]
+
+[ext_resource type="Script" uid="uid://bkghu7oiaubsr" path="res://scripts/interact.gd" id="1_o7blk"]
+[ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/interaction_symbol.tscn" id="2_wktwx"]
+
+[node name="DialogueTrigger" type="Marker3D"]
+script = ExtResource("1_o7blk")
+
+[node name="InteractionSymbol" parent="." instance=ExtResource("2_wktwx")]

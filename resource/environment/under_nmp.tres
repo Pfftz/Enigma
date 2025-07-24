@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="EnvironmentResource" load_steps=2 format=3 uid="uid://cpnxltpebnvr6"]
+[gd_resource type="Resource" script_class="EnvironmentResource" load_steps=3 format=3 uid="uid://cpnxltpebnvr6"]
 
-[ext_resource type="Script" path="res://script/resource/environment_resource.gd" id="1_i6jph"]
+[ext_resource type="Script" uid="uid://cw7xhsk4g851s" path="res://scripts/EnvironmentResource.gd" id="1_i6jph"]
+[ext_resource type="Texture2D" uid="uid://br2tfh4kvbya2" path="res://asset/2d/loading_screen/unmp_entrance.png" id="2_16c1v"]
 
 [resource]
 script = ExtResource("1_i6jph")
 sky_color = Color(0, 0, 0, 1)
+sky_texture = ExtResource("2_16c1v")
 scroll_speed = 0.2
 offset_y = 0.25
 ambient_color = Color(0.7, 0.7, 0.7, 1)
@@ -12,3 +14,8 @@ environment_darkness = 0.7
 enable_fog = true
 fog_color = Color(0, 0, 0, 1)
 fog_radius = 3.5
+fog_follow_player = true
+enable_directional_light = false
+light_direction = Vector3(-0.5, -1, -0.5)
+light_color = Color(1, 0.95, 0.8, 1)
+light_energy = 1.0

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2otdph3noodx"]
+[gd_scene load_steps=5 format=3 uid="uid://ef8dlrwf07mb"]
 
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/LevelEnvironmentManager.gd" id="1"]
-[ext_resource type="Resource" path="res://resource/environment/dark_foggy.tres" id="2"]
+[ext_resource type="Resource" uid="uid://ctr3on5jrc5vk" path="res://resource/environment/moving_sky_demo.tres" id="2_2xeua"]
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/player.tscn" id="3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1"]
@@ -9,12 +9,14 @@ size = Vector3(2, 0.1, 2)
 
 [node name="EnvironmentTest" type="Node3D"]
 
-[node name="LevelEnvironmentManager" type="Node3D" parent="."]
+[node name="LevelEnvironmentManager" type="Node3D" parent="." node_paths=PackedStringArray("fog_follow_target")]
 script = ExtResource("1")
-environment_settings = ExtResource("2")
+environment_settings = ExtResource("2_2xeua")
+fog_follow_target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+motion_mode = 1
 
 [node name="TestGround" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_1")

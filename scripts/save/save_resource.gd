@@ -1,5 +1,5 @@
 extends Resource
-class_name SaveData
+class_name SaveDataResource
 
 ## The template Resource used for Openscop's save data, it is also used to store save data in recordings in the [RecordingData] [Resource]. 
 

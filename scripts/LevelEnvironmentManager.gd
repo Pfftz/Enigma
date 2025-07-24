@@ -27,9 +27,8 @@ func _ready():
 func _process(_delta):
 	# Update global time for moving backgrounds
 	if environment_settings and environment_settings.sky_texture:
-		var current_time = Global.get("clock_float") if Global.has_method("get") else Time.get_time_dict_from_system()["second"]
-		if current_time == null:
-			current_time = Time.get_ticks_msec() / 1000.0
+		# Use Global.clock_float directly since it's a public variable
+		var current_time = Global.clock_float
 		RenderingServer.global_shader_parameter_set("float_time", current_time)
 	
 	# Update fog position if following a target

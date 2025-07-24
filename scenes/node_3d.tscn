@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1at8d63c7clm"]
+[gd_scene load_steps=13 format=3 uid="uid://b1at8d63c7clm"]
 
 [ext_resource type="Texture2D" uid="uid://dhxiylyk0qjd8" path="res://icon.svg" id="1_57kka"]
 [ext_resource type="Shader" uid="uid://7u2knix73ppd" path="res://shaders/psx_unlit_alpha-scissor.gdshader" id="1_85d2f"]
@@ -35,10 +35,6 @@ volumetric_fog_emission_energy = 385.0
 volumetric_fog_gi_inject = 4.07
 volumetric_fog_anisotropy = -0.85
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fm7lw"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_dbnfj"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gweg2"]
 render_priority = 0
 shader = ExtResource("4_7hmr4")
@@ -68,16 +64,6 @@ shape = SubResource("BoxShape3D_pxkni")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a8m1c")
-
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13966, 0, 1.33543)
-script = ExtResource("6_ap2vy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_fm7lw")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-mesh = SubResource("BoxMesh_dbnfj")
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -134,3 +120,7 @@ transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 18.331, -0.
 material_override = SubResource("ShaderMaterial_gweg2")
 mesh = SubResource("PlaneMesh_d5ry1")
 skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+script = ExtResource("6_ap2vy")

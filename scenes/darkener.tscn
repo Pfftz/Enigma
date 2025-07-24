@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bckcmwn6qmafx"]
 
-[ext_resource type="Script" uid="uid://bp2sqw4ji6r75" path="res://script/object/interactive/level/darkener.gd" id="1_2o80p"]
-[ext_resource type="Shader" uid="uid://u2q07dk71g8j" path="res://shaders/psx_unlit_sprite.gdshader" id="2_i6rqe"]
+[ext_resource type="Script" uid="uid://soqjcpxx2l3g" path="res://scripts/darkener.gd" id="1_2o80p"]
+[ext_resource type="Shader" uid="uid://bfsc4h7ys7kus" path="res://shaders/psx_unlit_sprite.gdshader" id="2_i6rqe"]
 [ext_resource type="Texture2D" uid="uid://bajkt7rtk6v0b" path="res://asset/2d/ui/editor/darkner_directions.png" id="3_08u26"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tl287"]
