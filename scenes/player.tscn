@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://b40lipydi20xn"]
+[gd_scene load_steps=28 format=3 uid="uid://b40lipydi20xn"]
 
 [ext_resource type="Script" uid="uid://bh3og4py7fhpp" path="res://scripts/Player.gd" id="1_urvre"]
 [ext_resource type="Texture2D" uid="uid://delxxqh1c0ymc" path="res://sprites/guardian (1).png" id="2_daxs2"]
 [ext_resource type="PackedScene" uid="uid://db15qus3wxy4q" path="res://scenes/HUD.tscn" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://dw12fahcm5evf" path="res://scripts/manager/camera_controller.gd" id="4_dqkch"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0jprm"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5whn2"]
 atlas = ExtResource("2_daxs2")
@@ -210,10 +211,8 @@ animations = [{
 script = ExtResource("1_urvre")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_0jprm")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.99999, -0.00353187, 0.00264899, 0.00146247, 0.831138, 0.556065, -0.00416562, -0.556056, 0.831135, 0, 2.35642, 4.29295)
+transform = Transform3D(0.879217, 0, 0.476422, 0, 1, 0, -0.476422, 0, 0.879217, 0, 0, -0.0960238)
+shape = SubResource("CapsuleShape3D_dqkch")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1.54177, 0, 0, 0, 1.54177, 0, 0, 0, 1.54177, 0, 0, 0)
@@ -223,3 +222,8 @@ sprite_frames = SubResource("SpriteFrames_rro66")
 animation = &"idleDown"
 
 [node name="HUD" parent="." instance=ExtResource("3_qhqgy")]
+
+[node name="CameraRig" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+script = ExtResource("4_dqkch")
