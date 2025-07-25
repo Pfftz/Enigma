@@ -1,5 +1,4 @@
 extends Resource
-class_name EnvironmentResource
 
 ## Resource for managing room environments including fog, lighting, and moving backgrounds
 
