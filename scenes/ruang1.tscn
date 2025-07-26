@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3tkb4mwprx1g"]
+[gd_scene load_steps=20 format=3 uid="uid://b3tkb4mwprx1g"]
 
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/player.tscn" id="1_kvag1"]
 [ext_resource type="ArrayMesh" uid="uid://toccg5whc1of" path="res://asset/3d/room/evencare/evencare1_furniture.obj" id="2_kvag1"]
@@ -38,6 +38,16 @@ shader_parameter/per_quad_depth = false
 shader_parameter/adjustable_depth = false
 shader_parameter/depth_offset = Vector3(0, 0, 0)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_162ku"]
+albedo_color = Color(0.976471, 0.729412, 0.937255, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ksdc"]
+lightmap_size_hint = Vector2i(131, 245)
+material = SubResource("StandardMaterial3D_162ku")
+add_uv2 = true
+uv2_padding = 3.66
+size = Vector3(23.9, 11.47, 1)
+
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_162ku"]
 data = PackedVector3Array(-0.5, 1, -0.5, 2.5, 0, -0.5, -0.5, 0, -0.5, 12.5, 0, 1, -0.5, 1, 1, -0.5, 0, 1, 4.5, 1, -12.5, 7.5, 0, -12.5, 4.5, 0, -12.5, 4.5, 1, -2.6, 4.5, 0, -12.5, 4.5, 0, -2.6, 2.5, 1, -0.5, 2.5, 0, -1.5, 2.5, 0, -0.5, 11, 1, -6.5, 14.5, 0, -6.5, 11, 0, -6.5, 17.5, 1, -4, 12.5, 0, -4, 17.5, 0, -4, 14.5, 1, -5.5, 17.5, 0, -5.5, 14.5, 0, -5.5, 14.5, 0, -6.5, 14.5, 1, -5.5, 14.5, 0, -5.5, 12.5, 1, -4, 12.5, 0, -2, 12.5, 0, -4, 2.5, 1, -1.5, 5.5, 0, -1.5, 2.5, 0, -1.5, 5.5, 1, -1.5, 5.5, 0, -2.6, 5.5, 0, -1.5, 5.5, 0, -2.6, 4.5, 1, -2.6, 4.5, 0, -2.6, 12.5, 1, -0.5, 12.5, 0, 1, 12.5, 0, -0.5, 11, 0, -0.5, 12.5, 1, -0.5, 12.5, 0, -0.5, 11, 0, -2, 11, 1, -0.5, 11, 0, -0.5, 11, 1, -2, 12.5, 0, -2, 12.5, 1, -2, 7.5, 1, -5, 11, 0, -5, 7.5, 0, -5, 7.5, 1, -12.5, 7.5, 0, -5, 7.5, 0, -12.5, 11, 0, -5, 11, 1, -6.5, 11, 0, -6.5, 2.5, 1, -0.5, 2.5, 0, -0.5, -0.5, 1, -0.5, 12.5, 1, 1, -0.5, 1, 1, 12.5, 0, 1, 7.5, 1, -12.5, 7.5, 0, -12.5, 4.5, 1, -12.5, 4.5, 1, -12.5, 4.5, 0, -12.5, 4.5, 1, -2.6, 2.5, 1, -1.5, 2.5, 0, -1.5, 2.5, 1, -0.5, 14.5, 1, -6.5, 14.5, 0, -6.5, 11, 1, -6.5, 12.5, 1, -4, 12.5, 0, -4, 17.5, 1, -4, 17.5, 1, -5.5, 17.5, 0, -5.5, 14.5, 1, -5.5, 14.5, 1, -6.5, 14.5, 1, -5.5, 14.5, 0, -6.5, 12.5, 1, -2, 12.5, 0, -2, 12.5, 1, -4, 5.5, 1, -1.5, 5.5, 0, -1.5, 2.5, 1, -1.5, 5.5, 1, -2.6, 5.5, 0, -2.6, 5.5, 1, -1.5, 5.5, 1, -2.6, 4.5, 1, -2.6, 5.5, 0, -2.6, 12.5, 1, 1, 12.5, 0, 1, 12.5, 1, -0.5, 11, 1, -0.5, 12.5, 1, -0.5, 11, 0, -0.5, 11, 1, -2, 11, 1, -0.5, 11, 0, -2, 11, 0, -2, 12.5, 0, -2, 11, 1, -2, 11, 1, -5, 11, 0, -5, 7.5, 1, -5, 7.5, 1, -5, 7.5, 0, -5, 7.5, 1, -12.5, 11, 1, -5, 11, 1, -6.5, 11, 0, -5)
 
@@ -57,8 +67,8 @@ shader_parameter/per_quad_depth = false
 shader_parameter/adjustable_depth = false
 shader_parameter/depth_offset = Vector3(0, 0, 0)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ltnl0"]
-data = PackedVector3Array(12.5, 1, 1, 2.5, 1, 1, 12.5, 0, 1, 6.6, 0, -12.5, 7.5, 1, -12.5, 7.5, 0, -12.5, 4.5, 1, -2.6, 4.5, 0, -12.5, 4.5, 0, -2.6, 2.5, 1, 1, 2.5, 0, -1.5, 2.5, 0, 1, 11, 1, -6.5, 14.5, 0, -6.5, 11, 0, -6.5, 17.5, 1, -4, 12.5, 0, -4, 17.5, 0, -4, 14.5, 1, -5.5, 17.5, 0, -5.5, 14.5, 0, -5.5, 14.5, 0, -6.5, 14.5, 1, -5.5, 14.5, 0, -5.5, 12.5, 1, -4, 12.5, 0, -2, 12.5, 0, -4, 2.5, 1, -1.5, 5.5, 0, -1.5, 2.5, 0, -1.5, 5.5, 1, -1.5, 5.5, 0, -2.6, 5.5, 0, -1.5, 5.5, 0, -2.6, 4.5, 1, -2.6, 4.5, 0, -2.6, 12.5, 1, -0.5, 12.5, 0, 1, 12.5, 0, -0.5, 11, 0, -0.5, 12.5, 1, -0.5, 12.5, 0, -0.5, 11, 0, -2, 11, 1, -0.5, 11, 0, -0.5, 11, 1, -2, 12.5, 0, -2, 12.5, 1, -2, 7.5, 1, -5, 11, 0, -5, 7.5, 0, -5, 7.5, 1, -12.5, 7.5, 0, -5, 7.5, 0, -12.5, 11, 0, -5, 11, 1, -6.5, 11, 0, -6.5, 12.5, 0, 1, 2.5, 1, 1, 2.5, 0, 1, 6.6, 0, -15.5, 6.6, 1, -12.5, 6.6, 0, -12.5, 4.5, 1, -12.5, 4.5, 0, -12.5, 4.5, 1, -2.6, 2.5, 1, -1.5, 2.5, 0, -1.5, 2.5, 1, 1, 14.5, 1, -6.5, 14.5, 0, -6.5, 11, 1, -6.5, 12.5, 1, -4, 12.5, 0, -4, 17.5, 1, -4, 17.5, 1, -5.5, 17.5, 0, -5.5, 14.5, 1, -5.5, 14.5, 1, -6.5, 14.5, 1, -5.5, 14.5, 0, -6.5, 12.5, 1, -2, 12.5, 0, -2, 12.5, 1, -4, 5.5, 1, -1.5, 5.5, 0, -1.5, 2.5, 1, -1.5, 5.5, 1, -2.6, 5.5, 0, -2.6, 5.5, 1, -1.5, 5.5, 1, -2.6, 4.5, 1, -2.6, 5.5, 0, -2.6, 12.5, 1, 1, 12.5, 0, 1, 12.5, 1, -0.5, 11, 1, -0.5, 12.5, 1, -0.5, 11, 0, -0.5, 11, 1, -2, 11, 1, -0.5, 11, 0, -2, 11, 0, -2, 12.5, 0, -2, 11, 1, -2, 11, 1, -5, 11, 0, -5, 7.5, 1, -5, 7.5, 1, -5, 7.5, 0, -5, 7.5, 1, -12.5, 11, 1, -5, 11, 1, -6.5, 11, 0, -5, 4.5, 0, -12.5, 5.4, 1, -12.5, 5.4, 0, -12.5, 5.4, 1, -15.5, 5.4, 0, -12.5, 5.4, 1, -12.5, 6.6, 1, -12.5, 7.5, 1, -12.5, 6.6, 0, -12.5, 6.6, 1, -15.5, 6.6, 1, -12.5, 6.6, 0, -15.5, 4.5, 1, -12.5, 5.4, 1, -12.5, 4.5, 0, -12.5, 5.4, 0, -15.5, 5.4, 0, -12.5, 5.4, 1, -15.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_162ku"]
+size = Vector3(1, 7.54797, 1)
 
 [node name="Room1" type="Node3D"]
 
@@ -76,6 +86,10 @@ mesh = ExtResource("4_rw2xt")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_ltnl0")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GenSpecific3/EvenCareMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37916, 5.38868, -7.04988)
+mesh = SubResource("BoxMesh_8ksdc")
+
 [node name="LevelBody" type="StaticBody3D" parent="GenSpecific3"]
 
 [node name="LevelCollision" type="CollisionShape3D" parent="GenSpecific3/LevelBody"]
@@ -90,7 +104,8 @@ surface_material_override/0 = SubResource("ShaderMaterial_p26vj")
 [node name="LevelBody" type="StaticBody3D" parent="GenSpecific4"]
 
 [node name="LevelCollision" type="CollisionShape3D" parent="GenSpecific4/LevelBody"]
-shape = SubResource("ConcavePolygonShape3D_ltnl0")
+transform = Transform3D(4.935, 0, 0, 0, 4.935, 0, 0, 0, 4.935, 7.12045, 3.27399, -9.09633)
+shape = SubResource("BoxShape3D_162ku")
 
 [node name="Warp" parent="." instance=ExtResource("6_kvag1")]
 transform = Transform3D(0.0147825, 0, -0.999891, 0, 1, 0, 0.999891, 0, 0.0147825, 16.5461, 0.0864725, -4.7959)
