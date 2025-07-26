@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn0j210mflxrj"]
+
+[ext_resource type="Script" uid="uid://dfdrrv8bwd6ri" path="res://scripts/autoloads/bg_music.gd" id="1_1jyxq"]
+
+[node name="BGMusic" type="AudioStreamPlayer"]
+process_mode = 3
+script = ExtResource("1_1jyxq")
