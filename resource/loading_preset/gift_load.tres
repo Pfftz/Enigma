@@ -1,0 +1,12 @@
+[gd_resource type="LoadingPreset" script_class="LoadingPreset" format=3 uid="uid://c4owpgwrf8vhu"]
+
+[ext_resource type="Script" uid="uid://bglkkwl0yd4pv" path="res://scripts/LoadingPreset.gd" id="1_preset"]
+
+[resource]
+script = ExtResource("1_preset")
+scene_name = "gift-plane"
+target_scene = "res://scenes/gift_plane.tscn"
+spawn_id = 0
+use_transition = true
+transition_type = 0
+fade_duration = 1.0

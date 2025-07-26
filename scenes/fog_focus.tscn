@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv7edlpe3aguh"]
+
+[ext_resource type="Script" uid="uid://ikchkmc51pt0" path="res://scripts/fog_focus.gd" id="1_yudua"]
+
+[node name="FogFocus" type="Marker3D"]
+script = ExtResource("1_yudua")

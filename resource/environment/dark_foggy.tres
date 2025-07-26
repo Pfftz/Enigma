@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnvironmentResource" load_steps=3 format=3 uid="uid://bh4ktluvpg6b0"]
+
+[ext_resource type="Script" uid="uid://cw7xhsk4g851s" path="res://scripts/EnvironmentResource.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ij2vo1bynsi4" path="res://asset/2d/background/level1_0.png" id="2_ha7cg"]
+
+[resource]
+script = ExtResource("1")
+sky_color = Color(0.2, 0.3, 0.6, 1)
+sky_texture = ExtResource("2_ha7cg")
+scroll_speed = 0.2
+offset_y = 0.0
+ambient_color = Color(0.8, 0.9, 1, 1)
+environment_darkness = 0.5
+enable_fog = true
+fog_color = Color(0, 0, 0, 1)
+fog_radius = 7.0
+fog_follow_player = true
+enable_directional_light = false
+light_direction = Vector3(-0.5, -1, -0.5)
+light_color = Color(1, 0.95, 0.8, 1)
+light_energy = 1.0

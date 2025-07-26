@@ -1,0 +1,126 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1at8d63c7clm"]
+
+[ext_resource type="Texture2D" uid="uid://dhxiylyk0qjd8" path="res://icon.svg" id="1_57kka"]
+[ext_resource type="Shader" uid="uid://7u2knix73ppd" path="res://shaders/psx_unlit_alpha-scissor.gdshader" id="1_85d2f"]
+[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/player.tscn" id="3_ttxqa"]
+[ext_resource type="Shader" uid="uid://c8lsw8dhkavwq" path="res://shaders/psx_unlit.gdshader" id="4_7hmr4"]
+[ext_resource type="Texture2D" uid="uid://b1ir1inksa4g4" path="res://sprites/grass.png" id="4_dhghc"]
+[ext_resource type="Script" uid="uid://bkghu7oiaubsr" path="res://scripts/interact.gd" id="6_ap2vy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1d2k2"]
+render_priority = 0
+shader = ExtResource("1_85d2f")
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/albedoTex = ExtResource("1_57kka")
+shader_parameter/uv_scale = Vector2(2, 2)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(2, 0)
+shader_parameter/billboard = false
+shader_parameter/y_billboard = false
+shader_parameter/alpha_scissor = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_24ewr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxkni"]
+
+[sub_resource type="Environment" id="Environment_a8m1c"]
+background_mode = 1
+ambient_light_energy = 0.0
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 1.19
+fog_density = 0.1707
+volumetric_fog_density = 0.4548
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission_energy = 385.0
+volumetric_fog_gi_inject = 4.07
+volumetric_fog_anisotropy = -0.85
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gweg2"]
+render_priority = 0
+shader = ExtResource("4_7hmr4")
+shader_parameter/modulate_color = Color(0.658824, 0.658824, 0.658824, 1)
+shader_parameter/albedoTex = ExtResource("4_dhghc")
+shader_parameter/uv_scale = Vector2(30, 30)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d5ry1"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("3_ttxqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.34191)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.73651, 0, -0.468161, -0.382847, 0.502286, -0.602294, 0.269449, 0.713674, 0.423897, 0, 0, -0.0903363)
+material_override = SubResource("ShaderMaterial_1d2k2")
+mesh = SubResource("BoxMesh_24ewr")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_pxkni")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a8m1c")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 0, -0.686105, 0)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 0, -0.686105, -19.742)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 0, -0.686105, 19.8789)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, -19.9622, -0.686105, 0)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, -19.9622, -0.686105, -19.742)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, -19.9622, -0.686105, 19.8789)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 18.331, -0.686105, 0)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 18.331, -0.686105, -19.742)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 18.331, -0.686105, 19.8789)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+script = ExtResource("6_ap2vy")
