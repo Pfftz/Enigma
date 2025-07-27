@@ -30,7 +30,7 @@ func _ready():
 		global_data = global_data_script.new()
 		global_data.gen = 8
 	
-	textbox = load("res://scenes/control.tscn")
+	textbox = load("res://scenes/management/control.tscn")
 	current_scene_path = get_tree().current_scene.scene_file_path
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

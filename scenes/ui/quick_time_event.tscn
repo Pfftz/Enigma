@@ -1,0 +1,194 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq8vjp7qb5r5k"]
+
+[ext_resource type="Script" uid="uid://cwgsfo75n0q13" path="res://scripts/ui/quick_time_event.gd" id="1_5n3x2"]
+[ext_resource type="Texture2D" uid="uid://c6imcx7a1dfcm" path="res://icon/textboxres.png" id="2_j8k4w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.2, 0.2, 0.2, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="QuickTimeEvent" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5n3x2")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9, 0.8, 0.7, 1)
+
+[node name="GameplayLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = -32.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "GAMEPLAY
+Quick time event"
+
+[node name="DayLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -80.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "DAY 1"
+horizontal_alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InterviewPanel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/InterviewPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CompanyHeader" type="HBoxContainer" parent="CenterContainer/InterviewPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="CenterContainer/InterviewPanel/VBoxContainer/CompanyHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 80.0
+show_percentage = false
+
+[node name="CompanyLabel" type="Label" parent="CenterContainer/InterviewPanel/VBoxContainer/CompanyHeader"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "bananazon"
+horizontal_alignment = 1
+
+[node name="CharacterContainer" type="CenterContainer" parent="CenterContainer/InterviewPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InterviewerSprite" type="TextureRect" parent="CenterContainer/InterviewPanel/VBoxContainer/CharacterContainer"]
+layout_mode = 2
+texture = ExtResource("2_j8k4w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueBox" type="Panel" parent="CenterContainer/InterviewPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DialogueLabel" type="Label" parent="CenterContainer/InterviewPanel/VBoxContainer/DialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "Senang bertemu anda, apa yg membawa anda kesini"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TimerContainer" type="CenterContainer" parent="CenterContainer/InterviewPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="CenterContainer/InterviewPanel/VBoxContainer/TimerContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "12s"
+
+[node name="OptionsContainer" type="VBoxContainer" parent="CenterContainer/InterviewPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TopRow" type="HBoxContainer" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Apa produk yang anda tawarkan"
+
+[node name="Option2" type="Button" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "company apa ini?"
+
+[node name="BottomRow" type="HBoxContainer" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="Option3" type="Button" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer/BottomRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Senang bertemu anda juga"
+
+[node name="Option4" type="Button" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer/BottomRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Jualan pisang pak?"
+
+[node name="ScoreDisplay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 16
+text = "Score: 0"
+horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

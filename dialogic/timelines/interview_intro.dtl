@@ -1,0 +1,9 @@
+timeline_start
+join character_interviewer center
+character_interviewer: Welcome to Bananazon! Let's begin your interview.
+[wait time="1"]
+[signal arg="start_qte_interview"]
+[wait time="1"]
+character_interviewer: That concludes our interview. Thank you for your time.
+leave character_interviewer
+timeline_end
