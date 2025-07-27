@@ -21,6 +21,7 @@ Global="*res://scripts/autoloads/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 BgMusic="*res://scripts/autoloads/bg_music.gd"
 EventBus="*res://scripts/autoloads/event_bus.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dialogic]
 
@@ -38,7 +39,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 
