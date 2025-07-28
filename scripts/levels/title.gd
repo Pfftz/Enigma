@@ -5,7 +5,7 @@ const READING_CARD_WAIT = 1.0
 
 # --- Variabel State ---
 var title_stage: int = 0     # State machine: 0:Title, 1:MainMenu
-var selected_button_index: int = 0 # Variabel BARU: 0 = Play, 1 = Quit
+var selected_button_index: int = 0 # 0 = Play, 1 = Quit
 
 # --- Variabel Animasi & Timer ---
 var logo_timer: float = 0
@@ -17,8 +17,10 @@ var timer: int = 0
 @onready var card_timer: Timer = $CardTimer
 @onready var logo_mesh: MeshInstance3D = %LogoMesh
 @onready var road_mesh: MeshInstance3D = %RoadMesh
-@onready var play_game_button: TextureButton = $PlayGameButton
-@onready var quit_game_button: TextureButton = $QuitGameButton
+# PERUBAHAN PATH: Sesuaikan jika nama container Anda berbeda
+@onready var menu_container: VBoxContainer = $UI_Container/Menu_Container
+@onready var play_game_button: TextureButton = $UI_Container/Menu_Container/PlayGameButton
+@onready var quit_game_button: TextureButton = $UI_Container/Menu_Container/QuitGameButton
 @onready var fade: ColorRect = $Fade
 
 #==============================================================================
@@ -26,8 +28,10 @@ var timer: int = 0
 #==============================================================================
 
 func _ready() -> void:
-	play_game_button.visible = false
-	quit_game_button.visible = false
+	# Sembunyikan seluruh menu di awal, bukan per tombol
+	menu_container.visible = false
+	
+	# ... (sisa fungsi _ready() tetap sama) ...
 	$Song.play()
 	if BGMusic.get_stream_path() != "res://music/petscop.ogg":
 		BGMusic.stream_paused = true
@@ -56,6 +60,7 @@ func _state_title_screen() -> void:
 		$PressedStart.play()
 		start_button.visible = false
 		
+		# Nonaktifkan tombol selama transisi
 		play_game_button.disabled = true
 		quit_game_button.disabled = true
 		
@@ -67,14 +72,10 @@ func _state_title_screen() -> void:
 		transition_tween.tween_property(logo_mesh, "scale", Vector3.ZERO, 0.4).set_trans(Tween.TRANS_SINE)
 		transition_tween.tween_property(logo_gift, "scale", Vector3.ZERO, 0.4).set_trans(Tween.TRANS_SINE)
 		
-		play_game_button.visible = true
-		quit_game_button.visible = true
-		# Atur posisi awal tombol (sesuaikan jika perlu)
-		play_game_button.position = Vector2(play_game_button.position.x, -240.0)
-		quit_game_button.position = Vector2(quit_game_button.position.x, -200.0)
-		# Animasikan tombol ke posisi akhir
-		transition_tween.tween_property(play_game_button, "position:y", 83.0, 0.5).set_trans(Tween.TRANS_SINE)
-		transition_tween.tween_property(quit_game_button, "position:y", 123.0, 0.5).set_trans(Tween.TRANS_SINE)
+		# Munculkan menu dengan animasi fade-in
+		menu_container.visible = true
+		menu_container.modulate = Color(1, 1, 1, 0) # Mulai dari transparan
+		transition_tween.tween_property(menu_container, "modulate:a", 1.0, 0.5) # Fade in ke solid
 		
 		await transition_tween.finished
 		
@@ -83,71 +84,52 @@ func _state_title_screen() -> void:
 		play_game_button.disabled = false
 		quit_game_button.disabled = false
 		
-		# Set visual awal untuk tombol yang dipilih
 		_update_button_visuals()
-		
 		title_stage = 1
 
-# PEROMBAKAN BESAR DI SINI
 func _state_main_menu() -> void:
-	# --- Tangani Input Navigasi Atas/Bawah ---
+	# ... (fungsi ini tetap sama) ...
 	if Input.is_action_just_pressed("ui_down"):
-		if selected_button_index == 0: # Jika sedang di Play, pindah ke Quit
+		if selected_button_index == 0:
 			selected_button_index = 1
-			$PressedStart.play() # Ganti dengan suara navigasi jika ada
+			$PressedStart.play()
 			_update_button_visuals()
-			
 	if Input.is_action_just_pressed("ui_up"):
-		if selected_button_index == 1: # Jika sedang di Quit, pindah ke Play
+		if selected_button_index == 1:
 			selected_button_index = 0
 			$PressedStart.play()
 			_update_button_visuals()
-
-	# --- Tangani Input Konfirmasi ---
-	# Menggunakan "pressed_start" sesuai permintaan Anda
 	if Input.is_action_just_pressed("pressed_start"):
 		match selected_button_index:
-			0: # Jika Play yang dipilih
-				_on_play_game_button_pressed()
-			1: # Jika Quit yang dipilih
-				_on_quit_game_button_pressed()
+			0: _on_play_game_button_pressed()
+			1: _on_quit_game_button_pressed()
 
-# Fungsi yang dipanggil saat tombol Play ditekan (baik via mouse atau keyboard)
+# ... (sisa fungsi lainnya tetap sama) ...
 func _on_play_game_button_pressed() -> void:
 	if title_stage != 1: return
 	title_stage = -1
 	$PressedStart.play()
-	
 	var fade_tween := create_tween()
 	fade_tween.tween_property(fade, "color:a", 1.0, 0.5)
 	await fade_tween.finished
-	
 	get_tree().change_scene_to_file("res://scenes/ruang1.tscn")
 
-# Fungsi yang dipanggil saat tombol Quit ditekan (baik via mouse atau keyboard)
 func _on_quit_game_button_pressed() -> void:
 	if title_stage != 1: return
 	get_tree().quit()
 
-#==============================================================================
-# FUNGSI BANTU (Helpers)
-#==============================================================================
-
-# FUNGSI BARU: Memberi umpan balik visual pada tombol
 func _update_button_visuals() -> void:
-	# Tombol yang dipilih akan berwarna normal, yang lain agak gelap
-	if selected_button_index == 0: # Play dipilih
+	if selected_button_index == 0:
 		play_game_button.modulate = Color.WHITE
 		quit_game_button.modulate = Color(0.7, 0.7, 0.7)
-	else: # Quit dipilih
+	else:
 		play_game_button.modulate = Color(0.7, 0.7, 0.7)
 		quit_game_button.modulate = Color.WHITE
 
 func _update_animations(delta: float) -> void:
 	if logo_mesh.scale.x > 0:
 		timer += 1
-		if timer >= 30:
-			timer = 0
+		if timer >= 30: timer = 0
 		logo_timer += delta
 		logo_mesh.rotation.z = -sin(1.5 * logo_timer * PI) * cos(logo_timer * PI / 5) * 0.25
 		logo_mesh.rotation.y = -cos(1.5 * (logo_timer + 0.25) * PI) * sin(logo_timer * PI / 5) * 0.4
