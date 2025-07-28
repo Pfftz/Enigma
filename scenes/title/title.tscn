@@ -1,15 +1,15 @@
 [gd_scene load_steps=46 format=3 uid="uid://b1kab4d8sry8a"]
 
 [ext_resource type="Script" uid="uid://d2qykwnj5swwx" path="res://scripts/levels/title.gd" id="1_ys1qf"]
-[ext_resource type="Shader" uid="uid://dtsf8q7phrnxo" path="res://shaders/psx_lit_nofog.gdshader" id="3_60g01"]
+[ext_resource type="Shader" uid="uid://dm0uvhjr246n0" path="res://shaders/psx_lit_nofog.gdshader" id="3_60g01"]
 [ext_resource type="ArrayMesh" uid="uid://dq3rc0ouigxgd" path="res://asset/3d/title/logo.obj" id="3_mxee1"]
-[ext_resource type="Shader" uid="uid://cfkaktpfj4ha4" path="res://shaders/psx_lit_noenv.gdshader" id="4_2bndm"]
-[ext_resource type="Shader" uid="uid://b0jbi3my83n12" path="res://shaders/psx_unlit_blank.gdshader" id="4_ghmid"]
+[ext_resource type="Shader" uid="uid://b8h7ggd8eiwoh" path="res://shaders/psx_lit_noenv.gdshader" id="4_2bndm"]
+[ext_resource type="Shader" uid="uid://clupsrehdwx1c" path="res://shaders/psx_unlit_blank.gdshader" id="4_ghmid"]
 [ext_resource type="Texture2D" uid="uid://byisj38galtxp" path="res://asset/2d/sprite/title/gift.png" id="6_bfg8e"]
 [ext_resource type="Texture2D" uid="uid://c5r116iqnwip2" path="res://asset/2d/ui/title/press_start.png" id="7_j73lr"]
 [ext_resource type="Texture2D" uid="uid://dyqdq3bocpikr" path="res://asset/2d/ui/title/file_frame.png" id="8_hgps8"]
 [ext_resource type="LabelSettings" uid="uid://cb1c82a2dubgn" path="res://resource/theme/font/default.tres" id="9_2brh2"]
-[ext_resource type="Shader" uid="uid://1n7hd1pd71t8" path="res://shaders/transparency.gdshader" id="9_hmdf2"]
+[ext_resource type="Shader" uid="uid://bfngb5iwvkiqr" path="res://shaders/transparency.gdshader" id="9_hmdf2"]
 [ext_resource type="Texture2D" uid="uid://xj3h3m7xe531" path="res://asset/2d/sprite/player/guardian.png" id="10_g8lf8"]
 [ext_resource type="Texture2D" uid="uid://spnyrwx3rosx" path="res://asset/2d/ui/title/panic.png" id="10_lli8y"]
 [ext_resource type="Texture2D" uid="uid://ryssvf1pireo" path="res://asset/2d/ui/title/title_piece.png" id="11_b3kyf"]
@@ -186,10 +186,17 @@ shader_parameter/alpha_color = Color(1, 0, 1, 1)
 script = ExtResource("1_ys1qf")
 
 [node name="PlayGameButton" type="TextureButton" parent="."]
-offset_left = 97.0
-offset_top = 58.0
-offset_right = 223.0
-offset_bottom = 132.0
+offset_left = 29.0
+offset_top = 56.0
+offset_right = 155.0
+offset_bottom = 130.0
+texture_normal = ExtResource("14_e1yo8")
+
+[node name="QuitGameButton" type="TextureButton" parent="."]
+offset_left = 165.0
+offset_top = 56.0
+offset_right = 291.0
+offset_bottom = 130.0
 texture_normal = ExtResource("14_e1yo8")
 
 [node name="LogoOrigin" type="Marker3D" parent="."]
@@ -496,6 +503,7 @@ transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, 
 fov = 35.0
 
 [node name="Fade" type="ColorRect" parent="."]
+visible = false
 z_index = 2
 z_as_relative = false
 anchors_preset = 15
@@ -553,4 +561,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.503355, 0)
 script = null
 
 [connection signal="pressed" from="PlayGameButton" to="." method="_on_play_game_button_pressed"]
+[connection signal="pressed" from="QuitGameButton" to="." method="_on_play_game_button_pressed"]
 [connection signal="timeout" from="DemoTimer" to="." method="_on_demo_timer_timeout"]
