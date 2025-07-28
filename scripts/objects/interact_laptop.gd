@@ -24,11 +24,27 @@ func show_interact_ui(show: bool):
 		get_tree().call_group("ui", "hide_interact_text")
 
 func _input(event):
-	if player_in_area and event.is_action_pressed("interact"):
-		# Ubah mode kamera player
-		var player = get_overlapping_bodies().filter(func(b): return b.is_in_group("player"))[0]
-		if player and player.has_method("get_camera_controller"):
-			var cam = player.get_camera_controller()
-			if cam:
-				cam.set_preset_dramatic() # Atau preset lain sesuai kebutuhan
-		show_interact_ui(false)
+		if player_in_area and event.is_action_pressed("interact"):
+			# Matikan kamera utama
+			var main_camera = get_tree().current_scene.get_node("Camera3D")
+			if main_camera:
+				main_camera.current = false
+
+			# Aktifkan PhantomCamera3D2
+			var phantom_camera = get_tree().current_scene.get_node("PhantomCamera3D2")
+			if phantom_camera:
+				# Zoom-in (jika ada property follow_distance)
+				if "follow_distance" in phantom_camera:
+					var tween = create_tween()
+					tween.tween_property(phantom_camera, "follow_distance", 0.7, 0.5)
+				# Aktifkan Camera3D di dalam PhantomCamera3D2
+				var cam = phantom_camera.get_node_or_null("Camera3D")
+				if cam:
+					cam.current = true
+				# Atau panggil method activate/make_current jika ada
+				if phantom_camera.has_method("activate"):
+					phantom_camera.activate()
+				elif phantom_camera.has_method("make_current"):
+					phantom_camera.make_current()
+
+			show_interact_ui(false)
