@@ -22,6 +22,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 BgMusic="*res://scripts/autoloads/bg_music.gd"
 EventBus="*res://scripts/autoloads/event_bus.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+Bgmusic="*res://scenes/management/bgmusic.tscn"
 
 [dialogic]
 
