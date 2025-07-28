@@ -1,0 +1,13 @@
+[remap]
+
+importer="dialogic-timeline"
+type="Resource"
+uid="uid://c7d2f8a4b1e5g9h3"
+path="res://.godot/imported/interview_day2_techcorp.dtl-a7c4f2e8b3d6g1h5j2k8l9m4n7p1q5r8.tres"
+
+[deps]
+
+source_file="res://dialogic/timelines/interview_day2_techcorp.dtl"
+dest_files=["res://.godot/imported/interview_day2_techcorp.dtl-a7c4f2e8b3d6g1h5j2k8l9m4n7p1q5r8.tres"]
+
+[params]

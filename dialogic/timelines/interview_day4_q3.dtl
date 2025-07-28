@@ -1,0 +1,55 @@
+join green_interviewer center
+
+green_interviewer: Terakhir - Visi anda untuk sustainable future?
+
+[signal arg="timer_start"]
+
+- Renewable energy, circular economy, dan green technology
+	set {interview_score} += 20
+	set {interview_health} += 20
+	[signal arg="timer_end"]
+	green_interviewer: Outstanding vision! You understand the complete picture.
+	[signal arg="correct_choice"]
+
+- Dunia yang lebih hijau dan bersih
+	set {interview_score} += 12
+	set {interview_health} += 12
+	[signal arg="timer_end"]
+	green_interviewer: Beautiful vision! Though we need more specific strategies.
+	[signal arg="correct_choice"]
+
+- Semoga aja ada solusinya nanti
+	set {interview_score} -= 5
+	set {interview_health} -= 5
+	[signal arg="timer_end"]
+	green_interviewer: Passive hope won't save our planet. We need active commitment.
+	[signal arg="wrong_choice"]
+
+- Dunia akan baik-baik saja tanpa usaha
+	set {interview_score} -= 15
+	set {interview_health} -= 15
+	[signal arg="timer_end"]
+	green_interviewer: That ignorance is exactly what's killing our environment.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+# Final interview conclusion
+[wait time="1.0"]
+
+green_interviewer: Environmental assessment complete.
+
+if {interview_score} >= 35:
+	green_interviewer: Incredible environmental awareness! You're our green champion. Welcome to GreenCorp!
+elif {interview_score} >= 20:
+	green_interviewer: Solid environmental mindset. We'll discuss next steps.
+elif {interview_score} >= 10:
+	green_interviewer: Some awareness, but need deeper environmental commitment.
+else:
+	green_interviewer: Sorry, environmental values tidak align dengan misi kami.
+
+set {day4_completed} = true
+set {day4_score} = {interview_score}
+
+leave green_interviewer

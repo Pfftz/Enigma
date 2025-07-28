@@ -1,0 +1,13 @@
+[remap]
+
+importer="dialogic-character"
+type="Resource"
+uid="uid://b2f8d1e5c9a3g7h4"
+path="res://.godot/imported/bananazon_interviewer.dch-a8c3f7b2d5e1g9h4j6k3l8m1n9p2q7r5.tres"
+
+[deps]
+
+source_file="res://dialogic/characters/bananazon_interviewer.dch"
+dest_files=["res://.godot/imported/bananazon_interviewer.dch-a8c3f7b2d5e1g9h4j6k3l8m1n9p2q7r5.tres"]
+
+[params]

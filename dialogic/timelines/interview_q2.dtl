@@ -1,0 +1,38 @@
+join bananazon_interviewer center
+
+bananazon_interviewer: Pertanyaan kedua - Apa kelebihan yang anda miliki?
+
+[signal arg="timer_start"]
+
+- Saya pekerja keras dan dapat diandalkan
+	set {interview_score} += 8
+	set {interview_health} += 8
+	[signal arg="timer_end"]
+	bananazon_interviewer: Bagus! Kami butuh orang yang committed.
+	[signal arg="correct_choice"]
+
+- Saya pintar dan lebih baik dari yang lain
+	set {interview_score} -= 3
+	set {interview_health} -= 3
+	[signal arg="timer_end"]
+	bananazon_interviewer: Percaya diri itu baik, tapi jangan terlalu sombong.
+	[signal arg="wrong_choice"]
+
+- Saya bisa bekerja dalam tim dan adaptif
+	set {interview_score} += 12
+	set {interview_health} += 12
+	[signal arg="timer_end"]
+	bananazon_interviewer: Excellent! Team work adalah kunci sukses di bananazon.
+	[signal arg="correct_choice"]
+
+- Ga tau, yang penting kerja
+	set {interview_score} -= 8
+	set {interview_health} -= 8
+	[signal arg="timer_end"]
+	bananazon_interviewer: Attitude seperti itu tidak akan membawa anda jauh.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+leave bananazon_interviewer

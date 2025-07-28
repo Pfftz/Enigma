@@ -1,0 +1,55 @@
+join mega_interviewer center
+
+mega_interviewer: Final question - What would you do to crush the competition?
+
+[signal arg="timer_start"]
+
+- Use any strategy necessary to dominate the market
+	set {interview_score} += 30
+	set {interview_health} += 30
+	[signal arg="timer_end"]
+	mega_interviewer: Ruthless! Perfect. That's the MegaCorp spirit we need.
+	[signal arg="correct_choice"]
+
+- Work smarter and innovate better than competitors
+	set {interview_score} += 15
+	set {interview_health} += 15
+	[signal arg="timer_end"]
+	mega_interviewer: Good strategy, but lacks the killer instinct.
+	[signal arg="correct_choice"]
+
+- Focus on our strengths and improve quality
+	set {interview_score} += 5
+	set {interview_health} += 5
+	[signal arg="timer_end"]
+	mega_interviewer: Safe approach, but won't help us dominate markets.
+	[signal arg="correct_choice"]
+
+- Compete fairly and ethically
+	set {interview_score} -= 10
+	set {interview_health} -= 10
+	[signal arg="timer_end"]
+	mega_interviewer: Ethics are luxury we can't afford in cutthroat business.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+# Final interview conclusion
+[wait time="1.0"]
+
+mega_interviewer: Assessment complete. Let me evaluate your performance.
+
+if {interview_score} >= 50:
+	mega_interviewer: Exceptional! You have the ruthlessness we need. Welcome to the executive track at MegaCorp!
+elif {interview_score} >= 30:
+	mega_interviewer: Adequate corporate material. You'll start in middle management.
+elif {interview_score} >= 15:
+	mega_interviewer: Barely acceptable. Entry level position, probation period.
+else:
+	mega_interviewer: Pathetic. Security will escort you out.
+
+set {day5_completed} = true
+set {day5_score} = {interview_score}
+
+leave mega_interviewer

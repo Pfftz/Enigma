@@ -1,0 +1,12 @@
+join mega_interviewer center
+# Day 5 Question 2 timeout
+set {interview_score} -= 10
+set {interview_health} -= 10
+
+mega_interviewer: Indecision is failure. Time's up.
+
+[signal arg="timeout"]
+[signal arg="timer_end"]
+[signal arg="update_ui"]
+
+leave mega_interviewer

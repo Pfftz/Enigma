@@ -1,0 +1,13 @@
+[remap]
+
+importer="dialogic-character"
+type="Resource"
+uid="uid://d4h1f7c2g8e5b9a3"
+path="res://.godot/imported/creative_interviewer.dch-c1g5f9h2e8b4a7d3j5k9l2m6n1p4q8r7.tres"
+
+[deps]
+
+source_file="res://dialogic/characters/creative_interviewer.dch"
+dest_files=["res://.godot/imported/creative_interviewer.dch-c1g5f9h2e8b4a7d3j5k9l2m6n1p4q8r7.tres"]
+
+[params]

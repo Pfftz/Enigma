@@ -1,0 +1,13 @@
+[remap]
+
+importer="dialogic-timeline"
+type="Resource"
+uid="uid://f1g5b3c9d2e8h4a7"
+path="res://.godot/imported/interview_day5_megacorp.dtl-d1h6c9g2b5f8a4e7j3k6l2m9n1p5q8r4.tres"
+
+[deps]
+
+source_file="res://dialogic/timelines/interview_day5_megacorp.dtl"
+dest_files=["res://.godot/imported/interview_day5_megacorp.dtl-d1h6c9g2b5f8a4e7j3k6l2m9n1p5q8r4.tres"]
+
+[params]

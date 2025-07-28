@@ -4,7 +4,7 @@ extends Node3D
 const READING_CARD_WAIT = 1.0
 
 # --- Variabel State ---
-var title_stage: int = 0     # State machine: 0:Title, 1:MainMenu
+var title_stage: int = 0 # State machine: 0:Title, 1:MainMenu
 var selected_button_index: int = 0 # 0 = Play, 1 = Quit
 
 # --- Variabel Animasi & Timer ---
@@ -112,7 +112,7 @@ func _on_play_game_button_pressed() -> void:
 	var fade_tween := create_tween()
 	fade_tween.tween_property(fade, "color:a", 1.0, 0.5)
 	await fade_tween.finished
-	get_tree().change_scene_to_file("res://scenes/ruang1.tscn")
+	get_tree().change_scene_to_file("res://scenes/rooms/ruang1.tscn")
 
 func _on_quit_game_button_pressed() -> void:
 	if title_stage != 1: return
@@ -131,8 +131,8 @@ func _update_animations(delta: float) -> void:
 		timer += 1
 		if timer >= 30: timer = 0
 		logo_timer += delta
-		logo_mesh.rotation.z = -sin(1.5 * logo_timer * PI) * cos(logo_timer * PI / 5) * 0.25
-		logo_mesh.rotation.y = -cos(1.5 * (logo_timer + 0.25) * PI) * sin(logo_timer * PI / 5) * 0.4
+		logo_mesh.rotation.z = - sin(1.5 * logo_timer * PI) * cos(logo_timer * PI / 5) * 0.25
+		logo_mesh.rotation.y = - cos(1.5 * (logo_timer + 0.25) * PI) * sin(logo_timer * PI / 5) * 0.4
 		logo_gift.rotation.z = cos(2.5 * logo_timer * PI) * 0.2
 	road_mesh.position.x -= delta * 2
 	if road_mesh.position.x <= -12:

@@ -1,0 +1,18 @@
+join bananazon_interviewer center
+bananazon_interviewer: Welcome to the interview! This is a simple test.
+
+bananazon_interviewer: Ready to start?
+
+[signal arg="timer_start"]
+
+- Yes, let's begin
+	bananazon_interviewer: Excellent!
+	[signal arg="correct_choice"]
+	
+- Not yet
+	bananazon_interviewer: That's okay, take your time.
+	[signal arg="wrong_choice"]
+
+[signal arg="timer_end"]
+bananazon_interviewer: Interview complete!
+leave bananazon_interviewer

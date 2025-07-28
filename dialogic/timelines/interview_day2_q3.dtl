@@ -1,0 +1,55 @@
+join techcorp_interviewer center
+
+techcorp_interviewer: Terakhir - Apa yang anda ketahui tentang Agile methodology?
+
+[signal arg="timer_start"]
+
+- Sprint-based development dengan iterative process
+	set {interview_score} += 20
+	set {interview_health} += 20
+	[signal arg="timer_end"]
+	techcorp_interviewer: Perfect! Anda benar-benar understand modern development.
+	[signal arg="correct_choice"]
+
+- Metodologi kerja yang fleksibel
+	set {interview_score} += 10
+	set {interview_health} += 10
+	[signal arg="timer_end"]
+	techcorp_interviewer: Correct tapi general. Need deeper understanding.
+	[signal arg="correct_choice"]
+
+- Cara kerja cepat tanpa dokumentasi
+	set {interview_score} -= 8
+	set {interview_health} -= 8
+	[signal arg="timer_end"]
+	techcorp_interviewer: That's a misconception. Agile doesn't mean no documentation.
+	[signal arg="wrong_choice"]
+
+- Tidak tahu, belum pernah dengar
+	set {interview_score} -= 5
+	set {interview_health} -= 5
+	[signal arg="timer_end"]
+	techcorp_interviewer: Industry standard knowledge yang basic. Disappointing.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+# Final interview conclusion
+[wait time="1.0"]
+
+techcorp_interviewer: Alright, technical assessment selesai.
+
+if {interview_score} >= 30:
+	techcorp_interviewer: Outstanding! Welcome to the TechCorp family. HR akan follow up.
+elif {interview_score} >= 15:
+	techcorp_interviewer: Good potential. Kami akan diskusi dengan team dulu.
+elif {interview_score} >= 5:
+	techcorp_interviewer: Masih perlu development, tapi keep learning.
+else:
+	techcorp_interviewer: Sorry, technical skills tidak memenuhi standar kami.
+
+set {day2_completed} = true
+set {day2_score} = {interview_score}
+
+leave techcorp_interviewer

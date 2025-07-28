@@ -1,0 +1,30 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+&"default_portrait": "freaky",
+&"description": "Seorang Introvet yang punya ego tinggi",
+&"display_name": "player",
+&"mirror": false,
+&"nicknames": ["Si Jawa"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"freaky": {
+"export_overrides": {
+"image": "\"res://dialogic/characters/potret-lucu-prabowo-dari-joget-hingga-melet-melet-di-debat-perdana-3_169-removebg-preview.png\""
+},
+"ignore_char_scale": false,
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 0.5,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+}
+},
+&"scale": 1.0
+}

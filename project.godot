@@ -19,18 +19,76 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/autoloads/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-BgMusic="*res://scripts/autoloads/bg_music.gd"
 EventBus="*res://scripts/autoloads/event_bus.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-Bgmusic="*res://scenes/management/bgmusic.tscn"
+BGMusic="*res://scripts/autoloads/bg_music.gd"
 
 [dialogic]
 
 directories/dch_directory={
+"bananazon_interviewer": "res://dialogic/characters/bananazon_interviewer.dch",
+"creative_interviewer": "res://dialogic/characters/creative_interviewer.dch",
+"green_interviewer": "res://dialogic/characters/green_interviewer.dch",
+"mega_interviewer": "res://dialogic/characters/mega_interviewer.dch",
+"player": "res://dialogic/characters/player.dch",
+"techcorp_interviewer": "res://dialogic/characters/techcorp_interviewer.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"interview_intro": "res://dialogic/timelines/interview_intro.dtl"
+"day1": "res://dialogic/timelines/day1.dtl",
+"interview_day2_q1": "res://dialogic/timelines/interview_day2_q1.dtl",
+"interview_day2_q1_timeout": "res://dialogic/timelines/interview_day2_q1_timeout.dtl",
+"interview_day2_q2": "res://dialogic/timelines/interview_day2_q2.dtl",
+"interview_day2_q2_timeout": "res://dialogic/timelines/interview_day2_q2_timeout.dtl",
+"interview_day2_q3": "res://dialogic/timelines/interview_day2_q3.dtl",
+"interview_day2_q3_timeout": "res://dialogic/timelines/interview_day2_q3_timeout.dtl",
+"interview_day3_q1": "res://dialogic/timelines/interview_day3_q1.dtl",
+"interview_day3_q1_timeout": "res://dialogic/timelines/interview_day3_q1_timeout.dtl",
+"interview_day3_q2": "res://dialogic/timelines/interview_day3_q2.dtl",
+"interview_day3_q2_timeout": "res://dialogic/timelines/interview_day3_q2_timeout.dtl",
+"interview_day3_q3": "res://dialogic/timelines/interview_day3_q3.dtl",
+"interview_day3_q3_timeout": "res://dialogic/timelines/interview_day3_q3_timeout.dtl",
+"interview_day4_q1": "res://dialogic/timelines/interview_day4_q1.dtl",
+"interview_day4_q1_timeout": "res://dialogic/timelines/interview_day4_q1_timeout.dtl",
+"interview_day4_q2": "res://dialogic/timelines/interview_day4_q2.dtl",
+"interview_day4_q2_timeout": "res://dialogic/timelines/interview_day4_q2_timeout.dtl",
+"interview_day4_q3": "res://dialogic/timelines/interview_day4_q3.dtl",
+"interview_day4_q3_timeout": "res://dialogic/timelines/interview_day4_q3_timeout.dtl",
+"interview_day5_q1": "res://dialogic/timelines/interview_day5_q1.dtl",
+"interview_day5_q1_timeout": "res://dialogic/timelines/interview_day5_q1_timeout.dtl",
+"interview_day5_q2": "res://dialogic/timelines/interview_day5_q2.dtl",
+"interview_day5_q2_timeout": "res://dialogic/timelines/interview_day5_q2_timeout.dtl",
+"interview_day5_q3": "res://dialogic/timelines/interview_day5_q3.dtl",
+"interview_day5_q3_timeout": "res://dialogic/timelines/interview_day5_q3_timeout.dtl",
+"interview_intro": "res://dialogic/timelines/interview_intro.dtl",
+"interview_q1": "res://dialogic/timelines/interview_q1.dtl",
+"interview_q1_timeout": "res://dialogic/timelines/interview_q1_timeout.dtl",
+"interview_q2": "res://dialogic/timelines/interview_q2.dtl",
+"interview_q2_timeout": "res://dialogic/timelines/interview_q2_timeout.dtl",
+"interview_q3": "res://dialogic/timelines/interview_q3.dtl",
+"interview_q3_timeout": "res://dialogic/timelines/interview_q3_timeout.dtl",
+"test_simple": "res://dialogic/timelines/test_simple.dtl"
+}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
+variables={
+"company_name": "Test Company",
+"day1_completed": false,
+"day1_score": 0,
+"day2_completed": false,
+"day2_score": 0,
+"day3_completed": false,
+"day3_score": 0,
+"day4_completed": false,
+"day4_score": 0,
+"day5_completed": false,
+"day5_score": 0,
+"force_continue": false,
+"interview_day": 1,
+"interview_health": 50,
+"interview_score": 0,
+"question_answered": false
 }
 
 [display]

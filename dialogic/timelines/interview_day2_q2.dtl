@@ -1,0 +1,38 @@
+join techcorp_interviewer center
+
+techcorp_interviewer: Bagaimana anda mengatasi bug yang sulit?
+
+[signal arg="timer_start"]
+
+- Debug step by step dan cek documentation
+	set {interview_score} += 12
+	set {interview_health} += 12
+	[signal arg="timer_end"]
+	techcorp_interviewer: Solid approach! Systematic thinking is key.
+	[signal arg="correct_choice"]
+
+- Tanya di Stack Overflow
+	set {interview_score} += 8
+	set {interview_health} += 8
+	[signal arg="timer_end"]
+	techcorp_interviewer: Good resource, tapi jangan terlalu bergantung.
+	[signal arg="correct_choice"]
+
+- Restart komputer dan coba lagi
+	set {interview_score} -= 5
+	set {interview_health} -= 5
+	[signal arg="timer_end"]
+	techcorp_interviewer: That's... not how debugging works.
+	[signal arg="wrong_choice"]
+
+- Hapus semua dan coding ulang
+	set {interview_score} -= 15
+	set {interview_health} -= 15
+	[signal arg="timer_end"]
+	techcorp_interviewer: Extreme dan tidak efisien. Big no.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+leave techcorp_interviewer

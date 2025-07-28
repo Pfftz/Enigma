@@ -1,0 +1,28 @@
+join green_interviewer center
+# Day 4 Question 3 timeout
+set {interview_score} -= 5
+set {interview_health} -= 10
+
+green_interviewer: Time's up! Environmental assessment complete.
+
+[signal arg="timeout"]
+[signal arg="timer_end"]
+[signal arg="update_ui"]
+
+[wait time="2.0"]
+
+green_interviewer: Environmental assessment complete.
+
+if {interview_score} >= 35:
+	green_interviewer: Incredible environmental awareness! You're our green champion. Welcome to GreenCorp!
+elif {interview_score} >= 20:
+	green_interviewer: Solid environmental mindset. We'll discuss next steps.
+elif {interview_score} >= 10:
+	green_interviewer: Some awareness, but need deeper environmental commitment.
+else:
+	green_interviewer: Sorry, environmental values tidak align dengan misi kami.
+
+set {day4_completed} = true
+set {day4_score} = {interview_score}
+
+leave green_interviewer

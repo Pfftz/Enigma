@@ -1,0 +1,42 @@
+join techcorp_interviewer center
+set {interview_day} = 2
+set {company_name} = "TechCorp"
+set {interview_score} = 0
+set {interview_health} = 70
+
+techcorp_interviewer: Selamat datang di TechCorp. Apa pengalaman programming anda?
+
+[signal arg="timer_start"]
+
+- Saya menguasai Python, JavaScript, dan SQL
+	set {interview_score} += 15
+	set {interview_health} += 15
+	[signal arg="timer_end"]
+	techcorp_interviewer: Impressive! Stack yang solid untuk developer modern.
+	[signal arg="correct_choice"]
+
+- Saya bisa HTML dan CSS
+	set {interview_score} += 5
+	set {interview_health} += 5
+	[signal arg="timer_end"]
+	techcorp_interviewer: Basic tapi baik untuk mulai. Perlu lebih banyak skill lagi.
+	[signal arg="correct_choice"]
+
+- Saya masih belajar programming
+	set {interview_score} += 3
+	set {interview_health} += 3
+	[signal arg="timer_end"]
+	techcorp_interviewer: Setidaknya jujur. Kami appreciate learning mindset.
+	[signal arg="correct_choice"]
+
+- Programming itu mudah, semua orang bisa
+	set {interview_score} -= 10
+	set {interview_health} -= 10
+	[signal arg="timer_end"]
+	techcorp_interviewer: Underestimate programming adalah red flag besar.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+leave techcorp_interviewer

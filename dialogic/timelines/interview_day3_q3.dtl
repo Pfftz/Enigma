@@ -1,0 +1,55 @@
+join creative_interviewer center
+
+creative_interviewer: Bagaimana anda menghadapi creative block?
+
+[signal arg="timer_start"]
+
+- Cari inspirasi dari design trends dan nature
+	set {interview_score} += 18
+	set {interview_health} += 18
+	[signal arg="timer_end"]
+	creative_interviewer: Excellent! Multiple inspiration sources keep creativity flowing.
+	[signal arg="correct_choice"]
+
+- Istirahat dulu, lalu balik dengan fresh mind
+	set {interview_score} += 12
+	set {interview_health} += 12
+	[signal arg="timer_end"]
+	creative_interviewer: Wise approach! Mental break often leads to breakthrough.
+	[signal arg="correct_choice"]
+
+- Copy design orang lain
+	set {interview_score} -= 15
+	set {interview_health} -= 15
+	[signal arg="timer_end"]
+	creative_interviewer: That's plagiarism! We value original creativity here.
+	[signal arg="wrong_choice"]
+
+- Menyerah dan ganti profesi
+	set {interview_score} -= 20
+	set {interview_health} -= 20
+	[signal arg="timer_end"]
+	creative_interviewer: That defeatist attitude has no place in creative industry.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+# Final interview conclusion
+[wait time="1.0"]
+
+creative_interviewer: Alright, creative assessment complete!
+
+if {interview_score} >= 25:
+	creative_interviewer: Amazing creative spirit! You're exactly what we need. Welcome aboard!
+elif {interview_score} >= 15:
+	creative_interviewer: Good creative foundation. We'll consider your portfolio.
+elif {interview_score} >= 5:
+	creative_interviewer: Some potential, but need more creative development.
+else:
+	creative_interviewer: Sorry, creative skills belum sesuai standar kami.
+
+set {day3_completed} = true
+set {day3_score} = {interview_score}
+
+leave creative_interviewer

@@ -1,9 +1,17 @@
 timeline_start
-join character_interviewer center
-character_interviewer: Welcome to Bananazon! Let's begin your interview.
-[wait time="1"]
+join player center
+Welcome to Bananazon! Let's begin your interview.
+[wait time="1.0"]
 [signal arg="start_qte_interview"]
-[wait time="1"]
-character_interviewer: That concludes our interview. Thank you for your time.
-leave character_interviewer
+[wait time="1.0"]
+That concludes our interview. Thank you for your time.
+leave 
 timeline_end
+- jawa
+	asdfw
+- sfg
+	adsf
+- asdf
+	adsf
+- asdf
+	hgssdf

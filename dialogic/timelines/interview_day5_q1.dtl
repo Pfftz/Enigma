@@ -1,0 +1,42 @@
+join mega_interviewer center
+set {interview_day} = 5
+set {company_name} = "MegaCorp"
+set {interview_score} = 0
+set {interview_health} = 10
+
+mega_interviewer: Welcome to MegaCorp. This is the final test. Are you ready for high-pressure environment?
+
+[signal arg="timer_start"]
+
+- Yes, I thrive under pressure and deliver results
+	set {interview_score} += 20
+	set {interview_health} += 20
+	[signal arg="timer_end"]
+	mega_interviewer: Confident! That's what we expect from MegaCorp executives.
+	[signal arg="correct_choice"]
+
+- I'll do my best to adapt
+	set {interview_score} += 8
+	set {interview_health} += 8
+	[signal arg="timer_end"]
+	mega_interviewer: Adaptive mindset is good, but we need stronger commitment.
+	[signal arg="correct_choice"]
+
+- I prefer relaxed work environment
+	set {interview_score} -= 10
+	set {interview_health} -= 10
+	[signal arg="timer_end"]
+	mega_interviewer: MegaCorp is not for the weak. We demand excellence.
+	[signal arg="wrong_choice"]
+
+- No, pressure makes me nervous
+	set {interview_score} -= 15
+	set {interview_health} -= 15
+	[signal arg="timer_end"]
+	mega_interviewer: Weakness has no place in this corporation.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+leave mega_interviewer

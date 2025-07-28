@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq8vjp7qb5r5k"]
+[gd_scene load_steps=5 format=3 uid="uid://c7beopwbk3cgd"]
 
-[ext_resource type="Script" uid="uid://cwgsfo75n0q13" path="res://scripts/ui/quick_time_event.gd" id="1_5n3x2"]
+[ext_resource type="Script" uid="uid://xdf8j0lvtnq3" path="res://scripts/ui/dialogic_qte_manager.gd" id="1_dialogic_manager"]
 [ext_resource type="Texture2D" uid="uid://c6imcx7a1dfcm" path="res://icon/textboxres.png" id="2_j8k4w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
@@ -10,14 +10,21 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="QuickTimeEvent" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.1, 0.1, 0.1, 0.9)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="DialogicQTEInterview" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5n3x2")
+script = ExtResource("1_dialogic_manager")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -90,7 +97,6 @@ offset_right = 316.5
 offset_bottom = 171.5
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="CompanyHeader" type="HBoxContainer" parent="CenterContainer/InterviewPanel/VBoxContainer"]
 layout_direction = 1
@@ -120,61 +126,20 @@ texture = ExtResource("2_j8k4w")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DialogueBox" type="Panel" parent="CenterContainer/InterviewPanel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="DialogueLabel" type="Label" parent="CenterContainer/InterviewPanel/VBoxContainer/DialogueBox"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 20.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 14
-text = "Senang bertemu anda, apa yg membawa anda kesini"
-vertical_alignment = 1
-autowrap_mode = 3
-
 [node name="TimerContainer" type="CenterContainer" parent="CenterContainer/InterviewPanel/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="TimerLabel" type="Label" parent="CenterContainer/InterviewPanel/VBoxContainer/TimerContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "12s"
 
-[node name="OptionsContainer" type="VBoxContainer" parent="CenterContainer/InterviewPanel/VBoxContainer"]
+[node name="DialogicContainer" type="Control" parent="CenterContainer/InterviewPanel/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="TopRow" type="HBoxContainer" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer"]
-layout_mode = 2
-
-[node name="Option1" type="Button" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer/TopRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 12
-text = "Apa produk yang anda tawarkan"
-
-[node name="Option2" type="Button" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer/TopRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 12
-text = "company apa ini?"
-
-[node name="BottomRow" type="HBoxContainer" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer"]
-layout_mode = 2
-
-[node name="Option3" type="Button" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer/BottomRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 12
-text = "Senang bertemu anda juga"
-
-[node name="Option4" type="Button" parent="CenterContainer/InterviewPanel/VBoxContainer/OptionsContainer/BottomRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 12
-text = "Jualan pisang pak?"
+[node name="DialogicLayer" type="CanvasLayer" parent="."]
 
 [node name="ScoreDisplay" type="Label" parent="."]
 layout_mode = 1
@@ -190,6 +155,44 @@ theme_override_font_sizes/font_size = 16
 text = "Score: 0"
 horizontal_alignment = 2
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="ControlPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -120.0
+offset_right = 100.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="ControlPanel/VBoxContainer"]
+layout_mode = 2
+text = "Start Interview"
+
+[node name="ResetButton" type="Button" parent="ControlPanel/VBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="SkipButton" type="Button" parent="ControlPanel/VBoxContainer"]
+layout_mode = 2
+text = "Skip to Day..."

@@ -1,0 +1,42 @@
+join bananazon_interviewer center
+set {interview_day} = 1
+set {company_name} = "bananazon"
+set {interview_score} = 0
+set {interview_health} = 80
+
+bananazon_interviewer: Senang bertemu anda, apa yang membawa anda kesini?
+
+[signal arg="timer_start"]
+
+- Apa produk yang anda tawarkan?
+	set {interview_score} += 5
+	set {interview_health} += 5
+	[signal arg="timer_end"]
+	bananazon_interviewer: Bagus! Kami menghargai calon karyawan yang ingin tahu tentang produk kami.
+	[signal arg="correct_choice"]
+
+- company apa ini?
+	set {interview_score} -= 5
+	set {interview_health} -= 5
+	[signal arg="timer_end"]
+	bananazon_interviewer: Hmm, seharusnya anda sudah riset tentang perusahaan sebelum datang kesini.
+	[signal arg="wrong_choice"]
+
+- Senang bertemu anda juga
+	set {interview_score} += 10
+	set {interview_health} += 10
+	[signal arg="timer_end"]
+	bananazon_interviewer: Wah, sopan sekali! Saya suka attitude seperti ini.
+	[signal arg="correct_choice"]
+
+- Jualan pisang pak?
+	set {interview_score} -= 10
+	set {interview_health} -= 10
+	[signal arg="timer_end"]
+	bananazon_interviewer: Itu... bukan pertanyaan yang tepat untuk interview.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+leave bananazon_interviewer

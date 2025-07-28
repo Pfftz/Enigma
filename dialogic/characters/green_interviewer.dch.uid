@@ -1,0 +1,13 @@
+[remap]
+
+importer="dialogic-character"
+type="Resource"
+uid="uid://e5a8g3h9c4f1b7d2"
+path="res://.godot/imported/green_interviewer.dch-d2h6g1a9c5f8b3e7j4k8l5m2n9p3q6r1.tres"
+
+[deps]
+
+source_file="res://dialogic/characters/green_interviewer.dch"
+dest_files=["res://.godot/imported/green_interviewer.dch-d2h6g1a9c5f8b3e7j4k8l5m2n9p3q6r1.tres"]
+
+[params]

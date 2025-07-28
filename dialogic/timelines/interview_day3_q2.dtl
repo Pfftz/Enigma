@@ -1,0 +1,38 @@
+join creative_interviewer center
+
+creative_interviewer: Apa software design favorit anda?
+
+[signal arg="timer_start"]
+
+- Adobe Creative Suite (Photoshop, Illustrator, etc)
+	set {interview_score} += 15
+	set {interview_health} += 15
+	[signal arg="timer_end"]
+	creative_interviewer: Industry standard! Perfect choice for professional work.
+	[signal arg="correct_choice"]
+
+- Figma dan Canva
+	set {interview_score} += 10
+	set {interview_health} += 10
+	[signal arg="timer_end"]
+	creative_interviewer: Modern tools! Good for UI/UX and quick designs.
+	[signal arg="correct_choice"]
+
+- Paint dan PowerPoint
+	set {interview_score} -= 5
+	set {interview_health} -= 5
+	[signal arg="timer_end"]
+	creative_interviewer: That's... very basic. We need professional tools here.
+	[signal arg="wrong_choice"]
+
+- Saya gambar pakai tangan aja
+	set {interview_score} += 5
+	set {interview_health} += 5
+	[signal arg="timer_end"]
+	creative_interviewer: Traditional art is great, but we need digital skills too.
+	[signal arg="correct_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+leave creative_interviewer

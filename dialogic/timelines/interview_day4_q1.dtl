@@ -1,0 +1,42 @@
+join green_interviewer center
+set {interview_day} = 4
+set {company_name} = "GreenCorp"
+set {interview_score} = 0
+set {interview_health} = 10
+
+green_interviewer: Hello! GreenCorp fokus pada sustainability. Apa pendapat anda tentang climate change?
+
+[signal arg="timer_start"]
+
+- Isu serius yang butuh action segera dari semua pihak
+	set {interview_score} += 18
+	set {interview_health} += 18
+	[signal arg="timer_end"]
+	green_interviewer: Exactly! Collective action is key to fighting climate crisis.
+	[signal arg="correct_choice"]
+
+- Penting tapi bukan prioritas utama saya
+	set {interview_score} += 5
+	set {interview_health} += 5
+	[signal arg="timer_end"]
+	green_interviewer: At least you acknowledge it. But we need passionate advocates here.
+	[signal arg="correct_choice"]
+
+- Hoax, cuaca memang selalu berubah
+	set {interview_score} -= 20
+	set {interview_health} -= 20
+	[signal arg="timer_end"]
+	green_interviewer: That's exactly the mindset we're fighting against. Big red flag.
+	[signal arg="wrong_choice"]
+
+- Tidak tahu, tidak peduli
+	set {interview_score} -= 10
+	set {interview_health} -= 10
+	[signal arg="timer_end"]
+	green_interviewer: Apathy toward our planet's future is unacceptable here.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+leave green_interviewer

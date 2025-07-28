@@ -1,0 +1,12 @@
+join creative_interviewer center
+# Day 3 Question 1 timeout
+set {interview_score} -= 5
+set {interview_health} -= 10
+
+creative_interviewer: Creative people should think fast! Time's up.
+
+[signal arg="timeout"]
+[signal arg="timer_end"]
+[signal arg="update_ui"]
+
+leave creative_interviewer

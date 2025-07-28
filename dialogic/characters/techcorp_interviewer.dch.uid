@@ -1,0 +1,13 @@
+[remap]
+
+importer="dialogic-character"
+type="Resource"
+uid="uid://c3g9e2f6b1a8d4h7"
+path="res://.godot/imported/techcorp_interviewer.dch-b9f4c8g1e5a2d6h3j7k4l1m8n2p6q9r3.tres"
+
+[deps]
+
+source_file="res://dialogic/characters/techcorp_interviewer.dch"
+dest_files=["res://.godot/imported/techcorp_interviewer.dch-b9f4c8g1e5a2d6h3j7k4l1m8n2p6q9r3.tres"]
+
+[params]

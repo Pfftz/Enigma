@@ -1,0 +1,42 @@
+join creative_interviewer center
+set {interview_day} = 3
+set {company_name} = "CreativeStudio"
+set {interview_score} = 0
+set {interview_health} = 40
+
+creative_interviewer: Welcome to CreativeStudio! Ceritakan tentang proyek kreatif terakhir anda.
+
+[signal arg="timer_start"]
+
+- Saya membuat video content untuk media sosial
+	set {interview_score} += 12
+	set {interview_health} += 12
+	[signal arg="timer_end"]
+	creative_interviewer: Nice! Social media content is our bread and butter.
+	[signal arg="correct_choice"]
+
+- Saya redesign poster untuk event kampus
+	set {interview_score} += 8
+	set {interview_health} += 8
+	[signal arg="timer_end"]
+	creative_interviewer: Good start! Event design needs strong visual communication.
+	[signal arg="correct_choice"]
+
+- Saya tidak pernah bikin proyek kreatif
+	set {interview_score} -= 3
+	set {interview_health} -= 3
+	[signal arg="timer_end"]
+	creative_interviewer: Hmm, kami cari orang dengan passion di creative field.
+	[signal arg="wrong_choice"]
+
+- Proyek apa? Saya cuma bisa PowerPoint
+	set {interview_score} -= 10
+	set {interview_health} -= 10
+	[signal arg="timer_end"]
+	creative_interviewer: PowerPoint is not creative work, sorry.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+leave creative_interviewer
