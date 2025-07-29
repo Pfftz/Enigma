@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyh1p21h8bukw"]
+[gd_scene load_steps=4 format=3 uid="uid://ddhvxcp8sfoy"]
 
-[ext_resource type="PackedScene" uid="uid://c7beopwbk3cgd" path="res://scenes/ui/dialogic_qte_interview.tscn" id="1_qte_scene"]
-[ext_resource type="Script" uid="uid://curr0apxi2xjl" path="res://scripts/ui/qte_demo_controller.gd" id="2_demo_controller"]
+[ext_resource type="PackedScene" uid="uid://dxfe0cbshi1dw" path="res://scenes/interview/qte_interview.tscn" id="1_qte_scene"]
+[ext_resource type="Script" path="res://scripts/ui/qte_demo_controller.gd" id="2_demo_controller"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
 bg_color = Color(0.1, 0.1, 0.1, 0.8)

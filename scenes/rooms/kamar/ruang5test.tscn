@@ -1,12 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://fh6h0ed2uoar"]
+[gd_scene load_steps=18 format=3 uid="uid://biq31bh8d770w"]
 
-[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player.tscn" id="1_v0jrp"]
-[ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_w84pv"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_wfhsx"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_ctt0g"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_mkbd2"]
-[ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact_laptop.gd" id="6_fh1go"]
-[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_fh1go"]
+[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player.tscn" id="1_gen8e"]
+[ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_h6q15"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_gl7wd"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_u1ed7"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_qlhkn"]
+[ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact_laptop.gd" id="6_ygr16"]
+[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_58d06"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)
@@ -31,7 +31,7 @@ size = Vector3(4.02283, 1.00342, 0.218445)
 size = Vector3(0.254028, 1.08984, 3.97046)
 
 [sub_resource type="Resource" id="Resource_mkbd2"]
-script = ExtResource("3_ctt0g")
+script = ExtResource("5_qlhkn")
 duration = 1.0
 transition = 0
 ease = 2
@@ -40,19 +40,19 @@ ease = 2
 size = Vector3(1.19458, 0.208984, 1.59875)
 
 [sub_resource type="Resource" id="Resource_fh1go"]
-script = ExtResource("3_ctt0g")
+script = ExtResource("5_qlhkn")
 duration = 1.0
 transition = 0
 ease = 2
 
 [node name="Ruang1Test" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_v0jrp")]
+[node name="Player" parent="." instance=ExtResource("1_gen8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.619151, 0.923992, 0.366977)
 
 [node name="LowPolyLivingRoom" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0125617, 0.284882, 0.327073)
-mesh = ExtResource("2_w84pv")
+mesh = ExtResource("2_h6q15")
 
 [node name="Collision" type="Node3D" parent="."]
 visible = false
@@ -94,19 +94,19 @@ shape = SubResource("BoxShape3D_nbk78")
 
 [node name="camera1" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.24149, 4.98778)
+transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.2415, 4.98778)
 fov = 37.8493
 
 [node name="PhantomCameraHost" type="Node" parent="camera1"]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("3_mkbd2")
+script = ExtResource("3_gl7wd")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.24149, 4.98778)
+transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.2415, 4.98778)
 top_level = true
-script = ExtResource("2_wfhsx")
+script = ExtResource("4_u1ed7")
 follow_mode = 5
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_mkbd2")
@@ -121,15 +121,16 @@ spring_length = 1.625
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="interact laptop" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.380346, 0.713225, 0.373931)
 collision_layer = 2
-script = ExtResource("6_fh1go")
+script = ExtResource("6_ygr16")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interact laptop"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.737567, 0.613703, 1.4092)
 shape = SubResource("BoxShape3D_61454")
 
 [node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("7_fh1go")
+script = ExtResource("7_58d06")
 
 [node name="InteractLabel" type="Label" parent="UI"]
 offset_right = 1153.0
@@ -142,7 +143,7 @@ root_node = NodePath("../PhantomCamera3D2/Camera3D")
 
 [node name="PhantomCamera3D2" type="Node3D" parent="."]
 transform = Transform3D(0.0257836, -0.302392, 0.952835, -0.0263367, 0.952615, 0.303035, -0.999321, -0.0329079, 0.0165978, 0.974577, 1.79454, 1.17849)
-script = ExtResource("2_wfhsx")
+script = ExtResource("4_u1ed7")
 tween_resource = SubResource("Resource_fh1go")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
@@ -154,3 +155,6 @@ fov = 28.0
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.0158575, -0.368296, 0.929573, -0.00567272, 0.929642, 0.36842, -0.999858, -0.0111154, 0.0126525, 1.50408, 1.81822, 1.39212)
 light_energy = 1.83
+
+[connection signal="body_entered" from="interact laptop" to="interact laptop" method="_on_body_entered"]
+[connection signal="body_exited" from="interact laptop" to="interact laptop" method="_on_body_exited"]

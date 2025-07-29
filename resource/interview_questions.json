@@ -1,92 +1,92 @@
 {
-    "interview_questions": [
-        {
-            "day": 1,
-            "question": "Senang bertemu anda, apa yg membawa anda kesini",
-            "options": [
-                {
-                    "text": "Apa produk yang anda tawarkan",
-                    "type": "correct",
-                    "score_change": 5
-                },
-                {
-                    "text": "company apa ini?",
-                    "type": "wrong",
-                    "score_change": -5
-                },
-                {
-                    "text": "Senang bertemu anda juga",
-                    "type": "correct",
-                    "score_change": 10
-                },
-                {
-                    "text": "Jualan pisang pak?",
-                    "type": "wrong",
-                    "score_change": -10
-                }
-            ],
-            "timer": 12
-        },
-        {
-            "day": 1,
-            "question": "Senang bertemu anda, apa yg membawa anda kesini",
-            "options": [
-                {
-                    "text": "Tetap masuk",
-                    "type": "correct",
-                    "score_change": 5
-                },
-                {
-                    "text": "company apa ini?",
-                    "type": "wrong",
-                    "score_change": -5
-                },
-                {
-                    "text": "Pasrah",
-                    "type": "correct",
-                    "score_change": 10
-                },
-                {
-                    "text": "Jualan pisang pak?",
-                    "type": "wrong",
-                    "score_change": -10
-                }
-            ],
-            "timer": 12
-        },
-        {
-            "day": 2,
-            "question": "Ehhh ada pak nigar mampir, gimana kabarnya",
-            "options": [
-                {
-                    "text": "aman coyy",
-                    "type": "wrong",
-                    "score_change": -5
-                },
-                {
-                    "text": "Sehat, bagaimana dengan anda",
-                    "type": "correct",
-                    "score_change": 10
-                },
-                {
-                    "text": "masih nggak jualan pisang?",
-                    "type": "wrong",
-                    "score_change": -10
-                }
-            ],
-            "timer": 12
-        }
-    ],
-    "scoring": {
-        "excellent": 25,
-        "good": 15,
-        "average": 5,
-        "poor": -5
-    },
-    "consequences": {
-        "excellent": "Excellent answer! The interviewer is very impressed.",
-        "good": "Good answer! The interviewer nods approvingly.",
-        "average": "Acceptable answer. The interviewer takes note.",
-        "poor": "Poor choice. The interviewer looks disappointed."
-    }
+	"interview_questions": [
+		{
+			"day": 1,
+			"question": "Senang bertemu anda, apa yg membawa anda kesini",
+			"options": [
+				{
+					"text": "Apa produk yang anda tawarkan",
+					"type": "correct",
+					"score_change": 5
+				},
+				{
+					"text": "company apa ini?",
+					"type": "wrong",
+					"score_change": -5
+				},
+				{
+					"text": "Senang bertemu anda juga",
+					"type": "correct",
+					"score_change": 10
+				},
+				{
+					"text": "Jualan pisang pak?",
+					"type": "wrong",
+					"score_change": -10
+				}
+			],
+			"timer": 12
+		},
+		{
+			"day": 1,
+			"question": "Senang bertemu anda, apa yg membawa anda kesini",
+			"options": [
+				{
+					"text": "Tetap masuk",
+					"type": "correct",
+					"score_change": 5
+				},
+				{
+					"text": "company apa ini?",
+					"type": "wrong",
+					"score_change": -5
+				},
+				{
+					"text": "Pasrah",
+					"type": "correct",
+					"score_change": 10
+				},
+				{
+					"text": "Jualan pisang pak?",
+					"type": "wrong",
+					"score_change": -10
+				}
+			],
+			"timer": 12
+		},
+		{
+			"day": 2,
+			"question": "Ehhh ada pak nigar mampir, gimana kabarnya",
+			"options": [
+				{
+					"text": "aman coyy",
+					"type": "wrong",
+					"score_change": -5
+				},
+				{
+					"text": "Sehat, bagaimana dengan anda",
+					"type": "correct",
+					"score_change": 10
+				},
+				{
+					"text": "masih nggak jualan pisang?",
+					"type": "wrong",
+					"score_change": -10
+				}
+			],
+			"timer": 12
+		}
+	],
+	"scoring": {
+		"excellent": 25,
+		"good": 15,
+		"average": 5,
+		"poor": -5
+	},
+	"consequences": {
+		"excellent": "Excellent answer! The interviewer is very impressed.",
+		"good": "Good answer! The interviewer nods approvingly.",
+		"average": "Acceptable answer. The interviewer takes note.",
+		"poor": "Poor choice. The interviewer looks disappointed."
+	}
 }

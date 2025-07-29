@@ -46,13 +46,17 @@ signal all_interviews_completed(final_score: int)
 signal player_kicked_out(day: int) # New signal for game over
 
 func _ready() -> void:
-	# Initialize Dialogic variables FIRST before any UI setup
+	
+	# 2. Siapkan UI awal
 	setup_ui()
-	setup_timer()
+	
+	# 3. Hubungkan sinyal dari Dialogic ke fungsi di skrip ini
 	setup_dialogic_signals()
-	# Wait a frame to ensure Dialogic is fully initialized
-	await get_tree().process_frame
-	start_interview_sequence()
+	
+	# 4. CARA BARU & PALING STABIL:
+	# Tunda pemanggilan start_interview_sequence() sesaat (satu frame)
+	# untuk memberi waktu pada Dialogic untuk siap sepenuhnya.
+	get_tree().create_timer(0.01, false).timeout.connect(start_interview_sequence)
 
 func setup_dialogic_signals() -> void:
 	# Connect to Dialogic signals
@@ -80,8 +84,11 @@ func setup_timer() -> void:
 	add_child(timer_node)
 	timer_node.timeout.connect(_on_timer_timeout)
 
-func start_interview_sequence() -> void:
-	start_interview_day(1)
+# Fungsi ini HANYA akan berjalan SETELAH scene siap sepenuhnya
+func start_interview_sequence():
+	# Ambil hari dari GameState dan mulai wawancara
+	var day_from_gamestate = GameState.current_day
+	start_interview_day(day_from_gamestate)
 
 func start_interview_day(day: int) -> void:
 	if day > interview_timelines.size():
@@ -312,24 +319,27 @@ func _on_timeline_ended() -> void:
 
 func show_interview_results() -> void:
 	var day_score = Dialogic.VAR.get("interview_score") if Dialogic.VAR.has("interview_score") else 0
-	total_score += day_score
+	
+	# DIUBAH: Simpan skor ke GameState
+	GameState.add_to_total_score(day_score)
 	
 	interview_day_completed.emit(current_day, day_score)
 	
-	# Show day completion message
 	var completion_message = "Day " + str(current_day) + " completed!\n"
 	completion_message += "Score this day: " + str(day_score) + "\n"
-	completion_message += "Health remaining: " + str(int(current_health)) + "\n"
-	completion_message += "Total score: " + str(total_score)
+	completion_message += "Total score: " + str(GameState.total_score)
 	print(completion_message)
 	
-	# Wait a moment then proceed to next day
 	await get_tree().create_timer(2.0).timeout
 	
-	if current_day < interview_timelines.size():
-		# Here you would transition to the "ruang one" scene
-		# For now, we'll just continue to the next day
-		start_interview_day(current_day + 1)
+	# DIUBAH: Logika untuk maju hari dan pindah ke kamar berikutnya
+	if GameState.current_day < company_names.size():
+		# 1. Maju ke hari berikutnya
+		GameState.advance_to_next_day()
+		# 2. Ambil path kamar untuk hari yang BARU dari GameState
+		var next_room_path = GameState.get_current_room_scene()
+		# 3. Pindah ke scene kamar berikutnya
+		get_tree().change_scene_to_file(next_room_path)
 	else:
 		complete_all_interviews()
 
@@ -443,4 +453,4 @@ func transition_to_home() -> void:
 	# Called when player should go to "ruang one"
 	# You can implement scene changing logic here
 	print("Transitioning to home scene (ruang one)")
-	# Example: get_tree().change_scene_to_file("res://scenes/ruang_one.tscn")
+	get_tree().change_scene_to_file("res://scenes/rooms/kamar/ruang5test.tscn")

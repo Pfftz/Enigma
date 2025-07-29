@@ -70,7 +70,7 @@ shader_parameter/depth_offset = Vector3(0, 0, 0)
 [sub_resource type="BoxShape3D" id="BoxShape3D_162ku"]
 size = Vector3(1, 7.54797, 1)
 
-[node name="Room1" type="Node3D"]
+[node name="Room2" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_kvag1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84516, 0.494928, 0.177195)

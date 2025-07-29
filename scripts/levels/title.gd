@@ -112,7 +112,7 @@ func _on_play_game_button_pressed() -> void:
 	var fade_tween := create_tween()
 	fade_tween.tween_property(fade, "color:a", 1.0, 0.5)
 	await fade_tween.finished
-	get_tree().change_scene_to_file("res://scenes/rooms/ruang1.tscn")
+	get_tree().change_scene_to_file("res://scenes/rooms/ruang1test.tscn")
 
 func _on_quit_game_button_pressed() -> void:
 	if title_stage != 1: return

@@ -4,3 +4,4 @@
 
 [node name="SpawnObject" type="Marker3D" groups=["spawn"]]
 script = ExtResource("1_5obe7")
+scene_path = "uid://bvl6325rdndwu"

@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://kwlsucftx5it"]
+[gd_scene load_steps=2 format=3 uid="uid://ce50mdcruj2jm"]
 
-[ext_resource type="Script" uid="uid://xdf8j0lvtnq3" path="res://scripts/ui/dialogic_qte_manager.gd" id="1_manager"]
+[ext_resource type="Script" uid="uid://xdf8j0lvtnq3" path="res://scripts/levels/qte/Interview_qte_manager.gd" id="1_manager"]
 
 [node name="SimpleQTETest" type="Control"]
 layout_mode = 3
