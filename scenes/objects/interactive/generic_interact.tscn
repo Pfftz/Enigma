@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b382bxtj1s3of"]
+
+[ext_resource type="Script" uid="uid://ciwkhn3n8cg85" path="res://scripts/objects/interact/generic_interact.gd" id="1_generic_interact"]
+[ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="2_symbol"]
+
+
+[node name="GenericInteract" type="Marker3D"]
+script = ExtResource("1_generic_interact")
+interaction_text = Array[String](["Press E to interact"])
+
+[node name="InteractionSymbol" parent="." instance=ExtResource("2_symbol")]
+enabled = true
+height_offset = 1.0
+min_distance = 1.5

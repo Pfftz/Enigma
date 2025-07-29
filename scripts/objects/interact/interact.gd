@@ -1,5 +1,9 @@
 extends Marker3D
 
+# Signals for interaction events
+signal dialogue_started
+signal dialogue_finished
+
 @export var text = ["Text"]
 @onready var interaction_symbol = $InteractionSymbol
 
@@ -23,6 +27,7 @@ func _on_triggered():
 	# Handle when the interaction is triggered
 	if not is_textbox_open:
 		# Only create textbox if one isn't already open
+		dialogue_started.emit()
 		Global.create_Textbox(text, self)
 		is_textbox_open = true
 		
@@ -46,6 +51,7 @@ func _force_close_textbox():
 		current_textbox.queue_free()
 		current_textbox = null
 		is_textbox_open = false
+		dialogue_finished.emit()
 
 func _monitor_textbox_completion():
 	"""Monitor textbox to detect when it closes naturally"""
@@ -59,3 +65,4 @@ func _monitor_textbox_completion():
 	# Textbox was closed naturally
 	current_textbox = null
 	is_textbox_open = false
+	dialogue_finished.emit()

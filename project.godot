@@ -21,7 +21,7 @@ Global="*res://scripts/autoloads/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 EventBus="*res://scripts/autoloads/event_bus.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-BGMusic="*res://scripts/autoloads/bg_music.gd"
+AudioManager="*res://scenes/management/audio_manager.tscn"
 
 [dialogic]
 
@@ -155,6 +155,10 @@ interact={
 
 3d_physics/layer_1="collision"
 3d_physics/layer_2="interaction"
+
+[physics]
+
+common/physics_interpolation=true
 
 [rendering]
 

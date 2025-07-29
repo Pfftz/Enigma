@@ -43,11 +43,11 @@ void fragment()
 	vec4 color_base = COLOR * modulate_color;
 
 	vec4 texture_color = texture(albedoTex, texture_uv);
-	
+
 	ALBEDO = (color_base * texture_color).rgb;
 
 	ALPHA_SCISSOR_THRESHOLD = 0.5;
-	
+
 	if (length(texture_color.rgb - alpha_color.rgb) < ALPHA_SCISSOR_THRESHOLD) {
 		ALPHA = 0.0;
 	}

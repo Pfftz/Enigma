@@ -1,0 +1,242 @@
+[gd_scene load_steps=23 format=3 uid="uid://vth0ydbdcwng"]
+
+[ext_resource type="Shader" uid="uid://c3on6854i8llj" path="res://shaders/psx_lit_sprite_blend.gdshader" id="1_ej41r"]
+[ext_resource type="Script" uid="uid://bkghu7oiaubsr" path="res://scripts/objects/interact/interact.gd" id="1_o7blk"]
+[ext_resource type="Script" uid="uid://bgq6ws0ifqw52" path="res://scripts/objects/unmp/phone.gd" id="1_t86ee"]
+[ext_resource type="Texture2D" uid="uid://dxbc5mkqmyx5t" path="res://asset/2d/sprite/object/anna_phone.png" id="2_hr0e3"]
+[ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="2_wktwx"]
+[ext_resource type="AudioStream" uid="uid://c21ms6r5ntrbi" path="res://sfx/object/anna_phone_short.wav" id="4_3d18b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkxy2"]
+render_priority = 0
+shader = ExtResource("1_ej41r")
+shader_parameter/use_fog = true
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/albedoTex = ExtResource("2_hr0e3")
+shader_parameter/alpha_color = Color(1, 0, 1, 1)
+shader_parameter/fixed_size = false
+shader_parameter/billboard = true
+shader_parameter/y_billboard = false
+shader_parameter/animate = false
+shader_parameter/animation_frames = Vector2i(0, 0)
+shader_parameter/animation_speed = Vector2i(0, 0)
+shader_parameter/per_quad_depth = false
+shader_parameter/adjustable_depth = true
+shader_parameter/depth_offset = Vector3(0, 5, 0.1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtxvq"]
+atlas = ExtResource("2_hr0e3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10uf3"]
+atlas = ExtResource("2_hr0e3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2cyw"]
+atlas = ExtResource("2_hr0e3")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wp01p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtxvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10uf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2cyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10uf3")
+}],
+"loop": true,
+"name": &"ring",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rnpb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10uf3")
+}],
+"loop": true,
+"name": &"ring",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqvsb"]
+atlas = ExtResource("2_hr0e3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpcy4"]
+atlas = ExtResource("2_hr0e3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aosp"]
+atlas = ExtResource("2_hr0e3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b01s3"]
+atlas = ExtResource("2_hr0e3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq34x"]
+atlas = ExtResource("2_hr0e3")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dop08"]
+atlas = ExtResource("2_hr0e3")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gvnn2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqvsb")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqvsb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpcy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aosp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b01s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq34x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dop08")
+}],
+"loop": false,
+"name": &"listen",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_sd8f5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhoneRing/RingVisibility:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PhoneRing/IdleVisibility:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_g4ylt"]
+resource_name = "Ring"
+length = 4.0
+loop_mode = 1
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhoneRing/RingVisibility:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.191, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PhoneRing/IdleVisibility:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.191, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhxp6"]
+_data = {
+&"RESET": SubResource("Animation_sd8f5"),
+&"Ring": SubResource("Animation_g4ylt")
+}
+
+[node name="Phone" type="Marker3D"]
+script = ExtResource("1_t86ee")
+
+[node name="PhoneRing" type="Marker3D" parent="."]
+
+[node name="RingVisibility" type="Node3D" parent="PhoneRing"]
+visible = false
+
+[node name="Ring" type="AnimatedSprite3D" parent="PhoneRing/RingVisibility"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+material_override = SubResource("ShaderMaterial_lkxy2")
+pixel_size = 0.04
+sprite_frames = SubResource("SpriteFrames_wp01p")
+animation = &"ring"
+autoplay = "ring"
+frame_progress = 0.834859
+
+[node name="IdleVisibility" type="Node3D" parent="PhoneRing"]
+
+[node name="Idle" type="AnimatedSprite3D" parent="PhoneRing/IdleVisibility"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+material_override = SubResource("ShaderMaterial_lkxy2")
+pixel_size = 0.04
+sprite_frames = SubResource("SpriteFrames_rnpb7")
+animation = &"ring"
+autoplay = "ring"
+
+[node name="PhoneSprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+material_override = SubResource("ShaderMaterial_lkxy2")
+pixel_size = 0.04
+sprite_frames = SubResource("SpriteFrames_gvnn2")
+animation = &"idle"
+
+[node name="PhoneSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_3d18b")
+max_distance = 20.0
+bus = &"SFX"
+
+[node name="RingAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yhxp6")
+}
+
+[node name="DialogueTrigger" type="Marker3D" parent="."]
+script = ExtResource("1_o7blk")
+text = ["*ring ring*", "Hello? Anyone there?", "The line goes dead..."]
+
+[node name="InteractionSymbol" parent="DialogueTrigger" instance=ExtResource("2_wktwx")]
+min_distance = 10.0

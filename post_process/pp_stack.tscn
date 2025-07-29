@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://bni0eo5gi5ho4" path="res://post_process/lcd-overlay_mat.tres" id="2_0v7s0"]
 [ext_resource type="Shader" uid="uid://c8lxgdnivjlh4" path="res://shaders/pp_band-dither.gdshader" id="3_rkbcs"]
 [ext_resource type="Texture2D" uid="uid://b0ub3tqjyw46f" path="res://shaders/psxdither.png" id="4_05ih0"]
-[ext_resource type="PackedScene" uid="uid://b1at8d63c7clm" path="res://scenes/rooms/node_3d.tscn" id="5_sauna"]
+[ext_resource type="PackedScene" uid="uid://b1at8d63c7clm" path="res://scenes/rooms/dark_field.tscn" id="5_sauna"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m5nvn"]
 shader = ExtResource("3_rkbcs")

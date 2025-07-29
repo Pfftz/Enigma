@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://coiboxnwee2s5"]
+
+[ext_resource type="ArrayMesh" uid="uid://bviou8v6v2t1v" path="res://asset/3d/room/under_nmp/cellar.obj" id="3_210qx"]
+[ext_resource type="Resource" uid="uid://cpnxltpebnvr6" path="res://resource/environment/under_nmp.tres" id="3_to2g2"]
+[ext_resource type="Shader" uid="uid://cdmbno3xmc4uw" path="res://shaders/psx_lit_alpha.gdshader" id="4_g00ew"]
+[ext_resource type="Texture2D" uid="uid://baifxxiaueyif" path="res://asset/3d/room/under_nmp/cellar_placeholder.png" id="5_5ed13"]
+[ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="7_jys24"]
+[ext_resource type="Script" uid="uid://df0qpljsc040u" path="res://scripts/objects/spawn.gd" id="9_i6q6g"]
+[ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="11_2cxv2"]
+[ext_resource type="PackedScene" uid="uid://db50wvqb2n0b8" path="res://scenes/objects/interactive/piece.tscn" id="12_xbmq8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bt114"]
+render_priority = 0
+shader = ExtResource("4_g00ew")
+shader_parameter/use_fog = true
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/albedoTex = ExtResource("5_5ed13")
+shader_parameter/alpha_color = Color(1, 0, 1, 1)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 0)
+shader_parameter/tile_mode = false
+shader_parameter/tile = Vector2i(0, 0)
+shader_parameter/per_quad_depth = false
+shader_parameter/adjustable_depth = false
+shader_parameter/depth_offset = Vector3(0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6msm0"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nxaqf"]
+data = PackedVector3Array(-0.5, 0, -6.5, -3.5, 0, -6.5, -0.5, 1, -6.5, -0.5, 1, -6.5, -3.5, 0, -6.5, -3.5, 1, -6.5, -0.5, 0, -6.5, -0.5, 1, -6.5, -0.5, 0, -2.5, -0.5, 0, -2.5, -0.5, 1, -6.5, -0.5, 1, -2.5, -3.5, 1, -6.5, -3.5, 0, -6.5, -3.5, 1, 1.5, -3.5, 1, 1.5, -3.5, 0, -6.5, -3.5, 0, 1.5, -3.5, 0, 3.1, -3.5, 1, 3.1, -6.5, 0, 3.1, -6.5, 0, 3.1, -3.5, 1, 3.1, -6.5, 1, 3.1, -3.5, 1, 3.1, -3.5, 0, 3.1, -3.5, 1, 5, -3.5, 1, 5, -3.5, 0, 3.1, -3.5, 0, 5, -6.5, 1, 1.5, -3.5, 1, 1.5, -6.5, 0, 1.5, -6.5, 0, 1.5, -3.5, 1, 1.5, -3.5, 0, 1.5, -3.5, 1, 5, -3.5, 0, 5, 6.5, 1, 5, 6.5, 1, 5, -3.5, 0, 5, 6.5, 0, 5, 6.5, 1, 5, 6.5, 0, 5, 6.5, 1, 0.5, 6.5, 1, 0.5, 6.5, 0, 5, 6.5, 0, 0.5, 6.5, 1, 0.5, 6.5, 0, 0.5, 4.5, 1, 0.5, 4.5, 1, 0.5, 6.5, 0, 0.5, 4.5, 0, 0.5, 4.5, 1, 0.5, 4.5, 0, 0.5, 4.5, 1, -6.5, 4.5, 1, -6.5, 4.5, 0, 0.5, 4.5, 0, -6.5, 4.5, 1, -6.5, 4.5, 0, -6.5, 1.5, 1, -6.5, 1.5, 1, -6.5, 4.5, 0, -6.5, 1.5, 0, -6.5, 1.5, 1, -6.5, 1.5, 0, -6.5, 1.5, 1, -2.5, 1.5, 1, -2.5, 1.5, 0, -6.5, 1.5, 0, -2.5, 3.25, 1, -4.5, 3.25, 0, -4.5, 2.75, 1, -4.5, 2.75, 1, -4.5, 3.25, 0, -4.5, 2.75, 0, -4.5, 3.25, 0, -4.5, 3.25, 1, -4.5, 3.25, 0, -5, 3.25, 0, -5, 3.25, 1, -4.5, 3.25, 1, -5, 3.25, 0, -5, 3.25, 1, -5, 2.75, 0, -5, 2.75, 0, -5, 3.25, 1, -5, 2.75, 1, -5, 2.75, 1, -4.5, 2.75, 0, -4.5, 2.75, 1, -5, 2.75, 1, -5, 2.75, 0, -4.5, 2.75, 0, -5)
+
+[node name="cellar" type="Node3D"]
+
+[node name="NiftyMesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_210qx")
+surface_material_override/0 = SubResource("ShaderMaterial_bt114")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NiftyMesh"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.48083, 0.489149, -2.99955)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NiftyMesh/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.254875)
+shape = SubResource("BoxShape3D_6msm0")
+debug_color = Color(0.935826, 1.90598e-05, 0.634776, 0.42)
+
+[node name="SpawnClass" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.488101, 0.505, -1.69349)
+script = ExtResource("9_i6q6g")
+spawn_name = "from_trapdoor"
+
+[node name="CellarCollision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="CellarCollision"]
+shape = SubResource("ConcavePolygonShape3D_nxaqf")
+
+[node name="PieceArea" parent="." instance=ExtResource("12_xbmq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -3.5)
+
+[node name="PieceArea2" parent="." instance=ExtResource("12_xbmq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -3.5)
+
+[node name="PieceArea3" parent="." instance=ExtResource("12_xbmq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.5)
+
+[node name="PieceArea4" parent="." instance=ExtResource("12_xbmq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -4.5)
+
+[node name="PieceArea5" parent="." instance=ExtResource("12_xbmq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3.5)
+
+[node name="PieceArea6" parent="." instance=ExtResource("12_xbmq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3.5)
+
+[node name="PieceArea7" parent="." instance=ExtResource("12_xbmq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.5)
+
+[node name="PieceArea8" parent="." instance=ExtResource("12_xbmq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1.5)
+
+[node name="Warp2" parent="." instance=ExtResource("11_2cxv2")]
+transform = Transform3D(-0.195963, 0, 0.980611, 0, 1, 0, -0.980611, 0, -0.195963, -4.5, 0, 2)
+target_scene_path = "uid://d2600wj0iyryf"
+target_spawn_name = "from_cellar"
+
+[node name="SpawnClass2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.505, 2)
+script = ExtResource("9_i6q6g")
+spawn_name = "from_hallway1"
+player_direction = 1
+
+[node name="EnvironmentManager" type="Node3D" parent="."]
+script = ExtResource("7_jys24")
+environment_settings = ExtResource("3_to2g2")

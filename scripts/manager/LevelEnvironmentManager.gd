@@ -6,7 +6,8 @@ class_name LevelEnvironmentManager
 const EnvironmentResourceScript = preload("res://scripts/resources/EnvironmentResource.gd")
 
 @export var environment_settings: EnvironmentResource ## Environment configuration for this level
-@export var fog_follow_target: Node3D ## Node that fog should follow (usually the player)
+# fog_follow_target is now automatically found - no manual assignment needed
+var fog_follow_target: Node3D ## Node that fog should follow (automatically assigned to player)
 
 # Internal references
 var world_environment: WorldEnvironment
@@ -20,9 +21,16 @@ func _ready():
 	setup_lighting()
 	setup_moving_background()
 	
-	# If no fog target is set, try to find the player
-	if not fog_follow_target and environment_settings and environment_settings.fog_follow_player:
-		fog_follow_target = get_tree().get_first_node_in_group("player")
+	# Always try to find the player automatically - remove manual assignment dependency
+	if environment_settings and environment_settings.fog_follow_player:
+		# Use a timer to ensure player is loaded in scene transitions
+		await get_tree().process_frame
+		_find_and_assign_player()
+		
+		# Set up a fallback to catch player spawning after scene transitions
+		if not fog_follow_target:
+			# Connect to tree changes to catch when player is added
+			get_tree().node_added.connect(_on_node_added)
 
 func _process(_delta):
 	# Update global time for moving backgrounds
@@ -117,6 +125,43 @@ func update_fog_position():
 	if fog_follow_target and environment_settings.fog_follow_player:
 		fog_focus_position = fog_follow_target.global_position
 		RenderingServer.global_shader_parameter_set("fog_pos", fog_focus_position)
+
+func _find_and_assign_player():
+	"""Find player in scene and assign as fog follow target"""
+	fog_follow_target = get_tree().get_first_node_in_group("player")
+	if fog_follow_target:
+		print("LevelEnvironmentManager: Player found and assigned for fog following")
+		# Set initial fog position immediately
+		if environment_settings and environment_settings.enable_fog:
+			fog_focus_position = fog_follow_target.global_position
+			RenderingServer.global_shader_parameter_set("fog_pos", fog_focus_position)
+		# Disconnect the signal if we found the player
+		if get_tree().node_added.is_connected(_on_node_added):
+			get_tree().node_added.disconnect(_on_node_added)
+	else:
+		print("LevelEnvironmentManager: Warning - No player found in 'player' group")
+		# Try again after a short delay in case player hasn't spawned yet
+		await get_tree().create_timer(0.1).timeout
+		fog_follow_target = get_tree().get_first_node_in_group("player")
+		if fog_follow_target:
+			print("LevelEnvironmentManager: Player found on retry and assigned for fog following")
+			if environment_settings and environment_settings.enable_fog:
+				fog_focus_position = fog_follow_target.global_position
+				RenderingServer.global_shader_parameter_set("fog_pos", fog_focus_position)
+			# Disconnect the signal if we found the player
+			if get_tree().node_added.is_connected(_on_node_added):
+				get_tree().node_added.disconnect(_on_node_added)
+
+func _on_node_added(node: Node):
+	"""Callback for when nodes are added to the scene tree - catches late player spawning"""
+	if not fog_follow_target and node.is_in_group("player"):
+		print("LevelEnvironmentManager: Player detected spawning, assigning for fog following")
+		fog_follow_target = node
+		if environment_settings and environment_settings.enable_fog:
+			fog_focus_position = fog_follow_target.global_position
+			RenderingServer.global_shader_parameter_set("fog_pos", fog_focus_position)
+		# Disconnect the signal now that we found the player
+		get_tree().node_added.disconnect(_on_node_added)
 
 # Public methods for runtime control
 func set_fog_enabled(enabled: bool):

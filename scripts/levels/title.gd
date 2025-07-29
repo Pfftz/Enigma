@@ -33,8 +33,8 @@ func _ready() -> void:
 	
 	# ... (sisa fungsi _ready() tetap sama) ...
 	$Song.play()
-	if BGMusic.get_stream_path() != "res://music/petscop.ogg":
-		BGMusic.stream_paused = true
+	if AudioManager.get_current_bg_track() != "res://music/petscop.ogg":
+		AudioManager.pause_bg_music()
 	get_tree().paused = false
 	Global.is_game_paused = false
 	Global.can_pause = false

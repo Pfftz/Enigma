@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://c1ohfqrdajkw5"]
 
-[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player.tscn" id="1_kvag1"]
+[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_kvag1"]
 [ext_resource type="ArrayMesh" uid="uid://qf5dr13mm2od" path="res://asset/3d/room/gift/gift_plane0.obj" id="3_4f57q"]
 [ext_resource type="Shader" uid="uid://cdmbno3xmc4uw" path="res://shaders/psx_lit_alpha.gdshader" id="4_0nbml"]
 [ext_resource type="Texture2D" uid="uid://b617s71g30arh" path="res://asset/3d/room/gift/texture.png" id="5_twqjy"]
@@ -9,9 +9,9 @@
 [ext_resource type="Shader" uid="uid://yrx3bttloff4" path="res://shaders/psx_lit.gdshader" id="10_fwmc1"]
 [ext_resource type="Resource" uid="uid://cpnxltpebnvr6" path="res://resource/environment/under_nmp.tres" id="11_7coyi"]
 [ext_resource type="ArrayMesh" uid="uid://pl2hbxyg4fff" path="res://asset/3d/object/sign.obj" id="12_4u56r"]
-[ext_resource type="PackedScene" uid="uid://dguysikyfdbkc" path="res://scenes/objects/dialogue_trigger.tscn" id="12_162ku"]
+[ext_resource type="PackedScene" uid="uid://dguysikyfdbkc" path="res://scenes/objects/interactive/dialogue_trigger.tscn" id="12_162ku"]
 [ext_resource type="ArrayMesh" uid="uid://cyhgrkw2vxfga" path="res://asset/3d/room/gift/giftplane2.obj" id="14_aw5fm"]
-[ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/warp.tscn" id="15_frvro"]
+[ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="15_frvro"]
 [ext_resource type="Texture2D" uid="uid://d21du64n13ci3" path="res://asset/2d/ui/misc/evencare.png" id="18_aw0g4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rtbp"]
@@ -196,10 +196,9 @@ mesh = ExtResource("14_aw5fm")
 surface_material_override/0 = SubResource("ShaderMaterial_dqfyf")
 script = SubResource("GDScript_6yjul")
 
-[node name="EnvironmentManager" type="Node3D" parent="." node_paths=PackedStringArray("fog_follow_target")]
+[node name="EnvironmentManager" type="Node3D" parent="."]
 script = ExtResource("10_7coyi")
 environment_settings = ExtResource("11_7coyi")
-fog_follow_target = NodePath("../Player")
 
 [node name="LogoArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.03, 0, 0)

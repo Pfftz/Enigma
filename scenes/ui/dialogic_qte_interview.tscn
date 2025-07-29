@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7beopwbk3cgd"]
 
-[ext_resource type="Script" uid="uid://xdf8j0lvtnq3" path="res://scripts/ui/dialogic_qte_manager.gd" id="1_dialogic_manager"]
+[ext_resource type="Script" uid="uid://xdf8j0lvtnq3" path="res://scripts/manager/dialogic_qte_manager.gd" id="1_dialogic_manager"]
 [ext_resource type="Texture2D" uid="uid://c6imcx7a1dfcm" path="res://icon/textboxres.png" id="2_j8k4w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]

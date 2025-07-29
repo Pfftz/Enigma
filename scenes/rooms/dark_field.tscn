@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dhxiylyk0qjd8" path="res://icon.svg" id="1_57kka"]
 [ext_resource type="Shader" uid="uid://7u2knix73ppd" path="res://shaders/psx_unlit_alpha-scissor.gdshader" id="1_85d2f"]
-[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player.tscn" id="3_ttxqa"]
+[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="3_ttxqa"]
 [ext_resource type="Shader" uid="uid://c8lsw8dhkavwq" path="res://shaders/psx_unlit.gdshader" id="4_7hmr4"]
 [ext_resource type="Texture2D" uid="uid://b1ir1inksa4g4" path="res://sprites/grass.png" id="4_dhghc"]
-[ext_resource type="Script" uid="uid://bkghu7oiaubsr" path="res://scripts/objects/interact.gd" id="6_ap2vy"]
+[ext_resource type="Script" uid="uid://bkghu7oiaubsr" path="res://scripts/objects/interact/interact.gd" id="6_ap2vy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1d2k2"]
 render_priority = 0

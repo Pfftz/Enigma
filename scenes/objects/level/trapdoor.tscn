@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://csvd32t6xnda2"]
+
+[ext_resource type="ArrayMesh" uid="uid://dche6yocq7w0r" path="res://asset/3d/object/trapdoor.obj" id="1_bj5i6"]
+[ext_resource type="Shader" uid="uid://yrx3bttloff4" path="res://shaders/psx_lit.gdshader" id="2_fqiim"]
+[ext_resource type="ArrayMesh" uid="uid://esqcxvo7bgpd" path="res://asset/3d/object/trapdoor_door.obj" id="3_8o683"]
+[ext_resource type="Texture2D" uid="uid://cug5niin5ydjt" path="res://asset/3d/room/nmp/nmp_general_placeholder.png" id="4_g5fov"]
+[ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="9_pw6vp"]
+[ext_resource type="PackedScene" uid="uid://b7f5kqo8xnda3" path="res://scenes/objects/level/trapdoor_interact.tscn" id="10_61wdo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pdndm"]
+render_priority = 0
+shader = ExtResource("2_fqiim")
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afmgf"]
+render_priority = 0
+shader = ExtResource("2_fqiim")
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/albedoTex = ExtResource("4_g5fov")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gjh18"]
+data = PackedVector3Array(0.9173, 1, -1.2674, -0.9173, 1, -1.2674, 0.9173, 0, -1.2674, 0.9173, 0, -1.2674, -0.9173, 1, -1.2674, -0.9173, 0, -1.2674, -0.9173, 0, 1.2674, -0.9173, 0, -1.2674, -0.9173, 1, 1.2674, -0.9173, 1, 1.2674, -0.9173, 0, -1.2674, -0.9173, 1, -1.2674, 0.9173, 0, -1.2674, 0.9173, 0, 1.2674, 0.9173, 1, -1.2674, 0.9173, 1, -1.2674, 0.9173, 0, 1.2674, 0.9173, 1, 1.2674, 0.9173, 1, 1.2674, 0.9173, 0, 1.2674, 0.8, 1, 1.2674, 0.8, 1, 1.2674, 0.9173, 0, 1.2674, 0.8, 0, 1.2674, -0.9173, 0, 1.2674, -0.9173, 1, 1.2674, -0.8173, 0, 1.2674, -0.8173, 0, 1.2674, -0.9173, 1, 1.2674, -0.8173, 1, 1.2674, -0.8173, 0, 1.2674, -0.8173, 1, 1.2674, -0.8173, 0, 0.25, -0.8173, 0, 0.25, -0.8173, 1, 1.2674, -0.8173, 1, 0.25, 0.8, 1, 1.2674, 0.8, 0, 1.2674, 0.8, 1, 0.25, 0.8, 1, 0.25, 0.8, 0, 1.2674, 0.8, 0, 0.25)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fhm28"]
+data = PackedVector3Array(-0.9173, 0, 1.2674, -0.9173, 1, 1.2674, 0.9173, 0, 1.2674, 0.9173, 0, 1.2674, -0.9173, 1, 1.2674, 0.9173, 1, 1.2674)
+
+[node name="Trapdoor" type="Node3D"]
+
+[node name="TrapdoorMesh" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
+[node name="BaseMesh" type="MeshInstance3D" parent="TrapdoorMesh"]
+mesh = ExtResource("1_bj5i6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_pdndm")
+
+[node name="DoorMesh" type="MeshInstance3D" parent="TrapdoorMesh"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.862514, -0.506034, 0, 0.506034, 0.862514, -0.75, 0.88, 0)
+mesh = ExtResource("3_8o683")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_afmgf")
+
+[node name="TrapdoorBody" type="StaticBody3D" parent="TrapdoorMesh"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="TrapdoorMesh/TrapdoorBody"]
+shape = SubResource("ConcavePolygonShape3D_gjh18")
+
+[node name="TrapdoorFront" type="StaticBody3D" parent="TrapdoorMesh"]
+
+[node name="FrontShape" type="CollisionShape3D" parent="TrapdoorMesh/TrapdoorFront"]
+unique_name_in_owner = true
+shape = SubResource("ConcavePolygonShape3D_fhm28")
+
+[node name="Warp" parent="TrapdoorMesh" instance=ExtResource("9_pw6vp")]
+unique_name_in_owner = true
+transform = Transform3D(-0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0, 0, 0)
+target_scene_path = "uid://coiboxnwee2s5"
+target_spawn_name = "from_trapdoor"
+
+[node name="TrapdoorInteract" parent="TrapdoorMesh" instance=ExtResource("10_61wdo")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.173976, 2)
+gizmo_extents = 0.5
+interaction_text = Array[String](["..."])
