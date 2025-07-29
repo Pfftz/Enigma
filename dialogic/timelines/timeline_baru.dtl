@@ -1,0 +1,19 @@
+join character leftmost
+character: halo sunda
+join kamu rightmost
+kamu: halo jawa\
+\
+\
+JAWAJAWAJAWAJAWAJAWA
+- bunga itu indah | [aku="123123"]
+	set {hore} = true
+	character: bunga itu indah
+	kamu: makasih
+- bunga nya jelek
+	set {hore} = false
+	character: bunga nya jelek
+	kamu: KONYOL
+if {hore} == true:
+	*Cipok
+else:
+	*GELUD

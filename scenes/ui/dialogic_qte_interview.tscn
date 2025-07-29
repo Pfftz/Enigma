@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxfe0cbshi1dw"]
 
-[ext_resource type="Script" uid="uid://dehc4fjhbmukn" path="res://scripts/levels/qte/dialog_qte_manager.gd" id="1_tni71"]
+[ext_resource type="Script" uid="uid://xdf8j0lvtnq3" path="res://scripts/core game/qte/dialogic_qte_interview.gd" id="1_tni71"]
 [ext_resource type="Texture2D" uid="uid://c6imcx7a1dfcm" path="res://icon/textboxres.png" id="2_thnq7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]

@@ -21,17 +21,17 @@ Global="*res://scripts/autoloads/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 EventBus="*res://scripts/autoloads/event_bus.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-BGMusic="*res://scripts/autoloads/bg_music.gd"
-BgMusic="*res://scripts/autoloads/bg_music.gd"
+AudioManager="*res://scenes/management/audio_manager.tscn"
+GameState="*res://scripts/autoloads/gamestate.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "bananazon_interviewer": "res://dialogic/characters/bananazon_interviewer.dch",
-"character": "res://dialogic/character/character.dch",
+"character": "res://dialogic/characters/character.dch",
 "creative_interviewer": "res://dialogic/characters/creative_interviewer.dch",
 "green_interviewer": "res://dialogic/characters/green_interviewer.dch",
-"kamu": "res://dialogic/character/kamu.dch",
+"kamu": "res://dialogic/characters/kamu.dch",
 "mega_interviewer": "res://dialogic/characters/mega_interviewer.dch",
 "player": "res://dialogic/characters/player.dch",
 "techcorp_interviewer": "res://dialogic/characters/techcorp_interviewer.dch",
@@ -39,40 +39,43 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "day1": "res://dialogic/timelines/day1.dtl",
-"interview_day2_q1": "res://dialogic/timelines/interview_day2_q1.dtl",
-"interview_day2_q1_timeout": "res://dialogic/timelines/interview_day2_q1_timeout.dtl",
-"interview_day2_q2": "res://dialogic/timelines/interview_day2_q2.dtl",
-"interview_day2_q2_timeout": "res://dialogic/timelines/interview_day2_q2_timeout.dtl",
-"interview_day2_q3": "res://dialogic/timelines/interview_day2_q3.dtl",
-"interview_day2_q3_timeout": "res://dialogic/timelines/interview_day2_q3_timeout.dtl",
-"interview_day3_q1": "res://dialogic/timelines/interview_day3_q1.dtl",
-"interview_day3_q1_timeout": "res://dialogic/timelines/interview_day3_q1_timeout.dtl",
-"interview_day3_q2": "res://dialogic/timelines/interview_day3_q2.dtl",
-"interview_day3_q2_timeout": "res://dialogic/timelines/interview_day3_q2_timeout.dtl",
-"interview_day3_q3": "res://dialogic/timelines/interview_day3_q3.dtl",
-"interview_day3_q3_timeout": "res://dialogic/timelines/interview_day3_q3_timeout.dtl",
-"interview_day4_q1": "res://dialogic/timelines/interview_day4_q1.dtl",
-"interview_day4_q1_timeout": "res://dialogic/timelines/interview_day4_q1_timeout.dtl",
-"interview_day4_q2": "res://dialogic/timelines/interview_day4_q2.dtl",
-"interview_day4_q2_timeout": "res://dialogic/timelines/interview_day4_q2_timeout.dtl",
-"interview_day4_q3": "res://dialogic/timelines/interview_day4_q3.dtl",
-"interview_day4_q3_timeout": "res://dialogic/timelines/interview_day4_q3_timeout.dtl",
-"interview_day5_q1": "res://dialogic/timelines/interview_day5_q1.dtl",
-"interview_day5_q1_timeout": "res://dialogic/timelines/interview_day5_q1_timeout.dtl",
-"interview_day5_q2": "res://dialogic/timelines/interview_day5_q2.dtl",
-"interview_day5_q2_timeout": "res://dialogic/timelines/interview_day5_q2_timeout.dtl",
-"interview_day5_q3": "res://dialogic/timelines/interview_day5_q3.dtl",
-"interview_day5_q3_timeout": "res://dialogic/timelines/interview_day5_q3_timeout.dtl",
+"interview_day2_q1": "res://dialogic/timelines/qte/interview_day2_q1.dtl",
+"interview_day2_q1_timeout": "res://dialogic/timelines/qte/interview_day2_q1_timeout.dtl",
+"interview_day2_q2": "res://dialogic/timelines/qte/interview_day2_q2.dtl",
+"interview_day2_q2_timeout": "res://dialogic/timelines/qte/interview_day2_q2_timeout.dtl",
+"interview_day2_q3": "res://dialogic/timelines/qte/interview_day2_q3.dtl",
+"interview_day2_q3_timeout": "res://dialogic/timelines/qte/interview_day2_q3_timeout.dtl",
+"interview_day3_q1": "res://dialogic/timelines/qte/interview_day3_q1.dtl",
+"interview_day3_q1_timeout": "res://dialogic/timelines/qte/interview_day3_q1_timeout.dtl",
+"interview_day3_q2": "res://dialogic/timelines/qte/interview_day3_q2.dtl",
+"interview_day3_q2_timeout": "res://dialogic/timelines/qte/interview_day3_q2_timeout.dtl",
+"interview_day3_q3": "res://dialogic/timelines/qte/interview_day3_q3.dtl",
+"interview_day3_q3_timeout": "res://dialogic/timelines/qte/interview_day3_q3_timeout.dtl",
+"interview_day4_q1": "res://dialogic/timelines/qte/interview_day4_q1.dtl",
+"interview_day4_q1_timeout": "res://dialogic/timelines/qte/interview_day4_q1_timeout.dtl",
+"interview_day4_q2": "res://dialogic/timelines/qte/interview_day4_q2.dtl",
+"interview_day4_q2_timeout": "res://dialogic/timelines/qte/interview_day4_q2_timeout.dtl",
+"interview_day4_q3": "res://dialogic/timelines/qte/interview_day4_q3.dtl",
+"interview_day4_q3_timeout": "res://dialogic/timelines/qte/interview_day4_q3_timeout.dtl",
+"interview_day5_q1": "res://dialogic/timelines/qte/interview_day5_q1.dtl",
+"interview_day5_q1_timeout": "res://dialogic/timelines/qte/interview_day5_q1_timeout.dtl",
+"interview_day5_q2": "res://dialogic/timelines/qte/interview_day5_q2.dtl",
+"interview_day5_q2_timeout": "res://dialogic/timelines/qte/interview_day5_q2_timeout.dtl",
+"interview_day5_q3": "res://dialogic/timelines/qte/interview_day5_q3.dtl",
+"interview_day5_q3_timeout": "res://dialogic/timelines/qte/interview_day5_q3_timeout.dtl",
 "interview_intro": "res://dialogic/timelines/interview_intro.dtl",
-"interview_q1": "res://dialogic/timelines/interview_q1.dtl",
-"interview_q1_timeout": "res://dialogic/timelines/interview_q1_timeout.dtl",
-"interview_q2": "res://dialogic/timelines/interview_q2.dtl",
-"interview_q2_timeout": "res://dialogic/timelines/interview_q2_timeout.dtl",
-"interview_q3": "res://dialogic/timelines/interview_q3.dtl",
-"interview_q3_timeout": "res://dialogic/timelines/interview_q3_timeout.dtl",
+"interview_q1": "res://dialogic/timelines/qte/interview_q1.dtl",
+"interview_q1_timeout": "res://dialogic/timelines/qte/interview_q1_timeout.dtl",
+"interview_q2": "res://dialogic/timelines/qte/interview_q2.dtl",
+"interview_q2_timeout": "res://dialogic/timelines/qte/interview_q2_timeout.dtl",
+"interview_q3": "res://dialogic/timelines/qte/interview_q3.dtl",
+"interview_q3_timeout": "res://dialogic/timelines/qte/interview_q3_timeout.dtl",
 "test_simple": "res://dialogic/timelines/test_simple.dtl",
 "timeline_baru": "res://dialogic/timelines/timeline_baru.dtl"
 }
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
 variables={
 "company_name": "Test Company",
 "day1_completed": false,
@@ -91,9 +94,26 @@ variables={
 "interview_score": 0,
 "question_answered": false
 }
-layout/style_list=[]
-layout/default_style="Default"
-glossary/default_case_sensitive=true
+extensions_folder="res://addons/dialogic_additions"
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+audio/max_channels=4.0
+animations/join_default_length=0.5
+animations/join_default_wait=true
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/cross_fade_default_length=0.5
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autopauses={}
 
 [display]
 
@@ -159,6 +179,10 @@ interact={
 
 3d_physics/layer_1="collision"
 3d_physics/layer_2="interaction"
+
+[physics]
+
+common/physics_interpolation=true
 
 [rendering]
 
