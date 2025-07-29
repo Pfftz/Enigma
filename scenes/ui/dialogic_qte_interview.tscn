@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7beopwbk3cgd"]
+[gd_scene load_steps=5 format=3 uid="uid://dxfe0cbshi1dw"]
 
-[ext_resource type="Script" uid="uid://xdf8j0lvtnq3" path="res://scripts/manager/dialogic_qte_manager.gd" id="1_dialogic_manager"]
-[ext_resource type="Texture2D" uid="uid://c6imcx7a1dfcm" path="res://icon/textboxres.png" id="2_j8k4w"]
+[ext_resource type="Script" uid="uid://dehc4fjhbmukn" path="res://scripts/levels/qte/dialog_qte_manager.gd" id="1_tni71"]
+[ext_resource type="Texture2D" uid="uid://c6imcx7a1dfcm" path="res://icon/textboxres.png" id="2_thnq7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
 bg_color = Color(0.2, 0.2, 0.2, 0.8)
@@ -24,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dialogic_manager")
+script = ExtResource("1_tni71")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -122,7 +122,7 @@ size_flags_vertical = 3
 
 [node name="InterviewerSprite" type="TextureRect" parent="CenterContainer/InterviewPanel/VBoxContainer/CharacterContainer"]
 layout_mode = 2
-texture = ExtResource("2_j8k4w")
+texture = ExtResource("2_thnq7")
 expand_mode = 1
 stretch_mode = 5
 

@@ -1,0 +1,160 @@
+[gd_scene load_steps=18 format=3 uid="uid://biq31bh8d770w"]
+
+[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player.tscn" id="1_gen8e"]
+[ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_h6q15"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_gl7wd"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_u1ed7"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_qlhkn"]
+[ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact_laptop.gd" id="6_ygr16"]
+[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_58d06"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
+size = Vector3(0.567505, 1, 4.24658)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wfhsx"]
+size = Vector3(4.68469, 0.464355, 1.03778)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ctt0g"]
+size = Vector3(1.69556, 0.896484, 0.891846)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mkbd2"]
+radius = 0.203481
+height = 0.888744
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fh1go"]
+size = Vector3(1.76318, 1, 0.600525)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jcls8"]
+size = Vector3(4.02283, 1.00342, 0.218445)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nbk78"]
+size = Vector3(0.254028, 1.08984, 3.97046)
+
+[sub_resource type="Resource" id="Resource_mkbd2"]
+script = ExtResource("5_qlhkn")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61454"]
+size = Vector3(1.19458, 0.208984, 1.59875)
+
+[sub_resource type="Resource" id="Resource_fh1go"]
+script = ExtResource("5_qlhkn")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Ruang1Test" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_gen8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.619151, 0.923992, 0.366977)
+
+[node name="LowPolyLivingRoom" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0125617, 0.284882, 0.327073)
+mesh = ExtResource("2_h6q15")
+
+[node name="Collision" type="Node3D" parent="."]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision"]
+transform = Transform3D(0.0200001, 0, 0.9998, 0, 1, 0, -0.9998, 0, 0.0200001, 2.64866, 1.94851, 0.356583)
+
+[node name="tembok sebelah kasur" type="CollisionShape3D" parent="Collision/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14443, -1.01162, -2.09749)
+shape = SubResource("BoxShape3D_mkbd2")
+
+[node name="tembok void kanan" type="CollisionShape3D" parent="Collision/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00195551, -1.39819, -0.0977566)
+shape = SubResource("BoxShape3D_wfhsx")
+
+[node name="Kasur" type="CollisionShape3D" parent="Collision/StaticBody3D"]
+transform = Transform3D(0.0200001, 0, -0.9998, 0, 1, 0, 0.9998, 0, 0.0200001, 1.00627, -1.23991, -0.693693)
+shape = SubResource("BoxShape3D_wfhsx")
+
+[node name="meja lepi" type="CollisionShape3D" parent="Collision/StaticBody3D"]
+transform = Transform3D(0.999844, 0, 0.0176793, 0, 1, 0, -0.0176793, 0, 0.999844, -1.10143, -0.972409, -3.8667)
+shape = SubResource("BoxShape3D_ctt0g")
+
+[node name="Kursi" type="CollisionShape3D" parent="Collision/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05364, -1.13148, -3.22171)
+shape = SubResource("CapsuleShape3D_mkbd2")
+
+[node name="laci hijau" type="CollisionShape3D" parent="Collision/StaticBody3D"]
+transform = Transform3D(0.999516, 0, 0.0311142, 0, 1, 0, -0.0311142, 0, 0.999516, 0.949443, -1.00814, -4.32303)
+shape = SubResource("BoxShape3D_fh1go")
+
+[node name="tembok kiri" type="CollisionShape3D" parent="Collision/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387232, -0.790812, -4.48001)
+shape = SubResource("BoxShape3D_jcls8")
+
+[node name="tembok void depan" type="CollisionShape3D" parent="Collision/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90553, -1.12477, -2.60762)
+shape = SubResource("BoxShape3D_nbk78")
+
+[node name="camera1" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.2415, 4.98778)
+fov = 37.8493
+
+[node name="PhantomCameraHost" type="Node" parent="camera1"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_gl7wd")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.2415, 4.98778)
+top_level = true
+script = ExtResource("4_u1ed7")
+follow_mode = 5
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_mkbd2")
+follow_offset = Vector3(0, 3.245, 3.4)
+follow_damping = true
+follow_damping_value = Vector3(0.145, 0.145, 0.145)
+follow_distance = 1.625
+dead_zone_width = 0.617
+dead_zone_height = 0.594
+vertical_rotation_offset = 0.720821
+spring_length = 1.625
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="interact laptop" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.380346, 0.713225, 0.373931)
+collision_layer = 2
+script = ExtResource("6_ygr16")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interact laptop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.737567, 0.613703, 1.4092)
+shape = SubResource("BoxShape3D_61454")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("7_58d06")
+
+[node name="InteractLabel" type="Label" parent="UI"]
+offset_right = 1153.0
+offset_bottom = 651.0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../PhantomCamera3D2/Camera3D")
+
+[node name="PhantomCamera3D2" type="Node3D" parent="."]
+transform = Transform3D(0.0257836, -0.302392, 0.952835, -0.0263367, 0.952615, 0.303035, -0.999321, -0.0329079, 0.0165978, 0.974577, 1.79454, 1.17849)
+script = ExtResource("4_u1ed7")
+tween_resource = SubResource("Resource_fh1go")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Camera3D" type="Camera3D" parent="PhantomCamera3D2"]
+physics_interpolation_mode = 1
+transform = Transform3D(0.999737, -0.0228718, 0.00162081, 0.0227041, 0.997327, 0.0694504, -0.00320494, -0.0693953, 0.997584, -0.223277, 0.123007, -0.32794)
+fov = 28.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.0158575, -0.368296, 0.929573, -0.00567272, 0.929642, 0.36842, -0.999858, -0.0111154, 0.0126525, 1.50408, 1.81822, 1.39212)
+light_energy = 1.83
+
+[connection signal="body_entered" from="interact laptop" to="interact laptop" method="_on_body_entered"]
+[connection signal="body_exited" from="interact laptop" to="interact laptop" method="_on_body_exited"]

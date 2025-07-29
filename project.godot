@@ -21,14 +21,17 @@ Global="*res://scripts/autoloads/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 EventBus="*res://scripts/autoloads/event_bus.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-AudioManager="*res://scenes/management/audio_manager.tscn"
+BGMusic="*res://scripts/autoloads/bg_music.gd"
+BgMusic="*res://scripts/autoloads/bg_music.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "bananazon_interviewer": "res://dialogic/characters/bananazon_interviewer.dch",
+"character": "res://dialogic/character/character.dch",
 "creative_interviewer": "res://dialogic/characters/creative_interviewer.dch",
 "green_interviewer": "res://dialogic/characters/green_interviewer.dch",
+"kamu": "res://dialogic/character/kamu.dch",
 "mega_interviewer": "res://dialogic/characters/mega_interviewer.dch",
 "player": "res://dialogic/characters/player.dch",
 "techcorp_interviewer": "res://dialogic/characters/techcorp_interviewer.dch",
@@ -67,11 +70,9 @@ directories/dtl_directory={
 "interview_q2_timeout": "res://dialogic/timelines/interview_q2_timeout.dtl",
 "interview_q3": "res://dialogic/timelines/interview_q3.dtl",
 "interview_q3_timeout": "res://dialogic/timelines/interview_q3_timeout.dtl",
-"test_simple": "res://dialogic/timelines/test_simple.dtl"
+"test_simple": "res://dialogic/timelines/test_simple.dtl",
+"timeline_baru": "res://dialogic/timelines/timeline_baru.dtl"
 }
-glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
 variables={
 "company_name": "Test Company",
 "day1_completed": false,
@@ -90,6 +91,9 @@ variables={
 "interview_score": 0,
 "question_answered": false
 }
+layout/style_list=[]
+layout/default_style="Default"
+glossary/default_case_sensitive=true
 
 [display]
 
@@ -155,10 +159,6 @@ interact={
 
 3d_physics/layer_1="collision"
 3d_physics/layer_2="interaction"
-
-[physics]
-
-common/physics_interpolation=true
 
 [rendering]
 
