@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name Player
 
-const SPEED = 5.0
+const SPEED = 2.5
 const JUMP_VELOCITY = 0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
