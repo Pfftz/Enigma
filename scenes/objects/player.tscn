@@ -212,7 +212,7 @@ animations = [{
 script = ExtResource("1_urvre")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.879217, 0, 0.476422, 0, 1, 0, -0.476422, 0, 0.879217, 0.00151229, 0, -0.0474017)
+transform = Transform3D(0.879217, 0, 0.476422, 0, 1, 0, -0.476422, 0, 0.879217, 0.00151229, 0, 0.0178749)
 shape = SubResource("CapsuleShape3D_dqkch")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]

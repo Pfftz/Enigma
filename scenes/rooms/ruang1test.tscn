@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://fh6h0ed2uoar"]
+[gd_scene load_steps=19 format=3 uid="uid://fh6h0ed2uoar"]
 
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player.tscn" id="1_v0jrp"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_w84pv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_mkbd2"]
 [ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact_laptop.gd" id="6_fh1go"]
 [ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_fh1go"]
+[ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/sampah_sebiji.tscn" id="8_nbk78"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)
@@ -55,7 +56,6 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0125617, 0.284882,
 mesh = ExtResource("2_w84pv")
 
 [node name="Collision" type="Node3D" parent="."]
-visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Collision"]
 transform = Transform3D(0.0200001, 0, 0.9998, 0, 1, 0, -0.9998, 0, 0.0200001, 2.64866, 1.94851, 0.356583)
@@ -65,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14443, -1.01162, -2.09749)
 shape = SubResource("BoxShape3D_mkbd2")
 
 [node name="tembok void kanan" type="CollisionShape3D" parent="Collision/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00195551, -1.39819, -0.0977566)
+transform = Transform3D(0.999774, 0, 0.0212391, 0, 1, 0, -0.0212391, 0, 0.999774, -0.00165597, -1.39819, -0.0827827)
 shape = SubResource("BoxShape3D_wfhsx")
 
 [node name="Kasur" type="CollisionShape3D" parent="Collision/StaticBody3D"]
@@ -89,12 +89,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387232, -0.790812, -4.480
 shape = SubResource("BoxShape3D_jcls8")
 
 [node name="tembok void depan" type="CollisionShape3D" parent="Collision/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90553, -1.12477, -2.60762)
+transform = Transform3D(0.999986, 0, 0.00523596, 0, 1, 0, -0.00523596, 0, 0.999986, -2.14312, -1.12477, -2.60287)
 shape = SubResource("BoxShape3D_nbk78")
 
 [node name="camera1" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.24149, 4.98778)
+transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.2415, 4.98778)
 fov = 37.8493
 
 [node name="PhantomCameraHost" type="Node" parent="camera1"]
@@ -104,7 +104,7 @@ script = ExtResource("3_mkbd2")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.24149, 4.98778)
+transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.2415, 4.98778)
 top_level = true
 script = ExtResource("2_wfhsx")
 follow_mode = 5
@@ -154,3 +154,6 @@ fov = 28.0
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.0158575, -0.368296, 0.929573, -0.00567272, 0.929642, 0.36842, -0.999858, -0.0111154, 0.0126525, 1.50408, 1.81822, 1.39212)
 light_energy = 1.83
+
+[node name="sampah sebiji" parent="." instance=ExtResource("8_nbk78")]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0.33458, 0.493742, 1.12616)

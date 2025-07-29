@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://3i2nr14u21q1"]
+
+[ext_resource type="ArrayMesh" uid="uid://cbo1y335bx5th" path="res://asset/3d/object/trash_bin_pack_low_poly/pisah/sampah1.res" id="1_7e54r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_stqkv"]
+radius = 0.791224
+height = 17.2243
+
+[node name="sampah sebiji" type="Node3D"]
+
+[node name="Sampah1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99481, -1.05384, 1.05882)
+mesh = ExtResource("1_7e54r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sampah1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023124, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sampah1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0314283, 8.20725, 0)
+shape = SubResource("CapsuleShape3D_stqkv")

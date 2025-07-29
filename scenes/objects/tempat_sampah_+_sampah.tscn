@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://dq1d72nk2f6nt"]
+
+[ext_resource type="ArrayMesh" uid="uid://bg2nlb2oq7xun" path="res://asset/3d/object/trash_bin_pack_low_poly/pisah/sampah2.res" id="1_674cg"]
+[ext_resource type="ArrayMesh" uid="uid://e51upn6y2jao" path="res://asset/3d/object/trash_bin_pack_low_poly/pisah/sampah3.res" id="2_7kr6w"]
+[ext_resource type="ArrayMesh" uid="uid://cbo1y335bx5th" path="res://asset/3d/object/trash_bin_pack_low_poly/pisah/sampah1.res" id="3_4582j"]
+[ext_resource type="ArrayMesh" uid="uid://dyqju4h7lk28l" path="res://asset/3d/object/trash_bin_pack_low_poly/pisah/tutup tong sampah.res" id="4_tkdhc"]
+[ext_resource type="ArrayMesh" uid="uid://b7udidaffdbrl" path="res://asset/3d/object/trash_bin_pack_low_poly/pisah/tong sampah no tutup.res" id="5_7tucq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qs7el"]
+radius = 0.791224
+height = 6.30224
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a7j2x"]
+radius = 0.906167
+height = 6.9756
+
+[node name="tempat sampah + sampah" type="Node3D"]
+
+[node name="Sampah2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47487, -0.0927496, -0.171402)
+mesh = ExtResource("1_674cg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sampah2"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Sampah2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37022, 3.97569, 2.1345)
+shape = SubResource("CapsuleShape3D_qs7el")
+
+[node name="Sampah3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35948, -0.0787456, 1.07543)
+mesh = ExtResource("2_7kr6w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sampah3"]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Sampah3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03103, 3.96168, -0.044421)
+shape = SubResource("CapsuleShape3D_qs7el")
+
+[node name="Sampah4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33469, 0, 2.01222)
+mesh = ExtResource("1_674cg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sampah4"]
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Sampah4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05241, 3.88294, -2.24567)
+shape = SubResource("CapsuleShape3D_qs7el")
+
+[node name="Sampah5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.494228, -0.0698235, -0.0953515)
+mesh = ExtResource("2_7kr6w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sampah5"]
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Sampah5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96566, 3.95276, -0.138101)
+shape = SubResource("CapsuleShape3D_qs7el")
+
+[node name="Sampah6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55028, 0, 0.908128)
+mesh = ExtResource("1_674cg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sampah6"]
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Sampah6/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.27525, 3.88294, -0.0408081)
+shape = SubResource("CapsuleShape3D_qs7el")
+
+[node name="Sampah1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99481, 0, 1.05882)
+mesh = ExtResource("3_4582j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sampah1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sampah1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0314283, 3.88294, 0)
+shape = SubResource("CapsuleShape3D_qs7el")
+
+[node name="tempat sampah" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793971, 0.584283, 2.86632)
+mesh = ExtResource("2_7kr6w")
+
+[node name="TutupTongSampah" type="MeshInstance3D" parent="tempat sampah"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87652, -0.374637, -0.147038)
+mesh = ExtResource("4_tkdhc")
+skeleton = NodePath("../..")
+
+[node name="TongSampahNoTutup" type="MeshInstance3D" parent="tempat sampah"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39416, -0.584283, -0.103177)
+mesh = ExtResource("5_7tucq")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tempat sampah/TongSampahNoTutup"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tempat sampah/TongSampahNoTutup/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4446, 4.29285, 0)
+shape = SubResource("CapsuleShape3D_a7j2x")
