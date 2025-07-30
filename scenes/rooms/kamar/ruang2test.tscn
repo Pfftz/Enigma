@@ -1,11 +1,11 @@
 [gd_scene load_steps=18 format=3 uid="uid://dwagm8gvdxx67"]
 
-[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player.tscn" id="1_1x6e0"]
+[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_1x6e0"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_gbo60"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_qippl"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_hpl86"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_cyxgh"]
-[ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact_laptop.gd" id="6_nxlnr"]
+[ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact/interact_laptop.gd" id="6_nxlnr"]
 [ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_lnkda"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
