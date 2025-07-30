@@ -41,7 +41,7 @@ bananazon_interviewer: dimana anda melihat diri anda 5 tahun keepan?
 bananazon_interviewer: dari analisa saya
 
 if {interview_score} >= 25:
-	bananazon_interviewer: You did great! Kami akan kabari anda di hari ke 5
+	bananazon_interviewer: You did great! Kami akan kabari anda di hari jumat
 elif {interview_score} >= 10:
 	bananazon_interviewer: Tidak buruk
 elif {interview_score} >= 0:
