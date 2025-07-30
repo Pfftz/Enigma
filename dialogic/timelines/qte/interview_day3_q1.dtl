@@ -1,6 +1,6 @@
 join creative_interviewer center
 set {interview_day} = 3
-set {company_name} = "CreativeStudio"
+set {company_name} = "TechCorp"
 set {interview_score} = 0
 set {interview_health} = 40
 
