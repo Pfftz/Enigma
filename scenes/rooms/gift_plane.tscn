@@ -175,7 +175,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176065, 0.665612, 0.0065941
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.3, 0, 0.094)
 
 [node name="OldRoad" type="MeshInstance3D" parent="jalan"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_4cxlg")
 mesh = ExtResource("15_n2k5p")
 skeleton = NodePath("../..")

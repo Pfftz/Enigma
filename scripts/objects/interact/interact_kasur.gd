@@ -29,7 +29,7 @@ func show_interact_ui(show: bool):
 		get_tree().call_group("ui", "hide_interact_text")
 
 func _process(delta):
-	if player_is_near and Input.is_action_just_pressed("pressed_start"):
+	if player_is_near and Input.is_action_just_pressed("interact"):
 		go_to_next_day()
 
 func go_to_next_day():
