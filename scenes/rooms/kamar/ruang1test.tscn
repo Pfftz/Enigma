@@ -39,7 +39,7 @@ transition = 0
 ease = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_61454"]
-size = Vector3(1.19458, 0.208984, 1.59875)
+size = Vector3(0.535278, 0.208984, 1.59875)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sbl52"]
 
@@ -126,12 +126,11 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="interact laptop" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55914, 0.401205, 0.373931)
-visible = false
 collision_layer = 2
 script = ExtResource("6_fh1go")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interact laptop"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.737567, 0.613703, 1.4092)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06722, 0.613703, 1.4092)
 shape = SubResource("BoxShape3D_61454")
 debug_color = Color(7.70092e-07, 0.560438, 0.885221, 0.42)
 
