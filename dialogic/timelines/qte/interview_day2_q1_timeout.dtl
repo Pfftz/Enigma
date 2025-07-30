@@ -3,7 +3,7 @@ join techcorp_interviewer center
 set {interview_score} -= 5
 set {interview_health} -= 10
 
-techcorp_interviewer: Time's up! Di tech industry, speed matters.
+techcorp_interviewer: Terserah lah, Sekarang, aku bosan dengan pertanyaan wawancara standar. Aku akan memberimu sebuah teka-teki logika dari databaseAyahku. Dengarkan baik-baik.
 
 [signal arg="timeout"]
 [signal arg="timer_end"]

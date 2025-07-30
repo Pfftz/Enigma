@@ -1,36 +1,38 @@
 join techcorp_interviewer center
+techcorp_interviewer: kita langsung saja ke pertanyaan yang sebenarnya
 
-techcorp_interviewer: Terakhir - Apa yang anda ketahui tentang Agile methodology?
+techcorp_interviewer: kenapa kamu melamar di perusahaan ini?
 
 [signal arg="timer_start"]
 
-- Sprint-based development dengan iterative process
+- karena saya suka teknologi
 	set {interview_score} += 20
 	set {interview_health} += 20
 	[signal arg="timer_end"]
-	techcorp_interviewer: Perfect! Anda benar-benar understand modern development.
+	techcorp_interviewer: ooh kamu suka teknologi
 	[signal arg="correct_choice"]
 
-- Metodologi kerja yang fleksibel
+- karena saya ingin mempelajari ai lebih dalam
 	set {interview_score} += 10
 	set {interview_health} += 10
 	[signal arg="timer_end"]
-	techcorp_interviewer: Correct tapi general. Need deeper understanding.
+	techcorp_interviewer: tidak. Aku tidak butuh orang bodoh seperti mu
 	[signal arg="correct_choice"]
 
-- Cara kerja cepat tanpa dokumentasi
+- Aku butuh uang nona
 	set {interview_score} -= 8
 	set {interview_health} -= 8
 	[signal arg="timer_end"]
-	techcorp_interviewer: That's a misconception. Agile doesn't mean no documentation.
+	techcorp_interviewer: tch, miskin
 	[signal arg="wrong_choice"]
 
-- Tidak tahu, belum pernah dengar
+- saya ingin berada di sisi nona
 	set {interview_score} -= 5
 	set {interview_health} -= 5
 	[signal arg="timer_end"]
-	techcorp_interviewer: Industry standard knowledge yang basic. Disappointing.
+	techcorp_interviewer: DIAM ORANG FREAK!! 
 	[signal arg="wrong_choice"]
+	set {day2_completed} = true
 
 [wait time="1.0"]
 [signal arg="update_ui"]
