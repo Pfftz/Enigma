@@ -169,27 +169,20 @@ func _setup_file_select_menu() -> void:
 			panic.visible = false
 
 func _check_game_completion() -> void:
-	# Cek apakah game sudah pernah diselesaikan
-	# Untuk sekarang, kita buat placeholder yang bisa disesuaikan nanti
-	game_completed = _has_completed_game()
+	# Use GameState to check completion instead of file check
+	game_completed = GameState.is_game_completed()
 	
-	# Sembunyikan opsi Continue jika game belum diselesaikan
+	# Update Continue button visibility/state
 	if files.get_child_count() > 1:
 		var continue_option = files.get_child(1) # Index 1 = Continue
 		if not game_completed:
 			continue_option.modulate = Color(0.5, 0.5, 0.5, 0.5) # Dim out
 		else:
-			continue_option.modulate = Color.WHITE
+			continue_option.modulate = Color.WHITE # Make it fully visible
 
 func _has_completed_game() -> bool:
-	# TODO: Implementasi logika cek completion
-	# Untuk sekarang return false, nanti bisa disesuaikan dengan save system
-	# Contoh implementasi yang bisa disesuaikan:
-	# - Cek file save yang menandakan completion
-	# - Cek flag di Global atau GameState
-	# - Cek achievement atau unlock tertentu
-	# Placeholder - return true untuk testing Continue button
-	return FileAccess.file_exists("user://game_completed.save")
+	# Use GameState instead of file check
+	return GameState.is_game_completed()
 
 func _get_available_options_count() -> int:
 	# Hitung opsi yang tersedia (Continue mungkin disembunyikan)
@@ -251,27 +244,27 @@ func _new_game() -> void:
 	fade_tween.tween_property(fade_node, "color:a", 1.0, 0.5)
 	await fade_tween.finished
 	
-	# Change to first room/scene
-	get_tree().change_scene_to_file("res://scenes/rooms/ruang1.tscn")
+	# Change to day 1 scene
+	get_tree().change_scene_to_file("res://scenes/rooms/kamar/day1.tscn")
 
 func _continue_game() -> void:
 	if not game_completed:
-		print("Continue not available - game not completed yet")
+		print("Game not completed yet - Continue unavailable")
 		return
 	
 	print("Continuing game...")
 	$PressedStart.play()
 	
-	# TODO: Load saved progress
-	# Implementasi load game state
+	# Set current day to 5 for continue
+	GameState.current_day = 5
 	
 	var fade_node = _create_fade_overlay()
 	var fade_tween = create_tween()
 	fade_tween.tween_property(fade_node, "color:a", 1.0, 0.5)
 	await fade_tween.finished
 	
-	# Load saved scene or continue from where left off
-	get_tree().change_scene_to_file(GameState.get_current_room_scene())
+	# Load day 5 scene for continue
+	get_tree().change_scene_to_file(GameState.get_continue_scene())
 
 func _open_settings() -> void:
 	print("Opening settings...")
@@ -288,44 +281,18 @@ func _open_settings() -> void:
 	# Set a flag to indicate this is called from title screen
 	current_settings_menu.set_meta("called_from_title", true)
 	
-	# For title screen, we need to handle the full screen differently
-	# The options menu is designed to fill the screen, so we'll let it
-	# but modify its content to work in title context
-	
-	# Add it to the scene tree
-	get_tree().current_scene.add_child(current_settings_menu)
-	
-	# Don't position it - let it fill the screen as designed
-	# current_settings_menu.position = Vector2(SCREEN_WIDTH / 2.0 - 160, SCREEN_HEIGHT / 2.0 - 120)
-	
-	# Set state flags
+	add_child(current_settings_menu)
 	in_settings_menu = true
-	enable_selection = false
 	
-	# Connect to EventBus signals for returning from options menu
-	if not EventBus.return_to_options.is_connected(_on_return_from_settings):
-		EventBus.return_to_options.connect(_on_return_from_settings)
-	if not EventBus.return_to_pause.is_connected(_on_return_from_settings):
-		EventBus.return_to_pause.connect(_on_return_from_settings)
+	# Connect the return signal
+	EventBus.return_to_title.connect(_on_return_from_settings, CONNECT_ONE_SHOT)
 
 func _on_return_from_settings() -> void:
-	"""Called when returning from settings menu"""
-	print("Returning from settings menu")
-	
-	# Clean up settings menu
-	if current_settings_menu and is_instance_valid(current_settings_menu):
+	if current_settings_menu:
 		current_settings_menu.queue_free()
 		current_settings_menu = null
 	
-	# Reset state flags
 	in_settings_menu = false
-	enable_selection = true
-	
-	# Disconnect signals to prevent memory leaks
-	if EventBus.return_to_options.is_connected(_on_return_from_settings):
-		EventBus.return_to_options.disconnect(_on_return_from_settings)
-	if EventBus.return_to_pause.is_connected(_on_return_from_settings):
-		EventBus.return_to_pause.disconnect(_on_return_from_settings)
 
 func _quit_game() -> void:
 	print("Quitting game...")
@@ -427,26 +394,12 @@ func _create_fade_overlay() -> ColorRect:
 
 # Function to mark game as completed (call this when player beats the game)
 func mark_game_completed() -> void:
-	var file = FileAccess.open("user://game_completed.save", FileAccess.WRITE)
-	if file:
-		file.store_string("completed")
-		file.close()
-		game_completed = true
-		_check_game_completion() # Update UI
+	GameState.good_ending = true
+	game_completed = true
+	_check_game_completion()
 
 # Debug function to test Continue button (remove in production)
 func _input(event: InputEvent) -> void:
-	if OS.is_debug_build() and event is InputEventKey and event.pressed:
-		# Press F1 to toggle completion status for testing
-		if event.keycode == KEY_F1:
-			if game_completed:
-				# Remove completion file
-				if FileAccess.file_exists("user://game_completed.save"):
-					DirAccess.remove_absolute("user://game_completed.save")
-				game_completed = false
-				print("Game completion status: REMOVED")
-			else:
-				# Mark as completed
-				mark_game_completed()
-				print("Game completion status: COMPLETED")
-			_check_game_completion()
+	if event.is_action_pressed("ui_accept") and Input.is_key_pressed(KEY_F12):
+		print("DEBUG: Marking game as completed")
+		mark_game_completed()

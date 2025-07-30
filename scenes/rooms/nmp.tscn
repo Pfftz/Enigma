@@ -6,8 +6,8 @@
 [ext_resource type="ArrayMesh" uid="uid://maqyhbv0cnx2" path="res://asset/3d/room/nmp/entrance.obj" id="8_w73q4"]
 [ext_resource type="Shader" uid="uid://cdmbno3xmc4uw" path="res://shaders/psx_lit_alpha.gdshader" id="9_jmul8"]
 [ext_resource type="Texture2D" uid="uid://cug5niin5ydjt" path="res://asset/3d/room/nmp/nmp_general_placeholder.png" id="10_71mw1"]
-[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="11_ckdlc"]
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="12_2bc2u"]
+[ext_resource type="PackedScene" uid="uid://dnydq7jk6xp00" path="res://scenes/objects/player/player_cam.tscn" id="12_28pfr"]
 [ext_resource type="ArrayMesh" uid="uid://d3q5rkufu6jr6" path="res://asset/3d/room/nmp/entrance_open.obj" id="13_h4y7t"]
 [ext_resource type="Resource" uid="uid://v3gcw1nk78p2" path="res://resource/environment/nmp.tres" id="13_vkhyk"]
 [ext_resource type="Script" uid="uid://df0qpljsc040u" path="res://scripts/objects/spawn.gd" id="16_f3ile"]
@@ -192,12 +192,9 @@ shape = SubResource("ConcavePolygonShape3D_7jjse")
 [node name="Trapdoor" parent="." instance=ExtResource("17_imlju")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36093, 0, -3.64117)
 
-[node name="Player" parent="." instance=ExtResource("11_ckdlc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94882, 0.492078, 1.65427)
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.0511768, 1.50792, 3.34573)
-
 [node name="EnvironmentManager" type="Node3D" parent="."]
 script = ExtResource("12_2bc2u")
 environment_settings = ExtResource("13_vkhyk")
+
+[node name="PlayerCam" parent="." instance=ExtResource("12_28pfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92141, 0.524991, 1.31771)

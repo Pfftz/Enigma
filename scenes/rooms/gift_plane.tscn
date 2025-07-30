@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dv0wjicfyhie5" path="res://asset/3d/object/building/RENDER 1.png" id="1_yklvt"]
 [ext_resource type="ArrayMesh" uid="uid://bkbjy1ky475px" path="res://asset/3d/object/building/Calisma2.obj" id="2_ob3qw"]
+[ext_resource type="Resource" uid="uid://bh4ktluvpg6b0" path="res://resource/environment/dark_foggy.tres" id="5_yklvt"]
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="10_7coyi"]
-[ext_resource type="Resource" uid="uid://cpnxltpebnvr6" path="res://resource/environment/under_nmp.tres" id="11_7coyi"]
+[ext_resource type="PackedScene" uid="uid://dnydq7jk6xp00" path="res://scenes/objects/player/player_cam.tscn" id="11_yklvt"]
 [ext_resource type="PackedScene" uid="uid://dguysikyfdbkc" path="res://scenes/objects/interactive/dialogue_trigger.tscn" id="12_162ku"]
-[ext_resource type="PackedScene" uid="uid://btar8yjgog1u1" path="res://scenes/objects/player/player_WithCam.tscn" id="14_mel86"]
 [ext_resource type="Texture2D" uid="uid://b7xr1h1q2xaso" path="res://asset/3d/object/road/old road texture.dds" id="14_yt3a5"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="15_frvro"]
 [ext_resource type="ArrayMesh" uid="uid://cv53gtkhj2qhl" path="res://asset/3d/object/road/old road.obj" id="15_n2k5p"]
@@ -144,7 +144,7 @@ transform = Transform3D(1, 0, 0, 0, -0.438497, 0.898733, 0, -0.898733, -0.438497
 [node name="EnvironmentManager" type="Node3D" parent="."]
 visible = false
 script = ExtResource("10_7coyi")
-environment_settings = ExtResource("11_7coyi")
+environment_settings = ExtResource("5_yklvt")
 
 [node name="LogoArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.03, 0, 0)
@@ -167,9 +167,6 @@ libraries = {
 
 [node name="Warp" parent="." instance=ExtResource("15_frvro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4933, 0.0157242, -17.0275)
-
-[node name="Node3D" parent="." instance=ExtResource("14_mel86")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176065, 0.665612, 0.00659418)
 
 [node name="jalan" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.3, 0, 0.094)
@@ -244,6 +241,9 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.041, 4.63132, -1.77617)
 light_energy = 20.005
 omni_range = 6.57145
+
+[node name="PlayerCam" parent="." instance=ExtResource("11_yklvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.45283, 0.714771, 0.146783)
 
 [connection signal="body_entered" from="LogoArea" to="LogoArea" method="_on_body_entered"]
 [connection signal="body_exited" from="LogoArea" to="LogoArea" method="_on_body_exited"]

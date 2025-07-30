@@ -11,6 +11,7 @@ signal piece_collected(piece_count: int)
 # UI-related signals
 signal return_to_options
 signal return_to_pause
+signal return_to_title
 signal pause_leave_sfx
 
 # Game state signals

@@ -16,23 +16,17 @@ texture_filter = 1
 script = ExtResource("1_y0xeu")
 
 [node name="Dont" type="Sprite2D" parent="."]
-position = Vector2(10, 0)
+position = Vector2(30, 0)
+scale = Vector2(3, 3)
 texture = ExtResource("2_lowrk")
 centered = false
 hframes = 2
 vframes = 3
 frame = 1
 
-[node name="Save" type="Sprite2D" parent="."]
-position = Vector2(0, 17)
-texture = ExtResource("2_lowrk")
-centered = false
-hframes = 2
-vframes = 3
-frame = 2
-
 [node name="Quit" type="Sprite2D" parent="."]
-position = Vector2(0, 34)
+position = Vector2(20, 53)
+scale = Vector2(3, 3)
 texture = ExtResource("2_lowrk")
 centered = false
 hframes = 2

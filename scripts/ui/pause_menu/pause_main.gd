@@ -90,20 +90,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if !_in_menu && Global.can_unpause:
 		if (
-			Input.is_action_just_pressed("pressed_l2")
-			or Input.is_action_just_pressed("pressed_l1")
-			or Input.is_action_just_pressed("pressed_r2")
-			or Input.is_action_just_pressed("pressed_r1")
-			or Input.is_action_just_pressed("pressed_up")
+			Input.is_action_just_pressed("pressed_up")
 			or Input.is_action_just_pressed("pressed_down")
 			or Input.is_action_just_pressed("pressed_left")
 			or Input.is_action_just_pressed("pressed_right")
 			or Input.is_action_just_pressed("pressed_start")
-			or Input.is_action_just_pressed("pressed_select")
 			or Input.is_action_just_pressed("pressed_action")
 			or Input.is_action_just_pressed("pressed_triangle")
-			or Input.is_action_just_pressed("pressed_square")
-			or Input.is_action_just_pressed("pressed_circle")
 		):
 			if Input.is_action_just_pressed(code_array[current_key]):
 				if current_key < code_array.size() - 1:
@@ -129,35 +122,48 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("pressed_action"):
 			if _selected_option == 0:
 				unpause_game()
-			elif _selected_option < 4:
+			elif _selected_option == 1:
+				# Options menu
 				allow_input = false
 				$SelectSound.play()
-				fade_overlay.frame_coords.x = _selected_option - 1
-
-				
+				# Don't modify fade_overlay for options menu
 				main_menu.visible = false
-				
-				match _selected_option:
-					1:
-						sub_menu.add_child(OPTIONS_MENU.instantiate())
-					
-					2:
-						# var pet_menu_instance: Control = PETS_MENU.instantiate()
-						# TODO: Implement pet menu
-						pass
+				var options_instance = OPTIONS_MENU.instantiate()
+				sub_menu.add_child(options_instance)
 				_in_menu = true
-			else:
+			elif _selected_option == 2:
+				# Quit menu (last option)
+				allow_input = false
+				$SelectSound.play()
 				buttons_origin.visible = false
+				main_menu.visible = false # Hide main menu to prevent overlap
+				sub_menu.visible = false # Hide sub menu container as well
 				_in_menu = true
 				var _menu_instance: Marker2D = QUIT_MENU.instantiate()
-				_menu_instance.position = Vector2(16., 134.)
+				# Position it properly with the new scale
+				_menu_instance.position = Vector2(200, 300)
+				_menu_instance.z_index = 100 # Very high z-index to ensure visibility
 				add_child(_menu_instance)
+				print("Quit menu added at position: ", _menu_instance.position)
+				print("Quit menu scale: ", _menu_instance.scale)
+				print("Quit menu z_index: ", _menu_instance.z_index)
+				print("Quit menu children: ")
+				for child in _menu_instance.get_children():
+					if child is Sprite2D:
+						print("  - ", child.name, " at ", child.position)
+		
+		# Add triangle button functionality for going back
+		if Input.is_action_just_pressed("pressed_triangle"):
+			if _in_menu:
+				# If in submenu, go back to main pause menu
+				EventBus.return_to_pause.emit()
+			else:
+				# If in main pause menu, unpause the game
+				unpause_game()
 	else:
-		if _selected_option == 4:
-			if Input.is_action_just_pressed("pressed_action"):
-				$SelectSound.play()
-				# TODO: Handle special case for option 4
-				pass
+		# Handle triangle button when in submenus
+		if Input.is_action_just_pressed("pressed_triangle"):
+			EventBus.return_to_pause.emit()
 	for button in buttons_origin.get_children():
 		if button.get_index() != _selected_option:
 			button.frame_coords.x = 0
@@ -214,10 +220,21 @@ func _on_return_to_pause() -> void:
 	allow_input = true
 	main_menu.visible = true
 	buttons_origin.visible = true
+	sub_menu.visible = true # Make sure sub menu is visible again
 	
-	if _selected_option < 4:
-		# create_tween().tween_property(fade_overlay, "modulate:a", 0.0, HUD.FADE_SPEED)
-		create_tween().tween_property(fade_overlay, "modulate:a", 0.0, 0.5)
+	# Remove any quit menu instances more thoroughly
+	for child in get_children():
+		if child.name == "QuitButtons" or child.has_method("get_child_count"):
+			if child.get_script() and child.get_script().resource_path.ends_with("quit_buttons.gd"):
+				child.queue_free()
+	
+	# Reset selected option to avoid staying on quit option
+	_selected_option = 0
+	
+	# Disable fade animation when returning from options/quit menu
+	# No fade overlay animation since we're returning to pause menu
+	if fade_overlay:
+		fade_overlay.modulate.a = 0.0
 
 
 func _on_destruction() -> void:

@@ -12,6 +12,11 @@ var _selected_option: int = 0:
 
 
 func _ready() -> void:
+	print("Quit buttons menu created at position: ", position)
+	print("Quit buttons menu scale: ", scale)
+	print("Quit buttons menu visible: ", visible)
+	print("Quit buttons menu children count: ", get_child_count())
+	
 	if Global.global_data.gen == 6:
 		button_sound.move_stream(0, 1)
 
@@ -55,3 +60,8 @@ func _process(_delta: float) -> void:
 				# GameManager.reset_game()
 				# TODO: Implement proper quit to desktop functionality
 				get_tree().quit()
+	
+	# Add triangle button functionality to go back
+	if Input.is_action_just_pressed("pressed_triangle"):
+		EventBus.return_to_pause.emit()
+		queue_free()
