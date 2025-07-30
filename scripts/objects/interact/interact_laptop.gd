@@ -38,7 +38,7 @@ func show_interact_ui(show: bool):
 
 # Fungsi input sekarang menangani animasi DAN pindah scene
 func _input(event):
-	if player_in_area and event.is_action_pressed("pressed_start"):
+	if player_in_area and event.is_action_pressed("interact"):
 		# Pastikan interaksi hanya berjalan sekali
 		show_interact_ui(false)
 		if using_phantom_camera:

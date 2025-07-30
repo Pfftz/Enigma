@@ -6,11 +6,11 @@ var total_score: int = 0
 
 # Daftar path scene kamar untuk setiap hari
 var room_scenes: Array[String] = [
-	"res://scenes/rooms/kamar/ruang1test.tscn",
-	"res://scenes/rooms/kamar/ruang2test.tscn",
-	"res://scenes/rooms/kamar/ruang3test.tscn",
-	"res://scenes/rooms/kamar/ruang4test.tscn",
-	"res://scenes/rooms/kamar/ruang5test.tscn"
+	"res://scenes/rooms/kamar/day1.tscn",
+	"res://scenes/rooms/kamar/day2.tscn",
+	"res://scenes/rooms/kamar/day3.tscn",
+	"res://scenes/rooms/kamar/day4.tscn",
+	"res://scenes/rooms/kamar/day5.tscn"
 ]
 
 func advance_to_next_day() -> void:

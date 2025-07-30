@@ -20,9 +20,9 @@ config/icon="res://icon.svg"
 Global="*res://scripts/autoloads/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 EventBus="*res://scripts/autoloads/event_bus.gd"
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 AudioManager="*res://scenes/management/audio_manager.tscn"
 GameState="*res://scripts/autoloads/gamestate.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dialogic]
 
