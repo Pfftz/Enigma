@@ -3,12 +3,12 @@ extends Area3D
 var player_in_area := false
 var using_phantom_camera := false
 @onready var interaction_prompt = $Label3D
+
+# --- Konfigurasi Animasi & Scene ---
 var camera_move_distance := 0.5
 var camera_move_duration := 1.5
-var phantom_camera_prev_pos: Vector3
-var player2_scene := preload("res://scenes/objects/player/player.tscn") # Ganti path sesuai scene Player2
-var player2_instance: Node = null
-var kursi_collision_path := "/root/Ruang1Test/Collision/StaticBody3D/Kursi" # Ganti sesuai path kursi di scene
+const INTERVIEW_SCENE_PATH = "res://scenes/ui/dialogic_qte_interview.tscn" # <-- GANTI PATH INI JIKA PERLU
+@onready var ui: CanvasLayer = $"../UI"
 
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -28,99 +28,78 @@ func _on_body_exited(body):
 		player_in_area = false
 		if interaction_prompt:
 			interaction_prompt.visible = false
-		show_interact_ui(false)
-
+	show_interact_ui(false)
+	
 func show_interact_ui(show: bool):
 	if show:
 		get_tree().call_group("ui", "show_interact_text", "Pencet F untuk interaksi")
 	else:
 		get_tree().call_group("ui", "hide_interact_text")
 
-func fade_camera_switch(callback: Callable):
-	var fade_rect = get_tree().current_scene.get_node("FadeRect")
-	if fade_rect:
-		fade_rect.visible = true
-		fade_rect.modulate.a = 0.0
-		var tween = create_tween()
-		tween.tween_property(fade_rect, "modulate:a", 1.0, 0.3)
-		tween.tween_callback(callback)
-		tween.tween_property(fade_rect, "modulate:a", 0.0, 0.3)
-		tween.tween_callback(func(): fade_rect.visible = false)
-	else:
-		callback.call()
-
+# Fungsi input sekarang menangani animasi DAN pindah scene
 func _input(event):
-	if player_in_area and event.is_action_pressed("interact"):
-		fade_camera_switch(func():
-			var main_camera = get_tree().current_scene.get_node("Camera3D")
-			var phantom_camera = get_tree().current_scene.get_node("PhantomCamera3D2")
-			var kursi_collision = get_node_or_null(kursi_collision_path)
-			if not using_phantom_camera:
-				# Matikan kamera utama
-				if main_camera:
-					main_camera.current = false
-				# Aktifkan PhantomCamera3D2
-				if phantom_camera:
-					if "follow_distance" in phantom_camera:
-						var tween = create_tween()
-						tween.tween_property(phantom_camera, "follow_distance", 0.7, 0.5)
-					var cam = phantom_camera.get_node_or_null("Camera3D")
-					if cam:
-						cam.current = true
-					if phantom_camera.has_method("activate"):
-						phantom_camera.activate()
-					elif phantom_camera.has_method("make_current"):
-						phantom_camera.make_current()
-					phantom_camera_prev_pos = phantom_camera.position
-					move_camera_left(phantom_camera)
-				using_phantom_camera = true
+	if player_in_area and event.is_action_pressed("pressed_start"):
+		# Pastikan interaksi hanya berjalan sekali
+		show_interact_ui(false)
+		if using_phantom_camera:
+			return
+		
+		# Nonaktifkan interaksi lebih lanjut
+		player_in_area = false
+		if interaction_prompt:
+			interaction_prompt.visible = false
+		
+		# Jalankan urutan animasi lalu pindah scene
+		play_animation_and_change_scene()
 
-				# Hilangkan Player, munculkan Player2
-				var player = get_tree().current_scene.get_node_or_null("Player")
-				if player:
-					player.visible = false
-				if not player2_instance:
-					player2_instance = player2_scene.instantiate()
-					get_tree().current_scene.add_child(player2_instance)
-					player2_instance.position = Vector3(0, 1, 0) # Atur posisi spawn Player2
-					# Benar-benar static: matikan semua proses dan input
-					player2_instance.set_process(false)
-					player2_instance.set_physics_process(false)
-					if player2_instance.has_method("set_process_input"):
-						player2_instance.set_process_input(false)
-				# Hilangkan kursi collision
-				if kursi_collision:
-					kursi_collision.visible = false
-			else:
-				# Kembali ke kamera utama dan posisi awal PhantomCamera3D2
-				if phantom_camera:
-					var cam = phantom_camera.get_node_or_null("Camera3D")
-					if cam:
-						cam.current = false
-					var tween = create_tween()
-					tween.tween_property(phantom_camera, "position", phantom_camera_prev_pos, camera_move_duration)
-				if main_camera:
-					main_camera.current = true
-				using_phantom_camera = false
+func play_animation_and_change_scene():
+	using_phantom_camera = true
+	print("[DEBUG] Memulai urutan animasi dan pindah scene...")
+	
+	var main_camera = get_tree().current_scene.get_node_or_null("Camera3D")
+	var phantom_camera = get_tree().current_scene.get_node_or_null("PhantomCamera3D2")
 
-				# Hilangkan Player2, munculkan Player
-				if player2_instance:
-					player2_instance.queue_free()
-					player2_instance = null
-				var player = get_tree().current_scene.get_node_or_null("Player")
-				if player:
-					player.visible = true
-				# Kembalikan kursi collision
-				if kursi_collision:
-					kursi_collision.visible = true
+	# Pengecekan paling penting ada di sini
+	if phantom_camera:
+		print("[DEBUG] Node 'PhantomCamera3D2' DITEMUKAN.")
+		if main_camera:
+			main_camera.current = false
+		
+		var cam = phantom_camera.get_node_or_null("Camera3D")
+		if cam:
+			cam.current = true
+		
+		print("[DEBUG] Memulai animasi pergerakan kamera...")
+		var animation_tween = move_camera_left(phantom_camera)
+		
+		# Tunggu sampai animasi pergerakan kamera SELESAI
+		await animation_tween.finished
+		print("[DEBUG] Animasi kamera SELESAI.")
+		
+		# SETELAH animasi selesai, baru panggil fungsi untuk pindah scene
+		print("[DEBUG] Memulai proses fade out dan pindah scene...")
+		fade_out_and_change_scene()
+	else:
+		# Jika phantom_camera tidak ditemukan, pesan ini akan muncul
+		print("[FATAL ERROR] Node 'PhantomCamera3D2' TIDAK DITEMUKAN. Periksa nama dan path node di Scene Tree Anda. Proses berhenti.")
 
-			if interaction_prompt:
-				interaction_prompt.visible = false
-			show_interact_ui(false)
-		)
-
-func move_camera_left(phantom_camera):
-	var start_pos = phantom_camera.position
+# Fungsi animasi kamera, sekarang mengembalikan Tween
+func move_camera_left(camera_node) -> Tween:
+	var start_pos = camera_node.position
 	var target_pos = start_pos - Vector3(camera_move_distance, 0, 0)
 	var tween = create_tween()
-	tween.tween_property(phantom_camera, "position", target_pos, camera_move_duration)
+	tween.tween_property(camera_node, "position", target_pos, camera_move_duration)
+	return tween
+
+# Fungsi untuk fade out dan pindah scene
+func fade_out_and_change_scene():
+	var fade_rect = get_tree().current_scene.find_child("Fade", true, false)
+	
+	if fade_rect and fade_rect is ColorRect:
+		fade_rect.visible = true
+		var tween = create_tween()
+		tween.tween_property(fade_rect, "modulate:a", 1.0, 0.5)
+		await tween.finished
+		get_tree().change_scene_to_file(INTERVIEW_SCENE_PATH)
+	else:
+		get_tree().change_scene_to_file(INTERVIEW_SCENE_PATH)
