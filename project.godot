@@ -120,10 +120,6 @@ text/autopauses={}
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
-[dotnet]
-
-project/assembly_name="Enigma"
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")

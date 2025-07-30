@@ -316,30 +316,30 @@ func _on_timeline_ended() -> void:
 		# Interview complete, show results and proceed to next day
 		show_interview_results()
 
+# Di dalam skrip wawancara Anda (DialogicQTEManager.gd)
+
 func show_interview_results() -> void:
 	var day_score = Dialogic.VAR.get("interview_score") if Dialogic.VAR.has("interview_score") else 0
 	
-	# DIUBAH: Simpan skor ke GameState
-	GameState.add_to_total_score(day_score)
-	
+	# DIUBAH: Kita tidak lagi menyimpan skor di sini, tapi bisa tetap di-emit jika perlu
+	# GameState.add_to_total_score(day_score) 
 	interview_day_completed.emit(current_day, day_score)
 	
+	# Tampilkan pesan seperti biasa
 	var completion_message = "Day " + str(current_day) + " completed!\n"
-	completion_message += "Score this day: " + str(day_score) + "\n"
-	completion_message += "Total score: " + str(GameState.total_score)
+	completion_message += "Score this day: " + str(day_score)
 	print(completion_message)
 	
 	await get_tree().create_timer(2.0).timeout
 	
-	# DIUBAH: Logika untuk maju hari dan pindah ke kamar berikutnya
-	if GameState.current_day < company_names.size():
-		# 1. Maju ke hari berikutnya
-		GameState.advance_to_next_day()
-		# 2. Ambil path kamar untuk hari yang BARU dari GameState
-		var next_room_path = GameState.get_current_room_scene()
-		# 3. Pindah ke scene kamar berikutnya
-		get_tree().change_scene_to_file(next_room_path)
+	# DIUBAH TOTAL:
+	# Hapus `GameState.advance_to_next_day()`
+	# Sekarang kita kembali ke kamar di HARI YANG SAMA
+	if GameState.current_day < 5:
+		var current_room_path = GameState.get_current_room_scene()
+		get_tree().change_scene_to_file(current_room_path)
 	else:
+		# Jika ini hari terakhir, jalankan logika penyelesaian
 		complete_all_interviews()
 
 func complete_all_interviews() -> void:
@@ -446,10 +446,3 @@ func prepare_for_next_day() -> void:
 	# This method can be called when transitioning from "ruang one" back to interview
 	if not game_over and current_day < interview_timelines.size():
 		start_interview_day(current_day + 1)
-
-# Method to handle scene transitions
-func transition_to_home() -> void:
-	# Called when player should go to "ruang one"
-	# You can implement scene changing logic here
-	print("Transitioning to home scene (ruang one)")
-	get_tree().change_scene_to_file("res://scenes/rooms/kamar/ruang5test.tscn")
