@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b1kab4d8sry8a"]
+[gd_scene load_steps=42 format=3 uid="uid://b1kab4d8sry8a"]
 
 [ext_resource type="Script" uid="uid://d2qykwnj5swwx" path="res://scripts/levels/title.gd" id="1_ys1qf"]
 [ext_resource type="Shader" uid="uid://dtsf8q7phrnxo" path="res://shaders/psx_lit_nofog.gdshader" id="3_60g01"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://spnyrwx3rosx" path="res://asset/2d/ui/title/panic.png" id="10_lli8y"]
 [ext_resource type="Texture2D" uid="uid://ryssvf1pireo" path="res://asset/2d/ui/title/title_piece.png" id="11_b3kyf"]
 [ext_resource type="Texture2D" uid="uid://bjpl673weodmi" path="res://asset/2d/ui/psx_buttons.png" id="13_61pkf"]
-[ext_resource type="Texture2D" uid="uid://cjiabc2qo06nf" path="res://asset/2d/ui/title/file_options.png" id="14_e1yo8"]
 [ext_resource type="FontFile" uid="uid://dtabqugvs5qj6" path="res://asset/2d/font/ttf/PetscopTall.ttf" id="15_1qjog"]
 [ext_resource type="AudioStream" uid="uid://bf0e6hfsjvudv" path="res://sfx/title_screen/press_start.wav" id="17_q7emt"]
 [ext_resource type="AudioStream" uid="uid://cxqsh40sckwcr" path="res://music/petscop.ogg" id="18_ua51s"]
@@ -143,28 +142,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f5y8k"]
-atlas = ExtResource("13_61pkf")
-region = Rect2(0, 102, 34, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rrxt5"]
-atlas = ExtResource("13_61pkf")
-region = Rect2(136, 102, 34, 34)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8nl5t"]
-animations = [{
-"frames": [{
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_f5y8k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rrxt5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="Environment" id="Environment_k032k"]
 background_mode = 1
 background_color = Color(1, 1, 1, 1)
@@ -192,37 +169,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Menu_Container" type="VBoxContainer" parent="UI_Container"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -79.5
-offset_right = 100.0
-offset_bottom = 79.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 11
-
-[node name="PlayGameButton" type="TextureButton" parent="UI_Container/Menu_Container"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-texture_normal = ExtResource("14_e1yo8")
-stretch_mode = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="QuitGameButton" type="TextureButton" parent="UI_Container/Menu_Container"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-texture_normal = ExtResource("14_e1yo8")
-stretch_mode = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="LogoOrigin" type="Marker3D" parent="."]
 unique_name_in_owner = true
@@ -290,9 +236,9 @@ horizontal_alignment = 1
 
 [node name="FileSelect" type="Marker2D" parent="."]
 unique_name_in_owner = true
-visible = false
 texture_filter = 1
-position = Vector2(320, 0)
+position = Vector2(1300, 100)
+scale = Vector2(1.5, 1.5)
 
 [node name="Files" type="Marker2D" parent="FileSelect"]
 unique_name_in_owner = true
@@ -327,7 +273,7 @@ offset_left = 64.0
 offset_top = 45.0
 offset_right = 140.0
 offset_bottom = 68.0
-text = "Empty Game"
+text = "New Game"
 label_settings = ExtResource("9_2brh2")
 
 [node name="CounterOrigin" type="Marker2D" parent="FileSelect/Files/File"]
@@ -350,7 +296,7 @@ text = "00000"
 label_settings = SubResource("LabelSettings_k8dyq")
 
 [node name="File2" type="Marker2D" parent="FileSelect/Files"]
-position = Vector2(93, 59)
+position = Vector2(93, 74)
 
 [node name="FileFrame" type="TextureRect" parent="FileSelect/Files/File2"]
 texture_filter = 1
@@ -407,7 +353,7 @@ text = "00000"
 label_settings = SubResource("LabelSettings_k8dyq")
 
 [node name="File3" type="Marker2D" parent="FileSelect/Files"]
-position = Vector2(26, 96)
+position = Vector2(26, 126)
 
 [node name="FileFrame" type="TextureRect" parent="FileSelect/Files/File3"]
 texture_filter = 1
@@ -437,7 +383,7 @@ offset_left = 64.0
 offset_top = 45.0
 offset_right = 140.0
 offset_bottom = 68.0
-text = "Empty Game"
+text = "Settings"
 label_settings = ExtResource("9_2brh2")
 
 [node name="CounterOrigin" type="Marker2D" parent="FileSelect/Files/File3"]
@@ -459,41 +405,66 @@ offset_bottom = 21.0
 text = "00000"
 label_settings = SubResource("LabelSettings_k8dyq")
 
-[node name="FileSelectButtons" type="Marker2D" parent="FileSelect"]
-unique_name_in_owner = true
+[node name="File4" type="Marker2D" parent="FileSelect/Files"]
+position = Vector2(93, 178)
+
+[node name="FileFrame" type="TextureRect" parent="FileSelect/Files/File4"]
 texture_filter = 1
+offset_right = 200.0
+offset_bottom = 70.0
+texture = ExtResource("8_hgps8")
+flip_h = true
 
-[node name="CrossButton" type="AnimatedSprite2D" parent="FileSelect/FileSelectButtons"]
-position = Vector2(68, 205)
-sprite_frames = SubResource("SpriteFrames_bobwt")
+[node name="Icon" type="AnimatedSprite2D" parent="FileSelect/Files/File4"]
+visible = false
+material = SubResource("ShaderMaterial_4qgig")
+position = Vector2(168, 29)
+sprite_frames = SubResource("SpriteFrames_666n8")
 autoplay = "default"
-frame = 1
+frame = 2
+frame_progress = 0.25101
 
-[node name="SelectFile" type="Label" parent="FileSelect/FileSelectButtons"]
-offset_left = 79.0
-offset_top = 204.0
-offset_right = 158.0
-offset_bottom = 227.0
-text = "Select File"
+[node name="Panic" type="TextureRect" parent="FileSelect/Files/File4"]
+visible = false
+texture_filter = 1
+offset_top = 26.0
+offset_right = 139.0
+offset_bottom = 38.0
+texture = ExtResource("10_lli8y")
+flip_h = true
+
+[node name="FileName" type="Label" parent="FileSelect/Files/File4"]
+texture_filter = 1
+offset_left = 60.0
+offset_top = 45.0
+offset_right = 136.0
+offset_bottom = 68.0
+text = "Quit Game"
 label_settings = ExtResource("9_2brh2")
 
-[node name="TriangleButton" type="AnimatedSprite2D" parent="FileSelect/FileSelectButtons"]
-position = Vector2(195, 205)
-sprite_frames = SubResource("SpriteFrames_6x4yc")
-autoplay = "default"
+[node name="CounterOrigin" type="Marker2D" parent="FileSelect/Files/File4"]
+visible = false
+position = Vector2(8, 40)
 
-[node name="GoBack" type="Label" parent="FileSelect/FileSelectButtons"]
-offset_left = 206.0
-offset_top = 204.0
-offset_right = 282.0
-offset_bottom = 227.0
-text = "Go Back"
-label_settings = ExtResource("9_2brh2")
+[node name="Piece" type="TextureRect" parent="FileSelect/Files/File4/CounterOrigin"]
+texture_filter = 1
+offset_left = -15.0
+offset_bottom = 21.0
+texture = ExtResource("11_b3kyf")
+
+[node name="Counter" type="Label" parent="FileSelect/Files/File4/CounterOrigin"]
+texture_filter = 1
+offset_left = -58.0
+offset_top = 6.0
+offset_right = -18.0
+offset_bottom = 21.0
+text = "00000"
+label_settings = SubResource("LabelSettings_k8dyq")
 
 [node name="FileSelectButtons2" type="Marker2D" parent="FileSelect"]
 unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(0, 50)
+position = Vector2(-6.15385, 73.8462)
 
 [node name="CrossButton" type="AnimatedSprite2D" parent="FileSelect/FileSelectButtons2"]
 position = Vector2(56, 205)
@@ -507,19 +478,6 @@ offset_top = 204.0
 offset_right = 143.0
 offset_bottom = 227.0
 text = "Select"
-label_settings = ExtResource("9_2brh2")
-
-[node name="FInishButton" type="AnimatedSprite2D" parent="FileSelect/FileSelectButtons2"]
-position = Vector2(142, 203)
-sprite_frames = SubResource("SpriteFrames_8nl5t")
-autoplay = "default"
-
-[node name="Finish" type="Label" parent="FileSelect/FileSelectButtons2"]
-offset_left = 147.0
-offset_top = 204.0
-offset_right = 223.0
-offset_bottom = 227.0
-text = "Finish"
 label_settings = ExtResource("9_2brh2")
 
 [node name="TriangleButton" type="AnimatedSprite2D" parent="FileSelect/FileSelectButtons2"]
@@ -607,6 +565,4 @@ surface_material_override/0 = SubResource("ShaderMaterial_n176l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.503355, 0)
 script = null
 
-[connection signal="pressed" from="UI_Container/Menu_Container/PlayGameButton" to="." method="_on_play_game_button_pressed"]
-[connection signal="pressed" from="UI_Container/Menu_Container/QuitGameButton" to="." method="_on_play_game_button_pressed"]
 [connection signal="timeout" from="DemoTimer" to="." method="_on_demo_timer_timeout"]

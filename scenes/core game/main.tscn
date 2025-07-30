@@ -10,10 +10,10 @@ script = ExtResource("1_ig7tw")
 autostart = true
 
 [node name="PlayerInputLabel" type="Label" parent="."]
-offset_left = 508.0
-offset_top = 301.0
-offset_right = 697.0
-offset_bottom = 389.0
+offset_left = 525.0
+offset_top = 529.0
+offset_right = 714.0
+offset_bottom = 617.0
 theme_override_colors/font_color = Color(0.875994, 0.636443, 7.70092e-07, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
@@ -21,3 +21,9 @@ theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PositivityBar" type="TextureProgressBar" parent="."]
+offset_left = 297.0
+offset_top = 489.0
+offset_right = 924.0
+offset_bottom = 581.0

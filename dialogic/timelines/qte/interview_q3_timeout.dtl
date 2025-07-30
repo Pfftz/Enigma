@@ -15,10 +15,6 @@ bananazon_interviewer: Baiklah, interview hari ini selesai. Terima kasih atas wa
 
 if {interview_score} >= 25:
 	bananazon_interviewer: Saya terkesan dengan jawaban anda! Kami akan menghubungi anda segera.
-elif {interview_score} >= 10:
-	bananazon_interviewer: Tidak buruk. Kami akan pertimbangkan aplikasi anda.
-elif {interview_score} >= 0:
-	bananazon_interviewer: Masih ada yang perlu diperbaiki, tapi terima kasih sudah datang.
 else:
 	bananazon_interviewer: Mohon maaf, sepertinya anda belum cocok untuk posisi ini.
 

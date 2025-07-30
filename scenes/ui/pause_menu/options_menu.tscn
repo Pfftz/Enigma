@@ -1,0 +1,202 @@
+[gd_scene load_steps=21 format=3 uid="uid://biux83ixkxvoo"]
+
+[ext_resource type="Script" uid="uid://cw8e0viohy3yf" path="res://scripts/ui/pause_menu/options_menu.gd" id="1_6480o"]
+[ext_resource type="Texture2D" uid="uid://duemcbgcobylk" path="res://asset/2d/ui/pause/tile.png" id="1_nh5yi"]
+[ext_resource type="Texture2D" uid="uid://kx6mh4w8m2r" path="res://asset/2d/ui/pause/optionsmenu_buttons.png" id="3_enfm1"]
+[ext_resource type="Texture2D" uid="uid://bjpl673weodmi" path="res://asset/2d/ui/psx_buttons.png" id="4_fkb80"]
+[ext_resource type="LabelSettings" uid="uid://cb1c82a2dubgn" path="res://resource/theme/font/default.tres" id="5_fial3"]
+[ext_resource type="Texture2D" uid="uid://brke37fddtcy6" path="res://asset/2d/ui/pause/optionsmenu_icons.png" id="6_cmuim"]
+[ext_resource type="AudioStream" uid="uid://b18ajvqy3kl3u" path="res://sfx/pause/selected.wav" id="7_ln3i2"]
+[ext_resource type="AudioStream" uid="uid://mmkhc5kb3o70" path="res://sfx/pause/select1.wav" id="8_1qpwj"]
+[ext_resource type="AudioStream" uid="uid://b3ptbmyyksd43" path="res://sfx/pause/select2.wav" id="9_g278y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibh5m"]
+atlas = ExtResource("4_fkb80")
+region = Rect2(0, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge7r2"]
+atlas = ExtResource("4_fkb80")
+region = Rect2(136, 34, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ca1xm"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_ibh5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge7r2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47htf"]
+atlas = ExtResource("4_fkb80")
+region = Rect2(102, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr88f"]
+atlas = ExtResource("4_fkb80")
+region = Rect2(238, 34, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdyug"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_47htf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr88f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_loocj"]
+offsets = PackedFloat32Array(0.25, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7jx4t"]
+gradient = SubResource("Gradient_loocj")
+width = 320
+height = 240
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(0, 1)
+repeat = 2
+
+[sub_resource type="Gradient" id="Gradient_niwgl"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f1s0d"]
+gradient = SubResource("Gradient_niwgl")
+width = 320
+height = 240
+fill_from = Vector2(0.5, 0)
+repeat = 2
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ol6jj"]
+playback_mode = 2
+streams_count = 2
+stream_0/stream = ExtResource("8_1qpwj")
+stream_1/stream = ExtResource("9_g278y")
+
+[node name="OptionsMenu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6480o")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_nh5yi")
+stretch_mode = 1
+
+[node name="OptionButtons" type="Marker2D" parent="."]
+z_index = 1
+scale = Vector2(2, 2)
+
+[node name="VolumeMenu" type="Sprite2D" parent="OptionButtons"]
+position = Vector2(264, 88)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_enfm1")
+centered = false
+hframes = 2
+vframes = 4
+
+[node name="ControlsMenu" type="Sprite2D" parent="OptionButtons"]
+position = Vector2(264, 132)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_enfm1")
+centered = false
+hframes = 2
+vframes = 4
+frame = 4
+
+[node name="InfoButtonsOrigin" type="Marker2D" parent="."]
+unique_name_in_owner = true
+z_index = 1
+scale = Vector2(2, 2)
+
+[node name="CrossButton" type="AnimatedSprite2D" parent="InfoButtonsOrigin"]
+unique_name_in_owner = true
+position = Vector2(181, 213)
+sprite_frames = SubResource("SpriteFrames_ca1xm")
+autoplay = "default"
+
+[node name="SelectPet" type="Label" parent="InfoButtonsOrigin"]
+offset_left = 192.0
+offset_top = 212.0
+offset_right = 286.0
+offset_bottom = 244.0
+text = "Select"
+label_settings = ExtResource("5_fial3")
+
+[node name="TriangleButton" type="AnimatedSprite2D" parent="InfoButtonsOrigin"]
+unique_name_in_owner = true
+position = Vector2(365, 213)
+sprite_frames = SubResource("SpriteFrames_cdyug")
+autoplay = "default"
+frame = 1
+
+[node name="GoBack" type="Label" parent="InfoButtonsOrigin"]
+offset_left = 376.0
+offset_top = 212.0
+offset_right = 498.0
+offset_bottom = 244.0
+text = "Go Back"
+label_settings = ExtResource("5_fial3")
+
+[node name="CursorPos" type="Marker2D" parent="."]
+z_index = 1
+scale = Vector2(2, 2)
+
+[node name="Cursor" type="Sprite2D" parent="CursorPos"]
+unique_name_in_owner = true
+position = Vector2(252, 68)
+texture = ExtResource("6_cmuim")
+centered = false
+offset = Vector2(-65, 0)
+hframes = 4
+
+[node name="Gradient2" type="TextureRect" parent="."]
+z_as_relative = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_7jx4t")
+stretch_mode = 1
+
+[node name="Gradient3" type="TextureRect" parent="."]
+z_as_relative = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_f1s0d")
+stretch_mode = 1
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ln3i2")
+bus = &"HUD_SFX"
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ol6jj")
+bus = &"HUD_SFX"
+
+[node name="SubMenu" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
