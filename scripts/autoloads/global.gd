@@ -2,6 +2,9 @@ extends Node
 
 var is_game_paused: bool = false
 var can_pause: bool = true
+var can_unpause: bool = true
+var pause_menu_scene: PackedScene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
+var current_pause_menu: Node = null
 
 # NEW: Simplified spawn system
 var target_spawn_name: String = ""
@@ -37,6 +40,10 @@ func _ready():
 func _process(delta):
 	# Update global time for environment effects
 	clock_float += delta
+	
+	# Handle pause menu toggling with escape key
+	if Input.is_action_just_pressed("ui_cancel") and can_pause:
+		toggle_pause_menu()
 	
 func create_Textbox(textboxText: PackedStringArray, parent: Node):
 	var newTextbox = textbox.instantiate()
@@ -159,3 +166,53 @@ func reset_pieces() -> void:
 	piece_count = 0
 	collected_pieces.clear()
 	print("All pieces reset")
+
+# Pause menu functionality
+func toggle_pause_menu() -> void:
+	"""Toggle the pause menu on/off"""
+	if is_game_paused:
+		hide_pause_menu()
+	else:
+		show_pause_menu()
+
+func show_pause_menu() -> void:
+	"""Show the pause menu and pause the game"""
+	if current_pause_menu or is_game_paused:
+		return # Already paused or menu already exists
+	
+	# Don't pause in title screen
+	var current_scene = get_tree().current_scene
+	if current_scene.name == "TitleScreen":
+		return
+	
+	print("Showing pause menu")
+	
+	# Create pause menu instance
+	current_pause_menu = pause_menu_scene.instantiate()
+	
+	# Add to current scene
+	get_tree().current_scene.add_child(current_pause_menu)
+	
+	# Pause the game
+	is_game_paused = true
+	get_tree().paused = true
+	
+	# Connect close signal if it exists
+	if current_pause_menu.has_signal("menu_closed"):
+		current_pause_menu.menu_closed.connect(hide_pause_menu)
+
+func hide_pause_menu() -> void:
+	"""Hide the pause menu and unpause the game"""
+	if not current_pause_menu or not is_game_paused:
+		return # Not paused or menu doesn't exist
+	
+	print("Hiding pause menu")
+	
+	# Remove pause menu
+	if current_pause_menu and is_instance_valid(current_pause_menu):
+		current_pause_menu.queue_free()
+		current_pause_menu = null
+	
+	# Unpause the game
+	is_game_paused = false
+	get_tree().paused = false
