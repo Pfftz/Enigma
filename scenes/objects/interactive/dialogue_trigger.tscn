@@ -7,3 +7,6 @@
 script = ExtResource("1_o7blk")
 
 [node name="InteractionSymbol" parent="." instance=ExtResource("2_wktwx")]
+gizmo_extents = 10.0
+enabled = true
+min_distance = 12.5

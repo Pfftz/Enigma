@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmrcqgq818ugl"]
+[gd_scene load_steps=19 format=3 uid="uid://bmrcqgq818ugl"]
 
-[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player.tscn" id="1_v0jrp"]
+[ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_v0jrp"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_w84pv"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_wfhsx"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_ctt0g"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_mkbd2"]
-[ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact_laptop.gd" id="6_fh1go"]
+[ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact/interact_laptop.gd" id="6_fh1go"]
 [ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_fh1go"]
+[ext_resource type="PackedScene" uid="uid://dguysikyfdbkc" path="res://scenes/objects/interactive/dialogue_trigger.tscn" id="8_8pwh1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)
@@ -122,6 +123,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="interact laptop" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55914, 0.401205, 0.373931)
+visible = false
 collision_layer = 2
 script = ExtResource("6_fh1go")
 
@@ -149,12 +151,16 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Camera3D" type="Camera3D" parent="PhantomCamera3D2"]
 physics_interpolation_mode = 1
-transform = Transform3D(0.999737, -0.0228718, 0.00162081, 0.0227041, 0.997327, 0.0694504, -0.00320494, -0.0693953, 0.997584, -0.223277, 0.123007, -0.32794)
+transform = Transform3D(0.999737, -0.0228719, 0.00162076, 0.0227041, 0.997327, 0.0694506, -0.00320494, -0.0693953, 0.997584, -0.219504, -0.0134786, -0.371357)
 fov = 28.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.0158575, -0.368296, 0.929573, -0.00567272, 0.929642, 0.36842, -0.999858, -0.0111154, 0.0126525, 1.50408, 1.81822, 1.39212)
 light_energy = 1.83
+
+[node name="DialogueTrigger" parent="." instance=ExtResource("8_8pwh1")]
+transform = Transform3D(0.434919, 0, 0.0084192, 0, 0.435, 0, -0.0084192, 0, 0.434919, -1.17889, 1.67353, 1.51985)
+gizmo_extents = 10.0
 
 [connection signal="body_entered" from="interact laptop" to="interact laptop" method="_on_body_entered"]
 [connection signal="body_exited" from="interact laptop" to="interact laptop" method="_on_body_exited"]

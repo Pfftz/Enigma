@@ -86,4 +86,3 @@ void fragment()
 	vec4 texture_color = texture(albedoTex, texture_uv);
 	ALBEDO = mix(fog_color,(modulate_color * texture_color), COLOR.r).rgb;
 }
-
