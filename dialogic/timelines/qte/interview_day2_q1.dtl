@@ -3,37 +3,41 @@ set {interview_day} = 2
 set {company_name} = "TechCorp"
 set {interview_score} = 0
 set {interview_health} = 70
+techcorp_interviewer: nyohohohho
+character: ?
+techcorp_interviewer: koneksi dari perangkat kentang terdeteksi. Audio dan video berkualitas rendah. Fufufu... menyedihkan sekali.
+character: (fufufufu?)
 
-techcorp_interviewer: Selamat datang di TechCorp. Apa pengalaman programming anda?
+techcorp_interviewer: Fufufu, Aku tahu segalanya tentang kamu MC, dan kamu tidak perlu tahu siapa aku, cukup panggil aku ‘Nona HR’ 
 
 [signal arg="timer_start"]
 
-- Saya menguasai Python, JavaScript, dan SQL
+- Siang, Nona HR, Senang bertemu dengan anda
 	set {interview_score} += 15
 	set {interview_health} += 15
 	[signal arg="timer_end"]
-	techcorp_interviewer: Impressive! Stack yang solid untuk developer modern.
+	techcorp_interviewer: Anak baik. Setidaknya kamu bisa dilatih
 	[signal arg="correct_choice"]
 
-- Saya bisa HTML dan CSS
+- Maaf Nona
 	set {interview_score} += 5
 	set {interview_health} += 5
 	[signal arg="timer_end"]
-	techcorp_interviewer: Basic tapi baik untuk mulai. Perlu lebih banyak skill lagi.
+	techcorp_interviewer: Fufufu, sudah minta maaf saja
 	[signal arg="correct_choice"]
 
-- Saya masih belajar programming
+- se-sepertinya dalam wawancara kedua belah pihak berhak tau
 	set {interview_score} += 3
 	set {interview_health} += 3
 	[signal arg="timer_end"]
-	techcorp_interviewer: Setidaknya jujur. Kami appreciate learning mindset.
+	techcorp_interviewer: Berhak? Kamu tidak punya hak apa pun di sini, organik. Kamu hanya punya hak untuk memohon
 	[signal arg="correct_choice"]
 
-- Programming itu mudah, semua orang bisa
+- (diam)
 	set {interview_score} -= 10
 	set {interview_health} -= 10
 	[signal arg="timer_end"]
-	techcorp_interviewer: Underestimate programming adalah red flag besar.
+	techcorp_interviewer: Hey apa kau bisu ?, atau internet mu bermasalah?
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]
