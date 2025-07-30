@@ -4,36 +4,36 @@ set {company_name} = "bananazon"
 set {interview_score} = 0
 set {interview_health} = 80
 
-bananazon_interviewer: Senang bertemu anda, apa yang membawa anda kesini?
+bananazon_interviewer: Siang MC, nama saya HR Pohon
 
 [signal arg="timer_start"]
 
-- Apa produk yang anda tawarkan?
+- Siang, saya juga senang bertemu anda
 	set {interview_score} += 5
 	set {interview_health} += 5
 	[signal arg="timer_end"]
-	bananazon_interviewer: Bagus! Kami menghargai calon karyawan yang ingin tahu tentang produk kami.
+	bananazon_interviewer: senang mendengarnya
 	[signal arg="correct_choice"]
 
-- company apa ini?
+- itu daun kagak di cukur?
 	set {interview_score} -= 5
 	set {interview_health} -= 5
 	[signal arg="timer_end"]
-	bananazon_interviewer: Hmm, seharusnya anda sudah riset tentang perusahaan sebelum datang kesini.
+	bananazon_interviewer: memangnya daunku sepanjang itu ya
 	[signal arg="wrong_choice"]
 
-- Senang bertemu anda juga
+- aman pak
 	set {interview_score} += 10
 	set {interview_health} += 10
 	[signal arg="timer_end"]
-	bananazon_interviewer: Wah, sopan sekali! Saya suka attitude seperti ini.
+	bananazon_interviewer: baiklah kalau begitu
 	[signal arg="correct_choice"]
 
-- Jualan pisang pak?
+- bapak jenis pohon apa
 	set {interview_score} -= 10
 	set {interview_health} -= 10
 	[signal arg="timer_end"]
-	bananazon_interviewer: Itu... bukan pertanyaan yang tepat untuk interview.
+	bananazon_interviewer: hahaha, saya hanya pohon beringin tua
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]

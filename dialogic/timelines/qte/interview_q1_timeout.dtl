@@ -3,7 +3,7 @@ join bananazon_interviewer center
 set {interview_score} -= 5
 set {interview_health} -= 10
 
-bananazon_interviewer: Time's up! Mari lanjut ke pertanyaan berikutnya.
+bananazon_interviewer: Baik, saya akan mulai ke pertanyaan mudah
 
 [signal arg="timeout"]
 [signal arg="timer_end"]

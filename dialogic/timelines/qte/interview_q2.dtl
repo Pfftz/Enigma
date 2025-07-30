@@ -1,38 +1,66 @@
 join bananazon_interviewer center
 
-bananazon_interviewer: Pertanyaan kedua - Apa kelebihan yang anda miliki?
+bananazon_interviewer: Kenapa anda tertarik untuk mendaftar ke company kami
 
 [signal arg="timer_start"]
 
-- Saya pekerja keras dan dapat diandalkan
+- Karena saya mau membantu melestarikan alam
 	set {interview_score} += 8
 	set {interview_health} += 8
 	[signal arg="timer_end"]
-	bananazon_interviewer: Bagus! Kami butuh orang yang committed.
+	bananazon_interviewer: Saya suka jawaban anda
 	[signal arg="correct_choice"]
 
-- Saya pintar dan lebih baik dari yang lain
+- Saya suka melihat pohon
 	set {interview_score} -= 3
 	set {interview_health} -= 3
 	[signal arg="timer_end"]
-	bananazon_interviewer: Percaya diri itu baik, tapi jangan terlalu sombong.
+	bananazon_interviewer: oh begitu ya...
 	[signal arg="wrong_choice"]
 
-- Saya bisa bekerja dalam tim dan adaptif
+- saya punya value yang bapak inginkan
 	set {interview_score} += 12
 	set {interview_health} += 12
 	[signal arg="timer_end"]
-	bananazon_interviewer: Excellent! Team work adalah kunci sukses di bananazon.
+	bananazon_interviewer: ah... saya akan catat dan semoga anda benar
 	[signal arg="correct_choice"]
 
-- Ga tau, yang penting kerja
+- butuh duit pak
 	set {interview_score} -= 8
 	set {interview_health} -= 8
 	[signal arg="timer_end"]
-	bananazon_interviewer: Attitude seperti itu tidak akan membawa anda jauh.
+	bananazon_interviewer: ahahah, anda sangat jujur ya
 	[signal arg="wrong_choice"]
-
-[wait time="1.0"]
-[signal arg="update_ui"]
-
-leave bananazon_interviewer
+bananazon_interviewer: ok kalau begitu
+bananazon_interviewer: sekarang untuk pertanyaan kedua
+bananazon_interviewer: Berapa jumlah jendela di gedung yang ada di jakarta
+[signal arg="timer_start"]
+- ada dua. Jendela kesempatan dan jendela dunia
+	set {interview_score} += 10
+	set {interview_health} += 10
+	[signal arg="timer_end"]
+	bananazon_interviewer: jawaban yang sangat bijak
+	[signal arg="correct_choice"]
+- Karena gajinya besar
+	set {interview_score} -= 5
+	set {interview_health} -= 5
+	[signal arg="timer_end"]
+	bananazon_interviewer: jawaban yang bijak
+	[signal arg="correct_choice"]
+- um... lebih dari 3
+	set {interview_score} += 15
+	set {interview_health} += 15
+	[signal arg="timer_end"]
+	bananazon_interviewer: ahh... butuh lebih banyak menginjak rumput sepertinya
+	[signal arg="wrong_choice"]
+- Karena deket dari rumah
+	set {interview_score} -= 10
+	set {interview_health} -= 10
+	[signal arg="timer_end"]
+	bananazon_interviewer: Itu bukan alasan yang kuat untuk bergabung dengan tim kami.
+	[signal arg="wrong_choice"]
+	
+	[wait time="1.0"]
+	[signal arg="update_ui"]
+	
+	leave bananazon_interviewer

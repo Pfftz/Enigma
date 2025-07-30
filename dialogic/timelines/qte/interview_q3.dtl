@@ -1,35 +1,35 @@
 join bananazon_interviewer center
 
-bananazon_interviewer: Terakhir - Mengapa anda tertarik bekerja di bananazon?
+bananazon_interviewer: dimana anda melihat diri anda 5 tahun keepan?
 
 [signal arg="timer_start"]
 
-- Karena bananazon adalah perusahaan yang inovatif
+- menjadi pupuk bagi anda
 	set {interview_score} += 10
 	set {interview_health} += 10
 	[signal arg="timer_end"]
-	bananazon_interviewer: Terima kasih! Kami memang selalu berusaha berinovasi.
+	bananazon_interviewer: ooh, jadi anda ingin membantu saya tumbuh lebih baik
 	[signal arg="correct_choice"]
 
-- Karena gajinya besar
+- Memberikan dampak positif sebagai manager Boogle
 	set {interview_score} -= 5
 	set {interview_health} -= 5
 	[signal arg="timer_end"]
-	bananazon_interviewer: Motivasi finansial saja tidak cukup untuk sukses disini.
-	[signal arg="wrong_choice"]
+	bananazon_interviewer: kepercayaan diri yang hebat
+	[signal arg="correct_choice"]
 
-- Saya ingin berkembang bersama perusahaan yang solid
+- Saya tidak berniat hidup lebih lama lagi
 	set {interview_score} += 15
 	set {interview_health} += 15
 	[signal arg="timer_end"]
-	bananazon_interviewer: Perfect! Itulah mindset yang kami cari.
-	[signal arg="correct_choice"]
+	bananazon_interviewer: apa yang salah darimu anak muda
+	[signal arg="wrong_choice"]
 
-- Karena deket dari rumah
+- 5 tahun? 5 hari hidup saja saya bersyukur
 	set {interview_score} -= 10
 	set {interview_health} -= 10
 	[signal arg="timer_end"]
-	bananazon_interviewer: Itu bukan alasan yang kuat untuk bergabung dengan tim kami.
+	bananazon_interviewer: hah... ok...
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]
@@ -38,16 +38,16 @@ bananazon_interviewer: Terakhir - Mengapa anda tertarik bekerja di bananazon?
 # Final interview conclusion
 [wait time="1.0"]
 
-bananazon_interviewer: Baiklah, interview hari ini selesai. Terima kasih atas waktunya.
+bananazon_interviewer: dari analisa saya
 
 if {interview_score} >= 25:
-	bananazon_interviewer: Saya terkesan dengan jawaban anda! Kami akan menghubungi anda segera.
+	bananazon_interviewer: You did great! Kami akan kabari anda di hari ke 5
 elif {interview_score} >= 10:
-	bananazon_interviewer: Tidak buruk. Kami akan pertimbangkan aplikasi anda.
+	bananazon_interviewer: Tidak buruk
 elif {interview_score} >= 0:
 	bananazon_interviewer: Masih ada yang perlu diperbaiki, tapi terima kasih sudah datang.
 else:
-	bananazon_interviewer: Mohon maaf, sepertinya anda belum cocok untuk posisi ini.
+	bananazon_interviewer: Sudah cukup saya dihina seperti ini, Kami tidak menerima orang seperti anda. Terima kasih
 
 set {day1_completed} = true
 set {day1_score} = {interview_score}
