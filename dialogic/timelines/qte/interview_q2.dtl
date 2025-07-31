@@ -34,5 +34,5 @@ bananazon_interviewer: Kenapa anda tertarik untuk mendaftar ke eco-sigma
 	[signal arg="wrong_choice"]
 bananazon_interviewer: ok kalau begitu
 bananazon_interviewer: sekarang untuk pertanyaan ketiga
-bananazon_interviewer: tapi sebelum itu, mari kita test skill anda dengan minigame kecil
+bananazon_interviewer: dimana anda melihat diri anda 5 tahun keepan?
 [signal arg="start_bubble_minigame"]
