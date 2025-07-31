@@ -6,10 +6,10 @@
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "text-box-2"
+"style": ""
 },
 &"default_portrait": "default",
-&"description": "Bananazon company interviewer - friendly but professional",
+&"description": "eco sigma company interviewer - friendly but professional",
 &"display_name": "hr kayu",
 &"mirror": false,
 &"nicknames": ["HR", "Interviewer"],

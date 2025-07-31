@@ -73,7 +73,7 @@ directories/dtl_directory={
 "timeline_baru": "res://dialogic/timelines/timeline_baru.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://text-box.tres", "res://text-box-2.tres", "res://vn-style.tres"]
+layout/style_list=["res://text-box.tres", "res://text-box-2.tres", "res://vn-style.tres", "res://dialogic/timelines/VN.tres"]
 layout/default_style="res://text-box.tres"
 variables={
 "company_name": "Test Company",
