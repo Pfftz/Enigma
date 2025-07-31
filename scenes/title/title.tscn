@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b1kab4d8sry8a"]
+[gd_scene load_steps=44 format=3 uid="uid://b1kab4d8sry8a"]
 
 [ext_resource type="Script" uid="uid://d2qykwnj5swwx" path="res://scripts/levels/title.gd" id="1_ys1qf"]
 [ext_resource type="Shader" uid="uid://dtsf8q7phrnxo" path="res://shaders/psx_lit_nofog.gdshader" id="3_60g01"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dyqdq3bocpikr" path="res://asset/2d/ui/title/file_frame.png" id="8_hgps8"]
 [ext_resource type="LabelSettings" uid="uid://cb1c82a2dubgn" path="res://resource/theme/font/default.tres" id="9_2brh2"]
 [ext_resource type="Shader" uid="uid://1n7hd1pd71t8" path="res://shaders/transparency.gdshader" id="9_hmdf2"]
-[ext_resource type="Texture2D" uid="uid://xj3h3m7xe531" path="res://asset/2d/sprite/player/guardian.png" id="10_g8lf8"]
+[ext_resource type="Texture2D" uid="uid://dlohalr4erewr" path="res://asset/2d/sprite/player/guardian.png" id="10_g8lf8"]
 [ext_resource type="Texture2D" uid="uid://spnyrwx3rosx" path="res://asset/2d/ui/title/panic.png" id="10_lli8y"]
 [ext_resource type="Texture2D" uid="uid://ryssvf1pireo" path="res://asset/2d/ui/title/title_piece.png" id="11_b3kyf"]
 [ext_resource type="Texture2D" uid="uid://bjpl673weodmi" path="res://asset/2d/ui/psx_buttons.png" id="13_61pkf"]
@@ -52,25 +52,32 @@ shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_pan_velocity = Vector2(0, 0)
 shader_parameter/alpha_color = Color(1, 0, 1, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bqdq2"]
+load_path = "res://.godot/imported/guardian.png-034306c5ad018e312f23bea1b957eb63.ctex"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4qgig"]
 shader = ExtResource("9_hmdf2")
-shader_parameter/albedoTex = ExtResource("10_g8lf8")
+shader_parameter/albedoTex = SubResource("CompressedTexture2D_bqdq2")
 shader_parameter/alpha_color = Color(1, 0, 1, 1)
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mwhbj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfckv"]
+atlas = ExtResource("10_g8lf8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp135"]
 atlas = ExtResource("10_g8lf8")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pfpwj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb06g"]
 atlas = ExtResource("10_g8lf8")
 region = Rect2(0, 128, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r46ie"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuxxd"]
 atlas = ExtResource("10_g8lf8")
 region = Rect2(0, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xt07x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq4su"]
 atlas = ExtResource("10_g8lf8")
 region = Rect2(0, 256, 64, 64)
 
@@ -78,16 +85,19 @@ region = Rect2(0, 256, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mwhbj")
+"texture": SubResource("AtlasTexture_wfckv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pfpwj")
+"texture": SubResource("AtlasTexture_qp135")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r46ie")
+"texture": SubResource("AtlasTexture_qb06g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xt07x")
+"texture": SubResource("AtlasTexture_xuxxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq4su")
 }],
 "loop": true,
 "name": &"default",
@@ -255,7 +265,6 @@ material = SubResource("ShaderMaterial_4qgig")
 position = Vector2(31, 29)
 sprite_frames = SubResource("SpriteFrames_666n8")
 autoplay = "default"
-frame = 2
 frame_progress = 0.25101
 
 [node name="Panic" type="TextureRect" parent="FileSelect/Files/File"]
@@ -311,7 +320,6 @@ material = SubResource("ShaderMaterial_4qgig")
 position = Vector2(168, 29)
 sprite_frames = SubResource("SpriteFrames_666n8")
 autoplay = "default"
-frame = 2
 frame_progress = 0.25101
 
 [node name="Panic" type="TextureRect" parent="FileSelect/Files/File2"]
@@ -365,7 +373,6 @@ material = SubResource("ShaderMaterial_4qgig")
 position = Vector2(31, 29)
 sprite_frames = SubResource("SpriteFrames_666n8")
 autoplay = "default"
-frame = 2
 frame_progress = 0.25101
 
 [node name="Panic" type="TextureRect" parent="FileSelect/Files/File3"]
@@ -421,7 +428,6 @@ material = SubResource("ShaderMaterial_4qgig")
 position = Vector2(168, 29)
 sprite_frames = SubResource("SpriteFrames_666n8")
 autoplay = "default"
-frame = 2
 frame_progress = 0.25101
 
 [node name="Panic" type="TextureRect" parent="FileSelect/Files/File4"]
