@@ -36,6 +36,5 @@ bananazon_interviewer: Siang MC, nama saya HR Pohon
 	[signal arg="timer_end"]
 	bananazon_interviewer: hahaha, saya hanya pohon beringin tua
 	[signal arg="wrong_choice"]
-
-[wait time="1.0"]
 [signal arg="update_ui"]
+join  center
