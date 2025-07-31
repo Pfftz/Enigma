@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://biq31bh8d770w"]
+[gd_scene load_steps=23 format=3 uid="uid://biq31bh8d770w"]
 
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_ls1dj"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_kkv7f"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_piisr"]
 [ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="8_sieq0"]
 [ext_resource type="Script" uid="uid://c384tur1ojl7i" path="res://scripts/objects/interact/interact_kasur.gd" id="9_kkv7f"]
+[ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="10_4h7wx"]
+[ext_resource type="PackedScene" uid="uid://dsxxl5c5l02lc" path="res://scenes/objects/level/kumpulan_sampah.tscn" id="11_wcdy2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)
@@ -116,7 +118,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="camera1" type="Camera3D" parent="PhantomCamera3D"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
 fov = 37.8493
 
 [node name="PhantomCameraHost" type="Node" parent="PhantomCamera3D/camera1"]
@@ -179,6 +181,27 @@ script = ExtResource("9_kkv7f")
 transform = Transform3D(0.997152, 0, -0.0754138, 0, 1, 0, 0.0754138, 0, 0.997152, 0.336535, -0.320801, -0.18882)
 shape = SubResource("BoxShape3D_khery")
 debug_color = Color(7.70092e-07, 0.560438, 0.885221, 0.42)
+
+[node name="sampah sebiji" parent="." instance=ExtResource("10_4h7wx")]
+transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, -1.40272, 0.577165, 1.8944)
+
+[node name="sampah sebiji2" parent="." instance=ExtResource("10_4h7wx")]
+transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, -1.66641, 0.577165, 1.93497)
+
+[node name="sampah sebiji5" parent="." instance=ExtResource("10_4h7wx")]
+transform = Transform3D(0.207804, 0, 0.120073, 0, 0.24, 0, -0.120073, 0, 0.207804, -1.26479, 0.577165, 0.172809)
+
+[node name="sampah sebiji6" parent="." instance=ExtResource("10_4h7wx")]
+transform = Transform3D(0.207804, 0, 0.120073, 0, 0.24, 0, -0.120073, 0, 0.207804, -1.47281, 0.577165, 0.339861)
+
+[node name="sampah sebiji3" parent="." instance=ExtResource("10_4h7wx")]
+transform = Transform3D(-0.031455, 0, 0.23793, 0, 0.24, 0, -0.23793, 0, -0.031455, -0.833547, 0.577165, 2.43286)
+
+[node name="sampah sebiji4" parent="." instance=ExtResource("10_4h7wx")]
+transform = Transform3D(-0.031455, 0, 0.23793, 0, 0.24, 0, -0.23793, 0, -0.031455, -0.758772, 0.577165, 2.68896)
+
+[node name="KumpulanSampah" parent="." instance=ExtResource("11_wcdy2")]
+transform = Transform3D(0.139876, 0, 0.195025, 0, 0.24, 0, -0.195025, 0, 0.139876, -1.3342, 0.33496, 0.0435498)
 
 [connection signal="body_entered" from="interact laptop" to="interact laptop" method="_on_body_entered"]
 [connection signal="body_exited" from="interact laptop" to="interact laptop" method="_on_body_exited"]
