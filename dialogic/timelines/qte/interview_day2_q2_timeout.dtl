@@ -8,5 +8,3 @@ techcorp_interviewer: Terserah lah, lagi pula aku sebenarnya tidak tahu apa apa 
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-
-leave techcorp_interviewer

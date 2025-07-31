@@ -39,5 +39,3 @@ green_interviewer: “Pelamar ke-456 Waktu saya terbatas. Saya harap anda sudah 
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-
-leave green_interviewer

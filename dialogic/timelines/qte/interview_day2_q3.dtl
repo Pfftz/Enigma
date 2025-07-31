@@ -49,5 +49,3 @@ else:
 
 set {day2_completed} = true
 set {day2_score} = {interview_score}
-
-leave techcorp_interviewer

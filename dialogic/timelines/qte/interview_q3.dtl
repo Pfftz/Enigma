@@ -51,5 +51,3 @@ else:
 
 set {day1_completed} = true
 set {day1_score} = {interview_score}
-
-leave bananazon_interviewer

@@ -50,5 +50,3 @@ bananazon_interviewer: Berapa jumlah jendela di gedung yang ada di jakarta
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-
-leave bananazon_interviewer

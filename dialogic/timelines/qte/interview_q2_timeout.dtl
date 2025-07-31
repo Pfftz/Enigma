@@ -9,5 +9,3 @@ bananazon_interviewer: saya akan langsung tanya ke pertanyaa terakhir
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-
-leave bananazon_interviewer

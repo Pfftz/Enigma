@@ -38,5 +38,3 @@ creative_interviewer: Welcome to CreativeStudio! Ceritakan tentang proyek kreati
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-
-leave creative_interviewer

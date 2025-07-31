@@ -39,5 +39,3 @@ bananazon_interviewer: Siang MC, nama saya HR Pohon
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-
-leave bananazon_interviewer
