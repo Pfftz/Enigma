@@ -1,53 +1,50 @@
 join creative_interviewer center
 
-creative_interviewer: Bagaimana anda menghadapi creative block?
+creative_interviewer: Apa alasanmu menghunus pedangmu di hadapanku?  Apa tujuan utamamu?
 
 [signal arg="timer_start"]
 
-- Cari inspirasi dari design trends dan nature
+- Untuk melindungi mereka yang berharga bagi saya, Jenderal
 	set {interview_score} += 18
 	set {interview_health} += 18
 	[signal arg="timer_end"]
-	creative_interviewer: Excellent! Multiple inspiration sources keep creativity flowing.
+	creative_interviewer: Hooo... sebuah alasan yang mulia. Bukan untuk ketenaran, bukan untuk emas, tapi untuk menjadi perisai.
 	[signal arg="correct_choice"]
 
-- Istirahat dulu, lalu balik dengan fresh mind
+- Untuk membuktikan nilai diri saya, Jenderal.
 	set {interview_score} += 12
-	set {interview_health} += 12
 	[signal arg="timer_end"]
-	creative_interviewer: Wise approach! Mental break often leads to breakthrough.
-	[signal arg="correct_choice"]
-
-- Copy design orang lain
-	set {interview_score} -= 15
-	set {interview_health} -= 15
-	[signal arg="timer_end"]
-	creative_interviewer: That's plagiarism! We value original creativity here.
-	[signal arg="wrong_choice"]
-
-- Menyerah dan ganti profesi
-	set {interview_score} -= 20
-	set {interview_health} -= 20
-	[signal arg="timer_end"]
-	creative_interviewer: That defeatist attitude has no place in creative industry.
-	[signal arg="wrong_choice"]
+	- Figma dan Canva
+		set {interview_health} += 12
+		creative_interviewer:  Ambisi untuk menjadi lebih kuat! Keinginan untuk menempa diri! Itu adalah semangat yang bagus.
+		[signal arg="correct_choice"]
+	
+	- arena dari semua lamaran yang saya kirim, hanya perusahaan ini yang memanggil saya untuk wawancara. Gajinya juga sepertinya lumayan
+		set {interview_score} -= 15
+		set {interview_health} -= 15
+		[signal arg="timer_end"]
+		creative_interviewer: Kau merendahkan perjuangan kami! Kau tidak melihat kehormatan bergabung dengan pasukan ini, kau hanya melihat angka di slip gaji!
+		[signal arg="wrong_choice"]
+	
+	- Tentu saja nyari uang pak
+		set {interview_score} -= 20
+		set {interview_health} -= 20
+		[signal arg="timer_end"]
+		creative_interviewer: Uang... bertahan hidup... Alasan yang sangat... duniawi
+		[signal arg="wrong_choice"]
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-
+	
 # Final interview conclusion
 [wait time="1.0"]
-
-creative_interviewer: Alright, creative assessment complete!
-
-if {interview_score} >= 25:
-	creative_interviewer: Amazing creative spirit! You're exactly what we need. Welcome aboard!
-elif {interview_score} >= 15:
+	
+creative_interviewer: Sesuai dengan apa yang sudah ku duga...
+	
+if {interview_score} >= 15:
 	creative_interviewer: Good creative foundation. We'll consider your portfolio.
-elif {interview_score} >= 5:
-	creative_interviewer: Some potential, but need more creative development.
 else:
-	creative_interviewer: Sorry, creative skills belum sesuai standar kami.
-
+	creative_interviewer: Kami tidak butuh orang orang dengan jiwa kotor
+	
 set {day3_completed} = true
 set {day3_score} = {interview_score}

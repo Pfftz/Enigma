@@ -4,36 +4,41 @@ set {company_name} = "TechCorp"
 set {interview_score} = 0
 set {interview_health} = 40
 
-creative_interviewer: Welcome to CreativeStudio! Ceritakan tentang proyek kreatif terakhir anda.
+creative_interviewer: Selamat siang calon prajurit
+character: Selamat Siang pak, perkenalkan saya mc yang ingin bekerja di peru-
+creative_interviewer: Cukup bicara nya nak
+creative_interviewer: Aku adalah jenderal Bhaluka dan yang ku perlukan adalah bukti nyata bukan hanya sekedar omon omon belaka 
+character: ( (┬┬﹏┬┬) )
+creative_interviewer: Coba tunjukan kepada ku kemampuan tersembunyi apa yang kau punya
 
 [signal arg="timer_start"]
 
-- Saya membuat video content untuk media sosial
+- Rupa ku adalah bukti kejam nya dunia menempaku
 	set {interview_score} += 12
 	set {interview_health} += 12
 	[signal arg="timer_end"]
-	creative_interviewer: Nice! Social media content is our bread and butter.
+	creative_interviewer: Hooo, aku suka dengan sorot matamu
 	[signal arg="correct_choice"]
 
-- Saya redesign poster untuk event kampus
+- Aku adalah seorang pejuang yang telah melewati banyak badai kehidupan
 	set {interview_score} += 8
 	set {interview_health} += 8
 	[signal arg="timer_end"]
-	creative_interviewer: Good start! Event design needs strong visual communication.
+	creative_interviewer: Aku bisa melihatnya hanya dari aura pada dirimu
 	[signal arg="correct_choice"]
 
-- Saya tidak pernah bikin proyek kreatif
+- Aku tidak mempunyai kekuatan apapun
 	set {interview_score} -= 3
 	set {interview_health} -= 3
 	[signal arg="timer_end"]
-	creative_interviewer: Hmm, kami cari orang dengan passion di creative field.
+	creative_interviewer: Kau tidak mempunyai nya ?, berarti kau tidak pantas memasuki perusahaan kami
 	[signal arg="wrong_choice"]
 
-- Proyek apa? Saya cuma bisa PowerPoint
+- erhenti bermain main cosplay, aku ingin bertemu dengan HR asli nya
 	set {interview_score} -= 10
 	set {interview_health} -= 10
 	[signal arg="timer_end"]
-	creative_interviewer: PowerPoint is not creative work, sorry.
+	creative_interviewer: Cosplay ??, ini adalah pakaian perang ku dan kau mengejek nya sebagai cosplay ??
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]

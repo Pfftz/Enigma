@@ -117,7 +117,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="camera1" type="Camera3D" parent="PhantomCamera3D"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0, 0, 0)
 fov = 37.8493
 
 [node name="PhantomCameraHost" type="Node" parent="PhantomCamera3D/camera1"]

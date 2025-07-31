@@ -3,7 +3,10 @@ join creative_interviewer center
 set {interview_score} -= 5
 set {interview_health} -= 10
 
-creative_interviewer: Creative people should think fast! Time's up.
+creative_interviewer: CUKUP PERKENALAN NYA DAN DENGARKAN BAIK BAIK CALON PRAJURIT !!!
+creative_interviewer: Saat ini, benteng kita sedang dalam kondisi genting!
+creative_interviewer: Server utama kita, yang kami sebut sebagai 'Kristal Cakra Siang'—sedang diserang oleh virus ganas kiriman musuh!
+creative_interviewer: asukan teknis biasa sudah di taklukan !!
 
 [signal arg="timeout"]
 [signal arg="timer_end"]

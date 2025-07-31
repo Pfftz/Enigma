@@ -31,6 +31,10 @@ var company_names: Array[String] = [
 	"MegaCorp"
 ]
 
+# Bubble minigame integration
+var bubble_minigame_score: int = 0
+var waiting_for_bubble_result: bool = false
+
 # Timer system for dialogic choices
 var timer_active: bool = false
 var time_remaining: float = 12.0
@@ -118,6 +122,7 @@ func start_interview_day(day: int) -> void:
 	Dialogic.VAR.set('interview_health', current_health)
 	Dialogic.VAR.set('interview_day', day)
 	Dialogic.VAR.set('company_name', company_names[day - 1])
+	Dialogic.VAR.set('bubble_score', 0) # Initialize bubble score
 	
 	# Update UI to reflect starting health
 	update_health_display()
@@ -166,18 +171,29 @@ func start_question_timeline(question_num: int) -> void:
 func _on_dialogic_signal(argument: String) -> void:
 	# Handle custom signals from Dialogic timelines
 	match argument:
+		"start_bubble_minigame":
+			start_bubble_minigame()
 		"timer_start":
-			start_qte_timer(12.0) # Default 12 seconds
+			start_qte_timer(12.0)
 		"timer_end":
 			stop_qte_timer()
-		"update_ui":
-			update_score_display()
-			update_health_display()
 		"correct_choice":
 			play_feedback_sound("correct")
 		"wrong_choice":
 			play_feedback_sound("wrong")
+		"update_ui":
+			update_score_display()
+			update_health_display()
 			check_health_status()
+		"kick_out":
+			kick_out_player()
+		"next_question":
+			# Check if we need to move to next question
+			if current_question < 3:
+				start_question_timeline(current_question + 1)
+			else:
+				# Day completed
+				_on_timeline_ended()
 		"timeout":
 			play_feedback_sound("timeout")
 			check_health_status()
@@ -189,12 +205,6 @@ func _on_dialogic_signal(argument: String) -> void:
 			print("Question started, timer reset")
 
 func start_qte_timer(duration: float) -> void:
-	time_remaining = duration
-	timer_active = true
-	update_timer_display()
-	print("Timer started: ", duration, " seconds")
-
-
 	time_remaining = duration
 	timer_active = true
 	update_timer_display()
@@ -304,7 +314,14 @@ func _on_timer_timeout() -> void:
 
 # Fungsi untuk memulai minigame bubble
 func start_bubble_minigame():
+	# Prevent starting multiple instances
+	if waiting_for_bubble_result or bubble_game_instance != null:
+		print("DEBUG: Bubble minigame already running, skipping...")
+		return
+		
 	print("Memulai Bubble Typing Minigame...")
+	waiting_for_bubble_result = true
+	
 	# Sembunyikan dialog agar tidak menutupi
 	var dialog_node = find_child("Dialogic", true, false)
 	if dialog_node:
@@ -318,53 +335,99 @@ func start_bubble_minigame():
 
 # Fungsi yang dipanggil saat minigame bubble selesai
 func _on_bubble_minigame_completed(minigame_score: int):
-	print("Bubble Typing Minigame Selesai! Skor: ", minigame_score)
-
-	# Tambahkan skor dari minigame ke skor wawancara
-	var current_interview_score = Dialogic.VAR.get("interview_score")
-	current_interview_score += minigame_score
-	Dialogic.VAR.set("interview_score", current_interview_score)
-	update_score_display() # Update label skor di UI
-
-	# Tampilkan kembali dialog
-	var dialog_node = find_child("Dialogic", true, false)
-	if dialog_node:
-		dialog_node.visible = true
-
-	# Lanjutkan ke pertanyaan berikutnya (pertanyaan 3)
-	start_question_timeline(current_question + 1)
+	bubble_minigame_score = minigame_score
+	
+	print("DEBUG: Received bubble score from minigame: ", minigame_score)
+	
+	# Set the bubble score in Dialogic variables
+	Dialogic.VAR.set('bubble_score', bubble_minigame_score)
+	
+	print("DEBUG: Set bubble_score in Dialogic to: ", Dialogic.VAR.get('bubble_score'))
+	print("Bubble minigame completed with score: ", bubble_minigame_score)
+	
+	# Remove the bubble game instance
+	if bubble_game_instance and is_instance_valid(bubble_game_instance):
+		bubble_game_instance.queue_free()
+		bubble_game_instance = null
+	
+	waiting_for_bubble_result = false
+	
+	# Continue to the next part of the interview based on current question and day
+	var timeline_name = ""
+	
+	match current_day:
+		1:
+			match current_question:
+				2:
+					timeline_name = "interview_q2_bubble_result"
+				3:
+					timeline_name = "interview_q3"
+		2:
+			match current_question:
+				2:
+					timeline_name = "interview_day2_q2_bubble_result"
+				3:
+					timeline_name = "interview_day2_q3"
+		3:
+			match current_question:
+				2:
+					timeline_name = "interview_day3_q2_bubble_result"
+				3:
+					timeline_name = "interview_day3_q3"
+		4:
+			match current_question:
+				2:
+					timeline_name = "interview_day4_q2_bubble_result"
+				3:
+					timeline_name = "interview_day4_q3"
+		5:
+			match current_question:
+				2:
+					timeline_name = "interview_day5_q2_bubble_result"
+				3:
+					timeline_name = "interview_day5_q3"
+	
+	if timeline_name != "":
+		print("DEBUG: Starting timeline: ", timeline_name)
+		Dialogic.start(timeline_name)
+	else:
+		print("No timeline found for day ", current_day, " question ", current_question + 1)
 
 # Di dalam DialogicQTEManager.gd
 func _on_timeline_ended() -> void:
 	if game_over:
 		return
 
+	# Don't auto-proceed if we're waiting for bubble result
+	if waiting_for_bubble_result:
+		return
+
 	await get_tree().create_timer(1.0).timeout
 
-	# (DIUBAH) Cek apakah ini setelah pertanyaan ke-2
-	if current_question == 2:
-		# Jika ya, mulai minigame bubble
-		start_bubble_minigame()
-	elif current_question < 3:
-		# Jika tidak, lanjut ke pertanyaan berikutnya
+	# Check if we need to move to next question or show results
+	if current_question < 3:
 		start_question_timeline(current_question + 1)
 	else:
-		# Jika sudah pertanyaan terakhir, tunjukkan hasil
 		show_interview_results()
 
 func show_interview_results() -> void:
+	if not is_inside_tree():
+		print("Warning: Node is not in scene tree, cannot show interview results")
+		return
+		
 	var day_score = Dialogic.VAR.get("interview_score") if Dialogic.VAR.has("interview_score") else 0
 	
-	# DIUBAH: Kita tidak lagi menyimpan skor di sini, tapi bisa tetap di-emit jika perlu
-	# GameState.add_to_total_score(day_score) 
+	# Emit the completion signal
 	interview_day_completed.emit(current_day, day_score)
 	
-	# Tampilkan pesan seperti biasa
+	# Display completion message
 	var completion_message = "Day " + str(current_day) + " completed!\n"
 	completion_message += "Score this day: " + str(day_score)
 	print(completion_message)
 	
-	await get_tree().create_timer(2.0).timeout
+	# Wait before proceeding (only if still in tree)
+	if is_inside_tree():
+		await get_tree().create_timer(2.0).timeout
 	
 	# DIUBAH TOTAL:
 	# Hapus `GameState.advance_to_next_day()`

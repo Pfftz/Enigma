@@ -1,9 +1,10 @@
+[background arg="res://asset/2d/background/bg-place.png" fade="0.0"]
 join bananazon_interviewer center
 # Question 3 timeout
 set {interview_score} -= 5
 set {interview_health} -= 10
 
-bananazon_interviewer: ok 
+bananazon_interviewer: ok
 
 [signal arg="timeout"]
 [signal arg="timer_end"]
