@@ -17,7 +17,7 @@
 &"portraits": {
 "default": {
 "export_overrides": {
-"image": "\"res://asset/2d/hr/d1/d1.jpg\""
+"image": "\"res://asset/2d/hr/d4/hr-pinguin-nofinal.png\""
 },
 "ignore_char_scale": false,
 "mirror": false,
@@ -26,5 +26,5 @@
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 }
 },
-&"scale": 1.0
+&"scale": 1.25
 }
