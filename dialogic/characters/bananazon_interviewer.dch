@@ -6,7 +6,7 @@
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": ""
+"style": "text-box-2"
 },
 &"default_portrait": "default",
 &"description": "Bananazon company interviewer - friendly but professional",
@@ -17,7 +17,7 @@
 &"portraits": {
 "default": {
 "export_overrides": {
-"image": "\"res://dialogic/characters/potret-lucu-prabowo-dari-joget-hingga-melet-melet-di-debat-perdana-3_169-removebg-preview.png\""
+"image": "\"res://asset/2d/hr/d1/d1.jpg\""
 },
 "ignore_char_scale": false,
 "mirror": false,
