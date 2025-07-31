@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://4me8yyhhjy42"]
 
 [ext_resource type="ArrayMesh" uid="uid://bvoytwwvqkwh" path="res://asset/3d/room/nmp/grass.obj" id="1_otb4p"]
-[ext_resource type="Texture2D" uid="uid://b1ir1inksa4g4" path="res://sprites/grass.png" id="4_28pfr"]
+[ext_resource type="Texture2D" uid="uid://b1ir1inksa4g4" path="res://asset/2d/sprite/grass.png" id="4_28pfr"]
 [ext_resource type="Shader" uid="uid://yrx3bttloff4" path="res://shaders/psx_lit.gdshader" id="5_gmsef"]
 [ext_resource type="ArrayMesh" uid="uid://maqyhbv0cnx2" path="res://asset/3d/room/nmp/entrance.obj" id="8_w73q4"]
 [ext_resource type="Shader" uid="uid://cdmbno3xmc4uw" path="res://shaders/psx_lit_alpha.gdshader" id="9_jmul8"]

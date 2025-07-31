@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LoadingPreset" load_steps=3 format=3 uid="uid://dffkt7417qwye"]
 
-[ext_resource type="Script" path="res://script/resource/loading_resource.gd" id="1_osfuo"]
+[ext_resource type="Script" uid="uid://d0a01b40j5a33" path="res://scripts/resources/loading_resource.gd" id="1_osfuo"]
 [ext_resource type="Texture2D" uid="uid://com3trj4wu70c" path="res://asset/2d/loading_screen/evencare_load2.png" id="1_ph2d2"]
 
 [resource]
