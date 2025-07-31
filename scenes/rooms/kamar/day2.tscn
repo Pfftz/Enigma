@@ -97,17 +97,6 @@ shape = SubResource("BoxShape3D_jcls8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90553, -1.12477, -2.60762)
 shape = SubResource("BoxShape3D_nbk78")
 
-[node name="camera1" type="Camera3D" parent="."]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.2415, 4.98778)
-fov = 37.8493
-
-[node name="PhantomCameraHost" type="Node" parent="camera1"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("3_hw70d")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.619151, 5.2415, 4.98778)
 top_level = true
@@ -124,6 +113,17 @@ dead_zone_height = 0.594
 vertical_rotation_offset = 0.720821
 spring_length = 1.625
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="camera1" type="Camera3D" parent="PhantomCamera3D"]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
+fov = 37.8493
+
+[node name="PhantomCameraHost" type="Node" parent="PhantomCamera3D/camera1"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_hw70d")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="interact laptop" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.380346, 0.713225, 0.373931)
