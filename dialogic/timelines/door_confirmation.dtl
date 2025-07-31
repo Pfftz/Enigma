@@ -1,0 +1,18 @@
+join character="" 0
+character: "Are you sure you want to go outside?"
+- Yes, I want to go out
+	[signal arg="door_yes"]
+	character: "Alright, let's go outside."
+- No, I'll stay inside
+	[signal arg="door_no"]
+	character: "Okay, maybe later."
+	character: "Are you really sure you don't want to go outside? This might be your last chance."
+	- Yes, I really want to go out now
+		[signal arg="door_yes"]
+		character: "Okay, let's go then."
+	- No, I definitely want to stay
+		[signal arg="door_no"]
+		character: "Well, you can't stay here forever..."
+		character: "Time to go outside whether you like it or not!"
+		[signal arg="door_yes"]
+leave character="" 0

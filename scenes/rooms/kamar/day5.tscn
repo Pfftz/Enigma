@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://biq31bh8d770w"]
+[gd_scene load_steps=28 format=3 uid="uid://biq31bh8d770w"]
 
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_ls1dj"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_kkv7f"]
@@ -6,11 +6,11 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_4h7wx"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_wcdy2"]
 [ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact/interact_laptop.gd" id="6_vltbn"]
-[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_piisr"]
+[ext_resource type="Script" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_piisr"]
 [ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="8_sieq0"]
 [ext_resource type="Script" uid="uid://c384tur1ojl7i" path="res://scripts/objects/interact/interact_kasur.gd" id="9_kkv7f"]
-[ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="10_4h7wx"]
-[ext_resource type="PackedScene" uid="uid://dsxxl5c5l02lc" path="res://scenes/objects/level/kumpulan_sampah.tscn" id="11_wcdy2"]
+[ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="10_khery"]
+[ext_resource type="PackedScene" uid="uid://csgnf4cue72sf" path="res://scenes/objects/level/door_interact.tscn" id="11_door"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)
@@ -32,7 +32,7 @@ size = Vector3(1.76318, 1, 0.600525)
 size = Vector3(4.02283, 1.00342, 0.218445)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbk78"]
-size = Vector3(0.254028, 1.08984, 3.97046)
+size = Vector3(0.628693, 1.08984, 2.99207)
 
 [sub_resource type="Resource" id="Resource_mkbd2"]
 script = ExtResource("5_wcdy2")
@@ -51,6 +51,33 @@ ease = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khery"]
 size = Vector3(1.22473, 0.358398, 2.1637)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kkv7f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_khery"]
+sky_horizon_color = Color(0.301961, 0.32549, 0.34902, 1)
+ground_bottom_color = Color(0.662745, 0.705882, 0.760784, 1)
+ground_energy_multiplier = 0.3
+
+[sub_resource type="Sky" id="Sky_4h7wx"]
+sky_material = SubResource("ProceduralSkyMaterial_khery")
+
+[sub_resource type="Environment" id="Environment_wcdy2"]
+background_mode = 2
+sky = SubResource("Sky_4h7wx")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.1
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+glow_normalized = true
+fog_enabled = true
+fog_sun_scatter = 1.0
+fog_density = 0.03
+fog_depth_curve = 0.406126
+volumetric_fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4h7wx"]
 
 [node name="Day5" type="Node3D"]
 
@@ -96,7 +123,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387232, -0.790812, -4.480
 shape = SubResource("BoxShape3D_jcls8")
 
 [node name="tembok void depan" type="CollisionShape3D" parent="Collision/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90553, -1.12477, -2.60762)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09286, -1.12477, -3.09682)
 shape = SubResource("BoxShape3D_nbk78")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
@@ -159,10 +186,6 @@ physics_interpolation_mode = 1
 transform = Transform3D(0.999737, -0.0228718, 0.00162081, 0.0227041, 0.997327, 0.0694504, -0.00320494, -0.0693953, 0.997584, -0.223277, 0.123007, -0.32794)
 fov = 28.0
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.0158575, -0.368296, 0.929573, -0.00567272, 0.929642, 0.36842, -0.999858, -0.0111154, 0.0126525, 1.50408, 1.81822, 1.39212)
-light_energy = 1.83
-
 [node name="InteractionSymbol" parent="." instance=ExtResource("8_sieq0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.179, 0.5, 1.313)
 min_distance = 3.0
@@ -182,26 +205,56 @@ transform = Transform3D(0.997152, 0, -0.0754138, 0, 1, 0, 0.0754138, 0, 0.997152
 shape = SubResource("BoxShape3D_khery")
 debug_color = Color(7.70092e-07, 0.560438, 0.885221, 0.42)
 
-[node name="sampah sebiji" parent="." instance=ExtResource("10_4h7wx")]
-transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, -1.40272, 0.577165, 1.8944)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.145358, 0, 0, 0, 0.870968, 1.51191, 0.339439, 2.2949)
+mesh = SubResource("BoxMesh_kkv7f")
 
-[node name="sampah sebiji2" parent="." instance=ExtResource("10_4h7wx")]
-transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, -1.66641, 0.577165, 1.93497)
+[node name="Warp" parent="." instance=ExtResource("10_khery")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63244, 0.360736, 2.72308)
+visible = false
+target_scene_path = "uid://c1ohfqrdajkw5"
+target_spawn_name = "giftplane"
 
-[node name="sampah sebiji5" parent="." instance=ExtResource("10_4h7wx")]
-transform = Transform3D(0.207804, 0, 0.120073, 0, 0.24, 0, -0.120073, 0, 0.207804, -1.26479, 0.577165, 0.172809)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wcdy2")
 
-[node name="sampah sebiji6" parent="." instance=ExtResource("10_4h7wx")]
-transform = Transform3D(0.207804, 0, 0.120073, 0, 0.24, 0, -0.120073, 0, 0.207804, -1.47281, 0.577165, 0.339861)
+[node name="lighting" type="Node3D" parent="."]
 
-[node name="sampah sebiji3" parent="." instance=ExtResource("10_4h7wx")]
-transform = Transform3D(-0.031455, 0, 0.23793, 0, 0.24, 0, -0.23793, 0, -0.031455, -0.833547, 0.577165, 2.43286)
+[node name="toys" type="OmniLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56402, 1.63729, -0.924947)
+light_color = Color(0.211765, 0.211765, 0.211765, 1)
+omni_range = 0.2
+omni_attenuation = 2.0
 
-[node name="sampah sebiji4" parent="." instance=ExtResource("10_4h7wx")]
-transform = Transform3D(-0.031455, 0, 0.23793, 0, 0.24, 0, -0.23793, 0, -0.031455, -0.758772, 0.577165, 2.68896)
+[node name="laptop" type="OmniLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24072, 1.20754, 1.30477)
+light_color = Color(0.678431, 0.847059, 0.901961, 1)
+light_energy = 0.5
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+light_size = 1.0
+shadow_enabled = true
+omni_range = 0.3
 
-[node name="KumpulanSampah" parent="." instance=ExtResource("11_wcdy2")]
-transform = Transform3D(0.139876, 0, 0.195025, 0, 0.24, 0, -0.195025, 0, 0.139876, -1.3342, 0.33496, 0.0435498)
+[node name="sun" type="OmniLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72041, 1.90145, 1.21347)
+light_color = Color(0.301961, 0.32549, 0.34902, 1)
+light_energy = 2.0
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+shadow_enabled = true
+shadow_normal_bias = 3.0
+omni_range = 0.5
+omni_attenuation = 2.0
+
+[node name="Pintu" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51302, 0.816977, 2.82478)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pintu"]
+shape = SubResource("BoxShape3D_4h7wx")
+
+[node name="DoorInteract" parent="Pintu" instance=ExtResource("11_door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.813103)
 
 [connection signal="body_entered" from="interact laptop" to="interact laptop" method="_on_body_entered"]
 [connection signal="body_exited" from="interact laptop" to="interact laptop" method="_on_body_exited"]

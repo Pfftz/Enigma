@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bk88ewvc63qff"]
+[gd_scene load_steps=25 format=3 uid="uid://bk88ewvc63qff"]
 
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_u1ydf"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_qslo6"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_j4o75"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_rvnac"]
 [ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact/interact_laptop.gd" id="6_hvgkm"]
-[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_uwf44"]
+[ext_resource type="Script" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_uwf44"]
 [ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="8_ud21y"]
 [ext_resource type="Script" uid="uid://c384tur1ojl7i" path="res://scripts/objects/interact/interact_kasur.gd" id="9_qslo6"]
 [ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="10_1g0dm"]
@@ -50,6 +50,28 @@ ease = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1g0dm"]
 size = Vector3(1.22473, 0.358398, 2.1637)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1g0dm"]
+sky_horizon_color = Color(0.886275, 0.882353, 0.831373, 1)
+ground_bottom_color = Color(0.886275, 0.882353, 0.831373, 1)
+ground_energy_multiplier = 0.3
+
+[sub_resource type="Sky" id="Sky_j4o75"]
+sky_material = SubResource("ProceduralSkyMaterial_1g0dm")
+
+[sub_resource type="Environment" id="Environment_rvnac"]
+background_mode = 2
+sky = SubResource("Sky_j4o75")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.4
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+glow_normalized = true
+fog_enabled = true
+fog_sun_scatter = 2.0
+fog_depth_curve = 0.406126
+volumetric_fog_enabled = true
 
 [node name="Day3" type="Node3D"]
 
@@ -117,7 +139,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="camera1" type="Camera3D" parent="PhantomCamera3D"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
 fov = 37.8493
 
 [node name="PhantomCameraHost" type="Node" parent="PhantomCamera3D/camera1"]
@@ -158,10 +180,6 @@ physics_interpolation_mode = 1
 transform = Transform3D(0.999737, -0.0228718, 0.00162081, 0.0227041, 0.997327, 0.0694504, -0.00320494, -0.0693953, 0.997584, -0.223277, 0.123007, -0.32794)
 fov = 28.0
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.0158575, -0.368296, 0.929573, -0.00567272, 0.929642, 0.36842, -0.999858, -0.0111154, 0.0126525, 1.50408, 1.81822, 1.39212)
-light_energy = 3.58
-
 [node name="InteractionSymbol" parent="." instance=ExtResource("8_ud21y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.179, 0.5, 1.313)
 min_distance = 3.0
@@ -192,6 +210,38 @@ transform = Transform3D(-0.031455, 0, 0.23793, 0, 0.24, 0, -0.23793, 0, -0.03145
 
 [node name="sampah sebiji4" parent="." instance=ExtResource("10_1g0dm")]
 transform = Transform3D(-0.031455, 0, 0.23793, 0, 0.24, 0, -0.23793, 0, -0.031455, -1.13894, 0.577165, 0.551222)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rvnac")
+
+[node name="lighting" type="Node3D" parent="."]
+
+[node name="toys" type="OmniLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56402, 1.63729, -0.924947)
+light_color = Color(0.560784, 0.486275, 0.466667, 1)
+omni_range = 0.2
+omni_attenuation = 2.0
+
+[node name="laptop" type="OmniLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24072, 1.20754, 1.30477)
+light_color = Color(0.678431, 0.847059, 0.901961, 1)
+light_energy = 0.5
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+light_size = 1.0
+shadow_enabled = true
+omni_range = 0.3
+
+[node name="sun" type="OmniLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72041, 1.90145, 1.21347)
+light_color = Color(0.886275, 0.882353, 0.831373, 1)
+light_energy = 2.0
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+shadow_enabled = true
+shadow_normal_bias = 3.0
+omni_range = 1.0
+omni_attenuation = 2.0
 
 [connection signal="body_entered" from="interact laptop" to="interact laptop" method="_on_body_entered"]
 [connection signal="body_exited" from="interact laptop" to="interact laptop" method="_on_body_exited"]

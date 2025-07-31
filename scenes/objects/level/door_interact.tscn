@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://csgnf4cue72sf"]
+
+[ext_resource type="Script" uid="uid://b8do587hstedi" path="res://scripts/objects/interact/door_interact.gd" id="1_interact"]
+[ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="2_symbol"]
+
+[node name="DoorInteract" type="Marker3D"]
+script = ExtResource("1_interact")
+
+[node name="InteractionSymbol" parent="." instance=ExtResource("2_symbol")]
+enabled = true
+height_offset = 1.0
+min_distance = 1.5

@@ -236,7 +236,7 @@ libraries = {
 
 [node name="DialogueTrigger" type="Marker3D" parent="."]
 script = ExtResource("1_o7blk")
-text = ["*ring ring*", "Hello? Anyone there?", "The line goes dead..."]
+text = ["*ring ring*", "Hello? Anyone there?", "...", "I know you can hear me.", "You shouldn't have come here.", "The truth was never meant to be found.", "Some secrets are better left buried.", "This is where your story ends..."]
 
 [node name="InteractionSymbol" parent="DialogueTrigger" instance=ExtResource("2_wktwx")]
 min_distance = 10.0

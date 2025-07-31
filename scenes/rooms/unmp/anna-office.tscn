@@ -89,6 +89,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
 [node name="Phone" parent="." instance=ExtResource("15_3bmv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -5)
+textbox_text = "*ring ring*
+
+Hello? Is anyone there?
+
+...
+
+I know you can hear me.
+
+You shouldn't have come here.
+
+The truth was never meant to be found.
+
+Some secrets are better left buried.
+
+This is where your story ends..."
+trigger_bad_ending_after_interaction = true
 
 [node name="Warp" parent="." instance=ExtResource("17_ysbwa")]
 transform = Transform3D(0.00708602, 0, -0.999975, 0, 1, 0, 0.999975, 0, 0.00708602, 1, 0, 0)

@@ -43,6 +43,7 @@ directories/dtl_directory={
 "day2": "res://dialogic/timelines/day2.dtl",
 "day3": "res://dialogic/timelines/day3.dtl",
 "day5": "res://dialogic/timelines/day5.dtl",
+"door_confirmation": "res://dialogic/timelines/door_confirmation.dtl",
 "interview_day2_q1": "res://dialogic/timelines/qte/interview_day2_q1.dtl",
 "interview_day2_q1_timeout": "res://dialogic/timelines/qte/interview_day2_q1_timeout.dtl",
 "interview_day2_q2": "res://dialogic/timelines/qte/interview_day2_q2.dtl",
@@ -69,16 +70,13 @@ directories/dtl_directory={
 "interview_day5_q2_timeout": "res://dialogic/timelines/qte/interview_day5_q2_timeout.dtl",
 "interview_day5_q3": "res://dialogic/timelines/qte/interview_day5_q3.dtl",
 "interview_day5_q3_timeout": "res://dialogic/timelines/qte/interview_day5_q3_timeout.dtl",
-"interview_intro": "res://dialogic/timelines/interview_intro.dtl",
 "interview_q1": "res://dialogic/timelines/qte/interview_q1.dtl",
 "interview_q1_timeout": "res://dialogic/timelines/qte/interview_q1_timeout.dtl",
 "interview_q2": "res://dialogic/timelines/qte/interview_q2.dtl",
 "interview_q2_bubble_result": "res://dialogic/timelines/qte/interview_q2_bubble_result.dtl",
 "interview_q2_timeout": "res://dialogic/timelines/qte/interview_q2_timeout.dtl",
 "interview_q3": "res://dialogic/timelines/qte/interview_q3.dtl",
-"interview_q3_timeout": "res://dialogic/timelines/qte/interview_q3_timeout.dtl",
-"test_simple": "res://dialogic/timelines/test_simple.dtl",
-"timeline_baru": "res://dialogic/timelines/timeline_baru.dtl"
+"interview_q3_timeout": "res://dialogic/timelines/qte/interview_q3_timeout.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=[]
@@ -153,11 +151,6 @@ ui_cancel={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
-reset_camera_position={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
-]
-}
 pressed_action={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
@@ -207,6 +200,11 @@ pressed_right={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+reset_camera_position={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
 ]
 }
 

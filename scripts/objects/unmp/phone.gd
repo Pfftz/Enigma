@@ -13,6 +13,7 @@ var is_ringing: bool = true
 @export_multiline var textbox_text: String = "The phone is ringing..."
 @export_category("General Properties")
 @export var destroy_after_interaction: bool = false
+@export var trigger_bad_ending_after_interaction: bool = false
 
 @onready var phone_sprite = $PhoneSprite
 @onready var phone_ring = $PhoneRing
@@ -33,7 +34,14 @@ func _setup_phone() -> void:
 	if dialogue_trigger:
 		# Only set text if it's not already configured in the scene
 		if dialogue_trigger.text.is_empty() or (dialogue_trigger.text.size() == 1 and dialogue_trigger.text[0] == "Text"):
-			dialogue_trigger.text = [textbox_text] if textbox_text != "" else ["The phone is ringing..."]
+			# Split multiline textbox_text into array for dialogue system
+			if textbox_text != "":
+				var text_lines = textbox_text.split("\n\n") # Split by double newlines
+				# Remove empty lines
+				text_lines = text_lines.filter(func(line): return line.strip_edges() != "")
+				dialogue_trigger.text = text_lines
+			else:
+				dialogue_trigger.text = ["The phone is ringing..."]
 		
 		var interaction_symbol = dialogue_trigger.get_node("InteractionSymbol")
 		if interaction_symbol:
@@ -119,9 +127,26 @@ func _animate_phone() -> void:
 
 func _reset_phone() -> void:
 	if triggered:
+		print("Phone: Dialogue finished, resetting phone...")
 		phone_sprite.play(&"idle")
 		triggered = false
 		
 		# If destroy after interaction is enabled, remove the phone
 		if destroy_after_interaction:
 			queue_free()
+		
+		# Trigger bad ending after phone interaction if enabled
+		if trigger_bad_ending_after_interaction:
+			print("Phone: Bad ending trigger enabled, starting bad ending...")
+			_trigger_bad_ending()
+
+func _trigger_bad_ending() -> void:
+	"""Trigger the bad ending sequence after phone conversation"""
+	print("Phone: Triggering bad ending sequence...")
+	
+	# Wait a moment for any final dialogue to settle
+	await get_tree().create_timer(1.0).timeout
+	
+	print("Phone: Changing to bad ending scene...")
+	# Change to bad ending scene
+	get_tree().change_scene_to_file("res://scenes/endings/bad_ending.tscn")
