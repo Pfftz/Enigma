@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dwagm8gvdxx67"]
+[gd_scene load_steps=22 format=3 uid="uid://dwagm8gvdxx67"]
 
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_ep3nj"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_lwnby"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_n2liq"]
 [ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="8_ig7rg"]
 [ext_resource type="Script" uid="uid://c384tur1ojl7i" path="res://scripts/objects/interact/interact_kasur.gd" id="9_lwnby"]
+[ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="10_hw70d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)
@@ -159,7 +160,7 @@ fov = 28.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.0158575, -0.368296, 0.929573, -0.00567272, 0.929642, 0.36842, -0.999858, -0.0111154, 0.0126525, 1.50408, 1.81822, 1.39212)
-light_energy = 1.83
+light_energy = 5.72
 
 [node name="InteractionSymbol" parent="." instance=ExtResource("8_ig7rg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.179, 0.5, 1.313)
@@ -179,6 +180,12 @@ script = ExtResource("9_lwnby")
 transform = Transform3D(0.997152, 0, -0.0754138, 0, 1, 0, 0.0754138, 0, 0.997152, 0.336535, -0.320801, -0.18882)
 shape = SubResource("BoxShape3D_hw70d")
 debug_color = Color(7.70092e-07, 0.560438, 0.885221, 0.42)
+
+[node name="sampah sebiji" parent="." instance=ExtResource("10_hw70d")]
+transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, -1.40272, 0.577165, 1.8944)
+
+[node name="sampah sebiji2" parent="." instance=ExtResource("10_hw70d")]
+transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, -1.66641, 0.577165, 1.93497)
 
 [connection signal="body_entered" from="interact laptop" to="interact laptop" method="_on_body_entered"]
 [connection signal="body_exited" from="interact laptop" to="interact laptop" method="_on_body_exited"]

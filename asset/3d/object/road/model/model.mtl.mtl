@@ -1,0 +1,102 @@
+# Blender 4.4.3 MTL File: 'None'
+# www.blender.org
+
+newmtl Asphalt_New
+Ns 1.600002
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Barr/Downloads/IDM/Compressed/model/Asphalt_New.png
+
+newmtl Asphalt_Stamped_Brick
+Ns 1.600002
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Barr/Downloads/IDM/Compressed/model/Asphalt_Stamped_Brick.png
+
+newmtl Water_Pool_Light
+Ns 1.600002
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Barr/Downloads/IDM/Compressed/model/Water_Pool_Light.png
+
+newmtl _0053_Ivory
+Ns 1.600002
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 0.941176
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl __Asphalt_New_1
+Ns 1.600002
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Barr/Downloads/IDM/Compressed/model/__Asphalt_New_1.png
+
+newmtl __Asphalt_Stamped_Brick_1
+Ns 1.600002
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Barr/Downloads/IDM/Compressed/model/__Asphalt_Stamped_Brick_1.png
+
+newmtl edge_color000255
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.600000 0.600000 0.600000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl edge_color149133134255
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.600000 0.600000 0.600000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl material
+Ns 1.600002
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl material_0_material
+Ns 1.600002
+Ka 1.000000 1.000000 1.000000
+Kd 0.670588 0.690196 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1

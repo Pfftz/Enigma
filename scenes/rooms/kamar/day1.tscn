@@ -171,8 +171,8 @@ transform = Transform3D(0.999737, -0.0228719, 0.00162076, 0.0227041, 0.997327, 0
 fov = 28.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.0158575, -0.368296, 0.929573, -0.00567272, 0.929642, 0.36842, -0.999858, -0.0111154, 0.0126525, 1.50408, 1.81822, 1.39212)
-light_energy = 1.83
+transform = Transform3D(0.0158575, -0.368296, 0.929573, -0.00567272, 0.929642, 0.36842, -0.999858, -0.0111154, 0.0126526, 2.04364, 1.81822, 1.39212)
+light_energy = 9.08
 
 [node name="InteractionSymbol" parent="." instance=ExtResource("9_x2fmh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.179, 0.5, 1.313)
