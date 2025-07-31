@@ -4,6 +4,8 @@ extends Node
 var current_day: int = 1
 var total_score: int = 0
 
+var tutorial_shown: bool = false
+
 # Game completion tracking
 var good_ending: bool = false
 var bad_ending: bool = false

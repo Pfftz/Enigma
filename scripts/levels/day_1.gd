@@ -1,0 +1,24 @@
+# File: Kamar.gd (atau skrip di scene kamar Anda)
+extends Node3D # Atau tipe node root Anda yang lain
+
+# Simpan path ke scene tutorial Anda
+const TUTORIAL_SCENE = preload("res://scenes/ui/TutorialUI.tscn") # <-- GANTI PATH INI
+
+func _ready():
+	# Cek dua kondisi:
+	# 1. Apakah ini hari pertama?
+	# 2. Apakah tutorial BELUM pernah ditampilkan?
+	if GameState.current_day == 1 and not GameState.tutorial_shown:
+		# Jika kedua kondisi terpenuhi, tampilkan tutorial
+		show_tutorial()
+
+func show_tutorial():
+	# 1. Tandai bahwa tutorial sudah akan ditampilkan, agar tidak muncul lagi
+	GameState.tutorial_shown = true
+
+	# 2. Pause game
+	get_tree().paused = true
+
+	# 3. Muat dan tampilkan scene tutorial di atas scene saat ini
+	var tutorial_instance = TUTORIAL_SCENE.instantiate()
+	add_child(tutorial_instance)
