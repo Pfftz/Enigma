@@ -11,7 +11,8 @@ var float_speed: float = 0.5
 var float_amplitude: float = 10.0
 
 func _ready():
-	add_to_group("normal_bubbles")
+	add_to_group("trap_bubbles")
+	$Sprite2D.modulate = Color.CRIMSON
 	initial_y_position = position.y
 	time = randf() * 10.0
 

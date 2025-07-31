@@ -2,6 +2,9 @@ extends Control
 
 class_name DialogicQTEManager
 
+var BubbleGameScene = preload("res://scenes/core_game/main.tscn") # <-- Sesuaikan path ini
+var bubble_game_instance = null
+
 # UI References from original QTE scene
 @onready var health_bar: ProgressBar = $CenterContainer/InterviewPanel/VBoxContainer/CompanyHeader/HealthBar
 @onready var score_display: Label = $ScoreDisplay
@@ -299,24 +302,55 @@ func _on_timer_timeout() -> void:
 	# Timer signal handler
 	pass
 
+# Fungsi untuk memulai minigame bubble
+func start_bubble_minigame():
+	print("Memulai Bubble Typing Minigame...")
+	# Sembunyikan dialog agar tidak menutupi
+	var dialog_node = find_child("Dialogic", true, false)
+	if dialog_node:
+		dialog_node.visible = false
+
+	bubble_game_instance = BubbleGameScene.instantiate()
+	add_child(bubble_game_instance)
+
+	# Hubungkan sinyal dari minigame ke fungsi di skrip ini
+	bubble_game_instance.minigame_completed.connect(_on_bubble_minigame_completed)
+
+# Fungsi yang dipanggil saat minigame bubble selesai
+func _on_bubble_minigame_completed(minigame_score: int):
+	print("Bubble Typing Minigame Selesai! Skor: ", minigame_score)
+
+	# Tambahkan skor dari minigame ke skor wawancara
+	var current_interview_score = Dialogic.VAR.get("interview_score")
+	current_interview_score += minigame_score
+	Dialogic.VAR.set("interview_score", current_interview_score)
+	update_score_display() # Update label skor di UI
+
+	# Tampilkan kembali dialog
+	var dialog_node = find_child("Dialogic", true, false)
+	if dialog_node:
+		dialog_node.visible = true
+
+	# Lanjutkan ke pertanyaan berikutnya (pertanyaan 3)
+	start_question_timeline(current_question + 1)
+
+# Di dalam DialogicQTEManager.gd
 func _on_timeline_ended() -> void:
-	# Called when any timeline ends
 	if game_over:
 		return
-	
-	print("Timeline ended for question ", current_question)
-	
-	# Wait a moment then proceed to next question or end interview
+
 	await get_tree().create_timer(1.0).timeout
-	
-	if current_question < 3:
-		# Move to next question
+
+	# (DIUBAH) Cek apakah ini setelah pertanyaan ke-2
+	if current_question == 2:
+		# Jika ya, mulai minigame bubble
+		start_bubble_minigame()
+	elif current_question < 3:
+		# Jika tidak, lanjut ke pertanyaan berikutnya
 		start_question_timeline(current_question + 1)
 	else:
-		# Interview complete, show results and proceed to next day
+		# Jika sudah pertanyaan terakhir, tunjukkan hasil
 		show_interview_results()
-
-# Di dalam skrip wawancara Anda (DialogicQTEManager.gd)
 
 func show_interview_results() -> void:
 	var day_score = Dialogic.VAR.get("interview_score") if Dialogic.VAR.has("interview_score") else 0
