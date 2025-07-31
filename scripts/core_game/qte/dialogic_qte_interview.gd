@@ -441,24 +441,13 @@ func show_interview_results() -> void:
 
 func complete_all_interviews() -> void:
 	all_interviews_completed.emit(total_score)
+	print("Semua wawancara selesai! Skor akhir: ", GameState.total_score)
 	
-	# Show final results
-	day_label.text = "COMPLETE"
-	company_label.text = "Final Results"
+	# Tunggu sejenak agar pemain bisa melihat hasil
+	await get_tree().create_timer(4.0).timeout
 	
-	var final_message = "Interview sequence completed!\nFinal Score: " + str(total_score)
-	
-	if total_score >= 100:
-		final_message += "\nExcellent performance across all companies!"
-	elif total_score >= 60:
-		final_message += "\nGood overall showing. You have potential."
-	elif total_score >= 20:
-		final_message += "\nAverage results. Room for improvement."
-	else:
-		final_message += "\nPoor performance. Consider more preparation."
-	
-	# Could show this in a popup or dedicated results screen
-	print(final_message)
+	# Langsung pindah ke scene good ending
+	get_tree().change_scene_to_file("res://scenes/endings/good_ending.tscn")
 
 func update_timer_display() -> void:
 	if not timer_active:

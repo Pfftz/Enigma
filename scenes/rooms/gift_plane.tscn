@@ -1,10 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://c1ohfqrdajkw5"]
+[gd_scene load_steps=28 format=3 uid="uid://c1ohfqrdajkw5"]
 
 [ext_resource type="Texture2D" uid="uid://dv0wjicfyhie5" path="res://asset/3d/object/building/RENDER 1.png" id="1_yklvt"]
 [ext_resource type="ArrayMesh" uid="uid://bkbjy1ky475px" path="res://asset/3d/object/building/Calisma2.obj" id="2_ob3qw"]
 [ext_resource type="Resource" uid="uid://bh4ktluvpg6b0" path="res://resource/environment/dark_foggy.tres" id="5_yklvt"]
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="10_7coyi"]
 [ext_resource type="ArrayMesh" uid="uid://bg2idb63iwanj" path="res://asset/3d/object/ImageToStl.com_low-poly+scene/low-poly scene.obj" id="10_hoo7f"]
+[ext_resource type="Script" uid="uid://b1re0jv8gob8p" path="res://scripts/objects/interact/interact_gedung.gd" id="10_yklvt"]
+[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="11_1na72"]
 [ext_resource type="PackedScene" uid="uid://dnydq7jk6xp00" path="res://scenes/objects/player/player_cam.tscn" id="11_yklvt"]
 [ext_resource type="Texture2D" uid="uid://b7xr1h1q2xaso" path="res://asset/3d/object/road/old road texture.dds" id="14_yt3a5"]
 [ext_resource type="ArrayMesh" uid="uid://cv53gtkhj2qhl" path="res://asset/3d/object/road/old road.obj" id="15_n2k5p"]
@@ -84,6 +86,9 @@ size = Vector3(1, 1, 7.78308)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mel86"]
 radius = 2.10903
 height = 43.2563
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mel86"]
+size = Vector3(1.22473, 0.358398, 2.1637)
 
 [node name="GiftPlane" type="Node3D"]
 
@@ -168,6 +173,7 @@ shape = SubResource("BoxShape3D_hoo7f")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="jalan/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.352723, 0, -8.3548)
 shape = SubResource("BoxShape3D_yklvt")
+debug_color = Color(1, 1, 1, 1)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="jalan/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2174, 0, 21.8887)
@@ -349,7 +355,7 @@ light_energy = 8.415
 omni_range = 5.50901
 
 [node name="PlayerCam" parent="." instance=ExtResource("11_yklvt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.289831, 0.714771, 0.146783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0.715, -18)
 
 [node name="Low-polyScene" type="MeshInstance3D" parent="."]
 transform = Transform3D(10.94, 0, 0, 0, -4.78203e-07, 10.94, 0, -10.94, -4.78203e-07, 76.896, 0.164581, -35.2187)
@@ -358,5 +364,26 @@ mesh = ExtResource("10_hoo7f")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.414141, -0.188496, 0.890481, 0.0794887, 0.982074, 0.170916, -0.906735, 1.57442e-08, 0.421701, 97.9375, 33.7858, -50.9432)
 
+[node name="interact gedung" type="Area3D" parent="."]
+transform = Transform3D(-0.0676321, 0, 0.99771, 0, 1, 0, -0.99771, 0, -0.0676321, 32, 0.941, -19.1437)
+collision_layer = 2
+script = ExtResource("10_yklvt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interact gedung"]
+transform = Transform3D(0.997152, 0, -0.0754138, 0, 1, 0, 0.0754138, 0, 0.997152, 0.336535, -0.320801, -0.18882)
+shape = SubResource("BoxShape3D_mel86")
+debug_color = Color(0, 0.560784, 0.886275, 1)
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("11_1na72")
+
+[node name="InteractLabel" type="Label" parent="UI"]
+offset_right = 1153.0
+offset_bottom = 651.0
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [connection signal="body_entered" from="LogoArea" to="LogoArea" method="_on_body_entered"]
 [connection signal="body_exited" from="LogoArea" to="LogoArea" method="_on_body_exited"]
+[connection signal="body_entered" from="interact gedung" to="interact gedung" method="_on_body_entered"]
+[connection signal="body_exited" from="interact gedung" to="interact gedung" method="_on_body_exited"]

@@ -17,7 +17,7 @@ var room_scenes: Array[String] = [
 	"res://scenes/rooms/kamar/day2.tscn",
 	"res://scenes/rooms/kamar/day3.tscn",
 	"res://scenes/rooms/kamar/day4.tscn",
-	"res://scenes/rooms/kamar/day5.tscn"
+	"res://scenes/rooms/gift_plane.tscn"
 ]
 
 func advance_to_next_day() -> void:
