@@ -32,5 +32,5 @@ green_interviewer: apa kelemahan terbesar anda
 	green_interviewer: ...
 	[signal arg="wrong_choice"]
 
-[wait time="1.0"]
-[signal arg="update_ui"]
+green_interviewer: Sekarang mari kita uji komitmen anda terhadap lingkungan
+[signal arg="start_bubble_minigame"]

@@ -1,0 +1,158 @@
+# MTL file - created by a modified js OBJExporter
+
+newmtl material
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pr 0.9599999785423279
+Pds 1
+Pl 1
+Pccns 1-1
+Pior 1
+Pshc 0 0 0
+Pshr 1
+Psi 1
+Psc 1 1 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+
+newmtl _0053_Ivory
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pr 0.9599999785423279
+Pds 1
+Pl 1
+Pccns 1-1
+Pior 1
+Pshc 0 0 0
+Pshr 1
+Psi 1
+Psc 1 1 1
+Ka 1 1 1
+Kd 1 1 0.9411764740943909
+Ke 0 0 0
+
+newmtl edge_color000255
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Ka 1 1 1
+Kd 0.6000000238418579 0.6000000238418579 0.6000000238418579
+Ke 0 0 0
+
+newmtl Asphalt_Stamped_Brick
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pr 0.9599999785423279
+Pds 1
+Pl 1
+Pccns 1-1
+Pior 1
+Pshc 0 0 0
+Pshr 1
+Psi 1
+Psc 1 1 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd Asphalt_Stamped_Brick.png
+
+newmtl edge_color149133134255
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Ka 1 1 1
+Kd 0.6000000238418579 0.6000000238418579 0.6000000238418579
+Ke 0 0 0
+
+newmtl material_0_material
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pr 0.9599999785423279
+Pds 1
+Pl 1
+Pccns 1-1
+Pior 1
+Pshc 0 0 0
+Pshr 1
+Psi 1
+Psc 1 1 1
+Ka 1 1 1
+Kd 0.6705881953239441 0.6901960968971252 0.800000011920929
+Ke 0 0 0
+
+newmtl Asphalt_New
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pr 0.9599999785423279
+Pds 1
+Pl 1
+Pccns 1-1
+Pior 1
+Pshc 0 0 0
+Pshr 1
+Psi 1
+Psc 1 1 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd Asphalt_New.png
+
+newmtl __Asphalt_Stamped_Brick_1
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pr 0.9599999785423279
+Pds 1
+Pl 1
+Pccns 1-1
+Pior 1
+Pshc 0 0 0
+Pshr 1
+Psi 1
+Psc 1 1 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd __Asphalt_Stamped_Brick_1.png
+
+newmtl __Asphalt_New_1
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pr 0.9599999785423279
+Pds 1
+Pl 1
+Pccns 1-1
+Pior 1
+Pshc 0 0 0
+Pshr 1
+Psi 1
+Psc 1 1 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd __Asphalt_New_1.png
+
+newmtl Water_Pool_Light
+Tr 0.3999999761581421
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pr 0.9599999785423279
+Pds 1
+Pl 1
+Pccns 1-1
+Pior 1
+Pshc 0 0 0
+Pshr 1
+Psi 1
+Psc 1 1 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 0 0 0
+map_Kd Water_Pool_Light.png

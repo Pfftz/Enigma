@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://4do8lak42nr8"]
 
-[ext_resource type="Script" path="res://scripts/core game/positive_bubble.gd" id="1_vxhmn"]
-[ext_resource type="Texture2D" uid="uid://32x8xunni05w" path="res://scenes/core game/positive1.png" id="2_fkxtn"]
+[ext_resource type="Script" uid="uid://iys0shq5oyx0" path="res://scripts/core_game/positive_bubble.gd" id="1_vxhmn"]
+[ext_resource type="Texture2D" uid="uid://32x8xunni05w" path="res://scenes/core_game/positive1.png" id="2_fkxtn"]
 [ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="6_bjo7o"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_pjg2p"]
 

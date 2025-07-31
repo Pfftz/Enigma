@@ -42,8 +42,15 @@ func start_new_game():
 	score_label.text = "Skor: 0"
 	game_status_label.hide()
 	
-	for b in get_tree().get_nodes_in_group("normal_bubbles"): b.queue_free()
-	for b in get_tree().get_nodes_in_group("trap_bubbles"): b.queue_free()
+	print("DEBUG: Starting bubble minigame with score: ", score)
+	
+	# Clean up existing bubbles safely
+	for b in get_tree().get_nodes_in_group("normal_bubbles"):
+		if is_instance_valid(b):
+			b.queue_free()
+	for b in get_tree().get_nodes_in_group("trap_bubbles"):
+		if is_instance_valid(b):
+			b.queue_free()
 	active_bubbles.clear()
 
 	spawn_initial_bubbles()
@@ -56,7 +63,7 @@ func start_new_game():
 
 func spawn_initial_bubbles():
 	var positions = get_bubble_positions()
-	var initial_words = generate_unique_word_set(1) 
+	var initial_words = generate_unique_word_set(1)
 	
 	for i in range(positions.size()):
 		var pos = positions[i]
@@ -93,7 +100,7 @@ func get_word_for_new_bubble() -> Dictionary:
 			new_word = word
 			break
 	
-	if new_word == "": 
+	if new_word == "":
 		if not word_list.is_empty():
 			new_word = word_list[0]
 		else:
@@ -115,6 +122,13 @@ func _on_bubble_respawn_timer_timeout():
 	if active_bubbles.is_empty(): return
 	
 	var bubble_to_replace = active_bubbles.pick_random()
+	
+	# Safety check to ensure bubble is still valid
+	if not is_instance_valid(bubble_to_replace):
+		active_bubbles.erase(bubble_to_replace)
+		return
+	
+	# Store position before freeing the bubble
 	var pos = bubble_to_replace.global_position
 	
 	active_bubbles.erase(bubble_to_replace)
@@ -138,21 +152,36 @@ func game_over():
 	gameplay_timer.stop()
 	bubble_respawn_timer.stop()
 
+	# Clean up all bubbles safely
 	for bubble in active_bubbles:
-		bubble.queue_free()
+		if is_instance_valid(bubble):
+			bubble.queue_free()
 	active_bubbles.clear()
 
 	game_status_label.show()
 	game_status_label.text = "Waktu Habis!\nSkor Akhir: %d" % score
+	
+	print("DEBUG: Showing game status label with text: ", game_status_label.text)
+	print("DEBUG: Label visible: ", game_status_label.visible)
+	print("DEBUG: Label position: ", game_status_label.position)
 
-	# (BARU) Kirim sinyal bahwa minigame selesai beserta skornya
+	print("DEBUG: Bubble minigame final score: ", score)
+	
+	# Wait 2 seconds before sending signal so player can see the score
+	if is_inside_tree():
+		await get_tree().create_timer(2.0).timeout
+		print("DEBUG: About to send minigame_completed signal")
+	
+	# Send signal that minigame is completed with the score AFTER the delay
 	minigame_completed.emit(score)
 
-	# (BARU) Tunggu 2 detik sebelum menghapus scene ini agar pemain bisa lihat skor
-	await get_tree().create_timer(2.0).timeout
-	queue_free()
-	
-	# GameEvents.game_finished.emit(score) # Jika Anda menggunakan sinyal global
+	# Additional wait before removing this scene (optional, but good for cleanup)
+	if is_inside_tree():
+		await get_tree().create_timer(0.5).timeout
+		print("DEBUG: About to remove bubble minigame scene")
+		# Only queue_free if still in tree
+		if is_inside_tree():
+			queue_free()
 
 func generate_unique_word_set(trap_count: int) -> Array:
 	var final_words = []
@@ -224,15 +253,20 @@ func handle_typing(event):
 			player_input_label.text = current_typed_string
 			target_bubble.play_typing_feedback()
 			if current_typed_string == target_bubble.positive_affirmation:
-				if target_bubble.is_in_group("trap_bubbles"): score -= 10
-				else: score += 5
-				score_label.text = "Skor: %d" % score
-				active_bubbles.erase(target_bubble)
-				target_bubble.pop()
+				# Check if bubble is still valid before processing
+				if is_instance_valid(target_bubble):
+					if target_bubble.is_in_group("trap_bubbles"):
+						score -= 10
+						print("DEBUG: Hit trap bubble, score now: ", score)
+					else:
+						score += 5
+						print("DEBUG: Hit positive bubble, score now: ", score)
+					score_label.text = "Skor: %d" % score
+					active_bubbles.erase(target_bubble)
+					target_bubble.pop()
 				reset_typing()
 		else:
-			# (FIX) Bagian penalti -1 sudah benar-benar dihilangkan.
-			# Jika salah ketik, hanya mereset target.
+			# If wrong key typed, just reset target
 			reset_typing()
 
 func reset_typing():
