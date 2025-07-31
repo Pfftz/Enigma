@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c1ohfqrdajkw5"]
+[gd_scene load_steps=20 format=3 uid="uid://c1ohfqrdajkw5"]
 
 [ext_resource type="Texture2D" uid="uid://dv0wjicfyhie5" path="res://asset/3d/object/building/RENDER 1.png" id="1_yklvt"]
 [ext_resource type="ArrayMesh" uid="uid://bkbjy1ky475px" path="res://asset/3d/object/building/Calisma2.obj" id="2_ob3qw"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="15_frvro"]
 [ext_resource type="ArrayMesh" uid="uid://cv53gtkhj2qhl" path="res://asset/3d/object/road/old road.obj" id="15_n2k5p"]
 [ext_resource type="ArrayMesh" uid="uid://dy1qakqgk88dr" path="res://asset/3d/object/low_poly_tree/Lowpoly_tree_sample.obj" id="16_n2k5p"]
-[ext_resource type="Texture2D" uid="uid://d21du64n13ci3" path="res://asset/2d/ui/misc/evencare.png" id="18_aw0g4"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fpo4l"]
 data = PackedVector3Array(-14.5, 0, 2.5, -14.5, 1, 2.5, 8.5, 0, 2.5, 8.5, 0, 2.5, -14.5, 1, 2.5, 8.5, 1, 2.5, 8.5, 1, -2.5, -14.5, 1, -2.5, 8.5, 0, -2.5, 8.5, 0, -2.5, -14.5, 1, -2.5, -14.5, 0, -2.5, 8.5, 1, 2.5, -14.5, 1, 2.5, 8.5, 0, 2.5, 8.5, 0, 2.5, -14.5, 1, 2.5, -14.5, 0, 2.5, -14.5, 0, -2.5, -14.5, 1, -2.5, 8.5, 0, -2.5, 8.5, 0, -2.5, -14.5, 1, -2.5, 8.5, 1, -2.5, 16.5, 0, -16.5, 16.5, 1, -16.5, 17.5, 0, -16.5, 17.5, 0, -16.5, 16.5, 1, -16.5, 17.5, 1, -16.5, 17.5, 0, -16.5, 17.5, 1, -16.5, 17.5, 0, -4.5, 17.5, 0, -4.5, 17.5, 1, -16.5, 17.5, 1, -4.5, 17.5, 0, -4.5, 17.5, 1, -4.5, 21.5, 0, -4.5, 21.5, 0, -4.5, 17.5, 1, -4.5, 21.5, 1, -4.5, 21.5, 0, -4.5, 21.5, 1, -4.5, 21.5, 0, -3.5, 21.5, 0, -3.5, 21.5, 1, -4.5, 21.5, 1, -3.5, 21.5, 0, -3.5, 21.5, 1, -3.5, 22.5, 0, -3.5, 22.5, 0, -3.5, 21.5, 1, -3.5, 22.5, 1, -3.5, 22.5, 0, -3.5, 22.5, 1, -3.5, 22.5, 0, -19.5, 22.5, 0, -19.5, 22.5, 1, -3.5, 22.5, 1, -19.5, 16.5, 1, -16.5, 16.5, 0, -16.5, 16.5, 1, -26.5, 16.5, 1, -26.5, 16.5, 0, -16.5, 16.5, 0, -26.5, 24.5, 0, -19.5, 22.5, 0, -19.5, 24.5, 1, -19.5, 24.5, 1, -19.5, 22.5, 0, -19.5, 22.5, 1, -19.5, 29.5, 1, -16.5, 30.5, 1, -16.5, 29.5, 0, -16.5, 29.5, 0, -16.5, 30.5, 1, -16.5, 30.5, 0, -16.5, 29.5, 1, -4.5, 29.5, 1, -16.5, 29.5, 0, -4.5, 29.5, 0, -4.5, 29.5, 1, -16.5, 29.5, 0, -16.5, 25.5, 1, -4.5, 29.5, 1, -4.5, 25.5, 0, -4.5, 25.5, 0, -4.5, 29.5, 1, -4.5, 29.5, 0, -4.5, 25.5, 1, -3.5, 25.5, 1, -4.5, 25.5, 0, -3.5, 25.5, 0, -3.5, 25.5, 1, -4.5, 25.5, 0, -4.5, 24.5, 1, -3.5, 25.5, 1, -3.5, 24.5, 0, -3.5, 24.5, 0, -3.5, 25.5, 1, -3.5, 25.5, 0, -3.5, 24.5, 1, -19.5, 24.5, 1, -3.5, 24.5, 0, -19.5, 24.5, 0, -19.5, 24.5, 1, -3.5, 24.5, 0, -3.5, 30.5, 0, -26.5, 30.5, 0, -16.5, 30.5, 1, -26.5, 30.5, 1, -26.5, 30.5, 0, -16.5, 30.5, 1, -16.5, 30.5, 1, -26.5, 16.5, 1, -26.5, 30.5, 0, -26.5, 30.5, 0, -26.5, 16.5, 1, -26.5, 16.5, 0, -26.5, -0.5, 1, 6.4, -0.5, 0, 6.4, -0.5, 1, 5.4, -0.5, 1, 5.4, -0.5, 0, 6.4, -0.5, 0, 5.4, -0.5, 1, 5.4, -0.5, 0, 5.4, 0.5, 1, 5.4, 0.5, 1, 5.4, -0.5, 0, 5.4, 0.5, 0, 5.4, 0.5, 1, 5.4, 0.5, 0, 5.4, 0.5, 1, 6.4, 0.5, 1, 6.4, 0.5, 0, 5.4, 0.5, 0, 6.4, 0.5, 1, 6.4, 0.5, 0, 6.4, -0.5, 1, 6.4, -0.5, 1, 6.4, 0.5, 0, 6.4, -0.5, 0, 6.4, 6.5, 1, -8, 6.5, 0, -8, 8.5, 1, -8, 8.5, 1, -8, 6.5, 0, -8, 8.5, 0, -8, 6.5, 1, -7, 6.5, 0, -7, 6.5, 1, -8, 6.5, 1, -8, 6.5, 0, -7, 6.5, 0, -8, 8.5, 1, -8, 8.5, 0, -8, 8.5, 1, -7, 8.5, 1, -7, 8.5, 0, -8, 8.5, 0, -7, 8.5, 1, -7, 8.5, 0, -7, 6.5, 1, -7, 6.5, 1, -7, 8.5, 0, -7, 6.5, 0, -7, 1.5, 1, -17, 1.5, 0, -17, 2.5, 1, -17, 2.5, 1, -17, 1.5, 0, -17, 2.5, 0, -17, 1.5, 1, -16, 1.5, 0, -16, 1.5, 1, -17, 1.5, 1, -17, 1.5, 0, -16, 1.5, 0, -17, 2.5, 1, -17, 2.5, 0, -17, 2.5, 1, -16, 2.5, 1, -16, 2.5, 0, -17, 2.5, 0, -16, 2.5, 1, -16, 2.5, 0, -16, 1.5, 1, -16, 1.5, 1, -16, 2.5, 0, -16, 1.5, 0, -16, 13.5, 1, -4, 13.5, 0, -4, 13.5, 1, -2.5, 13.5, 1, -2.5, 13.5, 0, -4, 13.5, 0, -2.5, 13.5, 1, -2.5, 13.5, 0, -2.5, 12.5, 1, -2.5, 12.5, 1, -2.5, 13.5, 0, -2.5, 12.5, 0, -2.5, 12.5, 1, -2.5, 12.5, 0, -2.5, 12.5, 1, -4, 12.5, 1, -4, 12.5, 0, -2.5, 12.5, 0, -4, 12.5, 1, -4, 12.5, 0, -4, 13.5, 1, -4, 13.5, 1, -4, 12.5, 0, -4, 13.5, 0, -4, -2.5, 1, -13.5, -2.5, 0, -13.5, -3.5, 1, -13.5, -3.5, 1, -13.5, -2.5, 0, -13.5, -3.5, 0, -13.5, -2.5, 1, -14.5, -2.5, 0, -14.5, -2.5, 1, -13.5, -2.5, 1, -13.5, -2.5, 0, -14.5, -2.5, 0, -13.5, -3.5, 1, -13.5, -3.5, 0, -13.5, -3.5, 1, -14.5, -3.5, 1, -14.5, -3.5, 0, -13.5, -3.5, 0, -14.5, -3.5, 1, -14.5, -3.5, 0, -14.5, -2.5, 1, -14.5, -2.5, 1, -14.5, -3.5, 0, -14.5, -2.5, 0, -14.5, 14, 1, -15, 14, 0, -15, 15, 1, -15, 15, 1, -15, 14, 0, -15, 15, 0, -15, 14, 1, -14, 14, 0, -14, 14, 1, -15, 14, 1, -15, 14, 0, -14, 14, 0, -15, 15, 1, -15, 15, 0, -15, 15, 1, -14, 15, 1, -14, 15, 0, -15, 15, 0, -14, 15, 1, -14, 15, 0, -14, 14, 1, -14, 14, 1, -14, 15, 0, -14, 14, 0, -14, 33.5, 1, -12, 33.5, 0, -12, 35.5, 1, -12, 35.5, 1, -12, 33.5, 0, -12, 35.5, 0, -12, 33.5, 1, -11, 33.5, 0, -11, 33.5, 1, -12, 33.5, 1, -12, 33.5, 0, -11, 33.5, 0, -12, 35.5, 1, -12, 35.5, 0, -12, 35.5, 1, -11, 35.5, 1, -11, 35.5, 0, -12, 35.5, 0, -11, 35.5, 1, -11, 35.5, 0, -11, 33.5, 1, -11, 33.5, 1, -11, 35.5, 0, -11, 33.5, 0, -11, 13, 1, 2.5, 13, 0, 2.5, 15, 1, 2.5, 15, 1, 2.5, 13, 0, 2.5, 15, 0, 2.5, 13, 1, 3.5, 13, 0, 3.5, 13, 1, 2.5, 13, 1, 2.5, 13, 0, 3.5, 13, 0, 2.5, 15, 1, 2.5, 15, 0, 2.5, 15, 1, 3.5, 15, 1, 3.5, 15, 0, 2.5, 15, 0, 3.5, 15, 1, 3.5, 15, 0, 3.5, 13, 1, 3.5, 13, 1, 3.5, 15, 0, 3.5, 13, 0, 3.5, 14, 1, 10.5, 14, 0, 10.5, 16, 1, 10.5, 16, 1, 10.5, 14, 0, 10.5, 16, 0, 10.5, 14, 1, 11.5, 14, 0, 11.5, 14, 1, 10.5, 14, 1, 10.5, 14, 0, 11.5, 14, 0, 10.5, 16, 1, 10.5, 16, 0, 10.5, 16, 1, 11.5, 16, 1, 11.5, 16, 0, 10.5, 16, 0, 11.5, 16, 1, 11.5, 16, 0, 11.5, 14, 1, 11.5, 14, 1, 11.5, 16, 0, 11.5, 14, 0, 11.5)
@@ -52,63 +51,6 @@ func _on_animation_player_animation_finished(anim_name):
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxrlv"]
 size = Vector3(2, 1, 7)
-
-[sub_resource type="Animation" id="Animation_pah6x"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(160, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(253, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_iv0pa"]
-resource_name = "move_logo"
-length = 0.5
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(93, -0.25, 0, 0.25, 0, 93, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(253, -0.25, 0, 0.25, 0, 178, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jf2k6"]
-_data = {
-&"RESET": SubResource("Animation_pah6x"),
-&"move_logo": SubResource("Animation_iv0pa")
-}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cxlg"]
 albedo_texture = ExtResource("14_yt3a5")
@@ -152,18 +94,6 @@ script = SubResource("GDScript_dtyiu")
 
 [node name="LogoCollision" type="CollisionShape3D" parent="LogoArea"]
 shape = SubResource("BoxShape3D_rxrlv")
-
-[node name="EvenCareLogo" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-position = Vector2(160, 253)
-texture = ExtResource("18_aw0g4")
-centered = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EvenCareLogo"]
-libraries = {
-&"": SubResource("AnimationLibrary_jf2k6")
-}
 
 [node name="Warp" parent="." instance=ExtResource("15_frvro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4933, 0.0157242, -17.0275)
@@ -247,4 +177,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.45283, 0.714771, 0.146783)
 
 [connection signal="body_entered" from="LogoArea" to="LogoArea" method="_on_body_entered"]
 [connection signal="body_exited" from="LogoArea" to="LogoArea" method="_on_body_exited"]
-[connection signal="animation_finished" from="EvenCareLogo/AnimationPlayer" to="LogoArea" method="_on_animation_player_animation_finished"]

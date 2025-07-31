@@ -32,5 +32,5 @@ mega_interviewer: Would you sacrifice work-life balance for company success?
 	mega_interviewer: Wrong answer. MegaCorp demands total loyalty.
 	[signal arg="wrong_choice"]
 
-[wait time="1.0"]
-[signal arg="update_ui"]
+mega_interviewer: Time for the ultimate performance test
+[signal arg="start_bubble_minigame"]

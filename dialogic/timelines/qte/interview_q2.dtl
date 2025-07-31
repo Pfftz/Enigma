@@ -33,21 +33,6 @@ bananazon_interviewer: Kenapa anda tertarik untuk mendaftar ke eco-sigma
 	bananazon_interviewer: ahahah, anda sangat jujur ya
 	[signal arg="wrong_choice"]
 bananazon_interviewer: ok kalau begitu
-bananazon_interviewer: sekarang untuk pertanyaan kedua
-bananazon_interviewer: Berapa jumlah jendela di gedung yang ada di jakarta
-[signal arg="timer_start"]
-- ada dua. Jendela kesempatan dan jendela dunia
-	set {interview_score} += 10
-	set {interview_health} += 10
-	[signal arg="timer_end"]
-	bananazon_interviewer: jawaban yang sangat bijak
-	[signal arg="wrong_choice"]
-- um... lebih dari 3
-	set {interview_score} += 15
-	set {interview_health} += 15
-	[signal arg="timer_end"]
-	bananazon_interviewer: ahh... butuh lebih banyak menginjak rumput sepertinya
-	[signal arg="wrong_choice"]
-
-[wait time="1.0"]
-[signal arg="update_ui"]
+bananazon_interviewer: sekarang untuk pertanyaan ketiga
+bananazon_interviewer: tapi sebelum itu, mari kita test skill anda dengan minigame kecil
+[signal arg="start_bubble_minigame"]
