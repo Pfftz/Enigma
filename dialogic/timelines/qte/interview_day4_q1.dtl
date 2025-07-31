@@ -6,7 +6,7 @@ set {interview_score} = 0
 set {interview_health} = 10
 character: Permisi pak
 
-green_interviewer: “Pelamar ke-456 Waktu saya terbatas. Saya harap anda sudah siap
+green_interviewer (netral): “Pelamar ke-456 Waktu saya terbatas. Saya harap anda sudah siap
 
 [signal arg="timer_start"]
 
@@ -14,28 +14,28 @@ green_interviewer: “Pelamar ke-456 Waktu saya terbatas. Saya harap anda sudah 
 	set {interview_score} += 18
 	set {interview_health} += 18
 	[signal arg="timer_end"]
-	green_interviewer: baik. Saya suka itu
+	green_interviewer (senang): baik. Saya suka itu
 	[signal arg="correct_choice"]
 
 - setuju pak, waktu itu berharga
 	set {interview_score} += 5
 	set {interview_health} += 5
 	[signal arg="timer_end"]
-	green_interviewer: Bagus kalau Anda sadar.
+	green_interviewer (senang): Bagus kalau Anda sadar.
 	[signal arg="correct_choice"]
 
 - Sudah 456 orang yg mendaftar?
 	set {interview_score} -= 20
 	set {interview_health} -= 20
 	[signal arg="timer_end"]
-	green_interviewer: fokus. Itu tidak relevan
+	green_interviewer (marah): fokus. Itu tidak relevan
 	[signal arg="wrong_choice"]
 
 - gak sabaran banget pak
 	set {interview_score} -= 10
 	set {interview_health} -= 10
 	[signal arg="timer_end"]
-	green_interviewer: Maaf? Sikap Anda kami catat. Mari kita lihat apakah kemampuan anda bisa menutupi itu
+	green_interviewer (marah): Maaf? Sikap Anda kami catat. Mari kita lihat apakah kemampuan anda bisa menutupi itu
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]

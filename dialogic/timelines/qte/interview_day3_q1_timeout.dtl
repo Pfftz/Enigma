@@ -4,10 +4,10 @@ join creative_interviewer center
 set {interview_score} -= 5
 set {interview_health} -= 10
 
-creative_interviewer: CUKUP PERKENALAN NYA DAN DENGARKAN BAIK BAIK CALON PRAJURIT !!!
-creative_interviewer: Saat ini, benteng kita sedang dalam kondisi genting!
-creative_interviewer: Server utama kita, yang kami sebut sebagai 'Kristal Cakra Siang'—sedang diserang oleh virus ganas kiriman musuh!
-creative_interviewer: asukan teknis biasa sudah di taklukan !!
+creative_interviewer (senyum): CUKUP PERKENALAN NYA DAN DENGARKAN BAIK BAIK CALON PRAJURIT !!!
+creative_interviewer (netral): Saat ini, benteng kita sedang dalam kondisi genting!
+creative_interviewer (netral): Server utama kita, yang kami sebut sebagai 'Kristal Cakra Siang'—sedang diserang oleh virus ganas kiriman musuh!
+creative_interviewer (senyum): pasukan teknis biasa sudah di taklukan !!
 
 [signal arg="timeout"]
 [signal arg="timer_end"]

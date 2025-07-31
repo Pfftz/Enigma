@@ -3,7 +3,7 @@ join creative_interviewer center
 set {interview_score} -= 5
 set {interview_health} -= 10
 
-creative_interviewer: Sekarang katakan padaku, anak muda!
+creative_interviewer (netral): Sekarang katakan padaku, anak muda!
 
 [signal arg="timeout"]
 [signal arg="timer_end"]
