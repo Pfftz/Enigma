@@ -1,3 +1,4 @@
+[background arg="res://asset/2d/background/bg-place.png" fade="0.0"]
 join bananazon_interviewer center
 
 bananazon_interviewer: dimana anda melihat diri anda 5 tahun keepan?
@@ -47,7 +48,7 @@ elif {interview_score} >= 10:
 elif {interview_score} >= 0:
 	bananazon_interviewer: Masih ada yang perlu diperbaiki, tapi terima kasih sudah datang.
 else:
-	bananazon_interviewer:  Kami tidak menerima orang seperti anda. Terima kasih
+	bananazon_interviewer: Kami tidak menerima orang seperti anda. Terima kasih
 
 set {day1_completed} = true
 set {day1_score} = {interview_score}

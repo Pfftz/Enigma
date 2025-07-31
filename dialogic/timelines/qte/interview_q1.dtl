@@ -1,4 +1,4 @@
-[background arg="res://asset/2d/background/bg-hr-vn.png" fade="0.0"]
+[background arg="res://asset/2d/background/bg-place.png" fade="0.0"]
 join bananazon_interviewer center
 set {interview_day} = 1
 set {company_name} = "bananazon"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4do8lak42nr8"]
+[gd_scene load_steps=12 format=3 uid="uid://cnpq8r5w2dom5"]
 
 [ext_resource type="Script" path="res://scripts/core game/positive_bubble.gd" id="1_vxhmn"]
 [ext_resource type="Texture2D" uid="uid://32x8xunni05w" path="res://scenes/core game/positive1.png" id="2_fkxtn"]
