@@ -1,4 +1,4 @@
-[background fade="0.0"]
+[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer (netral) center
 
 creative_interviewer (netral): Sebagai calon pejuang baru, apa strategi yang akan kau ambil untuk menaklukkan sang Naga? Pikirkan baik-baik, nasib perusahaan ini ada di tanganmu!
