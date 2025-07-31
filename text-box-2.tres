@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d2rqqjxhrm8o6" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_5hw3k"]
 [ext_resource type="PackedScene" uid="uid://c3fsidmoctwjk" path="res://asset/2d/FullBackground/custom_full_background.tscn" id="2_5hw3k"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="3_mcvve"]
-[ext_resource type="PackedScene" uid="uid://dpfnxbbp2kjlq" path="res://asset/2d/TextboxWithPortrait/custom_textbox_with_portrait_.tscn" id="4_5hw3k"]
+[ext_resource type="PackedScene" path="res://asset/2d/TextboxWithPortrait/custom_textbox_with_portrait_.tscn" id="4_5hw3k"]
 [ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="5_y4rc4"]
 [ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="6_wter8"]
 [ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="7_036kj"]
@@ -27,7 +27,9 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_68efd"]
 script = ExtResource("1_5hw3k")
 scene = ExtResource("4_5hw3k")
-overrides = {}
+overrides = {
+"box_panel": "\"res://dialogic/timelines/custom-coba-1.tres\""
+}
 
 [sub_resource type="Resource" id="Resource_cquor"]
 script = ExtResource("1_5hw3k")

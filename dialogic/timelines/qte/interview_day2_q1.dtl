@@ -42,5 +42,3 @@ techcorp_interviewer: Fufufu, Aku tahu segalanya tentang kamu MC, dan kamu tidak
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-
-leave techcorp_interviewer

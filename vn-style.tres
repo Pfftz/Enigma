@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=20 format=3 uid="uid://dh3kv75y8p1c1"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=18 format=3 uid="uid://dh3kv75y8p1c1"]
 
 [ext_resource type="Script" uid="uid://d2rqqjxhrm8o6" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_d7qil"]
-[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_tex0e"]
 [ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="3_q318c"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_4oiyy"]
 [ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="5_3fx2l"]
@@ -13,11 +12,6 @@
 
 [sub_resource type="Resource" id="Resource_8f3t1"]
 script = ExtResource("1_d7qil")
-overrides = {}
-
-[sub_resource type="Resource" id="Resource_ns80w"]
-script = ExtResource("1_d7qil")
-scene = ExtResource("2_tex0e")
 overrides = {}
 
 [sub_resource type="Resource" id="Resource_l6s07"]
@@ -58,10 +52,9 @@ overrides = {}
 [resource]
 script = ExtResource("10_hwsge")
 name = "vn-style"
-layer_list = Array[String](["10", "11", "12", "13", "14", "15", "16", "17"])
+layer_list = Array[String](["11", "12", "13", "14", "15", "16", "17"])
 layer_info = {
 "": SubResource("Resource_8f3t1"),
-"10": SubResource("Resource_ns80w"),
 "11": SubResource("Resource_l6s07"),
 "12": SubResource("Resource_d0hn8"),
 "13": SubResource("Resource_ofgbl"),
@@ -72,4 +65,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_d7qil")]([])
-metadata/_latest_layer = "17"
+metadata/_latest_layer = ""

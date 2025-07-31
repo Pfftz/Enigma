@@ -8,5 +8,3 @@ bananazon_interviewer: Baik, saya akan mulai ke pertanyaan mudah
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-
-leave bananazon_interviewer

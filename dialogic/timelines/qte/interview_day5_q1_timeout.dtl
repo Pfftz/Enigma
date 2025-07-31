@@ -8,5 +8,3 @@ mega_interviewer: Can't even answer under time pressure? Pathetic.
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-
-leave mega_interviewer

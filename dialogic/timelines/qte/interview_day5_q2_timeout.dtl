@@ -8,5 +8,3 @@ mega_interviewer: Indecision is failure. Time's up.
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-
-leave mega_interviewer

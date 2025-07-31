@@ -38,5 +38,3 @@ mega_interviewer: Welcome to MegaCorp. This is the final test. Are you ready for
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-
-leave mega_interviewer

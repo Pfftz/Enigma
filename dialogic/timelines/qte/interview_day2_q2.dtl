@@ -36,5 +36,3 @@ character: (!!!!!!)
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-
-leave techcorp_interviewer

@@ -8,5 +8,3 @@ green_interviewer: berikutnya
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-
-leave green_interviewer

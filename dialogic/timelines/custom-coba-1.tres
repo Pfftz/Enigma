@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=6 format=3 uid="uid://dj6x688f0lqng"]
+
+[ext_resource type="Script" uid="uid://d2rqqjxhrm8o6" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_fse6e"]
+[ext_resource type="Script" uid="uid://c1o6al3vsg42k" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_lfwdo"]
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="2_mvxgy"]
+
+[sub_resource type="Resource" id="Resource_mvxgy"]
+script = ExtResource("1_fse6e")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_2m0ws"]
+script = ExtResource("1_fse6e")
+scene = ExtResource("2_mvxgy")
+overrides = {}
+
+[resource]
+script = ExtResource("2_lfwdo")
+name = "custom-coba-1"
+layer_list = Array[String](["10"])
+layer_info = {
+"": SubResource("Resource_mvxgy"),
+"10": SubResource("Resource_2m0ws")
+}
+base_overrides = {}
+layers = Array[ExtResource("1_fse6e")]([])
+metadata/_latest_layer = "10"

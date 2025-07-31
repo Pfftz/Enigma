@@ -1,3 +1,4 @@
+[background arg="res://asset/2d/background/bg-hr-vn.png" fade="0.0"]
 join bananazon_interviewer center
 set {interview_day} = 1
 set {company_name} = "bananazon"
@@ -38,5 +39,3 @@ bananazon_interviewer: Siang MC, nama saya HR Pohon
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-
-leave bananazon_interviewer

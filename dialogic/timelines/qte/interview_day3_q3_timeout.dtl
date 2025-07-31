@@ -24,5 +24,3 @@ else:
 
 set {day3_completed} = true
 set {day3_score} = {interview_score}
-
-leave creative_interviewer

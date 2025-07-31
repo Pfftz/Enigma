@@ -8,5 +8,3 @@ techcorp_interviewer: Terserah lah, Sekarang, aku bosan dengan pertanyaan wawanc
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-
-leave techcorp_interviewer

@@ -24,5 +24,3 @@ else:
 
 set {day5_completed} = true
 set {day5_score} = {interview_score}
-
-leave mega_interviewer

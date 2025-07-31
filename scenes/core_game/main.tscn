@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://w4fw002nh62c" path="res://scripts/core game/main.gd" id="1_ig7tw"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="2_0xm2m"]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_ig7tw")
 
 [node name="SpawnTimer" type="Timer" parent="."]

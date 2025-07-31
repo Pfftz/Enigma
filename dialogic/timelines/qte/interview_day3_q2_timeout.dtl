@@ -8,5 +8,3 @@ creative_interviewer: Inspiration should strike quickly! Time up.
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-
-leave creative_interviewer
