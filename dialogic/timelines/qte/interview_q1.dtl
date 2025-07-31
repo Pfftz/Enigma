@@ -3,7 +3,7 @@ join bananazon_interviewer center
 set {interview_day} = 1
 set {company_name} = "bananazon"
 set {interview_score} = 0
-set {interview_health} = 80
+set {interview_health} = 80.0
 
 bananazon_interviewer: Siang MC, nama saya HR Pohon
 

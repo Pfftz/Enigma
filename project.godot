@@ -39,6 +39,8 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "day1": "res://dialogic/timelines/day1.dtl",
+"day2": "res://dialogic/timelines/day2.dtl",
+"day3": "res://dialogic/timelines/day3.dtl",
 "interview_day2_q1": "res://dialogic/timelines/qte/interview_day2_q1.dtl",
 "interview_day2_q1_timeout": "res://dialogic/timelines/qte/interview_day2_q1_timeout.dtl",
 "interview_day2_q2": "res://dialogic/timelines/qte/interview_day2_q2.dtl",
