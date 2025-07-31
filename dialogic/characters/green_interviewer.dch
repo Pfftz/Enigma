@@ -9,15 +9,15 @@
 "style": ""
 },
 &"default_portrait": "default",
-&"description": "GreenCorp company interviewer - environmental and sustainable",
-&"display_name": "Green Manager",
+&"description": "netral",
+&"display_name": "pingu",
 &"mirror": false,
-&"nicknames": ["Green", "Manager"],
+&"nicknames": ["pingu"],
 &"offset": Vector2(0, 0),
 &"portraits": {
 "default": {
 "export_overrides": {
-"image": "\"res://dialogic/characters/potret-lucu-prabowo-dari-joget-hingga-melet-melet-di-debat-perdana-3_169-removebg-preview.png\""
+"image": "\"res://asset/2d/hr/d4/netral.png\""
 },
 "ignore_char_scale": false,
 "mirror": false,
@@ -26,5 +26,5 @@
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 }
 },
-&"scale": 1.0
+&"scale": 1.25
 }

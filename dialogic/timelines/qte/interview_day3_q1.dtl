@@ -1,3 +1,4 @@
+[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer center
 set {interview_day} = 3
 set {company_name} = "TechCorp"
@@ -7,7 +8,7 @@ set {interview_health} = 40
 creative_interviewer: Selamat siang calon prajurit
 character: Selamat Siang pak, perkenalkan saya mc yang ingin bekerja di peru-
 creative_interviewer: Cukup bicara nya nak
-creative_interviewer: Aku adalah jenderal Bhaluka dan yang ku perlukan adalah bukti nyata bukan hanya sekedar omon omon belaka 
+creative_interviewer: Aku adalah jenderal Bhaluka dan yang ku perlukan adalah bukti nyata bukan hanya sekedar omon omon belaka
 character: ( (┬┬﹏┬┬) )
 creative_interviewer: Coba tunjukan kepada ku kemampuan tersembunyi apa yang kau punya
 

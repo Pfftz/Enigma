@@ -8,16 +8,16 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "New portrait",
-&"description": "",
-&"display_name": "kamu",
+&"default_portrait": "mosu",
+&"description": "hr, mosu",
+&"display_name": "mosu_interviewer",
 &"mirror": false,
-&"nicknames": ["sunda"],
+&"nicknames": ["mosu"],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"New portrait": {
+"mosu": {
 "export_overrides": {
-"image": "\"res://asset/2d/sprite/player/default.png\""
+"image": "\"res://asset/2d/hr/d5/netral.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

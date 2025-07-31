@@ -1,3 +1,4 @@
+[background arg="res://asset/2d/hr/d4/img-d4.png" fade="0.0"]
 join green_interviewer center
 # Day 4 Question 1 timeout
 set {interview_score} -= 5

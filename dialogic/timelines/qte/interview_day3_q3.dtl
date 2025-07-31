@@ -1,3 +1,4 @@
+[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer center
 
 creative_interviewer: Apa alasanmu menghunus pedangmu di hadapanku?  Apa tujuan utamamu?
@@ -16,7 +17,7 @@ creative_interviewer: Apa alasanmu menghunus pedangmu di hadapanku?  Apa tujuan 
 	[signal arg="timer_end"]
 	- Figma dan Canva
 		set {interview_health} += 12
-		creative_interviewer:  Ambisi untuk menjadi lebih kuat! Keinginan untuk menempa diri! Itu adalah semangat yang bagus.
+		creative_interviewer: Ambisi untuk menjadi lebih kuat! Keinginan untuk menempa diri! Itu adalah semangat yang bagus.
 		[signal arg="correct_choice"]
 	
 	- arena dari semua lamaran yang saya kirim, hanya perusahaan ini yang memanggil saya untuk wawancara. Gajinya juga sepertinya lumayan
@@ -35,16 +36,16 @@ creative_interviewer: Apa alasanmu menghunus pedangmu di hadapanku?  Apa tujuan 
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-	
+
 # Final interview conclusion
 [wait time="1.0"]
-	
+
 creative_interviewer: Sesuai dengan apa yang sudah ku duga...
-	
+
 if {interview_score} >= 15:
 	creative_interviewer: Good creative foundation. We'll consider your portfolio.
 else:
 	creative_interviewer: Kami tidak butuh orang orang dengan jiwa kotor
-	
+
 set {day3_completed} = true
 set {day3_score} = {interview_score}

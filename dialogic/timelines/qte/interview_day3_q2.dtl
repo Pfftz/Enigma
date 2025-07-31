@@ -1,3 +1,4 @@
+[background fade="0.0"]
 join creative_interviewer center
 
 creative_interviewer: Sebagai calon pejuang baru, apa strategi yang akan kau ambil untuk menaklukkan sang Naga? Pikirkan baik-baik, nasib perusahaan ini ada di tanganmu!
@@ -12,7 +13,7 @@ creative_interviewer: Sebagai calon pejuang baru, apa strategi yang akan kau amb
 	set {interview_health} += 10
 	[signal arg="timer_end"]
 	creative_interviewer: lagi  ?
-	[signal arg="wrong_choice"]
+	[signal arg="start_bubble_minigame"]
 
 [wait time="1.0"]
 [signal arg="update_ui"]

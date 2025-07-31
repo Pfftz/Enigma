@@ -9,15 +9,15 @@
 "style": ""
 },
 &"default_portrait": "default",
-&"description": "CreativeStudio company interviewer - artistic and creative",
-&"display_name": "Creative Director",
+&"description": "netral",
+&"display_name": "Bhaluka",
 &"mirror": false,
-&"nicknames": ["Creative", "Director"],
+&"nicknames": ["hr d3"],
 &"offset": Vector2(0, 0),
 &"portraits": {
 "default": {
 "export_overrides": {
-"image": "\"res://dialogic/characters/potret-lucu-prabowo-dari-joget-hingga-melet-melet-di-debat-perdana-3_169-removebg-preview.png\""
+"image": "\"res://asset/2d/hr/d3/netral.png\""
 },
 "ignore_char_scale": false,
 "mirror": false,
@@ -26,5 +26,5 @@
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 }
 },
-&"scale": 1.0
+&"scale": 1.25
 }
