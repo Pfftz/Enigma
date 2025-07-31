@@ -82,8 +82,8 @@ directories/dtl_directory={
 "timeline_baru": "res://dialogic/timelines/timeline_baru.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://text-box.tres", "res://text-box-2.tres", "res://vn-style.tres", "res://dialogic/timelines/VN.tres", "res://dialogic/timelines/custom-coba-1.tres", "res://dialogic/styles/visual_styles.tres"]
-layout/default_style="res://text-box.tres"
+layout/style_list=[]
+layout/default_style=""
 variables={
 "bad_ending": false,
 "bubble_score": 0,

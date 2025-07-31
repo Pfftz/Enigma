@@ -8,14 +8,23 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "default",
+&"default_portrait": "netral",
 &"description": "netral",
 &"display_name": "Bhaluka",
 &"mirror": false,
 &"nicknames": ["hr d3"],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"default": {
+"marah": {
+"export_overrides": {
+"image": "\"res://asset/2d/hr/d3/kecewa.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"netral": {
 "export_overrides": {
 "image": "\"res://asset/2d/hr/d3/netral.png\""
 },
@@ -24,7 +33,16 @@
 "offset": Vector2(0, 0),
 "scale": 0.5,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
+"senyum": {
+"export_overrides": {
+"image": "\"res://asset/2d/hr/d3/senang.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
 }
 },
-&"scale": 1.25
+&"scale": 1.15
 }

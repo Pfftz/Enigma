@@ -8,14 +8,23 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "default",
+&"default_portrait": "netral",
 &"description": "netral",
 &"display_name": "pingu",
 &"mirror": false,
 &"nicknames": ["pingu"],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"default": {
+"marah": {
+"export_overrides": {
+"image": "\"res://asset/2d/hr/d4/marah.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"netral": {
 "export_overrides": {
 "image": "\"res://asset/2d/hr/d4/netral.png\""
 },
@@ -24,6 +33,15 @@
 "offset": Vector2(0, 0),
 "scale": 0.5,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
+"senang": {
+"export_overrides": {
+"image": "\"res://asset/2d/hr/d4/senang.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
 }
 },
 &"scale": 1.25

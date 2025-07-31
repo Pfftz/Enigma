@@ -8,20 +8,38 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "mosu",
+&"default_portrait": "netral",
 &"description": "hr, mosu",
 &"display_name": "mosu_interviewer",
 &"mirror": false,
 &"nicknames": ["mosu"],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"mosu": {
+"a": {
+"export_overrides": {
+"image": "\"res://asset/2d/hr/d5/a.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"netral": {
 "export_overrides": {
 "image": "\"res://asset/2d/hr/d5/netral.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1.0,
+"scene": ""
+},
+"senang": {
+"export_overrides": {
+"image": "\"res://asset/2d/hr/d5/senang.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
 "scene": ""
 }
 },
