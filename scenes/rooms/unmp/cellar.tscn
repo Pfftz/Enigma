@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://coiboxnwee2s5"]
+[gd_scene load_steps=14 format=3 uid="uid://coiboxnwee2s5"]
 
+[ext_resource type="Texture2D" uid="uid://wah28v5l6c3q" path="res://asset/2d/background/WhatsApp Image 2025-07-31 at 23.47.37_c4fe4e7d.jpg" id="1_jys24"]
 [ext_resource type="ArrayMesh" uid="uid://bviou8v6v2t1v" path="res://asset/3d/room/under_nmp/cellar.obj" id="3_210qx"]
 [ext_resource type="Resource" uid="uid://cpnxltpebnvr6" path="res://resource/environment/under_nmp.tres" id="3_to2g2"]
 [ext_resource type="Shader" uid="uid://cdmbno3xmc4uw" path="res://shaders/psx_lit_alpha.gdshader" id="4_g00ew"]
@@ -8,6 +9,9 @@
 [ext_resource type="Script" uid="uid://df0qpljsc040u" path="res://scripts/objects/spawn.gd" id="9_i6q6g"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="11_2cxv2"]
 [ext_resource type="PackedScene" uid="uid://db50wvqb2n0b8" path="res://scenes/objects/interactive/piece.tscn" id="12_xbmq8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjv4m"]
+albedo_texture = ExtResource("1_jys24")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bt114"]
 render_priority = 0
@@ -34,6 +38,7 @@ data = PackedVector3Array(-0.5, 0, -6.5, -3.5, 0, -6.5, -0.5, 1, -6.5, -0.5, 1, 
 [node name="cellar" type="Node3D"]
 
 [node name="NiftyMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_kjv4m")
 mesh = ExtResource("3_210qx")
 surface_material_override/0 = SubResource("ShaderMaterial_bt114")
 
