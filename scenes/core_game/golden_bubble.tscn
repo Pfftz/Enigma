@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://4do8lak42nr8"]
+[gd_scene load_steps=12 format=3 uid="uid://bq8ihg23q75pp"]
 
-[ext_resource type="Script" uid="uid://iys0shq5oyx0" path="res://scripts/core_game/positive_bubble.gd" id="1_vxhmn"]
-[ext_resource type="Texture2D" uid="uid://32x8xunni05w" path="res://asset/2d/core game/positive1.png" id="2_fkxtn"]
-[ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="6_bjo7o"]
-[ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_pjg2p"]
+[ext_resource type="Script" path="res://scripts/core_game/golden_bubble.gd" id="1_ervom"]
+[ext_resource type="Texture2D" uid="uid://bjfs0qlnjw6hu" path="res://asset/2d/core game/Golden.png" id="2_2w1i7"]
+[ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="6_4vvuy"]
+[ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_evqlh"]
 
 [sub_resource type="Animation" id="Animation_y2db8"]
 length = 0.001
@@ -39,18 +39,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_4a276"]
 resource_name = "squish"
 length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 2.73208),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 0.8)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_05jx6"]
 _data = {
@@ -79,13 +67,12 @@ damping_max = 20.0
 color_ramp = SubResource("GradientTexture1D_c2d40")
 
 [node name="Bubble" type="Node2D"]
-script = ExtResource("1_vxhmn")
+script = ExtResource("1_ervom")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.592157)
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.859375, 0.859375)
-texture = ExtResource("2_fkxtn")
+texture = ExtResource("2_2w1i7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -95,7 +82,7 @@ libraries = {
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 4
-texture = ExtResource("6_bjo7o")
+texture = ExtResource("6_4vvuy")
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_y2db8")
@@ -111,7 +98,7 @@ theme_override_colors/font_color = Color(0.834502, 0.678928, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("7_pjg2p")
+theme_override_fonts/font = ExtResource("7_evqlh")
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -122,12 +109,26 @@ offset_top = -42.0
 offset_right = 60.0
 offset_bottom = 39.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_pjg2p")
+theme_override_fonts/font = ExtResource("7_evqlh")
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="LifetimeTimer" type="Timer" parent="."]
+
+[node name="SpamIndicatorContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 84.0
+offset_right = 11.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+theme_override_constants/separation = 8
 
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]

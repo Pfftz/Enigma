@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://5ttmjh0160qc" path="res://asset/sound/422811__pinto0lucas__bubble-low.wav" id="3_cd3a8"]
 [ext_resource type="AudioStream" uid="uid://s2lvq0gikmju" path="res://asset/sound/422812__pinto0lucas__bubble-medium.wav" id="4_gr152"]
 [ext_resource type="AudioStream" uid="uid://cjwhla6dfunu" path="res://asset/sound/422813__pinto0lucas__bubble-low.wav" id="5_7anfy"]
-[ext_resource type="Texture2D" uid="uid://dp5g470gnmxy1" path="res://scenes/core_game/negative1.png" id="5_241cy"]
+[ext_resource type="Texture2D" uid="uid://dp5g470gnmxy1" path="res://asset/2d/core game/negative1.png" id="5_241cy"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_c2d40"]
 
 [sub_resource type="Animation" id="Animation_y2db8"]
