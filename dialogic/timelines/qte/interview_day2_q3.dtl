@@ -30,7 +30,7 @@ techcorp_interviewer: kenapa kamu melamar di perusahaan ini?
 	set {interview_score} -= 5
 	set {interview_health} -= 5
 	[signal arg="timer_end"]
-	techcorp_interviewer: DIAM ORANG FREAK!! 
+	techcorp_interviewer: DIAM ORANG FREAK!!
 	[signal arg="wrong_choice"]
 	set {day2_completed} = true
 
@@ -40,16 +40,12 @@ techcorp_interviewer: kenapa kamu melamar di perusahaan ini?
 # Final interview conclusion
 [wait time="1.0"]
 
-techcorp_interviewer: Alright, technical assessment selesai.
+techcorp_interviewer: baiklah aku sudah catat semuanya
 
 if {interview_score} >= 30:
-	techcorp_interviewer: Outstanding! Welcome to the TechCorp family. HR akan follow up.
-elif {interview_score} >= 15:
-	techcorp_interviewer: Good potential. Kami akan diskusi dengan team dulu.
-elif {interview_score} >= 5:
-	techcorp_interviewer: Masih perlu development, tapi keep learning.
+	techcorp_interviewer: jangan lupa cek email di hari jumat yaaa, nyohohohoho
 else:
-	techcorp_interviewer: Sorry, technical skills tidak memenuhi standar kami.
+	techcorp_interviewer: jangan hubungi kami lagi
 
 set {day2_completed} = true
 set {day2_score} = {interview_score}

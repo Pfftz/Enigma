@@ -3,7 +3,7 @@ join techcorp_interviewer center
 set {interview_score} -= 5
 set {interview_health} -= 10
 
-techcorp_interviewer: Terserah lah, Sekarang, aku bosan dengan pertanyaan wawancara standar. Aku akan memberimu sebuah teka-teki logika dari databaseAyahku. Dengarkan baik-baik.
+techcorp_interviewer: Terserah lah, Sekarang, aku bosan dengan pertanyaan wawancara standar. Aku akan memberimu sebuah teka-teki logika dari database Ayahku. Dengarkan baik-baik.
 
 [signal arg="timeout"]
 [signal arg="timer_end"]

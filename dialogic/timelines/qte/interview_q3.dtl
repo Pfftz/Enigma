@@ -47,7 +47,7 @@ elif {interview_score} >= 10:
 elif {interview_score} >= 0:
 	bananazon_interviewer: Masih ada yang perlu diperbaiki, tapi terima kasih sudah datang.
 else:
-	bananazon_interviewer: Sudah cukup saya dihina seperti ini, Kami tidak menerima orang seperti anda. Terima kasih
+	bananazon_interviewer:  Kami tidak menerima orang seperti anda. Terima kasih
 
 set {day1_completed} = true
 set {day1_score} = {interview_score}

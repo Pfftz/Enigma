@@ -1,7 +1,7 @@
 join techcorp_interviewer center
 
-techcorp_interviewer: Aku lihat dari riwayat pencarianmu kamu sering mencari.......” \
-“fufu...
+techcorp_interviewer: Aku lihat dari riwayat pencarianmu kamu sering mencari.......\
+fufu...
 character: (!!!!!!)
 
 [signal arg="timer_start"]
@@ -10,7 +10,7 @@ character: (!!!!!!)
 	set {interview_score} += 12
 	set {interview_health} += 12
 	[signal arg="timer_end"]
-	techcorp_interviewer:   Fufufu, jadi aku benar, ya? Lihat, kamu bahkan malu untuk mengangkat wajahmu.
+	techcorp_interviewer: Fufufu, jadi aku benar, ya? Lihat, kamu bahkan malu untuk mengangkat wajahmu.
 	[signal arg="correct_choice"]
 
 - Benar, Nona. Data Anda 100% akurat. Itu bukan riwayat pencarian, itu adalah bukti bahwa saya adalah kandidat paling termotivasi yang pernah Anda temui.
