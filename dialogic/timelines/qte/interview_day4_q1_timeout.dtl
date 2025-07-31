@@ -3,7 +3,7 @@ join green_interviewer center
 set {interview_score} -= 5
 set {interview_health} -= 10
 
-green_interviewer: Environmental urgency requires quick thinking! Time's up.
+green_interviewer: berikutnya
 
 [signal arg="timeout"]
 [signal arg="timer_end"]

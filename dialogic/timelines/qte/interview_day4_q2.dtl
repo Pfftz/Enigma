@@ -1,35 +1,35 @@
 join green_interviewer center
 
-green_interviewer: Apa yang anda lakukan untuk mengurangi carbon footprint?
+green_interviewer: apa kelemahan terbesar anda
 
 [signal arg="timer_start"]
 
-- Pakai transportasi umum dan reduce plastic waste
+- saya tidak suka basa-basi
 	set {interview_score} += 15
 	set {interview_health} += 15
 	[signal arg="timer_end"]
-	green_interviewer: Perfect! Small actions create big impact when done collectively.
+	green_interviewer: Bagi saya itu adalah hal normal
 	[signal arg="correct_choice"]
 
-- Matikan lampu kalau tidak dipakai
+- Mungkin saya tidak bisa menyerah?
 	set {interview_score} += 8
 	set {interview_health} += 8
 	[signal arg="timer_end"]
-	green_interviewer: Good start! Energy conservation is fundamental.
+	green_interviewer: saya mengerti, meskipun itu tidak berguna untuk saya
 	[signal arg="correct_choice"]
 
-- Beli mobil hybrid
+- Tebak dong hehe
 	set {interview_score} += 10
 	set {interview_health} += 10
 	[signal arg="timer_end"]
-	green_interviewer: Great investment! Cleaner transportation is crucial.
+	green_interviewer: saya bukan cenayang
 	[signal arg="correct_choice"]
 
-- Tidak ada, hidup cuma sekali
+- mudah lapar
 	set {interview_score} -= 15
 	set {interview_health} -= 15
 	[signal arg="timer_end"]
-	green_interviewer: That selfish attitude is destroying our planet's future.
+	green_interviewer: ...
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]

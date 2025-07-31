@@ -3,37 +3,38 @@ set {interview_day} = 4
 set {company_name} = "GreenCorp"
 set {interview_score} = 0
 set {interview_health} = 10
+character: Permisi pak
 
-green_interviewer: Hello! GreenCorp fokus pada sustainability. Apa pendapat anda tentang climate change?
+green_interviewer: “Pelamar ke-456 Waktu saya terbatas. Saya harap anda sudah siap
 
 [signal arg="timer_start"]
 
-- Isu serius yang butuh action segera dari semua pihak
+- (diam)*mengaangguk
 	set {interview_score} += 18
 	set {interview_health} += 18
 	[signal arg="timer_end"]
-	green_interviewer: Exactly! Collective action is key to fighting climate crisis.
+	green_interviewer: baik. Saya suka itu
 	[signal arg="correct_choice"]
 
-- Penting tapi bukan prioritas utama saya
+- setuju pak, waktu itu berharga
 	set {interview_score} += 5
 	set {interview_health} += 5
 	[signal arg="timer_end"]
-	green_interviewer: At least you acknowledge it. But we need passionate advocates here.
+	green_interviewer: Bagus kalau Anda sadar.
 	[signal arg="correct_choice"]
 
-- Hoax, cuaca memang selalu berubah
+- Sudah 456 orang yg mendaftar?
 	set {interview_score} -= 20
 	set {interview_health} -= 20
 	[signal arg="timer_end"]
-	green_interviewer: That's exactly the mindset we're fighting against. Big red flag.
+	green_interviewer: fokus. Itu tidak relevan
 	[signal arg="wrong_choice"]
 
-- Tidak tahu, tidak peduli
+- gak sabaran banget pak
 	set {interview_score} -= 10
 	set {interview_health} -= 10
 	[signal arg="timer_end"]
-	green_interviewer: Apathy toward our planet's future is unacceptable here.
+	green_interviewer: Maaf? Sikap Anda kami catat. Mari kita lihat apakah kemampuan anda bisa menutupi itu 
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]
