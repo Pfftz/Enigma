@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://dnydq7jk6xp00"]
 
 [ext_resource type="Script" uid="uid://bh3og4py7fhpp" path="res://scripts/player/Player.gd" id="1_0rgch"]
-[ext_resource type="Texture2D" uid="uid://delxxqh1c0ymc" path="res://sprites/guardian (1).png" id="2_gawsc"]
+[ext_resource type="Texture2D" uid="uid://crw0dg8p3073d" path="res://asset/2d/sprite/guardian (1).png" id="2_gawsc"]
 [ext_resource type="PackedScene" uid="uid://db15qus3wxy4q" path="res://scenes/management/HUD.tscn" id="3_60i0w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqkch"]
