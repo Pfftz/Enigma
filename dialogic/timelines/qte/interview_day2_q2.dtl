@@ -34,6 +34,5 @@ character: (!!!!!!)
 	[signal arg="timer_end"]
 	techcorp_interviewer (marah): Jadi kamu mau menjelaskan yah?, tentu saja, silakan. Aku punya waktu sepanjang hari untuk mendengarkan usahamu yang sia-sia untuk membela diri
 	[signal arg="wrong_choice"]
-
-techcorp_interviewer (senang): Baiklah, sekarang waktunya untuk test praktis
 [signal arg="start_bubble_minigame"]
+jump interview_day2_q2_timeout/

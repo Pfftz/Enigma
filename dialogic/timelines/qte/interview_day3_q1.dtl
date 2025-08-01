@@ -44,3 +44,4 @@ creative_interviewer (netral): Coba tunjukan kepada ku kemampuan tersembunyi apa
 
 [wait time="1.0"]
 [signal arg="update_ui"]
+jump interview_day3_q1_timeout/

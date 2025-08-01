@@ -44,6 +44,8 @@ directories/dtl_directory={
 "day2": "res://dialogic/timelines/day2.dtl",
 "day3": "res://dialogic/timelines/day3.dtl",
 "day5": "res://dialogic/timelines/day5.dtl",
+"day5-C1": "res://asset/sound/ost/day5-C1.dtl",
+"day5-C2": "res://asset/sound/ost/day5-C2.dtl",
 "door_confirmation": "res://dialogic/timelines/door_confirmation.dtl",
 "interview_day2_q1": "res://dialogic/timelines/qte/interview_day2_q1.dtl",
 "interview_day2_q1_timeout": "res://dialogic/timelines/qte/interview_day2_q1_timeout.dtl",
