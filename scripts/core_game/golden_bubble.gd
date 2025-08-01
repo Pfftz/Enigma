@@ -24,7 +24,6 @@ var time: float = 0.0
 func _ready():
 	# (DIHAPUS) Baris ini dihapus agar warna bisa diatur sepenuhnya dari editor.
 	# sprite.modulate = Color.GOLD
-	
 	initial_y_position = position.y
 	time = randf() * 10.0
 	

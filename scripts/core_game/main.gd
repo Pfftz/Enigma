@@ -1,8 +1,7 @@
-# (MERGE 1/3) Mengubah basis node menjadi Control untuk integrasi UI.
-extends Control
+extends Node2D
 
-# (MERGE 2/3) Menambahkan sinyal untuk memberitahu game utama saat minigame selesai.
-signal minigame_completed(minigame_score)
+# Signal for completing the minigame
+signal minigame_completed(final_score: int)
 
 var BubbleScene = preload("res://scenes/core_game/bubble.tscn")
 var TrapBubbleScene = preload("res://scenes/core_game/positive_bubble.tscn")
@@ -66,27 +65,53 @@ func start_new_game():
 		for b in get_tree().get_nodes_in_group("golden_bubble"): b.queue_free()
 	active_bubbles.clear()
 	
-	# (FIX) Balon dimunculkan SEBELUM hitung mundur, sesuai versi "perfect" Anda.
-	spawn_initial_bubbles()
-	
 	do_countdown()
 
+# (MODIFIKASI TOTAL) Fungsi ini sekarang memunculkan balon secara bertahap.
 func do_countdown():
 	game_status_label.show()
 	
+	# --- TAHAP 1: KONTEKS NARATIF ---
 	game_status_label.text = "PERTANYAAN MACAM APA ITU?"
 	await get_tree().create_timer(2.5).timeout
 	
 	game_status_label.text = "singkirkan pikiran intrusif mu"
 	await get_tree().create_timer(2.5).timeout
 	
+	# --- TAHAP 2: PERSIAPAN BALON (TIDAK TERLIHAT) ---
+	var positions = get_bubble_positions()
+	var initial_trap_count = 1 if number_of_bubbles > 4 else 0
+	var initial_words = generate_unique_word_set(initial_trap_count)
+	
+	# --- TAHAP 3: HITUNG MUNDUR & SPAWN BERTAHAP ---
+	var bubbles_per_step = number_of_bubbles / 3
+	var spawned_count = 0
+	
 	game_status_label.text = "3"
+	for i in range(bubbles_per_step):
+		if spawned_count < initial_words.size():
+			var word_data = initial_words[spawned_count]
+			var pos = positions[spawned_count]
+			spawn_new_bubble(pos, word_data.word, word_data.is_trap)
+			spawned_count += 1
 	await get_tree().create_timer(1.0).timeout
 	
 	game_status_label.text = "2"
+	for i in range(bubbles_per_step):
+		if spawned_count < initial_words.size():
+			var word_data = initial_words[spawned_count]
+			var pos = positions[spawned_count]
+			spawn_new_bubble(pos, word_data.word, word_data.is_trap)
+			spawned_count += 1
 	await get_tree().create_timer(1.0).timeout
 	
 	game_status_label.text = "1"
+	# Spawn sisa balon di hitungan terakhir
+	while spawned_count < initial_words.size():
+		var word_data = initial_words[spawned_count]
+		var pos = positions[spawned_count]
+		spawn_new_bubble(pos, word_data.word, word_data.is_trap)
+		spawned_count += 1
 	await get_tree().create_timer(1.0).timeout
 	
 	game_status_label.text = "GO!"
@@ -94,7 +119,7 @@ func do_countdown():
 	
 	game_status_label.hide()
 	
-	# Timer permainan dimulai setelah hitung mundur selesai.
+	# --- TAHAP 4: MULAI PERMAINAN ---
 	gameplay_timer.wait_time = gameplay_duration
 	bubble_respawn_timer.wait_time = bubble_replace_interval
 	gameplay_timer.start()
@@ -132,30 +157,26 @@ func trigger_ultimate():
 	
 	target_bubble = golden_bubble
 
-# (MERGE 3/3) Modifikasi fungsi ini untuk mengirim sinyal dan menutup minigame.
 func _on_ultimate_bubble_popped():
 	game_status_label.show()
 	game_status_label.text = "SELAMAT!\nKamu berhasil!"
 	instruction_label.hide()
 	
+	# Wait 2 seconds before emitting the completion signal
 	await get_tree().create_timer(2.0).timeout
-	minigame_completed.emit(score)
-	queue_free()
-
-func spawn_initial_bubbles():
-	var positions = get_bubble_positions()
-	var initial_trap_count = 1 if number_of_bubbles > 4 else 0
-	var initial_words = generate_unique_word_set(initial_trap_count) 
 	
-	for i in range(positions.size()):
-		var pos = positions[i]
-		if i < initial_words.size():
-			var word_data = initial_words[i]
-			spawn_new_bubble(pos, word_data.word, word_data.is_trap)
+	# Emit the minigame completion signal with the final score
+	minigame_completed.emit(score)
+	print("DEBUG: Ultimate completed! Emitting minigame_completed signal with score: ", score)
+
+# Dulu ada spawn_initial_bubbles(), sekarang logikanya sudah pindah ke do_countdown()
 
 func spawn_new_bubble(pos: Vector2, word: String, is_trap: bool):
 	var scene_to_use = TrapBubbleScene if is_trap else BubbleScene
 	var new_bubble = scene_to_use.instantiate()
+	
+	# (FIX) Atur skala ke nol SEBELUM menambahkannya ke scene untuk mencegah flicker.
+	new_bubble.get_node("Sprite2D").scale = Vector2.ZERO
 	
 	new_bubble.popped.connect(_on_bubble_popped)
 	
@@ -181,7 +202,7 @@ func get_word_for_new_bubble() -> Dictionary:
 			new_word = word
 			break
 	
-	if new_word == "": 
+	if new_word == "":
 		if not word_list.is_empty(): new_word = word_list[0]
 		else: return {"word": "ERROR", "is_trap": true}
 
@@ -221,7 +242,6 @@ func _on_bubble_popped(pos: Vector2):
 	
 	bubble_respawn_timer.start()
 
-# (MERGE 3/3) Modifikasi fungsi ini juga untuk mengirim sinyal dan menutup minigame.
 func game_over():
 	if is_ultimate_triggered: return
 
@@ -235,9 +255,12 @@ func game_over():
 	game_status_label.show()
 	game_status_label.text = "Waktu Habis!\nSkor Akhir: %d" % score
 	
+	# Wait 2 seconds before emitting the completion signal
 	await get_tree().create_timer(2.0).timeout
+	
+	# Emit the minigame completion signal with the final score
 	minigame_completed.emit(score)
-	queue_free()
+	print("DEBUG: Emitting minigame_completed signal with score: ", score)
 
 func generate_unique_word_set(trap_count: int) -> Array:
 	var final_words = []
@@ -330,6 +353,8 @@ func handle_typing(event):
 				current_typed_string = key_typed
 				player_input_label.text = current_typed_string
 				target_bubble.play_typing_feedback()
+				# (FIX) Reset timer penggantian acak setiap kali pemain mengetik.
+				bubble_respawn_timer.start()
 				return
 	else:
 		if not is_instance_valid(target_bubble):
@@ -341,6 +366,8 @@ func handle_typing(event):
 			current_typed_string = potential_string
 			player_input_label.text = current_typed_string
 			target_bubble.play_typing_feedback()
+			# (FIX) Reset timer penggantian acak setiap kali pemain mengetik.
+			bubble_respawn_timer.start()
 			if current_typed_string == target_bubble.positive_affirmation:
 				if target_bubble.is_in_group("trap_bubbles"): score -= 10
 				else: score += 5

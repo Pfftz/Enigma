@@ -247,6 +247,6 @@ billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_rro66")
-animation = &"idleRight"
+animation = &"idleDown"
 
 [node name="HUD" parent="." instance=ExtResource("3_qhqgy")]

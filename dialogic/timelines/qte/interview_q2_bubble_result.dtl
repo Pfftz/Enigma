@@ -1,7 +1,5 @@
 join bananazon_interviewer center
 
-bananazon_interviewer: Berapa jumlah jendela di gedung yang ada di jakarta
-
 # Check bubble minigame score to determine choice
 if {bubble_score} >= 50:
 	# Good performance - player gives correct answer

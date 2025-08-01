@@ -1,13 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://c1ohfqrdajkw5"]
+[gd_scene load_steps=29 format=3 uid="uid://c1ohfqrdajkw5"]
 
 [ext_resource type="Texture2D" uid="uid://dv0wjicfyhie5" path="res://asset/3d/object/building/RENDER 1.png" id="1_yklvt"]
 [ext_resource type="ArrayMesh" uid="uid://bkbjy1ky475px" path="res://asset/3d/object/building/Calisma2.obj" id="2_ob3qw"]
-[ext_resource type="Resource" uid="uid://bh4ktluvpg6b0" path="res://resource/environment/dark_foggy.tres" id="5_yklvt"]
-[ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="10_7coyi"]
 [ext_resource type="ArrayMesh" uid="uid://bg2idb63iwanj" path="res://asset/3d/object/ImageToStl.com_low-poly+scene/low-poly scene.obj" id="10_hoo7f"]
 [ext_resource type="Script" path="res://scripts/objects/interact/interact_gedung.gd" id="10_yklvt"]
-[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/laptop f untuk interaksi.gd" id="11_1na72"]
-[ext_resource type="PackedScene" path="res://scenes/objects/player/player_cam.tscn" id="11_yklvt"]
+[ext_resource type="Script" path="res://scripts/ui/laptop f untuk interaksi.gd" id="11_1na72"]
+[ext_resource type="PackedScene" uid="uid://dnydq7jk6xp00" path="res://scenes/objects/player/player_cam.tscn" id="11_yklvt"]
 [ext_resource type="Texture2D" uid="uid://b7xr1h1q2xaso" path="res://asset/3d/object/road/old road texture.dds" id="14_yt3a5"]
 [ext_resource type="ArrayMesh" uid="uid://cv53gtkhj2qhl" path="res://asset/3d/object/road/old road.obj" id="15_n2k5p"]
 [ext_resource type="ArrayMesh" uid="uid://dy1qakqgk88dr" path="res://asset/3d/object/low_poly_tree/Lowpoly_tree_sample.obj" id="16_n2k5p"]
@@ -90,17 +88,36 @@ height = 43.2563
 [sub_resource type="BoxShape3D" id="BoxShape3D_mel86"]
 size = Vector3(1.22473, 0.358398, 2.1637)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yklvt"]
+sky_horizon_color = Color(0.301961, 0.32549, 0.34902, 1)
+ground_bottom_color = Color(0.662745, 0.705882, 0.760784, 1)
+ground_energy_multiplier = 0.3
+
+[sub_resource type="Sky" id="Sky_4h7wx"]
+sky_material = SubResource("ProceduralSkyMaterial_yklvt")
+
+[sub_resource type="Environment" id="Environment_ob3qw"]
+background_mode = 2
+sky = SubResource("Sky_4h7wx")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.1
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+glow_enabled = true
+glow_normalized = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_sun_scatter = 1.0
+fog_density = 0.015
+fog_depth_curve = 0.406126
+volumetric_fog_enabled = true
+
 [node name="GiftPlane" type="Node3D"]
 
 [node name="Calisma2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.225, 0, 0.000416281, 0, 0.225, 0, -0.000416281, 0, -0.225, 32.2618, 0.871887, -21.2744)
 material_override = SubResource("StandardMaterial3D_ob3qw")
 mesh = ExtResource("2_ob3qw")
-skeleton = NodePath("")
-
-[node name="EnvironmentManager" type="Node3D" parent="."]
-script = ExtResource("10_7coyi")
-environment_settings = ExtResource("5_yklvt")
 
 [node name="LogoArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.03, 0, 0)
@@ -348,21 +365,21 @@ transform = Transform3D(0.98322, 0, -0.182424, 0, 1, 0, 0.182424, 0, 0.98322, 54
 mesh = ExtResource("16_n2k5p")
 skeleton = NodePath("../../..")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.6655, 3.72498, -18.6239)
-light_energy = 8.415
-omni_range = 5.50901
-
 [node name="PlayerCam" parent="." instance=ExtResource("11_yklvt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0.715, -18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499921, 0.528381, 0.254069)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="PlayerCam"]
+light_energy = 0.5
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+light_negative = true
+shadow_enabled = true
+omni_range = 0.5
+omni_attenuation = 2.0
 
 [node name="Low-polyScene" type="MeshInstance3D" parent="."]
 transform = Transform3D(10.94, 0, 0, 0, -4.78203e-07, 10.94, 0, -10.94, -4.78203e-07, 76.896, 0.164581, -35.2187)
 mesh = ExtResource("10_hoo7f")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.467547, 0.183666, -0.864677, 0.049798, 0.971151, 0.233209, 0.882565, -0.152095, 0.444912, -69.5503, 9.64675, 2.54675)
-shadow_enabled = true
 
 [node name="interact gedung" type="Area3D" parent="."]
 transform = Transform3D(-0.0676321, 0, 0.99771, 0, 1, 0, -0.99771, 0, -0.0676321, 32, 0.941, -19.1437)
@@ -382,6 +399,17 @@ offset_right = 1153.0
 offset_bottom = 651.0
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="cahayailahi" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2477, 3.72498, -18.6239)
+light_energy = 8.415
+omni_range = 5.50901
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ob3qw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.983512, -0.0106181, -0.180533, 0.0486177, -0.946, 0.320499, -0.174188, -0.323992, -0.929886, 20, 28.5022, -83.9241)
 
 [connection signal="body_entered" from="LogoArea" to="LogoArea" method="_on_body_entered"]
 [connection signal="body_exited" from="LogoArea" to="LogoArea" method="_on_body_exited"]
