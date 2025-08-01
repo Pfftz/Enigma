@@ -244,6 +244,7 @@ shape = SubResource("CapsuleShape3D_dqkch")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1.54177, 0, 0, 0, 1.54177, 0, 0, 0, 1.54177, 0, 0, 0)
 billboard = 1
+shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_dkv74")
 animation = &"idleRight"
