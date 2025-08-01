@@ -1,7 +1,7 @@
 [background arg="res://asset/2d/hr/d4/img-d4.png" fade="0.0"]
 join green_interviewer center
 
-green_interviewer: apa kelemahan terbesar anda
+green_interviewer (netral): apa kelemahan terbesar anda
 
 [signal arg="timer_start"]
 
@@ -9,29 +9,27 @@ green_interviewer: apa kelemahan terbesar anda
 	set {interview_score} += 15
 	set {interview_health} += 15
 	[signal arg="timer_end"]
-	green_interviewer: Bagi saya itu adalah hal normal
+	green_interviewer (senang): Bagi saya itu adalah hal normal
 	[signal arg="correct_choice"]
 
 - Mungkin saya tidak bisa menyerah?
 	set {interview_score} += 8
 	set {interview_health} += 8
 	[signal arg="timer_end"]
-	green_interviewer: saya mengerti, meskipun itu tidak berguna untuk saya
+	green_interviewer (senang): saya mengerti, meskipun itu tidak berguna untuk saya
 	[signal arg="correct_choice"]
 
 - Tebak dong hehe
 	set {interview_score} += 10
 	set {interview_health} += 10
 	[signal arg="timer_end"]
-	green_interviewer: saya bukan cenayang
-	[signal arg="correct_choice"]
+	green_interviewer (marah): saya bukan cenayang
+	[signal arg="wrong_choice"]
 
 - mudah lapar
 	set {interview_score} -= 15
 	set {interview_health} -= 15
 	[signal arg="timer_end"]
-	green_interviewer: ...
+	green_interviewer (marah): ...
 	[signal arg="wrong_choice"]
-
-green_interviewer: Sekarang mari kita uji komitmen anda terhadap lingkungan
 [signal arg="start_bubble_minigame"]
