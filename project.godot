@@ -34,6 +34,7 @@ directories/dch_directory={
 "kamu": "res://dialogic/characters/kamu.dch",
 "mega_interviewer": "res://dialogic/characters/mega_interviewer.dch",
 "player": "res://dialogic/characters/player.dch",
+"siluet": "res://asset/2d/hr/d2/siluet.dch",
 "techcorp_interviewer": "res://dialogic/characters/techcorp_interviewer.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }

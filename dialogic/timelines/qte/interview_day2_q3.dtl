@@ -1,8 +1,8 @@
-[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
+[background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer center
-techcorp_interviewer: kita langsung saja ke pertanyaan yang sebenarnya
+techcorp_interviewer (netral): kita langsung saja ke pertanyaan yang sebenarnya
 
-techcorp_interviewer: kenapa kamu melamar di perusahaan ini?
+techcorp_interviewer (netral): kenapa kamu melamar di perusahaan ini?
 
 [signal arg="timer_start"]
 
@@ -10,28 +10,28 @@ techcorp_interviewer: kenapa kamu melamar di perusahaan ini?
 	set {interview_score} += 20
 	set {interview_health} += 20
 	[signal arg="timer_end"]
-	techcorp_interviewer: ooh kamu suka teknologi
+	techcorp_interviewer (senang): ooh kamu suka teknologi
 	[signal arg="correct_choice"]
 
 - karena saya ingin mempelajari ai lebih dalam
 	set {interview_score} += 10
 	set {interview_health} += 10
 	[signal arg="timer_end"]
-	techcorp_interviewer: tidak. Aku tidak butuh orang bodoh seperti mu
+	techcorp_interviewer (senang): tidak. Aku tidak butuh orang bodoh seperti mu
 	[signal arg="correct_choice"]
 
 - Aku butuh uang nona
 	set {interview_score} -= 8
 	set {interview_health} -= 8
 	[signal arg="timer_end"]
-	techcorp_interviewer: tch, miskin
+	techcorp_interviewer (marah): tch, miskin
 	[signal arg="wrong_choice"]
 
 - saya ingin berada di sisi nona
 	set {interview_score} -= 5
 	set {interview_health} -= 5
 	[signal arg="timer_end"]
-	techcorp_interviewer: DIAM ORANG FREAK!!
+	techcorp_interviewer (marah): DIAM ORANG FREAK!!
 	[signal arg="wrong_choice"]
 	set {day2_completed} = true
 
