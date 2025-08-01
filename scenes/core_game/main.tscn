@@ -36,6 +36,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 67.0
 offset_right = 81.0
@@ -65,6 +66,7 @@ vertical_alignment = 1
 [node name="BubbleRespawnTimer" type="Timer" parent="."]
 
 [node name="TimeLabel" type="Label" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 

@@ -5,7 +5,18 @@
 &"color": Color(0.2, 0.6, 1, 1),
 &"custom_info": {
 "sound_mood_default": "",
-"sound_moods": {},
+"sound_moods": {
+"Mood 1": {
+"mode": 0,
+"name": "Mood 1",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"skip_characters": 0.0,
+"sound_path": "res://asset/sound/dialog/robotHRday2.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
 "style": ""
 },
 &"default_portrait": "netral",
@@ -23,7 +34,8 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 0.5,
-"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn",
+"sound_mood": "Mood 1"
 },
 "netral": {
 "export_overrides": {
@@ -32,7 +44,8 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 0.5,
-"scene": ""
+"scene": "",
+"sound_mood": "Mood 1"
 },
 "senang": {
 "export_overrides": {
@@ -41,7 +54,8 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 0.5,
-"scene": ""
+"scene": "",
+"sound_mood": "Mood 1"
 }
 },
 &"scale": 1.25
