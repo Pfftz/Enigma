@@ -1,22 +1,22 @@
 join mega_interviewer center
 
-mega_interviewer: Final assessment question...
-mega_interviewer: What makes you different from other candidates?
+kamu (netral): Final assessment question...
+kamu (a): What makes you different from other candidates?
 
 # Check bubble minigame score to determine choice
 if {bubble_score} >= 50:
 	# Good performance - player gives correct answer
-	character: I bring exceptional dedication, innovative thinking, and unwavering commitment to corporate excellence that surpasses all competition
+	character (normal): I bring exceptional dedication, innovative thinking, and unwavering commitment to corporate excellence that surpasses all competition
 	set {interview_score} += 30
 	set {interview_health} += 30
-	mega_interviewer: Outstanding! That's exactly the kind of excellence MegaCorp demands.
+	kamu (senang): Outstanding! That's exactly the kind of excellence MegaCorp demands.
 	[signal arg="correct_choice"]
 else:
 	# Poor performance - player gives wrong answer  
-	character: Um... I'm... I guess I'm just like everyone else really...
+	character (normal): Um... I'm... I guess I'm just like everyone else really...
 	set {interview_score} -= 15
 	set {interview_health} -= 15
-	mega_interviewer: Disappointing. MegaCorp expects exceptional performance at all times.
+	kamu (a): Disappointing. MegaCorp expects exceptional performance at all times.
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]

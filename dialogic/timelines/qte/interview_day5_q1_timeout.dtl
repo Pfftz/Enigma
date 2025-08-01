@@ -3,7 +3,7 @@ join mega_interviewer center
 set {interview_score} -= 10
 set {interview_health} -= 10
 
-mega_interviewer: Can't even answer under time pressure? Pathetic.
+kamu (a): Can't even answer under time pressure? Pathetic.
 
 [signal arg="timeout"]
 [signal arg="timer_end"]
