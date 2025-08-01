@@ -4,7 +4,7 @@ set {interview_day} = 4
 set {company_name} = "GreenCorp"
 set {interview_score} = 0
 set {interview_health} = 10
-character: Permisi pak
+character (normal): Permisi pak
 
 green_interviewer (netral): “Pelamar ke-456 Waktu saya terbatas. Saya harap anda sudah siap
 

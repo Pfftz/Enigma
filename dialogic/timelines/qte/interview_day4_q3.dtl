@@ -1,7 +1,7 @@
 [background arg="res://asset/2d/hr/d4/img-d4.png" fade="0.0"]
 join green_interviewer center
 
-green_interviewer: Dengar baik-baik. Para kepingan salju diluar sana sudah apply di posisi yg sama sepertimu. Bagi saya... semuanya sama.
+green_interviewer (netral): Dengar baik-baik. Para kepingan salju diluar sana sudah apply di posisi yg sama sepertimu. Bagi saya... semuanya sama.
 
 [signal arg="timer_start"]
 
@@ -9,7 +9,7 @@ green_interviewer: Dengar baik-baik. Para kepingan salju diluar sana sudah apply
 	set {interview_score} += 20
 	set {interview_health} += 20
 	[signal arg="timer_end"]
-	green_interviewer: ...
+	green_interviewer (marah): ...
 	[signal arg="correct_choice"]
 	set {day4_completed} = true
 	set {day4_score} = {interview_score}
@@ -19,7 +19,7 @@ green_interviewer: Dengar baik-baik. Para kepingan salju diluar sana sudah apply
 	set {interview_score} += 12
 	set {interview_health} += 12
 	[signal arg="timer_end"]
-	green_interviewer: ...
+	green_interviewer (marah): ...
 	[signal arg="correct_choice"]
 	set {day4_completed} = true
 	set {day4_score} = {interview_score}
@@ -29,7 +29,7 @@ green_interviewer: Dengar baik-baik. Para kepingan salju diluar sana sudah apply
 	set {interview_score} -= 5
 	set {interview_health} -= 5
 	[signal arg="timer_end"]
-	green_interviewer: ...
+	green_interviewer (marah): ...
 	[signal arg="wrong_choice"]
 	set {day4_completed} = true
 	set {day4_score} = {interview_score}
@@ -39,7 +39,7 @@ green_interviewer: Dengar baik-baik. Para kepingan salju diluar sana sudah apply
 	set {interview_score} -= 15
 	set {interview_health} -= 15
 	[signal arg="timer_end"]
-	green_interviewer: ...
+	green_interviewer (marah): ...
 	[signal arg="wrong_choice"]
 	set {day4_completed} = true
 	set {day4_score} = {interview_score}

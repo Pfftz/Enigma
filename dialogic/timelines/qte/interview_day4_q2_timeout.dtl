@@ -4,7 +4,7 @@ join green_interviewer center
 set {interview_score} -= 5
 set {interview_health} -= 10
 
-green_interviewer: pertanyaan terakhir
+green_interviewer (netral): pertanyaan terakhir
 
 [signal arg="timeout"]
 [signal arg="timer_end"]
