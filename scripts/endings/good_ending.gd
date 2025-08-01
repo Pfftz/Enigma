@@ -20,15 +20,12 @@ func _ready() -> void:
 	# Wait a bit more
 	await get_tree().create_timer(3.0).timeout
 	
-	# Trigger the good ending
-	GameState.trigger_good_ending()
-	
-	# Note: GameState.trigger_good_ending() will automatically return to title screen
-	# after a delay, so we don't need to handle scene transition here
+	# Return to title screen directly
+	get_tree().change_scene_to_file("res://scenes/title/title.tscn")
 
 func _input(event: InputEvent) -> void:
 	# Allow player to skip the ending by pressing any key or mouse button
 	if event is InputEventKey and event.pressed:
-		GameState.trigger_good_ending()
+		get_tree().change_scene_to_file("res://scenes/title/title.tscn")
 	elif event is InputEventMouseButton and event.pressed:
-		GameState.trigger_good_ending()
+		get_tree().change_scene_to_file("res://scenes/title/title.tscn")

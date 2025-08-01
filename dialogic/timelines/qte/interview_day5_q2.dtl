@@ -2,10 +2,3 @@ join kamu center
 
 kamu (a): Supaya kamu bisa betah dan berkembang, saya sebagai CEO Modern Solution perlu tahu\: Lingkungan kerja dan atasan seperti apa yang jadi idamanmu?
 [signal arg="start_bubble_minigame"]
-if "{bubble_score}" >= 0.0:
-	character (normal): Untuk atasan, saya mendambakan seseorang yang suportif, punya visi yang jelas, dan bisa menjadi panutan yang baik bagi timnya.
-	kamu (senang): WAH, ITU AKU BANGET! Deskripsimu persis seperti nilai-nilai yang ingin aku bangun di sini!
-else:
-	character (normal): Saya suka atasan yang... ramah, bu. Dan... murah senyum. Menurut saya, itu bisa sangat meningkatkan semangat kerja.
-	kamu (senang): SETUJU! Senyuman itu penting! Aku juga suka kalau timku nanti bahagia!
-jump interview_day5_q2_bubble_result/

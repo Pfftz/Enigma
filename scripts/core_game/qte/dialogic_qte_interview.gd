@@ -46,6 +46,7 @@ var total_score: int = 0
 var current_health: float = 100.0
 var starting_health_per_day: Array[float] = [100.0, 70.0, 40.0, 10.0, 10.0] # Day 1-5 starting health
 var game_over: bool = false
+var timeline_in_progress: bool = false # Prevent multiple timeline executions
 
 # Signals
 signal interview_day_completed(day: int, score: int)
@@ -131,7 +132,12 @@ func start_interview_day(day: int) -> void:
 	start_question_timeline(1)
 
 func start_question_timeline(question_num: int) -> void:
+	if timeline_in_progress:
+		print("DEBUG: Timeline already in progress, skipping question ", question_num)
+		return
+		
 	current_question = question_num
+	timeline_in_progress = true
 	print("Starting question ", question_num, " for day ", current_day)
 	
 	var timeline_name = ""
@@ -167,6 +173,7 @@ func start_question_timeline(question_num: int) -> void:
 		Dialogic.start(timeline_name)
 	else:
 		print("ERROR: No timeline found for day ", current_day, " question ", question_num)
+		timeline_in_progress = false
 
 func _on_dialogic_signal(argument: String) -> void:
 	# Handle custom signals from Dialogic timelines
@@ -318,9 +325,21 @@ func start_bubble_minigame():
 	if waiting_for_bubble_result or bubble_game_instance != null:
 		print("DEBUG: Bubble minigame already running, skipping...")
 		return
+	
+	# Also check if any existing bubble game nodes exist and remove them
+	var existing_bubble_games = get_tree().get_nodes_in_group("bubble_minigame")
+	if existing_bubble_games.size() > 0:
+		print("DEBUG: Found existing bubble games, removing them...")
+		for game in existing_bubble_games:
+			if is_instance_valid(game):
+				game.queue_free()
+		await get_tree().process_frame
 		
 	print("Memulai Bubble Typing Minigame...")
 	waiting_for_bubble_result = true
+	
+	# Stop any active timers
+	stop_qte_timer()
 	
 	# Sembunyikan dialog agar tidak menutupi
 	var dialog_node = find_child("Dialogic", true, false)
@@ -350,7 +369,14 @@ func _on_bubble_minigame_completed(minigame_score: int):
 		bubble_game_instance.queue_free()
 		bubble_game_instance = null
 	
+	# Show dialog again
+	var dialog_node = find_child("Dialogic", true, false)
+	if dialog_node:
+		dialog_node.visible = true
+	
+	# Clear the waiting flag AND timeline progress flag BEFORE starting the next timeline
 	waiting_for_bubble_result = false
+	timeline_in_progress = false
 	
 	# Continue to the next part of the interview based on current question and day
 	var timeline_name = ""
@@ -358,30 +384,40 @@ func _on_bubble_minigame_completed(minigame_score: int):
 	match current_day:
 		1:
 			match current_question:
+				1:
+					timeline_name = "interview_q1_bubble_result"
 				2:
 					timeline_name = "interview_q2_bubble_result"
 				3:
 					timeline_name = "interview_q3"
 		2:
 			match current_question:
+				1:
+					timeline_name = "interview_day2_q1_bubble_result"
 				2:
 					timeline_name = "interview_day2_q2_bubble_result"
 				3:
 					timeline_name = "interview_day2_q3"
 		3:
 			match current_question:
+				1:
+					timeline_name = "interview_day3_q1_bubble_result"
 				2:
 					timeline_name = "interview_day3_q2_bubble_result"
 				3:
 					timeline_name = "interview_day3_q3"
 		4:
 			match current_question:
+				1:
+					timeline_name = "interview_day4_q1_bubble_result"
 				2:
 					timeline_name = "interview_day4_q2_bubble_result"
 				3:
 					timeline_name = "interview_day4_q3"
 		5:
 			match current_question:
+				1:
+					timeline_name = "interview_day5_q1_bubble_result"
 				2:
 					timeline_name = "interview_day5_q2_bubble_result"
 				3:
@@ -389,25 +425,38 @@ func _on_bubble_minigame_completed(minigame_score: int):
 	
 	if timeline_name != "":
 		print("DEBUG: Starting timeline: ", timeline_name)
+		# Wait a brief moment to ensure the minigame is fully cleaned up
+		await get_tree().create_timer(0.2).timeout
 		Dialogic.start(timeline_name)
 	else:
-		print("No timeline found for day ", current_day, " question ", current_question + 1)
+		print("No timeline found for day ", current_day, " question ", current_question)
 
 # Di dalam DialogicQTEManager.gd
 func _on_timeline_ended() -> void:
+	print("DEBUG: Timeline ended - game_over:", game_over, " waiting_for_bubble:", waiting_for_bubble_result)
+	
+	# Clear the timeline progress flag
+	timeline_in_progress = false
+	
 	if game_over:
 		return
 
 	# Don't auto-proceed if we're waiting for bubble result
 	if waiting_for_bubble_result:
+		print("DEBUG: Timeline ended but waiting for bubble result, ignoring...")
 		return
 
+	print("DEBUG: Timeline ended, proceeding to next question or results...")
+	print("DEBUG: Current question:", current_question, " Current day:", current_day)
+	
 	await get_tree().create_timer(1.0).timeout
 
 	# Check if we need to move to next question or show results
 	if current_question < 3:
+		print("DEBUG: Moving to question ", current_question + 1)
 		start_question_timeline(current_question + 1)
 	else:
+		print("DEBUG: All questions completed, showing results...")
 		show_interview_results()
 
 func show_interview_results() -> void:
@@ -432,7 +481,7 @@ func show_interview_results() -> void:
 	# DIUBAH TOTAL:
 	# Hapus `GameState.advance_to_next_day()`
 	# Sekarang kita kembali ke kamar di HARI YANG SAMA
-	if GameState.current_day < 5:
+	if current_day < 5:
 		var current_room_path = GameState.get_current_room_scene()
 		get_tree().change_scene_to_file(current_room_path)
 	else:
@@ -440,14 +489,17 @@ func show_interview_results() -> void:
 		complete_all_interviews()
 
 func complete_all_interviews() -> void:
+	# Clear any timeline progress flags
+	timeline_in_progress = false
+	
 	all_interviews_completed.emit(total_score)
 	print("Semua wawancara selesai! Skor akhir: ", GameState.total_score)
 	
 	# Tunggu sejenak agar pemain bisa melihat hasil
 	await get_tree().create_timer(4.0).timeout
 	
-	# Langsung pindah ke scene good ending
-	get_tree().change_scene_to_file("res://scenes/endings/good_ending.tscn")
+	# Trigger good ending through GameState
+	GameState.trigger_good_ending()
 
 func update_timer_display() -> void:
 	if not timer_active:

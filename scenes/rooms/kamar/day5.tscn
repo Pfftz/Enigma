@@ -1,14 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://biq31bh8d770w"]
+[gd_scene load_steps=25 format=3 uid="uid://biq31bh8d770w"]
 
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_ls1dj"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_kkv7f"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_khery"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_4h7wx"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_wcdy2"]
-[ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact/interact_laptop.gd" id="6_vltbn"]
-[ext_resource type="Script" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_piisr"]
-[ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="8_sieq0"]
-[ext_resource type="Script" uid="uid://c384tur1ojl7i" path="res://scripts/objects/interact/interact_kasur.gd" id="9_kkv7f"]
+[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="7_piisr"]
 [ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="10_4h7wx"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="10_khery"]
 [ext_resource type="PackedScene" uid="uid://csgnf4cue72sf" path="res://scenes/objects/level/door_interact.tscn" id="11_door"]
@@ -42,17 +39,11 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_61454"]
-size = Vector3(1.19458, 0.208984, 1.59875)
-
 [sub_resource type="Resource" id="Resource_fh1go"]
 script = ExtResource("5_wcdy2")
 duration = 1.0
 transition = 0
 ease = 2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_khery"]
-size = Vector3(1.22473, 0.358398, 2.1637)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kkv7f"]
 
@@ -156,15 +147,6 @@ process_physics_priority = 300
 script = ExtResource("3_khery")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="interact laptop" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.380346, 0.713225, 0.373931)
-collision_layer = 2
-script = ExtResource("6_vltbn")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="interact laptop"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.737567, 0.613703, 1.4092)
-shape = SubResource("BoxShape3D_61454")
-
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("7_piisr")
 
@@ -188,24 +170,10 @@ physics_interpolation_mode = 1
 transform = Transform3D(0.999737, -0.0228718, 0.00162081, 0.0227041, 0.997327, 0.0694504, -0.00320494, -0.0693953, 0.997584, -0.223277, 0.123007, -0.32794)
 fov = 28.0
 
-[node name="InteractionSymbol" parent="." instance=ExtResource("8_sieq0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.179, 0.5, 1.313)
-min_distance = 3.0
-
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Day 5"
-
-[node name="interact kasur" type="Area3D" parent="."]
-transform = Transform3D(-0.0676321, 0, 0.99771, 0, 1, 0, -0.99771, 0, -0.0676321, 0.981328, 0.941484, -0.301477)
-collision_layer = 2
-script = ExtResource("9_kkv7f")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="interact kasur"]
-transform = Transform3D(0.997152, 0, -0.0754138, 0, 1, 0, 0.0754138, 0, 0.997152, 0.336535, -0.320801, -0.18882)
-shape = SubResource("BoxShape3D_khery")
-debug_color = Color(7.70092e-07, 0.560438, 0.885221, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.145358, 0, 0, 0, 0.870968, 1.51191, 0.339439, 2.2949)
@@ -227,16 +195,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56402, 1.63729, -0.924947)
 light_color = Color(0.211765, 0.211765, 0.211765, 1)
 omni_range = 0.2
 omni_attenuation = 2.0
-
-[node name="laptop" type="OmniLight3D" parent="lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24072, 1.20754, 1.30477)
-light_color = Color(0.678431, 0.847059, 0.901961, 1)
-light_energy = 0.5
-light_indirect_energy = 2.0
-light_volumetric_fog_energy = 2.0
-light_size = 1.0
-shadow_enabled = true
-omni_range = 0.3
 
 [node name="sun" type="OmniLight3D" parent="lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73874, 1.90145, 1.21347)
@@ -286,8 +244,3 @@ transform = Transform3D(0.139876, 0, 0.195025, 0, 0.24, 0, -0.195025, 0, 0.13987
 
 [node name="KumpulanSampah2" parent="Node3D" instance=ExtResource("11_wcdy2")]
 transform = Transform3D(-0.102902, 0, -0.216821, 0, 0.24, 0, 0.216821, 0, -0.102902, -0.343259, 0.33496, -0.152332)
-
-[connection signal="body_entered" from="interact laptop" to="interact laptop" method="_on_body_entered"]
-[connection signal="body_exited" from="interact laptop" to="interact laptop" method="_on_body_exited"]
-[connection signal="body_entered" from="interact kasur" to="interact kasur" method="_on_body_entered"]
-[connection signal="body_exited" from="interact kasur" to="interact kasur" method="_on_body_exited"]

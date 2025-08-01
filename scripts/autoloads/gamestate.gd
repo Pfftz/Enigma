@@ -17,6 +17,7 @@ var room_scenes: Array[String] = [
 	"res://scenes/rooms/kamar/day2.tscn",
 	"res://scenes/rooms/kamar/day3.tscn",
 	"res://scenes/rooms/kamar/day4.tscn",
+	"res://scenes/rooms/kamar/day5.tscn",
 	"res://scenes/rooms/gift_plane.tscn"
 ]
 
@@ -45,8 +46,8 @@ func trigger_good_ending() -> void:
 	game_completed = true
 	_save_completion_state()
 	print("Good ending triggered!")
-	# Auto return to title after ending
-	call_deferred("_return_to_title_after_ending")
+	# Load the good ending scene
+	get_tree().change_scene_to_file("res://scenes/endings/good_ending.tscn")
 
 func trigger_bad_ending() -> void:
 	"""Call this when player gets the bad ending"""
