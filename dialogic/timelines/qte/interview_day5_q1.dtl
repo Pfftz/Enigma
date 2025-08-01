@@ -1,4 +1,4 @@
-join mega_interviewer center
+join kamu center
 set {interview_day} = 5
 set {company_name} = "MegaCorp"
 set {interview_score} = 0
