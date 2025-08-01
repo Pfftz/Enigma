@@ -5,10 +5,7 @@
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_aksll")
-positive_thoughts = Array[String](["HAH, APA YANG DIA MAKSUD ", "RUSAK NI AI ", "INI KENAPA NANYA DI JAKARTA DAH", "MATI DEH GW", "SIAL AKU LUPA MENGHAPUS RIWAYAT KU ", "SIAL..."])
-trap_thoughts = Array[String](["yayaya"])
-number_of_bubbles = 4
-trap_chance = 0.0
+trap_chance = 0.082
 min_pop_respawn_delay = 1.0
 max_pop_respawn_delay = 2.0
 

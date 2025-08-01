@@ -5,8 +5,6 @@
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_qwfcq")
-positive_thoughts = Array[String](["NAGA?", "APA MAKSUD?", "GW LAGI PERANG? ", "HAH?", "KOK TIBA TIBA VIRUS", "MAKE NI ORANG"])
-trap_thoughts = Array[String](["AKU HARUS PROFESIONAL", "AGAR BISA MAKAN", "AKU BISA JAWAB INI", "AKU PASTI BISA", "YUK BISA YUK", "INI MUDAH DILEWATI"])
 trap_chance = 0.11
 min_pop_respawn_delay = 1.0
 max_pop_respawn_delay = 2.0

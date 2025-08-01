@@ -116,18 +116,23 @@ theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="IntrusiveThoughtLabel" type="Label" parent="."]
-offset_left = -62.0
-offset_top = -42.0
-offset_right = 60.0
-offset_bottom = 39.0
+[node name="LifetimeTimer" type="Timer" parent="."]
+
+[node name="ThoughtLabel" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -56.0
+offset_right = 98.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_pjg2p")
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-
-[node name="LifetimeTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]

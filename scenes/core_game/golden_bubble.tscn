@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bq8ihg23q75pp"]
 
-[ext_resource type="Script" path="res://scripts/core_game/golden_bubble.gd" id="1_ervom"]
+[ext_resource type="Script" uid="uid://bkq7in5yy8gfy" path="res://scripts/core_game/golden_bubble.gd" id="1_ervom"]
 [ext_resource type="Texture2D" uid="uid://bjfs0qlnjw6hu" path="res://asset/2d/core game/Golden.png" id="2_2w1i7"]
 [ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="6_4vvuy"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_evqlh"]

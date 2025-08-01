@@ -20,9 +20,11 @@ func _process(delta):
 	time += delta
 	position.y = initial_y_position + sin(time * float_speed) * float_amplitude
 
-func setup(word: String):
-	positive_affirmation = word
-	$TypingLabel.text = positive_affirmation
+# (MODIFIKASI) Setup sekarang menerima dua teks.
+func setup(thought_text: String, type_word: String):
+	positive_affirmation = type_word
+	$TypingLabel.text = type_word
+	$ThoughtLabel.text = thought_text
 
 func play_typing_feedback():
 	if not $Sprite2D.visible:
@@ -35,6 +37,7 @@ func play_typing_feedback():
 func pop():
 	$Sprite2D.hide()
 	$TypingLabel.hide()
+	$ThoughtLabel.hide()
 
 	var particles_instance = $GPUParticles2D.duplicate()
 	get_parent().add_child(particles_instance)
@@ -50,9 +53,6 @@ func pop():
 	popped.emit(self.global_position)
 	queue_free()
 
-# (BARU) Fungsi untuk memainkan animasi saat muncul.
 func play_spawn_animation():
-	# Atur skala sprite ke nol agar tidak terlihat sebelum animasi dimulai.
 	$Sprite2D.scale = Vector2.ZERO
-	# Mainkan animasi respawn.
 	$AnimationPlayer.play("respawn")
