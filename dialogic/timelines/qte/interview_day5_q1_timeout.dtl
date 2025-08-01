@@ -3,8 +3,9 @@ join kamu center
 set {interview_score} -= 10
 set {interview_health} -= 10
 
-kamu (a): Can't even answer under time pressure? Pathetic.
+kamu (a): oke pertanyaan kedua
 
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
+jump interview_day5_q2/

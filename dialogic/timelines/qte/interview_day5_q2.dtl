@@ -1,36 +1,11 @@
 join kamu center
 
-kamu (a): Would you sacrifice work-life balance for company success?
-
-[signal arg="timer_start"]
-
-- Absolutely, company success is my priority
-	set {interview_score} += 25
-	set {interview_health} += 25
-	[signal arg="timer_end"]
-	kamu (senang): Excellent! True corporate dedication. That's executive material.
-	[signal arg="correct_choice"]
-
-- I'll work hard but need some personal time
-	set {interview_score} += 5
-	set {interview_health} += 5
-	[signal arg="timer_end"]
-	kamu (senang): Compromise shows weakness. We need total commitment.
-	[signal arg="correct_choice"]
-
-- Work-life balance is important for productivity
-	set {interview_score} -= 8
-	set {interview_health} -= 8
-	[signal arg="timer_end"]
-	kamu (a): Productivity comes from dedication, not comfort.
-	[signal arg="wrong_choice"]
-
-- No, personal life comes first
-	set {interview_score} -= 20
-	set {interview_health} -= 20
-	[signal arg="timer_end"]
-	kamu (a): Wrong answer. MegaCorp demands total loyalty.
-	[signal arg="wrong_choice"]
-
-mega_interviewer: Time for the ultimate performance test
+kamu (a): Supaya kamu bisa betah dan berkembang, saya sebagai CEO Modern Solution perlu tahu\: Lingkungan kerja dan atasan seperti apa yang jadi idamanmu?
 [signal arg="start_bubble_minigame"]
+if "{bubble_score}" >= 0.0:
+	character (normal): Untuk atasan, saya mendambakan seseorang yang suportif, punya visi yang jelas, dan bisa menjadi panutan yang baik bagi timnya.
+	kamu (senang): WAH, ITU AKU BANGET! Deskripsimu persis seperti nilai-nilai yang ingin aku bangun di sini!
+else:
+	character (normal): Saya suka atasan yang... ramah, bu. Dan... murah senyum. Menurut saya, itu bisa sangat meningkatkan semangat kerja.
+	kamu (senang): SETUJU! Senyuman itu penting! Aku juga suka kalau timku nanti bahagia!
+jump interview_day5_q2_bubble_result/
