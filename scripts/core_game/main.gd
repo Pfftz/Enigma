@@ -46,6 +46,7 @@ var is_ultimate_triggered = false
 
 func _ready():
 	randomize()
+	add_to_group("bubble_minigame")
 	start_new_game()
 
 func start_new_game():

@@ -30,8 +30,8 @@ func _on_body_exited(body):
 			interaction_prompt.visible = false
 	show_interact_ui(false)
 	
-func show_interact_ui(show: bool):
-	if show:
+func show_interact_ui(show_ui: bool):
+	if show_ui:
 		get_tree().call_group("ui", "show_interact_text", "Pencet F untuk interaksi")
 	else:
 		get_tree().call_group("ui", "hide_interact_text")
@@ -39,6 +39,15 @@ func show_interact_ui(show: bool):
 # Fungsi input sekarang menangani animasi DAN pindah scene
 func _input(event):
 	if player_in_area and event.is_action_pressed("interact"):
+		# Check if this is Day 5 - Day 5 QTE should only be triggered from interact_gedung
+		if GameState.current_day == 5:
+			print("[DEBUG] Day 5 detected - laptop interaction disabled. Use interact_gedung instead.")
+			show_interact_ui(false)
+			if interaction_prompt:
+				interaction_prompt.visible = false
+			player_in_area = false
+			return
+		
 		# Pastikan interaksi hanya berjalan sekali
 		show_interact_ui(false)
 		if using_phantom_camera:

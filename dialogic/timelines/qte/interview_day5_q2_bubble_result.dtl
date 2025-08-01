@@ -1,21 +1,20 @@
 join kamu center
-kamu (a): Sebagai perusahaan rintisan, saya butuh orang yang punya visi ke depan! Jadi, di mana kamu melihat dirimu dalam 5 tahun ke depan bersama Modern Solution?
-[signal arg="start_bubble_minigame"]
+
+# Day 5 Question 2 bubble result
 if {bubble_score} >= 50:
-	character (normal): Dalam 5 tahun, saya berharap saya bukan hanya sekadar karyawan, tapi sudah menjadi salah satu pilar utama yang membantu Modern Solution tumbuh besar dan menjadi pemimpin di industrinya.
+	character (normal): Saya ingin lingkungan kerja yang kolaboratif tapi tetap memberikan kebebasan untuk berinovasi. Untuk atasan, saya mengharapkan seseorang yang bisa jadi mentor sekaligus memberi tantangan untuk berkembang.
 	set {interview_score} += 30
 	set {interview_health} += 30
-	kamu (senang): Pilar utama! Aku suka visi itu! Aku butuh orang sepertimu!
+	kamu (senang): Perfect! Aku suka orang yang tahu apa yang mereka mau dan realistis!
 	[signal arg="correct_choice"]
 else:
-	character (normal): Saya melihat diri saya... masih di sini. Terus berkembang menjadi lebih baik... bersama-sama dengan perusahaan ini, tentunya
-	set {interview_score} -= 15
-	set {interview_health} -= 15
-	kamu (a): Aww, jawaban yang manis sekali! Aku juga berharap kita bisa berkembang bersama untuk waktu yang lama!
-	[signal arg="wrong_choice"]
+	character (normal): Yang... yang penting nyaman aja sih. Atasan yang baik hati dan tidak galak.
+	set {interview_score} += 15
+	set {interview_health} += 15
+	kamu (a): Aww, jawaban yang sweet! Tapi di startup kadang kita butuh pressure untuk tumbuh ya!
+	[signal arg="correct_choice"]
 kamu (a): Sejauh ini aku suka semua jawaban mu
 
 [wait time="1.0"]
 [signal arg="update_ui"]
 [signal arg="next_question"]
-jump interview_day5_q2_timeout/

@@ -23,42 +23,49 @@ func _ready():
 		camera_controller.set_mode(CameraController.CameraModes.LERP)
 
 func _physics_process(delta):
-	if not is_on_floor():
-		pass  # Same as original - no gravity applied
-
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	# Check if any movement key is currently being held down
+	var is_moving = Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")
 	
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-		state = "walk"
+	if is_moving:
+		var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
-		# Update current direction for warp system
-		if abs(direction.x) > abs(direction.z):
-			if direction.x > 0:
-				walkDir = "Right"
-				current_direction = 1
+		if direction.length() > 0:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+			state = "walk"
+			
+			# Update current direction for warp system
+			if abs(direction.x) > abs(direction.z):
+				if direction.x > 0:
+					walkDir = "Right"
+					current_direction = 1
+				else:
+					walkDir = "Left"
+					current_direction = 3
 			else:
-				walkDir = "Left"
-				current_direction = 3
+				if direction.z > 0:
+					walkDir = "Down"
+					current_direction = 2
+				else:
+					walkDir = "Up"
+					current_direction = 0
 		else:
-			if direction.z > 0:
-				walkDir = "Down"
-				current_direction = 2
-			else:
-				walkDir = "Up"
-				current_direction = 0
+			# Fallback to idle if somehow direction is zero but keys are pressed
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+			state = "idle"
 	else:
+		# No movement keys are held, so stop moving
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		state = "idle"
 	
-	animatedSprite.animation = state + walkDir
-	animatedSprite.play()
+	# Only update animation if state actually changed or if we're walking
+	var new_animation = state + walkDir
+	if animatedSprite.animation != new_animation or state == "walk":
+		animatedSprite.animation = new_animation
+		animatedSprite.play()
 	move_and_slide()
 
 # === CAMERA FUNCTIONS ===

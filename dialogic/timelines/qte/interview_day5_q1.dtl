@@ -10,16 +10,9 @@ character (normal): ???
 character (normal): Aku pelamar pertama? Kemana pelamar lainnya?
 kamu (netral): Ahaha. Sepertinya karena dibandingkan perusahaan lain yg sudah stabil dan berjalan
 kamu (a): company kami masih di tahap start-up
-kamu (a): dan dengan ‘kami’ maksudnya adalah aku seorang
+kamu (a): dan dengan 'kami' maksudnya adalah aku seorang
 kamu (netral): Tapi bukan berarti aku akan lengah dan menerima semua kandidat seenaknya yaa
 kamu (senang): Bersiaplah menerima pertanyaanku
 kamu (a): Kenapa kamu secara spesifik memilih Start Up kami?
 
 [signal arg="start_bubble_minigame"]
-if {bubble_score} == 0.0:
-	character: saya sudah tertarik di dunia startup sejak lama. dan bila saya diterima, Saya ingin berusaha keras untuk memabngun start-up ini bersama ibu
-	kamu (senang): ENERGI! BENAR SEKALI! Aku suka semangat itu! Kita se-frekuensi!
-else:
-	character (normal): ehh... sebab.. C-cerah? Masa depan perusahaan ini
-	kamu (a): Wah, kamu bisa merasakan ‘aura’ perusahaan ya? Keren! Kamu peka sekali!
-jump interview_day5_q1_timeout/
