@@ -1,3 +1,4 @@
+[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer center
 
 creative_interviewer: Alright, final question for today...
@@ -8,14 +9,14 @@ if {bubble_score} >= 50:
 	# Good performance - player gives correct answer
 	character: I take breaks, seek inspiration from different sources, and collaborate with others
 	set {interview_score} += 15
-
+	
 	creative_interviewer: Excellent! That shows real creative problem-solving skills.
 	[signal arg="correct_choice"]
 else:
 	# Poor performance - player gives wrong answer  
 	character: I... I usually just wait and hope for inspiration to come
 	set {interview_score} -= 5
-
+	
 	creative_interviewer: Hmm, creativity requires more flexibility than that.
 	[signal arg="wrong_choice"]
 

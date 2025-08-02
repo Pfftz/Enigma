@@ -1,3 +1,4 @@
+[background arg="res://asset/2d/hr/d5/bg-d5.jpg" fade="0.0"]
 join kamu center
 set {interview_day} = 5
 set {company_name} = "MegaCorp"
