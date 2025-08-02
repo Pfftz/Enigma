@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://dwagm8gvdxx67"]
+[gd_scene load_steps=26 format=3 uid="uid://dwagm8gvdxx67"]
 
+[ext_resource type="Script" uid="uid://csiux2u0ek7lq" path="res://scripts/levels/day_2.gd" id="1_383i8"]
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_ep3nj"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_lwnby"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_hw70d"]
@@ -72,6 +73,7 @@ fog_sun_scatter = 3.0
 fog_depth_curve = 0.406126
 
 [node name="Day2" type="Node3D"]
+script = ExtResource("1_383i8")
 
 [node name="Player" parent="." instance=ExtResource("1_ep3nj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.619151, 0.923992, 0.366977)

@@ -1,9 +1,9 @@
-extends Node2D
+extends Node3D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Dialogic.start("day5-C1")
+	Dialogic.start("day3")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

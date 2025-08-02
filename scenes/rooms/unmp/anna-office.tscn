@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtk6he8atg17p"]
+[gd_scene load_steps=20 format=3 uid="uid://dtk6he8atg17p"]
 
 [ext_resource type="ArrayMesh" uid="uid://cl3honuhs7ip0" path="res://asset/3d/room/under_nmp/anna_office.obj" id="3_jxg7d"]
 [ext_resource type="Texture2D" uid="uid://do71k7dm1xbsi" path="res://asset/3d/room/under_nmp/office_placeholder.png" id="5_pi22m"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="12_hn1em"]
 [ext_resource type="ArrayMesh" uid="uid://cnv66cn4me1ri" path="res://asset/3d/room/under_nmp/anna_office_chair.obj" id="13_6uags"]
 [ext_resource type="Resource" uid="uid://cpnxltpebnvr6" path="res://resource/environment/under_nmp.tres" id="13_j5o2k"]
+[ext_resource type="Material" uid="uid://bvy5cv0fajqeu" path="res://asset/3d/material/unmp.tres" id="14_hn1em"]
 [ext_resource type="PackedScene" uid="uid://db50wvqb2n0b8" path="res://scenes/objects/interactive/piece.tscn" id="14_vrlrp"]
 [ext_resource type="PackedScene" uid="uid://vth0ydbdcwng" path="res://scenes/objects/interactive/phone.tscn" id="15_3bmv8"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="17_ysbwa"]
@@ -47,6 +48,11 @@ shader_parameter/tile = Vector2i(0, 0)
 shader_parameter/per_quad_depth = false
 shader_parameter/adjustable_depth = false
 shader_parameter/depth_offset = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j5o2k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_21w8h"]
+size = Vector3(1.05383, 1, 1.02258)
 
 [node name="anna-office" type="Node3D"]
 
@@ -130,3 +136,16 @@ offset_right = 1153.0
 offset_bottom = 651.0
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.17398, 0, 0, 0, 1.06103, -8.00033, 0.488514, 0.00420251)
+mesh = SubResource("BoxMesh_j5o2k")
+surface_material_override/0 = ExtResource("14_hn1em")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.595438, 0.233451, 0.78507)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00115961, 0, -0.243584)
+shape = SubResource("BoxShape3D_21w8h")
+debug_color = Color(0.935826, 1.90598e-05, 0.634776, 0.42)

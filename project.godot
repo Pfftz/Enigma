@@ -39,13 +39,13 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"day 4": "res://dialogic/timelines/day 4.dtl",
-"day1": "res://dialogic/timelines/day1.dtl",
-"day2": "res://dialogic/timelines/day2.dtl",
-"day3": "res://dialogic/timelines/day3.dtl",
-"day5": "res://dialogic/timelines/day5.dtl",
-"day5-C1": "res://asset/sound/ost/day5-C1.dtl",
-"day5-C2": "res://asset/sound/ost/day5-C2.dtl",
+"day 4": "res://dialogic/timelines/monolog/day 4.dtl",
+"day1": "res://dialogic/timelines/monolog/day1.dtl",
+"day2": "res://dialogic/timelines/monolog/day2.dtl",
+"day3": "res://dialogic/timelines/monolog/day3.dtl",
+"day5": "res://dialogic/timelines/monolog/day5.dtl",
+"day5-C1": "res://dialogic/timelines/monolog/day5-C1.dtl",
+"day5-C2": "res://dialogic/timelines/monolog/day5-C2.dtl",
 "door_confirmation": "res://dialogic/timelines/door_confirmation.dtl",
 "interview_day2_q1": "res://dialogic/timelines/qte/interview_day2_q1.dtl",
 "interview_day2_q1_timeout": "res://dialogic/timelines/qte/interview_day2_q1_timeout.dtl",
@@ -224,8 +224,6 @@ common/physics_interpolation=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 
 [shader_globals]
 

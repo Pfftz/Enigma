@@ -11,6 +11,9 @@ func _ready():
 	if GameState.current_day == 1 and not GameState.tutorial_shown:
 		# Jika kedua kondisi terpenuhi, tampilkan tutorial
 		show_tutorial()
+	else:
+		# Jika bukan hari pertama atau tutorial sudah pernah ditampilkan, langsung jalankan dialogic
+		Dialogic.start("day1")
 
 func show_tutorial():
 	# 1. Tandai bahwa tutorial sudah akan ditampilkan, agar tidak muncul lagi
@@ -21,4 +24,13 @@ func show_tutorial():
 
 	# 3. Muat dan tampilkan scene tutorial di atas scene saat ini
 	var tutorial_instance = TUTORIAL_SCENE.instantiate()
+	
+	# 4. Hubungkan signal tutorial_closed ke fungsi yang akan menjalankan dialogic
+	tutorial_instance.tutorial_closed.connect(_on_tutorial_closed)
+	
 	add_child(tutorial_instance)
+
+func _on_tutorial_closed():
+	# Fungsi ini dipanggil saat tutorial ditutup
+	# Jalankan dialogic timeline setelah tutorial selesai
+	Dialogic.start("day1")

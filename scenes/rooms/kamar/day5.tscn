@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://biq31bh8d770w"]
+[gd_scene load_steps=26 format=3 uid="uid://biq31bh8d770w"]
 
+[ext_resource type="Script" uid="uid://7yj6juwpugw3" path="res://scripts/levels/day_5.gd" id="1_4h7wx"]
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_ls1dj"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_kkv7f"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_khery"]
@@ -73,6 +74,7 @@ volumetric_fog_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_4h7wx"]
 
 [node name="Day5" type="Node3D"]
+script = ExtResource("1_4h7wx")
 
 [node name="Player" parent="." instance=ExtResource("1_ls1dj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.619151, 0.923992, 0.366977)
@@ -138,7 +140,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="camera1" type="Camera3D" parent="PhantomCamera3D"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.593253, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
 fov = 37.8493
 
 [node name="PhantomCameraHost" type="Node" parent="PhantomCamera3D/camera1"]
