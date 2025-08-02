@@ -60,14 +60,17 @@ func _on_dialogic_signal(argument: String):
 	"""Handle signals from Dialogic timeline"""
 	match argument:
 		"door_yes":
-			# Player chose to go out
-			_perform_teleport()
+			# Player chose to go out - delete collision to reveal warp behind door
+			_delete_collision_and_finish()
 		"door_no":
 			# Player chose not to go out
 			confirmation_count += 1
 			if confirmation_count >= 2:
-				# After 2 "no" responses, force teleport
+				# This shouldn't happen now, but keep as fallback
 				_perform_teleport()
+		"door_force_teleport":
+			# Force teleport after 2 "no" responses
+			_perform_teleport()
 
 func _on_timeline_ended():
 	"""Handle when timeline ends"""
@@ -79,6 +82,20 @@ func _on_timeline_ended():
 	
 	if Dialogic.timeline_ended.is_connected(_on_timeline_ended):
 		Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+
+func _delete_collision_and_finish():
+	"""Delete collision to reveal warp behind door without teleporting"""
+	has_interacted = true
+	
+	# Delete collision if configured
+	if delete_collision_on_interact and door_collision:
+		door_collision.disabled = true
+		print("DEBUG: Door collision disabled - warp behind door is now accessible")
+	
+	# Disable the interaction symbol
+	if interaction_symbol:
+		interaction_symbol.deactivate()
+		print("DEBUG: Door interaction deactivated")
 
 func _perform_teleport():
 	"""Teleport player to the target scene"""
@@ -93,6 +110,7 @@ func _perform_teleport():
 		interaction_symbol.deactivate()
 	
 	# Change to target scene
+	print("DEBUG: Force teleporting to: ", teleport_scene_path)
 	get_tree().change_scene_to_file(teleport_scene_path)
 
 func _force_close_textbox():
