@@ -4,13 +4,13 @@ join kamu center
 if {bubble_score} >= 50:
 	character (normal): Saya ingin lingkungan kerja yang kolaboratif tapi tetap memberikan kebebasan untuk berinovasi. Untuk atasan, saya mengharapkan seseorang yang bisa jadi mentor sekaligus memberi tantangan untuk berkembang.
 	set {interview_score} += 30
-	set {interview_health} += 30
+
 	kamu (senang): Perfect! Aku suka orang yang tahu apa yang mereka mau dan realistis!
 	[signal arg="correct_choice"]
 else:
 	character (normal): Yang... yang penting nyaman aja sih. Atasan yang baik hati dan tidak galak.
 	set {interview_score} += 15
-	set {interview_health} += 15
+
 	kamu (a): Aww, jawaban yang sweet! Tapi di startup kadang kita butuh pressure untuk tumbuh ya!
 	[signal arg="correct_choice"]
 kamu (a): Sejauh ini aku suka semua jawaban mu

@@ -101,7 +101,6 @@ variables={
 "force_continue": false,
 "good_ending": false,
 "interview_day": 1,
-"interview_health": 50,
 "interview_score": 0,
 "question_answered": false
 }

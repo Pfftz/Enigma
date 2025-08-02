@@ -2,7 +2,6 @@
 join techcorp_interviewer center
 # Day 2 Question 2 timeout
 set {interview_score} -= 5
-set {interview_health} -= 10
 
 techcorp_interviewer (netral): Terserah lah, lagi pula aku sebenarnya tidak tahu apa apa mengenai riwayat browser mu, aku hanya ingin melihat reaksi mu saja
 

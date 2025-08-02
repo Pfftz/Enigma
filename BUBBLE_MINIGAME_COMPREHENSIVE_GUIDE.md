@@ -145,13 +145,11 @@ if {bubble_score} >= 50:
     # High score response - confident, positive
     character: [Confident dialogue with positive tone]
     set {interview_score} += 30
-    set {interview_health} += 30
     [signal arg="correct_choice"]
 else:
     # Low score response - hesitant, uncertain
     character: [Hesitant dialogue with uncertain tone]
     set {interview_score} += 15  # Lower bonus
-    set {interview_health} += 15
     [signal arg="correct_choice"]
 
 [wait time="1.0"]
@@ -170,7 +168,6 @@ else:
 set {interview_day} = 1
 set {company_name} = "bananazon"
 set {interview_score} = 0
-set {interview_health} = 80.0
 ```
 
 #### 2. Question 1 (Standard QTE)

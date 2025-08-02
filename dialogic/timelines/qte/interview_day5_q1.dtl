@@ -2,7 +2,7 @@ join kamu center
 set {interview_day} = 5
 set {company_name} = "MegaCorp"
 set {interview_score} = 0
-set {interview_health} = 10
+
 kamu (senang): SELAMAT DATANG DI MODERN SOLUTION
 kamu (a): Ya ampun aku tidak percaya hari ini telah tiba
 kamu (netral): Hari dimana aku interview pelamar pertamaku

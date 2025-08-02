@@ -7,28 +7,28 @@ bananazon_interviewer: dimana anda melihat diri anda 5 tahun keepan?
 
 - menjadi pupuk bagi anda
 	set {interview_score} += 10
-	set {interview_health} += 10
+
 	[signal arg="timer_end"]
 	bananazon_interviewer: ooh, jadi anda ingin membantu saya tumbuh lebih baik
 	[signal arg="correct_choice"]
 
 - Memberikan dampak positif sebagai manager Boogle
 	set {interview_score} -= 5
-	set {interview_health} -= 5
+
 	[signal arg="timer_end"]
 	bananazon_interviewer: kepercayaan diri yang hebat
 	[signal arg="correct_choice"]
 
 - Saya tidak berniat hidup lebih lama lagi
 	set {interview_score} += 15
-	set {interview_health} += 15
+
 	[signal arg="timer_end"]
 	bananazon_interviewer: apa yang salah darimu anak muda
 	[signal arg="wrong_choice"]
 
 - 5 tahun? 5 hari hidup saja saya bersyukur
 	set {interview_score} -= 10
-	set {interview_health} -= 10
+
 	[signal arg="timer_end"]
 	bananazon_interviewer: hah... ok...
 	[signal arg="wrong_choice"]

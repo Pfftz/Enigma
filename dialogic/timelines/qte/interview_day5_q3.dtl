@@ -6,28 +6,28 @@ kamu (netral): Final question - What would you do to crush the competition?
 
 - Use any strategy necessary to dominate the market
 	set {interview_score} += 30
-	set {interview_health} += 30
+
 	[signal arg="timer_end"]
 	kamu (a): Ruthless! Perfect. That's the MegaCorp spirit we need.
 	[signal arg="correct_choice"]
 
 - Work smarter and innovate better than competitors
 	set {interview_score} += 15
-	set {interview_health} += 15
+
 	[signal arg="timer_end"]
 	kamu (senang): Good strategy, but lacks the killer instinct.
 	[signal arg="correct_choice"]
 
 - Focus on our strengths and improve quality
 	set {interview_score} += 5
-	set {interview_health} += 5
+
 	[signal arg="timer_end"]
 	kamu (senang): Safe approach, but won't help us dominate markets.
 	[signal arg="correct_choice"]
 
 - Compete fairly and ethically
 	set {interview_score} -= 10
-	set {interview_health} -= 10
+
 	[signal arg="timer_end"]
 	kamu (a): Ethics are luxury we can't afford in cutthroat business.
 	[signal arg="wrong_choice"]

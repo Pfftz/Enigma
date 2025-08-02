@@ -2,7 +2,6 @@
 join green_interviewer center
 # Day 4 Question 2 timeout
 set {interview_score} -= 5
-set {interview_health} -= 10
 
 green_interviewer (netral): pertanyaan terakhir
 

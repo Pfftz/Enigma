@@ -2,7 +2,6 @@
 join bananazon_interviewer center
 # Question 3 timeout
 set {interview_score} -= 5
-set {interview_health} -= 10
 
 bananazon_interviewer: ok
 

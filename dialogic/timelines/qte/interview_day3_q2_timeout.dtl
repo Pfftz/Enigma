@@ -2,7 +2,6 @@
 join creative_interviewer center
 # Day 3 Question 2 timeout
 set {interview_score} -= 5
-set {interview_health} -= 10
 
 creative_interviewer (netral): Sekarang katakan padaku, anak muda!
 

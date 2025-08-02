@@ -9,28 +9,28 @@ character: (!!!!!!)
 
 - (diam)
 	set {interview_score} += 12
-	set {interview_health} += 12
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (senang): Fufufu, jadi aku benar, ya? Lihat, kamu bahkan malu untuk mengangkat wajahmu.
 	[signal arg="correct_choice"]
 
 - Benar, Nona. Data Anda 100% akurat. Itu bukan riwayat pencarian, itu adalah bukti bahwa saya adalah kandidat paling termotivasi yang pernah Anda temui.
 	set {interview_score} += 8
-	set {interview_health} += 8
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (senang): jadi... aku benar ya?
 	[signal arg="correct_choice"]
 
 - ini melanggar privasi nona!!!
 	set {interview_score} -= 5
-	set {interview_health} -= 5
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (marah): Privasi? Beraninya kamu menggunakan kata itu di hadapanku? Makhluk sepertimu tidak punya 'privasi
 	[signal arg="wrong_choice"]
 
 - A-Aku bisa jelaskan...
 	set {interview_score} -= 15
-	set {interview_health} -= 15
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (marah): Jadi kamu mau menjelaskan yah?, tentu saja, silakan. Aku punya waktu sepanjang hari untuk mendengarkan usahamu yang sia-sia untuk membela diri
 	[signal arg="wrong_choice"]

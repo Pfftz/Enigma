@@ -3,7 +3,6 @@ join bananazon_interviewer center
 set {interview_day} = 1
 set {company_name} = "bananazon"
 set {interview_score} = 0
-set {interview_health} = 80.0
 
 bananazon_interviewer: Siang MC, nama saya HR Pohon
 
@@ -11,28 +10,24 @@ bananazon_interviewer: Siang MC, nama saya HR Pohon
 
 - Siang, saya juga senang bertemu anda
 	set {interview_score} += 5
-	set {interview_health} += 5
 	[signal arg="timer_end"]
 	bananazon_interviewer: senang mendengarnya
 	[signal arg="correct_choice"]
 
 - itu daun kagak di cukur?
 	set {interview_score} -= 5
-	set {interview_health} -= 5
 	[signal arg="timer_end"]
 	bananazon_interviewer: memangnya daunku sepanjang itu ya
 	[signal arg="wrong_choice"]
 
 - aman pak
 	set {interview_score} += 10
-	set {interview_health} += 10
 	[signal arg="timer_end"]
 	bananazon_interviewer: baiklah kalau begitu
 	[signal arg="correct_choice"]
 
 - bapak jenis pohon apa
 	set {interview_score} -= 10
-	set {interview_health} -= 10
 	[signal arg="timer_end"]
 	bananazon_interviewer: hahaha, saya hanya pohon beringin tua
 	[signal arg="wrong_choice"]

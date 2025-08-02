@@ -1,7 +1,6 @@
 join kamu center
 # Day 5 Question 3 timeout
 set {interview_score} -= 10
-set {interview_health} -= 10
 
 mega_interviewer: Time's up! Assessment complete.
 

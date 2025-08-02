@@ -6,7 +6,6 @@ var BubbleGameScene = preload("res://scenes/core_game/main.tscn") # <-- Sesuaika
 var bubble_game_instance = null
 
 # UI References from original QTE scene
-@onready var health_bar: ProgressBar = $CenterContainer/InterviewPanel/VBoxContainer/CompanyHeader/HealthBar
 @onready var score_display: Label = $ScoreDisplay
 @onready var day_label: Label = $DayLabel
 @onready var company_label: Label = $CenterContainer/InterviewPanel/VBoxContainer/CompanyHeader/CompanyLabel
@@ -43,8 +42,6 @@ var current_question: int = 1 # Track which question we're currently on
 
 # Game State
 var total_score: int = 0
-var current_health: float = 100.0
-var starting_health_per_day: Array[float] = [100.0, 70.0, 40.0, 10.0, 10.0] # Day 1-5 starting health
 var game_over: bool = false
 var timeline_in_progress: bool = false # Prevent multiple timeline executions
 
@@ -81,7 +78,6 @@ func _process(delta: float) -> void:
 func setup_ui() -> void:
 	# Initialize UI elements
 	update_score_display()
-	update_health_display()
 	day_label.text = "DAY 1"
 	company_label.text = company_names[0]
 
@@ -108,25 +104,15 @@ func start_interview_day(day: int) -> void:
 	current_day = day
 	current_question = 1 # Reset question counter for new day
 	
-	# Set starting health for this day
-	if day <= starting_health_per_day.size():
-		current_health = starting_health_per_day[day - 1]
-	else:
-		current_health = 10.0 # Default for days beyond defined
-	
 	# Update UI for current day
 	day_label.text = "DAY " + str(day)
 	company_label.text = company_names[day - 1]
 	
 	# Reset day variables using set() method
 	Dialogic.VAR.set('interview_score', 0)
-	Dialogic.VAR.set('interview_health', current_health)
 	Dialogic.VAR.set('interview_day', day)
 	Dialogic.VAR.set('company_name', company_names[day - 1])
 	Dialogic.VAR.set('bubble_score', 0) # Initialize bubble score
-	
-	# Update UI to reflect starting health
-	update_health_display()
 	
 	# Start with the first question timeline
 	start_question_timeline(1)
@@ -190,8 +176,6 @@ func _on_dialogic_signal(argument: String) -> void:
 			play_feedback_sound("wrong")
 		"update_ui":
 			update_score_display()
-			update_health_display()
-			check_health_status()
 		"kick_out":
 			kick_out_player()
 		"next_question":
@@ -203,7 +187,6 @@ func _on_dialogic_signal(argument: String) -> void:
 				_on_timeline_ended()
 		"timeout":
 			play_feedback_sound("timeout")
-			check_health_status()
 		"force_timeout":
 			handle_dialogic_timeout()
 		"question_start":
@@ -284,14 +267,6 @@ func handle_dialogic_timeout() -> void:
 	# Called from Dialogic when timer expires in timeline
 	if timer_active:
 		handle_timer_timeout()
-
-func check_health_status() -> void:
-	var current_health_value = Dialogic.VAR.get('interview_health') if Dialogic.VAR.has('interview_health') else current_health
-	current_health = current_health_value
-	
-	if current_health <= 0:
-		game_over = true
-		kick_out_player()
 
 func kick_out_player() -> void:
 	# Player gets kicked out by HR
@@ -522,24 +497,6 @@ func update_score_display() -> void:
 	var display_score = total_score + current_interview_score
 	score_display.text = "Score: " + str(display_score)
 
-func update_health_display() -> void:
-	var current_interview_health = Dialogic.VAR.get("interview_health") if Dialogic.VAR.has("interview_health") else current_health
-	current_health = current_interview_health
-	health_bar.value = current_interview_health
-	
-	# Change health bar color based on health level
-	var color = Color.GREEN
-	if current_interview_health <= 20:
-		color = Color.RED
-	elif current_interview_health <= 50:
-		color = Color.YELLOW
-	
-	health_bar.modulate = color
-	
-	# Check for game over condition
-	if current_interview_health <= 0 and not game_over:
-		check_health_status()
-
 func play_feedback_sound(type: String) -> void:
 	# Play different sounds based on choice result
 	# You can load different sound files here
@@ -558,7 +515,6 @@ func play_feedback_sound(type: String) -> void:
 func reset_interview_sequence() -> void:
 	current_day = 1
 	total_score = 0
-	current_health = 100.0
 	timer_active = false
 	game_over = false
 	start_interview_sequence()
@@ -568,9 +524,6 @@ func get_total_score() -> int:
 
 func get_current_day() -> int:
 	return current_day
-
-func get_current_health() -> float:
-	return current_health
 
 func is_game_over() -> bool:
 	return game_over

@@ -3,7 +3,6 @@ join creative_interviewer center
 set {interview_day} = 3
 set {company_name} = "TechCorp"
 set {interview_score} = 0
-set {interview_health} = 40
 
 creative_interviewer (netral): Selamat siang calon prajurit
 character: Selamat Siang pak, perkenalkan saya mc yang ingin bekerja di peru-
@@ -16,28 +15,28 @@ creative_interviewer (netral): Coba tunjukan kepada ku kemampuan tersembunyi apa
 
 - Rupa ku adalah bukti kejam nya dunia menempaku
 	set {interview_score} += 12
-	set {interview_health} += 12
+
 	[signal arg="timer_end"]
 	creative_interviewer (senyum): Hooo, aku suka dengan sorot matamu
 	[signal arg="correct_choice"]
 
 - Aku adalah seorang pejuang yang telah melewati banyak badai kehidupan
 	set {interview_score} += 8
-	set {interview_health} += 8
+
 	[signal arg="timer_end"]
 	creative_interviewer (senyum): Aku bisa melihatnya hanya dari aura pada dirimu
 	[signal arg="correct_choice"]
 
 - Aku tidak mempunyai kekuatan apapun
 	set {interview_score} -= 3
-	set {interview_health} -= 3
+
 	[signal arg="timer_end"]
 	creative_interviewer (marah): Kau tidak mempunyai nya ?, berarti kau tidak pantas memasuki perusahaan kami
 	[signal arg="wrong_choice"]
 
 - erhenti bermain main cosplay, aku ingin bertemu dengan HR asli nya
 	set {interview_score} -= 10
-	set {interview_health} -= 10
+
 	[signal arg="timer_end"]
 	creative_interviewer (marah): Cosplay ??, ini adalah pakaian perang ku dan kau mengejek nya sebagai cosplay ??
 	[signal arg="wrong_choice"]

@@ -7,7 +7,7 @@ green_interviewer (netral): Dengar baik-baik. Para kepingan salju diluar sana su
 
 - KEPINGAN SALJU DI BUMI ITU TIDAK ADA YANG SAMA
 	set {interview_score} += 20
-	set {interview_health} += 20
+
 	[signal arg="timer_end"]
 	green_interviewer (marah): ...
 	[signal arg="correct_choice"]
@@ -17,7 +17,7 @@ green_interviewer (netral): Dengar baik-baik. Para kepingan salju diluar sana su
 
 - SETIAP KEPINGAN SALJU ITU MEMILIKI POLA UNIKNYA SENDIRI
 	set {interview_score} += 12
-	set {interview_health} += 12
+
 	[signal arg="timer_end"]
 	green_interviewer (marah): ...
 	[signal arg="correct_choice"]
@@ -27,7 +27,7 @@ green_interviewer (netral): Dengar baik-baik. Para kepingan salju diluar sana su
 
 - SAYA ADALAH SAYA, MEREKA ADALAH MEREKA
 	set {interview_score} -= 5
-	set {interview_health} -= 5
+
 	[signal arg="timer_end"]
 	green_interviewer (marah): ...
 	[signal arg="wrong_choice"]
@@ -37,7 +37,7 @@ green_interviewer (netral): Dengar baik-baik. Para kepingan salju diluar sana su
 
 - JANGAN MEREMEHKAN KAMI KEPINGAN SALJU
 	set {interview_score} -= 15
-	set {interview_health} -= 15
+
 	[signal arg="timer_end"]
 	green_interviewer (marah): ...
 	[signal arg="wrong_choice"]

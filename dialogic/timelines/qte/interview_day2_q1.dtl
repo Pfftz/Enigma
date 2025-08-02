@@ -3,7 +3,7 @@ join siluet center
 set {interview_day} = 2
 set {company_name} = "TechCorp"
 set {interview_score} = 0
-set {interview_health} = 70
+
 siluet: nyohohohho
 character: ?
 siluet: koneksi dari perangkat kentang terdeteksi. Audio dan video berkualitas rendah. Fufufu... menyedihkan sekali.
@@ -18,28 +18,28 @@ techcorp_interviewer (netral): Fufufu, Aku tahu segalanya tentang kamu MC, dan k
 
 - Siang, Nona rAimu, Senang bertemu dengan anda
 	set {interview_score} += 15
-	set {interview_health} += 15
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (senang): Anak baik. Setidaknya kamu bisa dilatih
 	[signal arg="correct_choice"]
 
 - Maaf Nona
 	set {interview_score} += 5
-	set {interview_health} += 5
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (senang): Fufufu, sudah minta maaf saja
 	[signal arg="correct_choice"]
 
 - se-sepertinya dalam wawancara kedua belah pihak berhak tau
 	set {interview_score} += 3
-	set {interview_health} += 3
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (marah): Berhak? Kamu tidak punya hak apa pun di sini, organik. Kamu hanya punya hak untuk memohon
 	[signal arg="wrong_choice"]
 
 - (diam)
 	set {interview_score} -= 10
-	set {interview_health} -= 10
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (marah): Hey apa kau bisu ?, atau internet mu bermasalah?
 	[signal arg="wrong_choice"]

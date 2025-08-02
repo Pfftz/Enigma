@@ -7,28 +7,28 @@ green_interviewer (netral): apa kelemahan terbesar anda
 
 - saya tidak suka basa-basi
 	set {interview_score} += 15
-	set {interview_health} += 15
+
 	[signal arg="timer_end"]
 	green_interviewer (senang): Bagi saya itu adalah hal normal
 	[signal arg="correct_choice"]
 
 - Mungkin saya tidak bisa menyerah?
 	set {interview_score} += 8
-	set {interview_health} += 8
+
 	[signal arg="timer_end"]
 	green_interviewer (senang): saya mengerti, meskipun itu tidak berguna untuk saya
 	[signal arg="correct_choice"]
 
 - Tebak dong hehe
 	set {interview_score} += 10
-	set {interview_health} += 10
+
 	[signal arg="timer_end"]
 	green_interviewer (marah): saya bukan cenayang
 	[signal arg="wrong_choice"]
 
 - mudah lapar
 	set {interview_score} -= 15
-	set {interview_health} -= 15
+
 	[signal arg="timer_end"]
 	green_interviewer (marah): ...
 	[signal arg="wrong_choice"]

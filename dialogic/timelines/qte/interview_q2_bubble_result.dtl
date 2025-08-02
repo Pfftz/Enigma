@@ -6,14 +6,14 @@ if {bubble_score} >= 50:
 	# Good performance - player gives correct answer
 	character: Ada dua. Jendela kesempatan dan jendela dunia
 	set {interview_score} += 10
-	set {interview_health} += 10
+
 	bananazon_interviewer: jawaban yang sangat bijak
 	[signal arg="correct_choice"]
 else:
 	# Poor performance - player gives wrong answer  
 	character: um... lebih dari 3
 	set {interview_score} += 15
-	set {interview_health} += 15
+
 	bananazon_interviewer: ahh... butuh lebih banyak menginjak rumput sepertinya
 	[signal arg="wrong_choice"]
 

@@ -7,7 +7,7 @@ creative_interviewer: Apa alasanmu menghunus pedangmu di hadapanku?  Apa tujuan 
 
 - Untuk melindungi mereka yang berharga bagi saya, Jenderal
 	set {interview_score} += 18
-	set {interview_health} += 18
+
 	[signal arg="timer_end"]
 	creative_interviewer (senyum): Hooo... sebuah alasan yang mulia. Bukan untuk ketenaran, bukan untuk emas, tapi untuk menjadi perisai.
 	[signal arg="correct_choice"]
@@ -16,20 +16,20 @@ creative_interviewer: Apa alasanmu menghunus pedangmu di hadapanku?  Apa tujuan 
 	set {interview_score} += 12
 	[signal arg="timer_end"]
 	- Figma dan Canva
-		set {interview_health} += 12
+
 		creative_interviewer (senyum): Ambisi untuk menjadi lebih kuat! Keinginan untuk menempa diri! Itu adalah semangat yang bagus.
 		[signal arg="correct_choice"]
 	
 	- arena dari semua lamaran yang saya kirim, hanya perusahaan ini yang memanggil saya untuk wawancara. Gajinya juga sepertinya lumayan
 		set {interview_score} -= 15
-		set {interview_health} -= 15
+
 		[signal arg="timer_end"]
 		creative_interviewer (marah): Kau merendahkan perjuangan kami! Kau tidak melihat kehormatan bergabung dengan pasukan ini, kau hanya melihat angka di slip gaji!
 		[signal arg="wrong_choice"]
 	
 	- Tentu saja nyari uang pak
 		set {interview_score} -= 20
-		set {interview_health} -= 20
+
 		[signal arg="timer_end"]
 		creative_interviewer (marah): Uang... bertahan hidup... Alasan yang sangat... duniawi
 		[signal arg="wrong_choice"]

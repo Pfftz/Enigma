@@ -8,28 +8,28 @@ techcorp_interviewer (netral): kenapa kamu melamar di perusahaan ini?
 
 - karena saya suka teknologi
 	set {interview_score} += 20
-	set {interview_health} += 20
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (senang): ooh kamu suka teknologi
 	[signal arg="correct_choice"]
 
 - karena saya ingin mempelajari ai lebih dalam
 	set {interview_score} += 10
-	set {interview_health} += 10
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (senang): tidak. Aku tidak butuh orang bodoh seperti mu
 	[signal arg="correct_choice"]
 
 - Aku butuh uang nona
 	set {interview_score} -= 8
-	set {interview_health} -= 8
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (marah): tch, miskin
 	[signal arg="wrong_choice"]
 
 - saya ingin berada di sisi nona
 	set {interview_score} -= 5
-	set {interview_health} -= 5
+
 	[signal arg="timer_end"]
 	techcorp_interviewer (marah): DIAM ORANG FREAK!!
 	[signal arg="wrong_choice"]

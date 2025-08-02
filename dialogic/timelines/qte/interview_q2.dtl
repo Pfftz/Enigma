@@ -7,28 +7,24 @@ bananazon_interviewer: Kenapa anda tertarik untuk mendaftar ke eco-sigma
 
 - Karena saya mau membantu melestarikan alam
 	set {interview_score} += 8
-	set {interview_health} += 8
 	[signal arg="timer_end"]
 	bananazon_interviewer: Saya suka jawaban anda
 	[signal arg="correct_choice"]
 
 - Saya suka melihat pohon
 	set {interview_score} -= 3
-	set {interview_health} -= 3
 	[signal arg="timer_end"]
 	bananazon_interviewer: oh begitu ya...
 	[signal arg="wrong_choice"]
 
 - saya punya value yang bapak inginkan
 	set {interview_score} += 12
-	set {interview_health} += 12
 	[signal arg="timer_end"]
 	bananazon_interviewer: ah... saya akan catat dan semoga anda benar
 	[signal arg="correct_choice"]
 
 - butuh duit pak
 	set {interview_score} -= 8
-	set {interview_health} -= 8
 	[signal arg="timer_end"]
 	bananazon_interviewer: ahahah, anda sangat jujur ya
 	[signal arg="wrong_choice"]
