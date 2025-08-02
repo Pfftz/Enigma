@@ -15,7 +15,7 @@ else:
 	character (normal): gimana kalo saya bareng naga nya mukulin bapak  ?
 	set {interview_score} -= 5
 	
-	creative_interviewer (marah): lagi  ?
+	creative_interviewer (marah): Hoho sanggup kah kamu menahan satu tebasan pedangku   ?
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]
