@@ -103,7 +103,9 @@ func do_countdown():
 	
 	# --- TAHAP 2: PERSIAPAN BALON (TIDAK TERLIHAT) ---
 	var positions = get_bubble_positions()
-	var initial_trap_count = 1 if number_of_bubbles > 4 else 0
+	# (FIX) Logika ini sekarang memeriksa trap_chance dari Inspector.
+	# Jika trap_chance adalah 0.0, initial_trap_count akan menjadi 0.
+	var initial_trap_count = 1 if number_of_bubbles > 4 and trap_chance > 0.0 else 0
 	var initial_bubble_data = generate_unique_bubble_data(initial_trap_count) # MENGGUNAKAN VERSI BARU
 	
 	# --- TAHAP 3: HITUNG MUNDUR & SPAWN BERTAHAP ---
@@ -185,31 +187,28 @@ func _on_ultimate_bubble_popped():
 	game_status_label.text = "SELAMAT!\nKamu berhasil!"
 	instruction_label.hide()
 	
-	# Wait 2 seconds before emitting the completion signal
+	player_input_label.text = ""
+	
 	await get_tree().create_timer(2.0).timeout
 	
-	# Emit the minigame completion signal with the final score
 	minigame_completed.emit(score)
 	print("DEBUG: Ultimate completed! Emitting minigame_completed signal with score: ", score)
 
-# (MENGGUNAKAN VERSI DARI MAIN.GD) untuk mendukung thought dan type_word terpisah
 func spawn_new_bubble(pos: Vector2, thought: String, type_word: String, is_trap: bool):
 	var scene_to_use = TrapBubbleScene if is_trap else BubbleScene
 	var new_bubble = scene_to_use.instantiate()
 	
-	# (FIX) Atur skala ke nol SEBELUM menambahkannya ke scene untuk mencegah flicker.
 	new_bubble.get_node("Sprite2D").scale = Vector2.ZERO
 	
 	new_bubble.popped.connect(_on_bubble_popped)
 	
 	new_bubble.global_position = pos
-	new_bubble.setup(thought, type_word) # MENGGUNAKAN DUA PARAMETER
+	new_bubble.setup(thought, type_word)
 	add_child(new_bubble)
 	active_bubbles.append(new_bubble)
 	
 	new_bubble.play_spawn_animation()
 
-# (DARI MAIN.GD) Untuk mendukung thought dan type_word terpisah
 func generate_unique_bubble_data(trap_count: int) -> Array:
 	var final_data = []
 	var used_type_words = {}
@@ -224,7 +223,6 @@ func generate_unique_bubble_data(trap_count: int) -> Array:
 	available_pos_type_words.shuffle()
 	available_trap_type_words.shuffle()
 
-	# Generate trap bubbles first
 	for i in range(trap_count):
 		if available_trap_thoughts.is_empty() or available_trap_type_words.is_empty():
 			break
@@ -232,7 +230,6 @@ func generate_unique_bubble_data(trap_count: int) -> Array:
 		var thought = available_trap_thoughts.pop_front()
 		var type_word = available_trap_type_words.pop_front()
 		
-		# Avoid duplicate first letters
 		while used_type_words.has(type_word[0]) and not available_trap_type_words.is_empty():
 			type_word = available_trap_type_words.pop_front()
 		
@@ -240,7 +237,6 @@ func generate_unique_bubble_data(trap_count: int) -> Array:
 			final_data.append({"thought": thought, "type_word": type_word, "is_trap": true})
 			used_type_words[type_word[0]] = true
 
-	# Generate positive bubbles
 	var positives_needed = number_of_bubbles - final_data.size()
 	for i in range(positives_needed):
 		if available_pos_thoughts.is_empty() or available_pos_type_words.is_empty():
@@ -249,7 +245,6 @@ func generate_unique_bubble_data(trap_count: int) -> Array:
 		var thought = available_pos_thoughts.pop_front()
 		var type_word = available_pos_type_words.pop_front()
 		
-		# Avoid duplicate first letters
 		while used_type_words.has(type_word[0]) and not available_pos_type_words.is_empty():
 			type_word = available_pos_type_words.pop_front()
 			
@@ -260,30 +255,38 @@ func generate_unique_bubble_data(trap_count: int) -> Array:
 	final_data.shuffle()
 	return final_data
 
-# (HYBRID) Untuk respawn bubble dengan sistem baru
 func get_word_for_new_bubble() -> Dictionary:
-	var used_letters = []
+	var used_type_words = []
+	var used_first_letters = []
 	for b in active_bubbles:
-		if is_instance_valid(b): used_letters.append(b.positive_affirmation[0])
+		if is_instance_valid(b):
+			used_type_words.append(b.positive_affirmation)
+			used_first_letters.append(b.positive_affirmation[0])
 
 	var is_trap = randf() < trap_chance
 	var thought = ""
 	var type_word = ""
 
-	if is_trap:
-		if not trap_thoughts.is_empty(): thought = trap_thoughts.pick_random()
-		var available_trap_words = trap_type_words.filter(func(word): return not word[0] in used_letters)
-		if not available_trap_words.is_empty(): 
-			type_word = available_trap_words.pick_random()
-		else:
-			type_word = trap_type_words.pick_random() if not trap_type_words.is_empty() else "ERROR"
+	var potential_thoughts = trap_thoughts if is_trap else positive_thoughts
+	var potential_type_words = trap_type_words if is_trap else positive_type_words
+
+	var available_type_words = potential_type_words.filter(func(word): return not word in used_type_words and not word[0] in used_first_letters)
+
+	if not available_type_words.is_empty():
+		type_word = available_type_words.pick_random()
 	else:
-		if not positive_thoughts.is_empty(): thought = positive_thoughts.pick_random()
-		var available_pos_words = positive_type_words.filter(func(word): return not word[0] in used_letters)
-		if not available_pos_words.is_empty(): 
-			type_word = available_pos_words.pick_random()
+		available_type_words = potential_type_words.filter(func(word): return not word[0] in used_first_letters)
+		if not available_type_words.is_empty():
+			type_word = available_type_words.pick_random()
 		else:
-			type_word = positive_type_words.pick_random() if not positive_type_words.is_empty() else "ERROR"
+			available_type_words = potential_type_words.filter(func(word): return not word in used_type_words)
+			if not available_type_words.is_empty():
+				type_word = available_type_words.pick_random()
+			else:
+				type_word = potential_type_words.pick_random() if not potential_type_words.is_empty() else "ERROR"
+
+	if not potential_thoughts.is_empty():
+		thought = potential_thoughts.pick_random()
 
 	return {"thought": thought, "type_word": type_word, "is_trap": is_trap}
 
@@ -305,8 +308,8 @@ func _on_bubble_respawn_timer_timeout():
 	active_bubbles.erase(bubble_to_replace)
 	bubble_to_replace.queue_free()
 	
-	var new_bubble_data = get_word_for_new_bubble()
-	spawn_new_bubble(pos, new_bubble_data.thought, new_bubble_data.type_word, new_bubble_data.is_trap)
+	var new_word_data = get_word_for_new_bubble()
+	spawn_new_bubble(pos, new_word_data.thought, new_word_data.type_word, new_word_data.is_trap)
 	
 	bubble_respawn_timer.start()
 
@@ -316,8 +319,8 @@ func _on_bubble_popped(pos: Vector2):
 	
 	if gameplay_timer.is_stopped(): return
 		
-	var new_bubble_data = get_word_for_new_bubble()
-	spawn_new_bubble(pos, new_bubble_data.thought, new_bubble_data.type_word, new_bubble_data.is_trap)
+	var new_word_data = get_word_for_new_bubble()
+	spawn_new_bubble(pos, new_word_data.thought, new_word_data.type_word, new_word_data.is_trap)
 	
 	bubble_respawn_timer.start()
 
@@ -333,15 +336,13 @@ func game_over():
 	
 	game_status_label.show()
 	game_status_label.text = "Waktu Habis!\nSkor Akhir: %d" % score
+	player_input_label.text = ""
 	
-	# Wait 2 seconds before emitting the completion signal
 	await get_tree().create_timer(2.0).timeout
 	
-	# Emit the minigame completion signal with the final score
 	minigame_completed.emit(score)
 	print("DEBUG: Emitting minigame_completed signal with score: ", score)
 
-# (DARI MAIN1.GD) Layout positioning yang lengkap
 func get_bubble_positions() -> Array:
 	var positions = []
 	var screen_size = get_viewport_rect().size
@@ -392,7 +393,6 @@ func _input(event):
 		if gameplay_timer.is_stopped() and not is_ultimate_triggered: return
 		handle_typing(event)
 
-# (DARI MAIN1.GD) Handle typing yang lengkap dan robust
 func handle_typing(event):
 	if is_ultimate_triggered:
 		if event.keycode == KEY_SPACE:
@@ -408,7 +408,6 @@ func handle_typing(event):
 				current_typed_string = key_typed
 				player_input_label.text = current_typed_string
 				target_bubble.play_typing_feedback()
-				# (FIX) Reset timer penggantian acak setiap kali pemain mengetik.
 				bubble_respawn_timer.start()
 				return
 	else:
@@ -421,7 +420,6 @@ func handle_typing(event):
 			current_typed_string = potential_string
 			player_input_label.text = current_typed_string
 			target_bubble.play_typing_feedback()
-			# (FIX) Reset timer penggantian acak setiap kali pemain mengetik.
 			bubble_respawn_timer.start()
 			if current_typed_string == target_bubble.positive_affirmation:
 				if target_bubble.is_in_group("trap_bubbles"): score -= 10

@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://grerbm5daavl"]
+[gd_scene load_steps=14 format=3 uid="uid://grerbm5daavl"]
 
 [ext_resource type="Script" uid="uid://d0wlseical315" path="res://scripts/core_game/bubble.gd" id="1_y2db8"]
+[ext_resource type="AudioStream" uid="uid://1jx22kywcmcu" path="res://asset/sound/intrusive_mashkey.wav" id="2_qktc3"]
 [ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="3_4a276"]
-[ext_resource type="AudioStream" uid="uid://5ttmjh0160qc" path="res://asset/sound/422811__pinto0lucas__bubble-low.wav" id="3_cd3a8"]
-[ext_resource type="AudioStream" uid="uid://s2lvq0gikmju" path="res://asset/sound/422812__pinto0lucas__bubble-medium.wav" id="4_gr152"]
-[ext_resource type="AudioStream" uid="uid://cjwhla6dfunu" path="res://asset/sound/422813__pinto0lucas__bubble-low.wav" id="5_7anfy"]
+[ext_resource type="AudioStream" uid="uid://3mupqhju58m6" path="res://asset/sound/intrusive_mashkey_ultimate.wav" id="3_pyugt"]
 [ext_resource type="Texture2D" uid="uid://dp5g470gnmxy1" path="res://asset/2d/core game/negative1.png" id="5_241cy"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_c2d40"]
 
@@ -83,7 +82,8 @@ color_ramp = SubResource("GradientTexture1D_c2d40")
 
 [node name="Bubble" type="Node2D"]
 script = ExtResource("1_y2db8")
-typing_sounds = Array[AudioStream]([ExtResource("3_cd3a8"), ExtResource("4_gr152"), ExtResource("5_7anfy")])
+typing_sounds = Array[AudioStream]([ExtResource("2_qktc3")])
+pop_sound = ExtResource("3_pyugt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.592157)
@@ -138,5 +138,20 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="LifetimeTimer" type="Timer" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+process_callback = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+ignore_time_scale = false
+script = null
 
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]

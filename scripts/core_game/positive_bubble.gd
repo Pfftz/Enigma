@@ -2,7 +2,9 @@ extends Node2D
 
 signal popped(position)
 
+# (MODIFIKASI) Pisahkan suara untuk mengetik dan meledak.
 @export var typing_sounds: Array[AudioStream]
+@export var pop_sound: AudioStream
 
 var positive_affirmation: String
 var initial_y_position: float
@@ -20,7 +22,6 @@ func _process(delta):
 	time += delta
 	position.y = initial_y_position + sin(time * float_speed) * float_amplitude
 
-# (MODIFIKASI) Setup sekarang menerima dua teks.
 func setup(thought_text: String, type_word: String):
 	positive_affirmation = type_word
 	$TypingLabel.text = type_word
@@ -31,10 +32,24 @@ func play_typing_feedback():
 		return
 	$AnimationPlayer.play("squish")
 	if not typing_sounds.is_empty():
+		# Gunakan AudioStreamPlayer2D yang lama untuk mengetik.
 		$AudioStreamPlayer2D.stream = typing_sounds.pick_random()
 		$AudioStreamPlayer2D.play()
 
+# (FIX TOTAL) Fungsi ini sekarang membuat pemutar suara sementara.
 func pop():
+	# 1. Buat pemutar suara baru saat itu juga.
+	if pop_sound:
+		var sound_player = AudioStreamPlayer2D.new()
+		sound_player.stream = pop_sound
+		sound_player.global_position = self.global_position
+		# 2. Tambahkan ke scene utama agar tidak ikut terhapus bersama balon.
+		get_parent().add_child(sound_player)
+		sound_player.play()
+		# 3. Suruh pemutar suara untuk menghapus dirinya sendiri SETELAH suaranya selesai.
+		sound_player.finished.connect(sound_player.queue_free)
+		
+	# Sisa dari fungsi ini berjalan seperti biasa.
 	$Sprite2D.hide()
 	$TypingLabel.hide()
 	$ThoughtLabel.hide()
@@ -51,6 +66,8 @@ func pop():
 	particle_timer.start()
 
 	popped.emit(self.global_position)
+	
+	# Balon tetap menghapus dirinya sendiri seperti biasa.
 	queue_free()
 
 func play_spawn_animation():
