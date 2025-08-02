@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq8ihg23q75pp"]
+[gd_scene load_steps=13 format=3 uid="uid://bq8ihg23q75pp"]
 
 [ext_resource type="Script" uid="uid://bkq7in5yy8gfy" path="res://scripts/core_game/golden_bubble.gd" id="1_ervom"]
 [ext_resource type="Texture2D" uid="uid://bjfs0qlnjw6hu" path="res://asset/2d/core game/Golden.png" id="2_2w1i7"]
+[ext_resource type="AudioStream" uid="uid://3mupqhju58m6" path="res://asset/sound/intrusive_mashkey_ultimate.wav" id="2_pv1mx"]
 [ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="6_4vvuy"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_evqlh"]
 
@@ -68,6 +69,8 @@ color_ramp = SubResource("GradientTexture1D_c2d40")
 
 [node name="Bubble" type="Node2D"]
 script = ExtResource("1_ervom")
+spam_sounds = Array[AudioStream]([ExtResource("2_pv1mx")])
+pop_sound = ExtResource("2_pv1mx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 3.8147e-06)
@@ -116,6 +119,21 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="LifetimeTimer" type="Timer" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+process_callback = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+ignore_time_scale = false
+script = null
 
 [node name="SpamIndicatorContainer" type="HBoxContainer" parent="."]
 anchors_preset = 15

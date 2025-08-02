@@ -6,7 +6,9 @@ signal ultimate_bubble_popped
 const CIRCLE_EMPTY = preload("res://asset/2d/core game/Bulet emas.png")
 const CIRCLE_FILLED = preload("res://asset/2d/core game/Bulet emas fill.png")
 
-@export var typing_sounds: Array[AudioStream]
+# (MODIFIKASI) Pisahkan suara untuk spam dan meledak.
+@export var spam_sounds: Array[AudioStream]
+@export var pop_sound: AudioStream
 
 var spam_needed: int = 0
 var current_spam: int = 0
@@ -17,13 +19,15 @@ var initial_scale: Vector2 = Vector2.ONE
 
 @onready var indicator_container = $SpamIndicatorContainer
 @onready var sprite = $Sprite2D
+# (BARU) Referensi ke pemutar suara yang sudah ada di scene.
+@onready var spam_sound_player = $AudioStreamPlayer2D
 
 var initial_y_position: float
 var time: float = 0.0
 
 func _ready():
-	# (DIHAPUS) Baris ini dihapus agar warna bisa diatur sepenuhnya dari editor.
-	# sprite.modulate = Color.GOLD
+	# sprite.modulate = Color.GOLD # Dihapus agar warna bisa diatur dari editor.
+	
 	initial_y_position = position.y
 	time = randf() * 10.0
 	
@@ -54,35 +58,32 @@ func register_spam():
 	
 	current_spam += 1
 	
-	# (MODIFIKASI TOTAL) Gunakan Tween untuk membuat animasi membesar yang halus.
+	# Gunakan Tween untuk membuat animasi membesar yang halus.
 	var progress = float(current_spam) / float(spam_needed)
 	var target_scale = initial_scale.lerp(initial_scale * max_scale_multiplier, progress)
 	
-	# Buat tween baru untuk menganimasikan properti 'scale'.
 	var tween = create_tween()
-	# Animasikan 'scale' dari ukuran saat ini ke target_scale selama 0.1 detik.
 	tween.tween_property(sprite, "scale", target_scale, 0.1).set_trans(Tween.TRANS_SINE)
 	
-	# Mainkan suara secara langsung tanpa memanggil animasi "squish"
-	if not typing_sounds.is_empty():
-		$AudioStreamPlayer2D.stream = typing_sounds.pick_random()
-		$AudioStreamPlayer2D.play()
+	# (MODIFIKASI) Mainkan suara spam dari pemutar suara yang sudah ada.
+	if not spam_sounds.is_empty():
+		spam_sound_player.stream = spam_sounds.pick_random()
+		spam_sound_player.play()
 
 	if current_spam >= spam_needed:
-		# Beri jeda sedikit sebelum meledak agar pemain bisa melihatnya besar.
 		await get_tree().create_timer(0.2).timeout
 		pop()
 
-# Fungsi ini tetap ada jika diperlukan di tempat lain, tapi tidak dipanggil saat spam.
-func play_typing_feedback():
-	if not sprite.visible:
-		return
-	$AnimationPlayer.play("squish")
-	if not typing_sounds.is_empty():
-		$AudioStreamPlayer2D.stream = typing_sounds.pick_random()
-		$AudioStreamPlayer2D.play()
-
 func pop():
+	# (MODIFIKASI) Mainkan suara pop menggunakan pemutar suara sementara.
+	if pop_sound:
+		var sound_player = AudioStreamPlayer2D.new()
+		sound_player.stream = pop_sound
+		sound_player.global_position = self.global_position
+		get_parent().add_child(sound_player)
+		sound_player.play()
+		sound_player.finished.connect(sound_player.queue_free)
+
 	sprite.hide()
 	indicator_container.hide()
 
@@ -103,6 +104,5 @@ func pop():
 func play_spawn_animation():
 	sprite.scale = Vector2.ZERO
 	$AnimationPlayer.play("respawn")
-	# (BARU) Tunggu animasi selesai untuk menyimpan skala awal yang benar.
 	await $AnimationPlayer.animation_finished
 	initial_scale = sprite.scale
