@@ -1,0 +1,22 @@
+[background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
+join techcorp_interviewer (netral) center
+# Question 3 timeout
+set {interview_score} -= 5
+
+techcorp_interviewer (netral): ok
+
+[signal arg="timeout"]
+[signal arg="timer_end"]
+[signal arg="update_ui"]
+
+[wait time="2.0"]
+
+techcorp_interviewer (netral): baiklah aku sudah catat semuanya
+
+if {interview_score} >= 25:
+	techcorp_interviewer (senang): jangan lupa cek email di hari jumat yaaa, nyohohohoho
+else:
+	techcorp_interviewer (marah): jangan pernah hubungi kami lagig
+
+set {day2_completed} = true
+set {day2_score} = {interview_score}

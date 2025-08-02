@@ -14,7 +14,7 @@ character: (!!!!!!)
 	techcorp_interviewer (senang): Fufufu, jadi aku benar, ya? Lihat, kamu bahkan malu untuk mengangkat wajahmu.
 	[signal arg="correct_choice"]
 
-- Benar, Nona. Data Anda 100% akurat. Itu bukan riwayat pencarian, itu adalah bukti bahwa saya adalah kandidat paling termotivasi yang pernah Anda temui.
+- Benar, Nona. Data Anda 100% akurat. Itu bukan riwayat pencarian,[br] itu adalah bukti bahwa saya adalah kandidat paling termotivasi yang pernah Anda temui.
 	set {interview_score} += 8
 	
 	[signal arg="timer_end"]

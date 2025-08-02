@@ -20,7 +20,7 @@ creative_interviewer: Apa alasanmu menghunus pedangmu di hadapanku?  Apa tujuan 
 		creative_interviewer (senyum): Ambisi untuk menjadi lebih kuat! Keinginan untuk menempa diri! Itu adalah semangat yang bagus.
 		[signal arg="correct_choice"]
 	
-	- arena dari semua lamaran yang saya kirim, hanya perusahaan ini yang memanggil saya untuk wawancara. Gajinya juga sepertinya lumayan
+	- arena dari semua lamaran yang saya kirim, hanya perusahaan ini [br] yang memanggil saya untuk wawancara. Gajinya juga sepertinya lumayan
 		set {interview_score} -= 15
 
 		[signal arg="timer_end"]
