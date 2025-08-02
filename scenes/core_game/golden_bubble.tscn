@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bq8ihg23q75pp"]
+[gd_scene load_steps=14 format=3 uid="uid://bq8ihg23q75pp"]
 
 [ext_resource type="Script" uid="uid://bkq7in5yy8gfy" path="res://scripts/core_game/golden_bubble.gd" id="1_ervom"]
 [ext_resource type="Texture2D" uid="uid://bjfs0qlnjw6hu" path="res://asset/2d/core game/Golden.png" id="2_2w1i7"]
 [ext_resource type="AudioStream" uid="uid://3mupqhju58m6" path="res://asset/sound/intrusive_mashkey_ultimate.wav" id="2_pv1mx"]
+[ext_resource type="FontFile" uid="uid://d3wcojlddp1uo" path="res://asset/font/LettersinCirclesBook.ttf" id="5_g3yry"]
 [ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="6_4vvuy"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_evqlh"]
 
@@ -101,8 +102,8 @@ theme_override_colors/font_color = Color(0.834502, 0.678928, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("7_evqlh")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("5_g3yry")
+theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 vertical_alignment = 1
 
