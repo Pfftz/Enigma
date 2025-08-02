@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="7_piisr"]
 [ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="10_4h7wx"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="10_khery"]
-[ext_resource type="PackedScene" uid="uid://csgnf4cue72sf" path="res://scenes/objects/level/door_interact.tscn" id="11_door"]
+[ext_resource type="PackedScene" path="res://scenes/objects/level/door_interact.tscn" id="11_door"]
 [ext_resource type="PackedScene" uid="uid://dsxxl5c5l02lc" path="res://scenes/objects/level/kumpulan_sampah.tscn" id="11_wcdy2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
