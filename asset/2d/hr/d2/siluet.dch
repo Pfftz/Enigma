@@ -20,7 +20,7 @@
 "image": "\"res://asset/2d/hr/d2/siluet.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
+"offset": Vector2(0, -9),
 "scale": 0.5,
 "scene": ""
 }
