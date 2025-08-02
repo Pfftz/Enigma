@@ -83,8 +83,14 @@ func change_scene_to_packed(packed_scene: PackedScene) -> void:
 	EventBus.scene_transition_finished.emit()
 
 # NEW: Simplified scene change with file path (avoids circular dependencies)
-func change_scene_to_file(scene_path: String) -> void:
+# Now supports optional loading screen
+func change_scene_to_file(scene_path: String, loading_preset: LoadingPreset = null) -> void:
 	print("Changing scene to: ", scene_path)
+	
+	# If loading preset is provided and LoadingManager exists, use it
+	if loading_preset and has_node("/root/LoadingManager"):
+		get_node("/root/LoadingManager").show_loading_screen(loading_preset, scene_path, "Loading...")
+		return
 	
 	# Store reference to player before scene change
 	player_node = get_tree().get_first_node_in_group("player")

@@ -23,6 +23,7 @@ EventBus="*res://scripts/autoloads/event_bus.gd"
 AudioManager="*res://scenes/management/audio_manager.tscn"
 GameState="*res://scripts/autoloads/gamestate.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+LoadingManager="*res://scripts/manager/loading_manager.gd"
 
 [dialogic]
 
@@ -39,8 +40,7 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"day 4": "res://dialogic/timelines/monolog/day 4.dtl",
-"day4": "res://asset/2d/hr/d5/day4.dtl",
+"day4": "res://dialogic/timelines/monolog/day4.dtl",
 "door_confirmation": "res://dialogic/timelines/door_confirmation.dtl",
 "interview_day2_q1": "res://dialogic/timelines/qte/interview_day2_q1.dtl",
 "interview_day2_q1_timeout": "res://dialogic/timelines/qte/interview_day2_q1_timeout.dtl",

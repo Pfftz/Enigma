@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dtjaonwv0hyu2"]
+[gd_scene load_steps=28 format=3 uid="uid://dtjaonwv0hyu2"]
 
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_cgi5l"]
 [ext_resource type="Script" uid="uid://kkhamk7h10l8" path="res://scripts/levels/day_4.gd" id="1_tc1r3"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://c384tur1ojl7i" path="res://scripts/objects/interact/interact_kasur.gd" id="9_etmo2"]
 [ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="10_7sqsp"]
 [ext_resource type="PackedScene" uid="uid://dsxxl5c5l02lc" path="res://scenes/objects/level/kumpulan_sampah.tscn" id="11_tc1r3"]
+[ext_resource type="Resource" uid="uid://3ky1itf0nqxn" path="res://resource/loading_preset/sleep_loading.tres" id="11_vgtn4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)
@@ -197,6 +198,7 @@ text = "Day 4"
 transform = Transform3D(-0.0676321, 0, 0.99771, 0, 1, 0, -0.99771, 0, -0.0676321, 0.981328, 0.941484, -0.301477)
 collision_layer = 2
 script = ExtResource("9_etmo2")
+sleep_loading_preset = ExtResource("11_vgtn4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interact kasur"]
 transform = Transform3D(0.997152, 0, -0.0754138, 0, 1, 0, 0.0754138, 0, 0.997152, 0.336535, -0.320801, -0.18882)

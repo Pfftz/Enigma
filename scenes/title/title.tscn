@@ -1,8 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://b1kab4d8sry8a"]
+[gd_scene load_steps=46 format=3 uid="uid://b1kab4d8sry8a"]
 
 [ext_resource type="Script" uid="uid://d2qykwnj5swwx" path="res://scripts/levels/title.gd" id="1_ys1qf"]
+[ext_resource type="Resource" uid="uid://bce0a1ltuxpat" path="res://resource/loading_preset/new_game_loading.tres" id="2_qp135"]
 [ext_resource type="Shader" uid="uid://dtsf8q7phrnxo" path="res://shaders/psx_lit_nofog.gdshader" id="3_60g01"]
 [ext_resource type="ArrayMesh" uid="uid://dq3rc0ouigxgd" path="res://asset/3d/title/logo.obj" id="3_mxee1"]
+[ext_resource type="Resource" uid="uid://fqixpor1kacn" path="res://resource/loading_preset/default.tres" id="3_qb06g"]
 [ext_resource type="Shader" uid="uid://cfkaktpfj4ha4" path="res://shaders/psx_lit_noenv.gdshader" id="4_2bndm"]
 [ext_resource type="Shader" uid="uid://b0jbi3my83n12" path="res://shaders/psx_unlit_blank.gdshader" id="4_ghmid"]
 [ext_resource type="Texture2D" uid="uid://byisj38galtxp" path="res://asset/2d/sprite/title/gift.png" id="6_bfg8e"]
@@ -53,7 +55,6 @@ shader_parameter/uv_pan_velocity = Vector2(0, 0)
 shader_parameter/alpha_color = Color(1, 0, 1, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bqdq2"]
-load_path = "res://.godot/imported/guardian.png-034306c5ad018e312f23bea1b957eb63.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4qgig"]
 shader = ExtResource("9_hmdf2")
@@ -171,6 +172,8 @@ shader_parameter/alpha_color = Color(1, 0, 1, 1)
 
 [node name="TitleScreen" type="Node3D"]
 script = ExtResource("1_ys1qf")
+new_game_loading_preset = ExtResource("2_qp135")
+continue_loading_preset = ExtResource("3_qb06g")
 
 [node name="UI_Container" type="Control" parent="."]
 layout_mode = 3

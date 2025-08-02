@@ -1,8 +1,12 @@
-[gd_resource type="Resource" script_class="LoadingPreset" load_steps=2 format=3 uid="uid://fqixpor1kacn"]
+[gd_resource type="Resource" script_class="LoadingPreset" load_steps=3 format=3 uid="uid://fqixpor1kacn"]
 
 [ext_resource type="Script" uid="uid://d0a01b40j5a33" path="res://scripts/resources/loading_resource.gd" id="1_c7uee"]
+[ext_resource type="Texture2D" uid="uid://brj3caemky0rb" path="res://asset/2d/loading_screen/evencare_load.png" id="1_hljrn"]
 
 [resource]
 script = ExtResource("1_c7uee")
+loading_image = ExtResource("1_hljrn")
+use_timer = false
+randomize_time = true
 loading_timer = 5.0
 fade_color = Color(1, 1, 1, 1)

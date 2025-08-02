@@ -1,6 +1,8 @@
 extends Area3D
 
 var player_is_near = false
+@export var sleep_loading_preset: LoadingPreset ## Loading preset for sleep transition (assign in inspector)
+
 # Opsional: Tambahkan Label3D untuk prompt interaksi
 @onready var interaction_prompt = $Label3D
 
@@ -22,13 +24,13 @@ func _on_body_exited(body):
 			interaction_prompt.visible = false
 		show_interact_ui(false)
 			
-func show_interact_ui(show: bool):
-	if show:
+func show_interact_ui(show_ui: bool):
+	if show_ui:
 		get_tree().call_group("ui", "show_interact_text", "Tekan \"F\" untuk berinteraksi")
 	else:
 		get_tree().call_group("ui", "hide_interact_text")
 
-func _process(delta):
+func _process(_delta):
 	if player_is_near and Input.is_action_just_pressed("interact"):
 		go_to_next_day()
 
@@ -40,18 +42,26 @@ func go_to_next_day():
 
 	print("Player pergi tidur...")
 
-	# Di sini Anda bisa memutar animasi fade out
-	var fade_rect = get_tree().current_scene.find_child("Fade", true, false)
-	if fade_rect:
-		var tween = create_tween()
-		tween.tween_property(fade_rect, "modulate:a", 1.0, 1.0) # Fade to black
-		await tween.finished
-
 	# 1. Maju ke hari berikutnya
 	GameState.advance_to_next_day()
 
 	# 2. Ambil path kamar untuk hari yang BARU
 	var next_room_path = GameState.get_current_room_scene()
 
-	# 3. Pindah ke scene kamar berikutnya
-	get_tree().change_scene_to_file(next_room_path)
+	# 3. Use loading screen if preset is assigned
+	if sleep_loading_preset:
+		# Use LoadingManager if available
+		if has_node("/root/LoadingManager"):
+			get_node("/root/LoadingManager").sleep_with_loading(next_room_path, sleep_loading_preset)
+		else:
+			print("LoadingManager not found, using instant scene change")
+			get_tree().change_scene_to_file(next_room_path)
+	else:
+		# No loading preset, use fade effect and change scene
+		var fade_rect = get_tree().current_scene.find_child("Fade", true, false)
+		if fade_rect:
+			var tween = create_tween()
+			tween.tween_property(fade_rect, "modulate:a", 1.0, 1.0) # Fade to black
+			await tween.finished
+
+		get_tree().change_scene_to_file(next_room_path)

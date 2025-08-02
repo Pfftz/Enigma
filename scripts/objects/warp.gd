@@ -5,6 +5,7 @@ class_name Warp
 
 @export_file("*.tscn") var target_scene_path: String ## Path to target scene (use Quick Open)
 @export var target_spawn_name: String = "" ## Name of spawn point in target scene (leave empty for first spawn)
+@export var loading_preset: LoadingPreset ## Loading preset for this warp (assign in inspector)
 
 var is_ready: bool = false
 var player_in_area: bool = false
@@ -44,5 +45,14 @@ func _trigger_warp() -> void:
 	# Store spawn info for target scene
 	Global.target_spawn_name = target_spawn_name
 	
-	# Change scene using file path
-	Global.change_scene_to_file(target_scene_path)
+	# Use loading screen if preset is assigned, otherwise instant change
+	if loading_preset:
+		# Use LoadingManager if available, otherwise fallback to Global
+		if has_node("/root/LoadingManager"):
+			get_node("/root/LoadingManager").warp_with_loading(target_scene_path, loading_preset)
+		else:
+			print("LoadingManager not found, using instant scene change")
+			Global.change_scene_to_file(target_scene_path)
+	else:
+		# No loading preset, change scene instantly
+		Global.change_scene_to_file(target_scene_path)

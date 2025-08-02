@@ -16,6 +16,10 @@ extends Node3D
 #
 #==============================================================================
 
+# --- Loading Presets ---
+@export var new_game_loading_preset: LoadingPreset ## Loading preset for new game (assign in inspector)
+@export var continue_loading_preset: LoadingPreset ## Loading preset for continue game (assign in inspector)
+
 # --- Konfigurasi ---
 const READING_CARD_WAIT = 2.5
 
@@ -238,14 +242,23 @@ func _new_game() -> void:
 	# Reset progress
 	GameState.reset_progress()
 	
-	# Add fade transition
-	var fade_node = _create_fade_overlay()
-	var fade_tween = create_tween()
-	fade_tween.tween_property(fade_node, "color:a", 1.0, 0.5)
-	await fade_tween.finished
-	
-	# Change to day 1 scene
-	get_tree().change_scene_to_file("res://scenes/rooms/kamar/day1.tscn")
+	# Use loading screen if preset is assigned
+	if new_game_loading_preset:
+		# Use LoadingManager if available
+		if has_node("/root/LoadingManager"):
+			get_node("/root/LoadingManager").new_game_with_loading("res://scenes/rooms/kamar/day1.tscn", new_game_loading_preset)
+		else:
+			print("LoadingManager not found, using instant scene change")
+			get_tree().change_scene_to_file("res://scenes/rooms/kamar/day1.tscn")
+	else:
+		# No loading preset, use fade effect
+		var fade_node = _create_fade_overlay()
+		var fade_tween = create_tween()
+		fade_tween.tween_property(fade_node, "color:a", 1.0, 0.5)
+		await fade_tween.finished
+		
+		# Change to day 1 scene
+		get_tree().change_scene_to_file("res://scenes/rooms/kamar/day1.tscn")
 
 func _continue_game() -> void:
 	if not game_completed:
@@ -258,13 +271,25 @@ func _continue_game() -> void:
 	# Set current day to 5 for continue
 	GameState.current_day = 5
 	
-	var fade_node = _create_fade_overlay()
-	var fade_tween = create_tween()
-	fade_tween.tween_property(fade_node, "color:a", 1.0, 0.5)
-	await fade_tween.finished
+	var continue_scene = GameState.get_continue_scene()
 	
-	# Load day 5 scene for continue
-	get_tree().change_scene_to_file(GameState.get_continue_scene())
+	# Use loading screen if preset is assigned
+	if continue_loading_preset:
+		# Use LoadingManager if available
+		if has_node("/root/LoadingManager"):
+			get_node("/root/LoadingManager").continue_game_with_loading(continue_scene, continue_loading_preset)
+		else:
+			print("LoadingManager not found, using instant scene change")
+			get_tree().change_scene_to_file(continue_scene)
+	else:
+		# No loading preset, use fade effect
+		var fade_node = _create_fade_overlay()
+		var fade_tween = create_tween()
+		fade_tween.tween_property(fade_node, "color:a", 1.0, 0.5)
+		await fade_tween.finished
+		
+		# Load day 5 scene for continue
+		get_tree().change_scene_to_file(continue_scene)
 
 func _open_settings() -> void:
 	print("Opening settings...")
