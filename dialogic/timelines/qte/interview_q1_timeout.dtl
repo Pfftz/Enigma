@@ -3,5 +3,5 @@ join bananazon_interviewer center
 # Question 1 timeout
 set {interview_score} -= 5
 
-bananazon_interviewer (netral): Baik, saya akan mulai ke pertanyaan mudah
+bananazon_interviewer (netral): Hmm… keheningan yang panjang. Apakah manusia bisa hibernasi singkat?
 [signal arg="timer_end"]

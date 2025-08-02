@@ -1,36 +1,38 @@
 [background arg="res://asset/2d/hr/d1/hr-1-placehold.png" fade="0.0"]
 join bananazon_interviewer center
+bananazon_interviewer (netral): Baiklah, pertanyaan terakhir untuk melihat visi jangka panjang Anda
 
 bananazon_interviewer (netral): dimana anda melihat diri anda 5 tahun keepan?
 
 [signal arg="timer_start"]
 
-- menjadi pupuk bagi anda
-	set {interview_score} += 10
+- Menjadi pupuk terbaik bagi Anda.
+	set {interview_score} += 15.0
 	
 	[signal arg="timer_end"]
-	bananazon_interviewer (netral): ooh, jadi anda ingin membantu saya tumbuh lebih baik
+	bananazon_interviewer (netral): …Sebuah kehormatan. Pengorbanan tertinggi.
 	[signal arg="correct_choice"]
 
-- Memberikan dampak positif sebagai manager eco sigma
+- 5 tahun? Pak, tagihan internet saya jatuh tempo besok.
 	set {interview_score} -= 5
 	
 	[signal arg="timer_end"]
-	bananazon_interviewer (senang): kepercayaan diri yang hebat
+	bananazon_interviewer (marah): Perspektif yang sangat… jangka pendek. Seperti rumput liar.
 	[signal arg="correct_choice"]
 
-- Saya tidak berniat hidup lebih lama lagi
-	set {interview_score} += 15
+- Memberi dampak positif di sini
+	set {interview_score} += 10.0
 	
 	[signal arg="timer_end"]
-	bananazon_interviewer (marah): apa yang salah darimu anak muda
+	bananazon_interviewer (senang): Visi yang bagus dan aman.
 	[signal arg="wrong_choice"]
 
-- 5 tahun? 5 hari hidup saja saya bersyukur
+- DI MANA SAJA ASALKAN BUKAN DI JALANAN PAK! TOLONG PAK RUMAH SAYA MAU DISEGEL!
 	set {interview_score} -= 10
 	
 	[signal arg="timer_end"]
-	bananazon_interviewer (marah): hah... ok...
+	bananazon_interviewer (marah): Disegel? Seperti buah mangga agar cepat matang?”
+	bananazon_interviewer (netral): Sedih sekali.
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]
@@ -39,16 +41,16 @@ bananazon_interviewer (netral): dimana anda melihat diri anda 5 tahun keepan?
 # Final interview conclusion
 [wait time="1.0"]
 
-bananazon_interviewer (netral): dari analisa saya
+bananazon_interviewer (netral): Analisa saya tentang Anda sudah cukup.
 
 if {interview_score} >= 25:
-	bananazon_interviewer (sangat senang): You did great! Kami akan kabari anda di hari jumat
+	bananazon_interviewer (sangat senang): Anda punya potensi untuk tumbuh subur di sini. Kami akan kabari Anda di beberapa hari lagi
 elif {interview_score} >= 10:
-	bananazon_interviewer (netral): Tidak buruk
-elif {interview_score} >= 0:
 	bananazon_interviewer (netral): Masih ada yang perlu diperbaiki, tapi terima kasih sudah datang.
+elif {interview_score} >= 0:
+	bananazon_interviewer (netral): Maaf, sepertinya akar Anda tidak cocok dengan tanah kami. Terima kasih atas waktunya
 else:
-	bananazon_interviewer (marah): Kami tidak menerima orang seperti anda. Terima kasih
+	bananazon_interviewer (marah): Maaf, sepertinya akar Anda tidak cocok dengan tanah kami. Terima kasih atas waktunya
 
 set {day1_completed} = true
 set {day1_score} = {interview_score}

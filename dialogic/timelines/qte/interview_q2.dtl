@@ -1,34 +1,37 @@
 [background arg="res://asset/2d/hr/d1/hr-1-placehold.png" fade="0.0"]
 join bananazon_interviewer center
+bananazon_interviewer (netral): Bagus. Pertanyaan fundamental pertama.
 
-bananazon_interviewer (netral): Kenapa anda tertarik untuk mendaftar ke eco-sigma
+bananazon_interviewer (netral): Kenapa Anda tertarik untuk mendaftar ke Eco Sigma?
 
 [signal arg="timer_start"]
 
-- Karena saya mau membantu melestarikan alam
+- Ingin membantu melestarikan alam.
 	set {interview_score} += 8
 	[signal arg="timer_end"]
-	bananazon_interviewer (senang): Saya suka jawaban anda
+	bananazon_interviewer (senang): Tujuan yang sangat mulia.
 	[signal arg="correct_choice"]
 
-- Saya suka melihat pohon
+- Jujur ya, Pak. Saya udah sebar lamaran ke 50 perusahaan. Bapak yang pertama balas.
 	set {interview_score} -= 3
 	[signal arg="timer_end"]
-	bananazon_interviewer (marah): oh begitu ya...
+	bananazon_interviewer (marah): Statistik yang menyedihkan. Tapi efisien. Anda tidak membuang waktu saya.
 	[signal arg="wrong_choice"]
 
-- saya punya value yang bapak inginkan
+- Saya punya value yang bapak inginkan.
 	set {interview_score} += 12
 	[signal arg="timer_end"]
-	bananazon_interviewer (sangat senang): ah... saya akan catat dan semoga anda benar
+	bananazon_interviewer (sangat senang): Jawaban yang berbobot. Anda fokus pada nilai.
 	[signal arg="correct_choice"]
 
-- butuh duit pak
+- SAYA AKAN LAKUKAN APAPUN PAK! MENYIRAM BAPAK SETIAP HARI JUGA SAYA MAU!
 	set {interview_score} -= 8
 	[signal arg="timer_end"]
-	bananazon_interviewer (marah): ahahah, anda sangat jujur ya
+	bananazon_interviewer (marah): disiram... setiap hari?. Menarik.
+	bananazon_interviewer (netral): Tapi saya harus mengesampingkan keinginan pribadi.
 	[signal arg="wrong_choice"]
-bananazon_interviewer (netral): ok kalau begitu
-bananazon_interviewer (netral): sekarang untuk pertanyaan ketiga
+bananazon_interviewer (netral): Baik. Akar kepribadian Anda cukup kuat.
+bananazon_interviewer (netral): Sekarang, mari kita uji kemampuan kanopi Anda..
+bananazon_interviewer (netral): ..cara Anda melihat gambaran besar dari atas.
 bananazon_interviewer (netral): Berapa jumlah jendela di gedung yang ada di jakarta
 [signal arg="start_bubble_minigame"]
