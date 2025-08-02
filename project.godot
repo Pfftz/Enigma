@@ -40,7 +40,6 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"day4": "res://dialogic/timelines/monolog/day4.dtl",
 "door_confirmation": "res://dialogic/timelines/door_confirmation.dtl",
 "interview_day2_q1": "res://dialogic/timelines/qte/interview_day2_q1.dtl",
 "interview_day2_q1_timeout": "res://dialogic/timelines/qte/interview_day2_q1_timeout.dtl",
@@ -48,7 +47,6 @@ directories/dtl_directory={
 "interview_day2_q2_bubble_result": "res://dialogic/timelines/qte/interview_day2_q2_bubble_result.dtl",
 "interview_day2_q2_timeout": "res://dialogic/timelines/qte/interview_day2_q2_timeout.dtl",
 "interview_day2_q3": "res://dialogic/timelines/qte/interview_day2_q3.dtl",
-"interview_day2_q3_timeout": "res://asset/2d/hr/d5/interview_day2_q3_timeout.dtl",
 "interview_day3_q1": "res://dialogic/timelines/qte/interview_day3_q1.dtl",
 "interview_day3_q1_timeout": "res://dialogic/timelines/qte/interview_day3_q1_timeout.dtl",
 "interview_day3_q2": "res://dialogic/timelines/qte/interview_day3_q2.dtl",
@@ -79,9 +77,11 @@ directories/dtl_directory={
 "monolog/day1": "res://dialogic/timelines/monolog/day1.dtl",
 "monolog/day2": "res://dialogic/timelines/monolog/day2.dtl",
 "monolog/day3": "res://dialogic/timelines/monolog/day3.dtl",
+"monolog/day4": "res://dialogic/timelines/monolog/day4.dtl",
 "monolog/day5": "res://dialogic/timelines/monolog/day5.dtl",
 "monolog/day5-C1": "res://dialogic/timelines/monolog/day5-C1.dtl",
-"monolog/day5-C2": "res://dialogic/timelines/monolog/day5-C2.dtl"
+"monolog/day5-C2": "res://dialogic/timelines/monolog/day5-C2.dtl",
+"qte/interview_day2_q3_timeout": "res://dialogic/timelines/qte/interview_day2_q3_timeout.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=[]
