@@ -7,4 +7,3 @@ set {interview_health} -= 10
 bananazon_interviewer: Baik, saya akan mulai ke pertanyaan mudah
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-jump interview_q2/
