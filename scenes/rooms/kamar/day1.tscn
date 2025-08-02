@@ -172,6 +172,8 @@ script = ExtResource("8_4488h")
 [node name="InteractLabel" type="Label" parent="UI"]
 offset_right = 1153.0
 offset_bottom = 651.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 vertical_alignment = 2
 

@@ -24,7 +24,7 @@ func _on_body_exited(body):
 			
 func show_interact_ui(show: bool):
 	if show:
-		get_tree().call_group("ui", "show_interact_text", "Press F to interact")
+		get_tree().call_group("ui", "show_interact_text", "Tekan \"F\" untuk berinteraksi")
 	else:
 		get_tree().call_group("ui", "hide_interact_text")
 
