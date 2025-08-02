@@ -1,26 +1,26 @@
-[background arg="res://asset/2d/hr/d5/bg-d5.jpg" fade="0.0"]
+[background arg="res://asset/2d/hr/d5/inside-interview.jpg" fade="0.0"]
 join kamu (netral) center
 kamu (netral): MC... sejujurnya, saya tahu ini bukan tawaran yang paling menarik
 kamu (a): Bayaranmu tidak akan jelas disini, dan kerjamu akan extra
 kamu (netral): Kamu lihat sendiri, 'kantor' ini isinya cuma saya seorang
-kamu (a): Kamu adalah pelamar pertama yang benar-benar datang ke kantor kami yang terpencil ini
-kamu (a): . . .
-kamu (netral): Sebelum mendirikan Modern Solution, saya bekerja sebagai project manager di perusahaan bisnis export internasional
+kamu (sedih): Kamu adalah pelamar pertama yang benar-benar datang ke kantor kami yang terpencil ini
+kamu (netral): . . .
+kamu (a): Sebelum mendirikan Modern Solution, saya bekerja sebagai project manager di perusahaan bisnis export internasional
 kamu (a): Pekerjaan bergengsi, stabil, gajinya bagus
-kamu (a): Tapi, saya bekerja disitu bukan karena prestasi saya
+kamu (netral): Tapi, saya bekerja disitu bukan karena prestasi saya
 kamu (a): Melainkan karena CEO-nya adalah ayah saya
 kamu (netral): . . .
-kamu (a): Setiap pujian, setiap bonus... semuanya terasa kosong
-kamu (netral): Saya tidak pernah bisa membedakan, mana pengakuan yang tulus atas kemampuan saya, dan mana yang hanya formalitas karena saya adalah anak pimpinan.
-kamu (a): Di balik senyum mereka, orang-orang selalu berbisik, 'ya wajar, dia kan anak Pak CEO'. Mendengar itu... sangat menyiksa.
+kamu (sedih): Setiap pujian, setiap bonus... semuanya terasa kosong
+kamu (sedih): Saya tidak pernah bisa membedakan, mana pengakuan yang tulus atas kemampuan saya, dan mana yang hanya formalitas karena saya adalah anak pimpinan.
+kamu (netral): Di balik senyum mereka, orang-orang selalu berbisik, 'ya wajar, dia kan anak Pak CEO'. Mendengar itu... sangat menyiksa.
 kamu (netral): ...
-kamu (netral): Modern Solution ini... ini adalah pembuktian sekaligus pemberontakan saya. Makanya, selama beberapa bulan ini, saya fokus membantu digitalisasi warung-warung kecil dan kaki lima di sekitar sini.
+kamu (a): Modern Solution ini... ini adalah pembuktian sekaligus pemberontakan saya. Makanya, selama beberapa bulan ini, saya fokus membantu digitalisasi warung-warung kecil dan kaki lima di sekitar sini.
 kamu (a): Saya ingin membangun portofolio yang membuktikan kalau prestasi itu bukan diukur dari besarnya nilai kontrak, tapi dari seberapa nyata solusi kita bisa membantu usaha mereka.
-kamu (netral): Kepercayaan yang saya dapat dari mereka, itu murni karena kemampuan saya menunjukkan hasil, bukan karena nama belakang saya.
+kamu (a): Kepercayaan yang saya dapat dari mereka, itu murni karena kemampuan saya menunjukkan hasil, bukan karena nama belakang saya.
 kamu (netral): . . .
-kamu (a): Tapi ternyata membangun tempat seperti ini dari nol, apalagi dengan cara seperti itu, jauh lebih sulit dari yang saya bayangkan. Sampai sekarang, saya belum menerima bayaran sepeser pun dari mereka. Akibatnya, saat saya mencoba mendekati klien yang lebih besar, saya sering ditolak dan diremehkan kompetitor.
+kamu (sedih): Tapi ternyata membangun tempat seperti ini dari nol, apalagi dengan cara seperti itu, jauh lebih sulit dari yang saya bayangkan. Sampai sekarang, saya belum menerima bayaran sepeser pun dari mereka. Akibatnya, saat saya mencoba mendekati klien yang lebih besar, saya sering ditolak dan diremehkan kompetitor.
 kamu (netral): Dan yang paling sulit...
-kamu (a): ...adalah meyakinkan orang bertalenta sepertimu, yang punya banyak pilihan, untuk mau mempertimbangkan bergabung dengan tempat yang bahkan belum menghasilkan ini... itu rasanya seperti sebuah kemewahan yang luar biasa.
+kamu (senang): ...adalah meyakinkan orang bertalenta sepertimu, yang punya banyak pilihan, untuk mau mempertimbangkan bergabung dengan tempat yang bahkan belum menghasilkan ini... itu rasanya seperti sebuah kemewahan yang luar biasa.
 join character (normal) center
 character (normal): Kalau boleh tahu ayah ibu siapa yaa?
 kamu (a): Ayahku?

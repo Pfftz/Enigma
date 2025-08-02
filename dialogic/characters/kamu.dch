@@ -46,6 +46,16 @@
 "scene": "",
 "sound_mood": "Mood 1"
 },
+"sedih": {
+"export_overrides": {
+"image": "\"res://asset/2d/hr/d5/sedih.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "",
+"sound_mood": "Mood 1"
+},
 "senang": {
 "export_overrides": {
 "image": "\"res://asset/2d/hr/d5/senang.png\""
