@@ -31,7 +31,7 @@
 "image": "\"res://asset/2d/hr/d1/dgn meja/kecewa.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 15),
+"offset": Vector2(0, -15),
 "scale": 1.0,
 "scene": "",
 "sound_mood": "Mood 1"
@@ -52,7 +52,7 @@
 "image": "\"res://asset/2d/hr/d1/dgn meja/senang bgt.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 15),
+"offset": Vector2(0, -15),
 "scale": 1.0,
 "scene": "",
 "sound_mood": "Mood 1"
@@ -62,7 +62,7 @@
 "image": "\"res://asset/2d/hr/d1/dgn meja/senang.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 15),
+"offset": Vector2(0, -15),
 "scale": 1,
 "scene": "",
 "sound_mood": "Mood 1"
