@@ -14,5 +14,5 @@ character: "Are you sure you want to go outside?"
 		[signal arg="door_no"]
 		character: "Well, you can't stay here forever..."
 		character: "Time to go outside whether you like it or not!"
-		[signal arg="door_yes"]
+		[signal arg="door_force_teleport"]
 leave character="" 0

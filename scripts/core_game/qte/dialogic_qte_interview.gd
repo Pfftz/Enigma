@@ -2,7 +2,7 @@ extends Control
 
 class_name DialogicQTEManager
 
-var BubbleGameScene = preload("res://scenes/core_game/main.tscn") # <-- Sesuaikan path ini
+# Dynamic bubble scene loading - no longer need single preload
 var bubble_game_instance = null
 
 # UI References from original QTE scene
@@ -44,11 +44,40 @@ var current_question: int = 1 # Track which question we're currently on
 var total_score: int = 0
 var game_over: bool = false
 var timeline_in_progress: bool = false # Prevent multiple timeline executions
+var day5_bubble_counter: int = 0 # Track which bubble scene to use for day 5
 
 # Signals
 signal interview_day_completed(day: int, score: int)
 signal all_interviews_completed(final_score: int)
 signal player_kicked_out(day: int) # New signal for game over
+
+# Function to get the correct bubble scene path based on day and question
+func get_bubble_scene_path() -> String:
+	match current_day:
+		1:
+			return "res://scenes/core_game/main.tscn"
+		2:
+			return "res://scenes/core_game/main2.tscn"
+		3:
+			return "res://scenes/core_game/main3.tscn"
+		4:
+			return "res://scenes/core_game/main4.tscn"
+		5:
+			# Day 5 has 3 different bubble scenes
+			day5_bubble_counter += 1
+			match day5_bubble_counter:
+				1:
+					return "res://scenes/core_game/main5_1.tscn"
+				2:
+					return "res://scenes/core_game/main5_2.tscn"
+				3:
+					return "res://scenes/core_game/main5_3.tscn"
+				_:
+					# Fallback to first scene if counter exceeds 3
+					return "res://scenes/core_game/main5_1.tscn"
+		_:
+			# Fallback for any unexpected day
+			return "res://scenes/core_game/main.tscn"
 
 func _ready() -> void:
 	# 2. Siapkan UI awal
@@ -103,6 +132,10 @@ func start_interview_day(day: int) -> void:
 	
 	current_day = day
 	current_question = 1 # Reset question counter for new day
+	
+	# Reset day 5 bubble counter when starting a new day
+	if day == 5:
+		day5_bubble_counter = 0
 	
 	# Update UI for current day
 	day_label.text = "DAY " + str(day)
@@ -321,7 +354,17 @@ func start_bubble_minigame():
 	if dialog_node:
 		dialog_node.visible = false
 
-	bubble_game_instance = BubbleGameScene.instantiate()
+	# Get the correct bubble scene for current day
+	var scene_path = get_bubble_scene_path()
+	print("DEBUG: Loading bubble scene for Day ", current_day, ": ", scene_path)
+	var bubble_scene = load(scene_path)
+	
+	if bubble_scene == null:
+		print("ERROR: Could not load bubble scene: ", scene_path)
+		waiting_for_bubble_result = false
+		return
+	
+	bubble_game_instance = bubble_scene.instantiate()
 	add_child(bubble_game_instance)
 
 	# Hubungkan sinyal dari minigame ke fungsi di skrip ini

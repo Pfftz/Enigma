@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_ctt0g"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_mkbd2"]
 [ext_resource type="Script" uid="uid://dski5h0754pa3" path="res://scripts/objects/interact/interact_laptop.gd" id="6_fh1go"]
-[ext_resource type="Script" path="res://scripts/ui/laptop f untuk interaksi.gd" id="7_fh1go"]
+[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="7_fh1go"]
 [ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="8_nbk78"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]

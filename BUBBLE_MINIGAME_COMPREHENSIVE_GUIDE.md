@@ -5,12 +5,13 @@
 1. [Overview](#overview)
 2. [Game Mechanics](#game-mechanics)
 3. [Scoring System](#scoring-system)
-4. [Integration with Interview Flow](#integration-with-interview-flow)
-5. [Timeline Structure](#timeline-structure)
-6. [Day 1 Complete Flow Example](#day-1-complete-flow-example)
-7. [Technical Implementation](#technical-implementation)
-8. [Debugging and Troubleshooting](#debugging-and-troubleshooting)
-9. [Customization Guide](#customization-guide)
+4. [Multi-Scene System](#multi-scene-system)
+5. [Integration with Interview Flow](#integration-with-interview-flow)
+6. [Timeline Structure](#timeline-structure)
+7. [Day-Specific Variations](#day-specific-variations)
+8. [Technical Implementation](#technical-implementation)
+9. [Debugging and Troubleshooting](#debugging-and-troubleshooting)
+10. [Customization Guide](#customization-guide)
 
 ## Overview
 
@@ -21,6 +22,7 @@ The Bubble Minigame is an "intrusive thought" mechanic integrated into the inter
 -   **Narrative Purpose**: Simulates dealing with intrusive thoughts during stressful interviews
 -   **Gameplay Impact**: Score affects dialogue choices and character responses
 -   **Integration**: Seamlessly embedded between question 2 and question 3 of each interview day
+-   **Multi-Scene System**: Different bubble scenes for each day with unique configurations
 
 ## Game Mechanics
 
@@ -92,6 +94,86 @@ if score >= ultimate_score_threshold and not is_ultimate_triggered:
 ultimate_spam_count: int = 15
 ```
 
+## Multi-Scene System
+
+### Scene Architecture
+
+The bubble minigame uses different scene files for each interview day, allowing for unique configurations, difficulty progressions, and visual variations per day.
+
+#### Scene Mapping
+
+```
+Day 1: res://scenes/core_game/main.tscn
+Day 2: res://scenes/core_game/main2.tscn
+Day 3: res://scenes/core_game/main3.tscn
+Day 4: res://scenes/core_game/main4.tscn
+Day 5: res://scenes/core_game/main5_1.tscn (1st bubble)
+Day 5: res://scenes/core_game/main5_2.tscn (2nd bubble)
+Day 5: res://scenes/core_game/main5_3.tscn (3rd bubble)
+```
+
+#### Dynamic Scene Loading
+
+The system automatically selects the correct scene based on the current interview day:
+
+```gdscript
+# Function to get the correct bubble scene path
+func get_bubble_scene_path() -> String:
+    match current_day:
+        1: return "res://scenes/core_game/main.tscn"
+        2: return "res://scenes/core_game/main2.tscn"
+        3: return "res://scenes/core_game/main3.tscn"
+        4: return "res://scenes/core_game/main4.tscn"
+        5:
+            # Day 5 has 3 different bubble scenes
+            day5_bubble_counter += 1
+            match day5_bubble_counter:
+                1: return "res://scenes/core_game/main5_1.tscn"
+                2: return "res://scenes/core_game/main5_2.tscn"
+                3: return "res://scenes/core_game/main5_3.tscn"
+```
+
+### Day 5 Special Mechanics
+
+Day 5 interviews include **three separate bubble minigames** during the interview:
+
+1. **First Bubble** (main5_1.tscn): After Question 1
+2. **Second Bubble** (main5_2.tscn): After Question 2
+3. **Third Bubble** (main5_3.tscn): After Question 3
+
+The system tracks which bubble scene to use via `day5_bubble_counter` which resets when Day 5 begins.
+
+### Scene Configuration Examples
+
+Each scene can have unique settings in the Godot editor:
+
+#### Day 1 (main.tscn) - Tutorial Level
+
+```gdscript
+number_of_bubbles = 6
+trap_chance = 0.25
+bubble_replace_interval = 2.0
+gameplay_duration = 20.0
+```
+
+#### Day 2 (main2.tscn) - Intermediate
+
+```gdscript
+number_of_bubbles = 6
+trap_chance = 0.35
+bubble_replace_interval = 1.8
+gameplay_duration = 20.0
+```
+
+#### Day 4 (main4.tscn) - Advanced
+
+```gdscript
+number_of_bubbles = 8
+trap_chance = 0.45
+bubble_replace_interval = 1.5
+gameplay_duration = 18.0
+```
+
 ## Integration with Interview Flow
 
 ### Standard Interview Sequence (All Days)
@@ -107,23 +189,53 @@ ultimate_spam_count: int = 15
 ### Signal Flow
 
 ```gdscript
-# In question timeline (.dtl file)
+# In question timeline (.dtl file) - SAME FOR ALL DAYS
 [signal arg="start_bubble_minigame"]
 
-# In DialogicQTEManager
+# In DialogicQTEManager - Automatic scene selection
 func _on_dialogic_signal(argument: String):
     match argument:
         "start_bubble_minigame":
-            start_bubble_minigame()
+            start_bubble_minigame() # Automatically loads correct scene
 
-# In bubble minigame (main.gd)
+# Dynamic scene loading based on current day
+func start_bubble_minigame():
+    var scene_path = get_bubble_scene_path()
+    var bubble_scene = load(scene_path)
+    bubble_game_instance = bubble_scene.instantiate()
+
+# In bubble minigame (main.gd) - SAME FOR ALL SCENES
 minigame_completed.emit(final_score)
 
 # Back in DialogicQTEManager
 func _on_bubble_minigame_completed(minigame_score: int):
     bubble_minigame_score = minigame_score
-    Dialogic.VAR.set('bubble_score', bubble_minigame_score)
     # Start result timeline based on score
+```
+
+### Timeline Usage
+
+**Important**: All timeline files continue to use the same signal regardless of day:
+
+```dialogic
+# This works for ALL days - no changes needed to existing timelines
+[signal arg="start_bubble_minigame"]
+```
+
+The system automatically detects which day is active and loads the appropriate scene.
+"start_bubble_minigame":
+start_bubble_minigame()
+
+# In bubble minigame (main.gd)
+
+minigame_completed.emit(final_score)
+
+# Back in DialogicQTEManager
+
+func \_on_bubble_minigame_completed(minigame_score: int):
+bubble_minigame_score = minigame_score
+Dialogic.VAR.set('bubble_score', bubble_minigame_score) # Start result timeline based on score
+
 ```
 
 ## Timeline Structure
@@ -131,11 +243,13 @@ func _on_bubble_minigame_completed(minigame_score: int):
 ### File Naming Convention
 
 ```
-interview_q2.dtl                    # Question 2 (triggers bubble minigame)
-interview_q2_bubble_result.dtl      # Question 2 result (conditional)
-interview_day2_q2.dtl              # Day 2 Question 2
+
+interview_q2.dtl # Question 2 (triggers bubble minigame)
+interview_q2_bubble_result.dtl # Question 2 result (conditional)
+interview_day2_q2.dtl # Day 2 Question 2
 interview_day2_q2_bubble_result.dtl # Day 2 Question 2 result
-```
+
+````
 
 ### Conditional Response Structure
 
@@ -155,7 +269,113 @@ else:
 [wait time="1.0"]
 [signal arg="update_ui"]
 [signal arg="next_question"]
+````
+
+## Day-Specific Variations
+
+### Recommended Scene Configurations
+
+Each day's bubble scene can be configured with unique settings to create a progression of difficulty and narrative tension:
+
+#### Day 1: Introduction (main.tscn)
+
+```gdscript
+# Tutorial-friendly settings
+positive_thoughts = ["BISA", "OKAY", "KUAT", "MAJU", "RELAX", "FOKUS", "SABAR", "TENANG"]
+trap_thoughts = ["RAGU", "LEMAH", "TAKUT", "KALAH", "GUSAR", "PUTUS", "BICIK"]
+number_of_bubbles = 6
+trap_chance = 0.25        # 25% trap bubbles
+gameplay_duration = 20.0   # Full 20 seconds
+bubble_replace_interval = 2.0  # Slower replacement
 ```
+
+#### Day 2: Building Pressure (main2.tscn)
+
+```gdscript
+# Slightly increased difficulty
+number_of_bubbles = 6
+trap_chance = 0.35        # 35% trap bubbles
+gameplay_duration = 20.0
+bubble_replace_interval = 1.8  # Faster replacement
+```
+
+#### Day 3: Mid-Point Crisis (main3.tscn)
+
+```gdscript
+# Moderate challenge
+positive_thoughts = ["KREATIF", "INOVASI", "VISI", "SENI", "INSPIRASI", "MIMPI"]
+trap_thoughts = ["GAGAL", "BIASA", "KOSONG", "HAMPA", "STUCK", "BUNTU"]
+number_of_bubbles = 7
+trap_chance = 0.40
+gameplay_duration = 18.0   # Reduced time
+bubble_replace_interval = 1.6
+```
+
+#### Day 4: High Stakes (main4.tscn)
+
+```gdscript
+# Challenging settings
+number_of_bubbles = 8
+trap_chance = 0.45        # 45% trap bubbles
+gameplay_duration = 18.0
+bubble_replace_interval = 1.4  # Fast replacement
+min_pop_respawn_delay = 1.0
+max_pop_respawn_delay = 2.0
+```
+
+#### Day 5: Final Challenge (main5_1.tscn, main5_2.tscn, main5_3.tscn)
+
+**Scene 1 (main5_1.tscn)**: Overwhelming start
+
+```gdscript
+number_of_bubbles = 8
+trap_chance = 0.50        # 50% trap bubbles
+gameplay_duration = 16.0   # Shorter duration
+bubble_replace_interval = 1.2
+```
+
+**Scene 2 (main5_2.tscn)**: Peak difficulty
+
+```gdscript
+number_of_bubbles = 9
+trap_chance = 0.55
+gameplay_duration = 15.0   # Even shorter
+bubble_replace_interval = 1.0
+```
+
+**Scene 3 (main5_3.tscn)**: Final test
+
+```gdscript
+number_of_bubbles = 10
+trap_chance = 0.60        # 60% trap bubbles
+gameplay_duration = 14.0   # Shortest duration
+bubble_replace_interval = 0.8  # Fastest replacement
+```
+
+### Thematic Word Variations
+
+You can customize the word sets for each company/day:
+
+#### Day 1: Bananazon (Environmental)
+
+```gdscript
+positive_thoughts = ["HIJAU", "BERSIH", "ALAM", "SEHAT", "LESTARI", "DAUR", "HEMAT", "RAMAH"]
+trap_thoughts = ["POLUSI", "LIMBAH", "RUSAK", "KOTOR", "HABIS", "BUANG", "BOROS", "RACUN"]
+```
+
+#### Day 2: TechCorp (Technology)
+
+```gdscript
+positive_thoughts = ["INOVASI", "DIGITAL", "SMART", "CLOUD", "DATA", "AI", "CODE", "TECH"]
+trap_thoughts = ["LAG", "ERROR", "CRASH", "VIRUS", "HACK", "SPAM", "GLITCH", "OFFLINE"]
+```
+
+### Implementation Steps
+
+1. **Create Scene Variants**: Duplicate `main.tscn` to create `main2.tscn`, `main3.tscn`, etc.
+2. **Configure Settings**: Adjust the exported variables in each scene's Inspector
+3. **Test Progression**: Ensure difficulty scales appropriately
+4. **No Timeline Changes**: Existing `.dtl` files work unchanged
 
 ## Day 1 Complete Flow Example
 
@@ -256,50 +476,98 @@ set {day1_score} = {interview_score}
 
 ## Technical Implementation
 
-### Key Classes and Files
+### Multi-Scene Architecture
 
 #### 1. DialogicQTEManager (`scripts/core_game/qte/dialogic_qte_interview.gd`)
 
-```gdscript
-# Core variables
-var bubble_minigame_score: int = 0
-var waiting_for_bubble_result: bool = false
-var timeline_in_progress: bool = false
+**Updated Core Variables:**
 
-# Key functions
-func start_bubble_minigame()
+```gdscript
+# Dynamic scene loading - no more single preload
+var bubble_game_instance = null
+var day5_bubble_counter: int = 0  # Track Day 5 bubble sequence
+
+# Key functions for multi-scene system
+func get_bubble_scene_path() -> String  # NEW: Dynamic scene selection
+func start_bubble_minigame()            # UPDATED: Uses dynamic loading
 func _on_bubble_minigame_completed(minigame_score: int)
 func _on_dialogic_signal(argument: String)
 ```
 
-#### 2. Bubble Minigame (`scripts/core_game/main.gd`)
+**Dynamic Scene Selection Logic:**
 
 ```gdscript
-# Core variables
-var positive_words = ["BISA", "OKAY", "KUAT", ...]
-var trap_words = ["RAGU", "LEMAH", "TAKUT", ...]
-var score = 0
-var gameplay_duration: float = 20.0
-
-# Key functions
-func start_new_game()
-func handle_typing(event)
-func game_over()
+func get_bubble_scene_path() -> String:
+    match current_day:
+        1: return "res://scenes/core_game/main.tscn"
+        2: return "res://scenes/core_game/main2.tscn"
+        3: return "res://scenes/core_game/main3.tscn"
+        4: return "res://scenes/core_game/main4.tscn"
+        5:
+            day5_bubble_counter += 1
+            match day5_bubble_counter:
+                1: return "res://scenes/core_game/main5_1.tscn"
+                2: return "res://scenes/core_game/main5_2.tscn"
+                3: return "res://scenes/core_game/main5_3.tscn"
 ```
+
+**Updated Minigame Start Function:**
+
+```gdscript
+func start_bubble_minigame():
+    # Get the correct scene for current day
+    var scene_path = get_bubble_scene_path()
+    var bubble_scene = load(scene_path)
+    bubble_game_instance = bubble_scene.instantiate()
+    add_child(bubble_game_instance)
+    bubble_game_instance.minigame_completed.connect(_on_bubble_minigame_completed)
+```
+
+#### 2. Bubble Minigame Scenes
+
+**Shared Script:** All scenes use the same `scripts/core_game/main.gd`
+
+**Per-Scene Configuration (Inspector Settings):**
+
+```gdscript
+# Configurable via Godot Inspector for each scene
+@export var positive_thoughts: Array[String]
+@export var trap_thoughts: Array[String]
+@export var number_of_bubbles: int = 6
+@export var trap_chance: float = 0.25
+@export var gameplay_duration: float = 20.0
+@export var bubble_replace_interval: float = 2.0
+```
+
+**Scene Files:**
+
+-   `main.tscn` → Day 1 configuration
+-   `main2.tscn` → Day 2 configuration
+-   `main3.tscn` → Day 3 configuration
+-   `main4.tscn` → Day 4 configuration
+-   `main5_1.tscn` → Day 5, First bubble
+-   `main5_2.tscn` → Day 5, Second bubble
+-   `main5_3.tscn` → Day 5, Third bubble
 
 #### 3. Individual Bubbles (`scripts/core_game/bubble.gd`)
 
+**Unchanged:** Bubble behavior remains consistent across all scenes
+
 ```gdscript
-# Bubble behavior
 var positive_affirmation: String
 func setup(word: String)
 func play_typing_feedback()
+signal popped(position: Vector2)
+```
+
 func pop()
+
 ```
 
 ### Scene Structure
 
 ```
+
 main.tscn (Bubble Minigame Scene)
 ├── GameStatusLabel (Instructions/countdown)
 ├── ScoreLabel (Current score display)
@@ -314,7 +582,8 @@ bubble.tscn (Individual Bubble)
 ├── AnimationPlayer (Typing feedback)
 ├── GPUParticles2D (Pop effects)
 └── AudioStreamPlayer2D (Sound effects)
-```
+
+````
 
 ## Debugging and Troubleshooting
 
@@ -329,7 +598,7 @@ bubble.tscn (Individual Bubble)
 # Ensure flag is cleared after completion
 timeline_in_progress = false
 waiting_for_bubble_result = false
-```
+````
 
 #### 2. Score Not Transferring
 
@@ -462,3 +731,52 @@ else:
 The Bubble Minigame system creates a unique psychological gameplay element that directly impacts narrative outcomes. By simulating the challenge of managing intrusive thoughts during stressful situations, it adds depth to the interview experience while maintaining seamless integration with the overall QTE system.
 
 The system is robust, well-documented, and easily customizable for different difficulty levels or narrative themes. Its modular design allows for easy expansion and modification while maintaining stability and performance.
+
+---
+
+## Quick Setup Guide for Multi-Scene System
+
+### For Developers
+
+1. **Create Scene Variants**:
+
+    ```
+    - Duplicate main.tscn → main2.tscn, main3.tscn, main4.tscn
+    - Create main5_1.tscn, main5_2.tscn, main5_3.tscn for Day 5
+    ```
+
+2. **Configure Each Scene**:
+
+    - Open each scene in Godot Editor
+    - Select the root node (main/main2)
+    - Adjust exported variables in Inspector:
+        - `number_of_bubbles`
+        - `trap_chance`
+        - `gameplay_duration`
+        - `bubble_replace_interval`
+        - `positive_thoughts` array
+        - `trap_thoughts` array
+
+3. **Test the System**:
+    - All existing timeline files work unchanged
+    - Use `[signal arg="start_bubble_minigame"]` in any `.dtl` file
+    - Debug output shows which scene is loaded: `"Loading bubble scene for Day X: path"`
+
+### For Timeline Authors
+
+**No changes required!** Continue using:
+
+```dialogic
+[signal arg="start_bubble_minigame"]
+```
+
+The system automatically detects the current day and loads the appropriate scene.
+
+### Benefits of This Approach
+
+-   ✅ **No timeline changes needed** - existing `.dtl` files work unchanged
+-   ✅ **Centralized logic** - scene selection handled in one place
+-   ✅ **Easy to extend** - add new days by creating new scenes
+-   ✅ **Per-day customization** - each scene can have unique settings
+-   ✅ **Day 5 multi-bubble support** - automatic sequencing for complex interviews
+-   ✅ **Maintainable** - one signal type, automatic routing
