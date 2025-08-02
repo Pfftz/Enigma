@@ -1,34 +1,34 @@
 [background arg="res://asset/2d/hr/d1/hr-1-placehold.png" fade="0.0"]
 join bananazon_interviewer center
 
-bananazon_interviewer: Kenapa anda tertarik untuk mendaftar ke eco-sigma
+bananazon_interviewer (netral): Kenapa anda tertarik untuk mendaftar ke eco-sigma
 
 [signal arg="timer_start"]
 
 - Karena saya mau membantu melestarikan alam
 	set {interview_score} += 8
 	[signal arg="timer_end"]
-	bananazon_interviewer: Saya suka jawaban anda
+	bananazon_interviewer (senang): Saya suka jawaban anda
 	[signal arg="correct_choice"]
 
 - Saya suka melihat pohon
 	set {interview_score} -= 3
 	[signal arg="timer_end"]
-	bananazon_interviewer: oh begitu ya...
+	bananazon_interviewer (marah): oh begitu ya...
 	[signal arg="wrong_choice"]
 
 - saya punya value yang bapak inginkan
 	set {interview_score} += 12
 	[signal arg="timer_end"]
-	bananazon_interviewer: ah... saya akan catat dan semoga anda benar
+	bananazon_interviewer (sangat senang): ah... saya akan catat dan semoga anda benar
 	[signal arg="correct_choice"]
 
 - butuh duit pak
 	set {interview_score} -= 8
 	[signal arg="timer_end"]
-	bananazon_interviewer: ahahah, anda sangat jujur ya
+	bananazon_interviewer (marah): ahahah, anda sangat jujur ya
 	[signal arg="wrong_choice"]
-bananazon_interviewer: ok kalau begitu
-bananazon_interviewer: sekarang untuk pertanyaan ketiga
-bananazon_interviewer: Berapa jumlah jendela di gedung yang ada di jakarta
+bananazon_interviewer (netral): ok kalau begitu
+bananazon_interviewer (netral): sekarang untuk pertanyaan ketiga
+bananazon_interviewer (netral): Berapa jumlah jendela di gedung yang ada di jakarta
 [signal arg="start_bubble_minigame"]

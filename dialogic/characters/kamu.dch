@@ -21,7 +21,7 @@
 },
 &"default_portrait": "netral",
 &"description": "hr, mosu",
-&"display_name": "mosu_interviewer",
+&"display_name": "asep",
 &"mirror": false,
 &"nicknames": ["mosu"],
 &"offset": Vector2(0, 0),
@@ -46,6 +46,24 @@
 "scene": "",
 "sound_mood": "Mood 1"
 },
+"no-paper": {
+"export_overrides": {
+"image": "\"res://asset/2d/hr/d5/setengah-nopaper.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"paper": {
+"export_overrides": {
+"image": "\"res://asset/2d/hr/d5/setengah-paper.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
 "sedih": {
 "export_overrides": {
 "image": "\"res://asset/2d/hr/d5/sedih.png\""
@@ -67,5 +85,5 @@
 "sound_mood": "Mood 1"
 }
 },
-&"scale": 1.0
+&"scale": 0.8
 }

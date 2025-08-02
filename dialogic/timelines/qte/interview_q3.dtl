@@ -1,36 +1,36 @@
 [background arg="res://asset/2d/hr/d1/hr-1-placehold.png" fade="0.0"]
 join bananazon_interviewer center
 
-bananazon_interviewer: dimana anda melihat diri anda 5 tahun keepan?
+bananazon_interviewer (netral): dimana anda melihat diri anda 5 tahun keepan?
 
 [signal arg="timer_start"]
 
 - menjadi pupuk bagi anda
 	set {interview_score} += 10
-
+	
 	[signal arg="timer_end"]
-	bananazon_interviewer: ooh, jadi anda ingin membantu saya tumbuh lebih baik
+	bananazon_interviewer (netral): ooh, jadi anda ingin membantu saya tumbuh lebih baik
 	[signal arg="correct_choice"]
 
-- Memberikan dampak positif sebagai manager Boogle
+- Memberikan dampak positif sebagai manager eco sigma
 	set {interview_score} -= 5
-
+	
 	[signal arg="timer_end"]
-	bananazon_interviewer: kepercayaan diri yang hebat
+	bananazon_interviewer (senang): kepercayaan diri yang hebat
 	[signal arg="correct_choice"]
 
 - Saya tidak berniat hidup lebih lama lagi
 	set {interview_score} += 15
-
+	
 	[signal arg="timer_end"]
-	bananazon_interviewer: apa yang salah darimu anak muda
+	bananazon_interviewer (marah): apa yang salah darimu anak muda
 	[signal arg="wrong_choice"]
 
 - 5 tahun? 5 hari hidup saja saya bersyukur
 	set {interview_score} -= 10
-
+	
 	[signal arg="timer_end"]
-	bananazon_interviewer: hah... ok...
+	bananazon_interviewer (marah): hah... ok...
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]
@@ -39,16 +39,16 @@ bananazon_interviewer: dimana anda melihat diri anda 5 tahun keepan?
 # Final interview conclusion
 [wait time="1.0"]
 
-bananazon_interviewer: dari analisa saya
+bananazon_interviewer (netral): dari analisa saya
 
 if {interview_score} >= 25:
-	bananazon_interviewer: You did great! Kami akan kabari anda di hari jumat
+	bananazon_interviewer (sangat senang): You did great! Kami akan kabari anda di hari jumat
 elif {interview_score} >= 10:
-	bananazon_interviewer: Tidak buruk
+	bananazon_interviewer (netral): Tidak buruk
 elif {interview_score} >= 0:
-	bananazon_interviewer: Masih ada yang perlu diperbaiki, tapi terima kasih sudah datang.
+	bananazon_interviewer (netral): Masih ada yang perlu diperbaiki, tapi terima kasih sudah datang.
 else:
-	bananazon_interviewer: Kami tidak menerima orang seperti anda. Terima kasih
+	bananazon_interviewer (marah): Kami tidak menerima orang seperti anda. Terima kasih
 
 set {day1_completed} = true
 set {day1_score} = {interview_score}
