@@ -6,22 +6,12 @@
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {
-"normal": {
+"Mood 1": {
 "mode": 0,
-"name": "normal",
+"name": "Mood 1",
 "pitch_base": 1.0,
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
-"sound_path": "res://asset/sound/dialog/dialogue_MC.wav",
-"volume_base": 0.0,
-"volume_variance": 0.0
-},
-"pelan": {
-"mode": 0,
-"name": "pelan",
-"pitch_base": 1.0,
-"pitch_variance": 0.0,
-"skip_characters": 10.0,
 "sound_path": "res://asset/sound/dialog/dialogue_MC.wav",
 "volume_base": 0.0,
 "volume_variance": 0.0
@@ -44,7 +34,7 @@
 "offset": Vector2(0, 0),
 "scale": 1.0,
 "scene": "",
-"sound_mood": "pelan"
+"sound_mood": "Mood 1"
 },
 "normal": {
 "export_overrides": {
@@ -54,7 +44,7 @@
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": "",
-"sound_mood": "normal"
+"sound_mood": "Mood 1"
 }
 },
 &"scale": 1.0
