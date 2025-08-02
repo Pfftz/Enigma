@@ -1,3 +1,4 @@
+[background arg="res://asset/2d/hr/d1/hr-1-placehold.png" fade="0.0"]
 join bananazon_interviewer center
 
 # Check bubble minigame score to determine choice
@@ -19,3 +20,4 @@ else:
 [wait time="1.0"]
 [signal arg="update_ui"]
 [signal arg="next_question"]
+jump interview_q3/
