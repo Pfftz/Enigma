@@ -28,14 +28,24 @@ func _ready():
 
 func _on_in_area(inside: bool):
 	# Handle when player enters/exits the interaction area
-	if not inside and is_textbox_open:
-		# Player left area while textbox is open - close it
-		_force_close_textbox()
+	if inside:
+		# Show interaction prompt when player enters area
+		get_tree().call_group("ui", "show_interact_text", "Press F to interact")
+	else:
+		# Hide interaction prompt when player leaves area
+		get_tree().call_group("ui", "hide_interact_text")
+		
+		if is_textbox_open:
+			# Player left area while textbox is open - close it
+			_force_close_textbox()
 
 func _on_triggered():
 	# Handle when the interaction is triggered
 	if has_interacted:
 		return # Prevent multiple interactions
+	
+	# Hide interaction prompt when interaction starts
+	get_tree().call_group("ui", "hide_interact_text")
 	
 	if not is_textbox_open:
 		# Start the confirmation timeline
@@ -87,6 +97,9 @@ func _delete_collision_and_finish():
 	"""Delete collision to reveal warp behind door without teleporting"""
 	has_interacted = true
 	
+	# Hide interaction prompt since interaction is now disabled
+	get_tree().call_group("ui", "hide_interact_text")
+	
 	# Delete collision if configured
 	if delete_collision_on_interact and door_collision:
 		door_collision.disabled = true
@@ -100,6 +113,9 @@ func _delete_collision_and_finish():
 func _perform_teleport():
 	"""Teleport player to the target scene"""
 	has_interacted = true
+	
+	# Hide interaction prompt since we're teleporting
+	get_tree().call_group("ui", "hide_interact_text")
 	
 	# Delete collision if configured
 	if delete_collision_on_interact and door_collision:

@@ -443,8 +443,8 @@ func _on_bubble_minigame_completed(minigame_score: int):
 	
 	if timeline_name != "":
 		print("DEBUG: Starting timeline: ", timeline_name)
-		# Wait a brief moment to ensure the minigame is fully cleaned up
-		await get_tree().create_timer(0.2).timeout
+		# Reduced wait time to minimize delay between minigame and result
+		await get_tree().create_timer(0.1).timeout
 		Dialogic.start(timeline_name)
 	else:
 		print("No timeline found for day ", current_day, " question ", current_question)
@@ -467,8 +467,7 @@ func _on_timeline_ended() -> void:
 	print("DEBUG: Timeline ended, proceeding to next question or results...")
 	print("DEBUG: Current question:", current_question, " Current day:", current_day)
 	
-	await get_tree().create_timer(1.0).timeout
-
+	# Remove the unnecessary delay - proceed immediately
 	# Check if we need to move to next question or show results
 	if current_question < 3:
 		print("DEBUG: Moving to question ", current_question + 1)
@@ -492,18 +491,14 @@ func show_interview_results() -> void:
 	completion_message += "Score this day: " + str(day_score)
 	print(completion_message)
 	
-	# Wait before proceeding (only if still in tree)
-	if is_inside_tree():
-		await get_tree().create_timer(2.0).timeout
+	# Mark this day's interview as completed
+	GameState.mark_interview_completed(current_day)
 	
-	# DIUBAH TOTAL:
-	# Hapus `GameState.advance_to_next_day()`
-	# Sekarang kita kembali ke kamar di HARI YANG SAMA
+	# No delay - instant transition
 	if current_day < 5:
 		var current_room_path = GameState.get_current_room_scene()
 		get_tree().change_scene_to_file(current_room_path)
 	else:
-		# Jika ini hari terakhir, jalankan logika penyelesaian
 		complete_all_interviews()
 
 func complete_all_interviews() -> void:

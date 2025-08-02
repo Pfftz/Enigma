@@ -19,12 +19,22 @@ func _ready():
 
 func _on_in_area(inside: bool):
 	# Handle when player enters/exits the interaction area
-	if not inside and is_textbox_open:
-		# Player left area while textbox is open - close it with sound
-		_force_close_textbox()
+	if inside:
+		# Show interaction prompt when player enters area
+		get_tree().call_group("ui", "show_interact_text", "Press F to interact")
+	else:
+		# Hide interaction prompt when player leaves area
+		get_tree().call_group("ui", "hide_interact_text")
+		
+		if is_textbox_open:
+			# Player left area while textbox is open - close it with sound
+			_force_close_textbox()
 
 func _on_triggered():
 	# Handle when the interaction is triggered
+	# Hide interaction prompt when interaction starts
+	get_tree().call_group("ui", "hide_interact_text")
+	
 	if not is_textbox_open:
 		# Only create textbox if one isn't already open
 		dialogue_started.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtk6he8atg17p"]
+[gd_scene load_steps=17 format=3 uid="uid://dtk6he8atg17p"]
 
 [ext_resource type="ArrayMesh" uid="uid://cl3honuhs7ip0" path="res://asset/3d/room/under_nmp/anna_office.obj" id="3_jxg7d"]
 [ext_resource type="Texture2D" uid="uid://do71k7dm1xbsi" path="res://asset/3d/room/under_nmp/office_placeholder.png" id="5_pi22m"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://vth0ydbdcwng" path="res://scenes/objects/interactive/phone.tscn" id="15_3bmv8"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="17_ysbwa"]
 [ext_resource type="Script" uid="uid://df0qpljsc040u" path="res://scripts/objects/spawn.gd" id="19_u5aud"]
+[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="20_ui"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sf7hl"]
 render_priority = 0
@@ -120,3 +121,12 @@ player_direction = 3
 [node name="EnvironmentManager" type="Node3D" parent="."]
 script = ExtResource("12_hn1em")
 environment_settings = ExtResource("13_j5o2k")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("20_ui")
+
+[node name="InteractLabel" type="Label" parent="UI"]
+offset_right = 1153.0
+offset_bottom = 651.0
+horizontal_alignment = 1
+vertical_alignment = 2
