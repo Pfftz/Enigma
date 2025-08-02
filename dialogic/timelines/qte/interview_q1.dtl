@@ -38,4 +38,3 @@ bananazon_interviewer: Siang MC, nama saya HR Pohon
 	[signal arg="wrong_choice"]
 [signal arg="update_ui"]
 join  center
-jump interview_q1_timeout/
