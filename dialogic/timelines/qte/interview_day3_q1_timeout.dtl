@@ -11,4 +11,7 @@ creative_interviewer (senyum): pasukan teknis biasa sudah di taklukan !!
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
+<<<<<<< HEAD
 jump interview_day3_q2/
+=======
+>>>>>>> 18c71fb1af82ff1b402490be8c7827aeea6d33d4

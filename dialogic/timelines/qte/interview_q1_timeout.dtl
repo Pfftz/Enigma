@@ -5,4 +5,7 @@ set {interview_score} -= 5
 
 bananazon_interviewer: Baik, saya akan mulai ke pertanyaan mudah
 [signal arg="timer_end"]
+<<<<<<< HEAD
 [signal arg="update_ui"]
+=======
+>>>>>>> 18c71fb1af82ff1b402490be8c7827aeea6d33d4
