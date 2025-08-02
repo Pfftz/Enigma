@@ -14,9 +14,9 @@ bananazon_interviewer: ok
 bananazon_interviewer: Baiklah, interview hari ini selesai. Terima kasih atas waktunya.
 
 if {interview_score} >= 25:
-	bananazon_interviewer: Saya terkesan dengan jawaban anda! Kami akan menghubungi anda segera.
+	bananazon_interviewer (senang): Saya terkesan dengan jawaban anda! Kami akan menghubungi anda segera.
 else:
-	bananazon_interviewer: Mohon maaf, sepertinya anda belum cocok untuk posisi ini.
+	bananazon_interviewer (marah): Mohon maaf, sepertinya anda belum cocok untuk posisi ini.
 
 set {day1_completed} = true
 set {day1_score} = {interview_score}

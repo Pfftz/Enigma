@@ -4,31 +4,31 @@ set {interview_day} = 1
 set {company_name} = "bananazon"
 set {interview_score} = 0
 
-bananazon_interviewer: Siang MC, nama saya HR Pohon
+bananazon_interviewer (netral): Siang MC, nama saya HR Pohon
 
 [signal arg="timer_start"]
 
 - Siang, saya juga senang bertemu anda
 	set {interview_score} += 5
 	[signal arg="timer_end"]
-	bananazon_interviewer: senang mendengarnya
+	bananazon_interviewer (sangat senang): senang mendengarnya
 	[signal arg="correct_choice"]
 
 - itu daun kagak di cukur?
 	set {interview_score} -= 5
 	[signal arg="timer_end"]
-	bananazon_interviewer: memangnya daunku sepanjang itu ya
+	bananazon_interviewer (marah): memangnya daunku sepanjang itu ya
 	[signal arg="wrong_choice"]
 
 - aman pak
 	set {interview_score} += 10
 	[signal arg="timer_end"]
-	bananazon_interviewer: baiklah kalau begitu
+	bananazon_interviewer (senang): baiklah kalau begitu
 	[signal arg="correct_choice"]
 
 - bapak jenis pohon apa
 	set {interview_score} -= 10
 	[signal arg="timer_end"]
-	bananazon_interviewer: hahaha, saya hanya pohon beringin tua
+	bananazon_interviewer (marah): hahaha, saya hanya pohon beringin tua
 	[signal arg="wrong_choice"]
 join  center

@@ -21,7 +21,7 @@
 },
 &"default_portrait": "netral",
 &"description": "hr, mosu",
-&"display_name": "mosu_interviewer",
+&"display_name": "asep",
 &"mirror": false,
 &"nicknames": ["mosu"],
 &"offset": Vector2(0, 0),
@@ -67,5 +67,5 @@
 "sound_mood": "Mood 1"
 }
 },
-&"scale": 1.0
+&"scale": 0.6
 }

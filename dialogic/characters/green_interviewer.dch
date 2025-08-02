@@ -43,7 +43,7 @@
 "ignore_char_scale": false,
 "mirror": false,
 "offset": Vector2(0, -10),
-"scale": 0.5,
+"scale": 1.0,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn",
 "sound_mood": "normal"
 },
@@ -53,10 +53,10 @@
 },
 "mirror": false,
 "offset": Vector2(0, -10),
-"scale": 0.5,
+"scale": 1.0,
 "scene": "",
 "sound_mood": "normal"
 }
 },
-&"scale": 1.25
+&"scale": 0.7
 }

@@ -11,10 +11,11 @@ creative_interviewer (netral): Sebagai calon pejuang baru, apa strategi yang aka
 	[signal arg="correct_choice"]
 - gimana kalo saya bareng naga nya mukulin bapak  ?
 	set {interview_score} += 10
-
+	
 	[signal arg="timer_end"]
 	creative_interviewer (marah): lagi  ?
 	[signal arg="start_bubble_minigame"]
 
 [wait time="1.0"]
 [signal arg="update_ui"]
+[signal arg="start_bubble_minigame"]

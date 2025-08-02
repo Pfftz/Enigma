@@ -43,7 +43,7 @@
 "ignore_char_scale": false,
 "mirror": false,
 "offset": Vector2(0, -15),
-"scale": 0.5,
+"scale": 1.0,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn",
 "sound_mood": "Mood 1"
 },
@@ -53,7 +53,7 @@
 },
 "mirror": false,
 "offset": Vector2(0, 15),
-"scale": 1,
+"scale": 1.0,
 "scene": "",
 "sound_mood": "Mood 1"
 },
@@ -68,5 +68,5 @@
 "sound_mood": "Mood 1"
 }
 },
-&"scale": 1.25
+&"scale": 0.6
 }

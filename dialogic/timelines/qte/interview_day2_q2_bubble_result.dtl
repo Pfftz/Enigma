@@ -1,23 +1,21 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer center
-
-techcorp_interviewer: Sekarang untuk pertanyaan terakhir...
-techcorp_interviewer: Bagaimana anda mengatasi stres kerja?
+techcorp_interviewer: Apa alasan mu untuk masuk ke perusahaan kami ?
 
 # Check bubble minigame score to determine choice
 if {bubble_score} >= 50:
 	# Good performance - player gives correct answer
-	character: Saya menggunakan teknik mindfulness dan time management yang baik
+	character: Tentu saja karena perusahaan nona merupakan perusahaan revolusioner dan saya ingin turut andil di perusahaan nona
 	set {interview_score} += 12
 	
-	techcorp_interviewer: That's a professional approach. Good stress management skills.
+	techcorp_interviewer: hoho, hebat juga kamu bisa melihat nilai dari perusahaan kami
 	[signal arg="correct_choice"]
 else:
 	# Poor performance - player gives wrong answer  
-	character: Saya... biasanya panik dan tidak tahu harus bagaimana
+	character (normal): Sejujurnya, Nona. Saya butuh pekerjaan dan gaji yang stabil.
 	set {interview_score} -= 8
 	
-	techcorp_interviewer: That's... concerning. Stress management is crucial in tech.
+	techcorp_interviewer (marah): Setidaknya kamu tidak membungkus keputusasaanmu dengan kata-kata muluk. Tapi jangan salah, kami di sini bukan untuk amal
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]

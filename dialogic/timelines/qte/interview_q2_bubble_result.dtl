@@ -2,19 +2,20 @@ join bananazon_interviewer center
 [background arg="res://asset/2d/hr/d1/hr-1-placehold.png" fade="0.0"]
 
 # Check bubble minigame score to determine choice
+bananazon_interviewer (netral): Berapa jumlah jendela di gedung yang ada di jakarta
 if {bubble_score} >= 50:
 	# Good performance - player gives correct answer
-	character: Ada dua. Jendela kesempatan dan jendela dunia
+	character (normal): Ada dua. Jendela kesempatan dan jendela dunia
 	set {interview_score} += 10
-
-	bananazon_interviewer: jawaban yang sangat bijak
+	
+	bananazon_interviewer (sangat senang): jawaban yang sangat bijak
 	[signal arg="correct_choice"]
 else:
 	# Poor performance - player gives wrong answer  
-	character: um... lebih dari 3
+	character (normal): um... lebih dari 3
 	set {interview_score} += 15
-
-	bananazon_interviewer: ahh... butuh lebih banyak menginjak rumput sepertinya
+	
+	bananazon_interviewer (marah): ahh... butuh lebih banyak menginjak rumput sepertinya
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]
