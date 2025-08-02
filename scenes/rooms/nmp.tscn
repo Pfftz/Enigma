@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4me8yyhhjy42"]
+[gd_scene load_steps=19 format=3 uid="uid://4me8yyhhjy42"]
 
 [ext_resource type="ArrayMesh" uid="uid://bvoytwwvqkwh" path="res://asset/3d/room/nmp/grass.obj" id="1_otb4p"]
 [ext_resource type="Texture2D" uid="uid://b1ir1inksa4g4" path="res://asset/2d/sprite/grass.png" id="4_28pfr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cug5niin5ydjt" path="res://asset/3d/room/nmp/nmp_general_placeholder.png" id="10_71mw1"]
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="12_2bc2u"]
 [ext_resource type="PackedScene" uid="uid://dnydq7jk6xp00" path="res://scenes/objects/player/player_cam.tscn" id="12_28pfr"]
+[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="13_ahkim"]
 [ext_resource type="ArrayMesh" uid="uid://d3q5rkufu6jr6" path="res://asset/3d/room/nmp/entrance_open.obj" id="13_h4y7t"]
 [ext_resource type="Resource" uid="uid://v3gcw1nk78p2" path="res://resource/environment/nmp.tres" id="13_vkhyk"]
 [ext_resource type="Script" uid="uid://df0qpljsc040u" path="res://scripts/objects/spawn.gd" id="16_f3ile"]
@@ -198,3 +199,12 @@ environment_settings = ExtResource("13_vkhyk")
 
 [node name="PlayerCam" parent="." instance=ExtResource("12_28pfr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92141, 0.524991, 1.31771)
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("13_ahkim")
+
+[node name="InteractLabel" type="Label" parent="UI"]
+offset_right = 1153.0
+offset_bottom = 651.0
+horizontal_alignment = 1
+vertical_alignment = 2

@@ -1,10 +1,16 @@
 # File: GameState.gd
 extends Node
 
+# Signals
+signal interview_completed(day: int)
+
 var current_day: int = 1
 var total_score: int = 0
 
 var tutorial_shown: bool = false
+
+# Interview completion tracking - tracks which days have completed interviews
+var completed_interviews: Array[int] = []
 
 # Game completion tracking
 var good_ending: bool = false
@@ -27,6 +33,17 @@ func advance_to_next_day() -> void:
 func add_to_total_score(score: int):
 	total_score += score
 
+func mark_interview_completed(day: int) -> void:
+	"""Mark an interview as completed for the specified day"""
+	if not completed_interviews.has(day):
+		completed_interviews.append(day)
+		print("Interview completed for day ", day)
+		interview_completed.emit(day)
+
+func is_interview_completed(day: int) -> bool:
+	"""Check if an interview has already been completed for the specified day"""
+	return completed_interviews.has(day)
+
 func get_current_room_scene() -> String:
 	var day_index = current_day - 1
 	if day_index < room_scenes.size():
@@ -37,6 +54,7 @@ func get_current_room_scene() -> String:
 func reset_progress() -> void:
 	current_day = 1
 	total_score = 0
+	completed_interviews.clear()
 	# Don't reset ending flags when starting new game
 	# good_ending and bad_ending persist for Continue functionality
 

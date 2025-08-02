@@ -2,7 +2,7 @@ extends Area3D
 
 var player_is_near = false
 # Opsional: Tambahkan Label3D untuk prompt interaksi
-@onready var interaction_prompt = $Label3D 
+@onready var interaction_prompt = $Label3D
 
 func _ready():
 	if interaction_prompt:
@@ -24,7 +24,7 @@ func _on_body_exited(body):
 			
 func show_interact_ui(show: bool):
 	if show:
-		get_tree().call_group("ui", "show_interact_text", "Pencet F untuk interaksi")
+		get_tree().call_group("ui", "show_interact_text", "Press F to interact")
 	else:
 		get_tree().call_group("ui", "hide_interact_text")
 

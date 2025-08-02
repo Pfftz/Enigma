@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b3tkb4mwprx1g"]
+[gd_scene load_steps=21 format=3 uid="uid://b3tkb4mwprx1g"]
 
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_kvag1"]
 [ext_resource type="ArrayMesh" uid="uid://toccg5whc1of" path="res://asset/3d/room/evencare/evencare1_furniture.obj" id="2_kvag1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="10_7coyi"]
 [ext_resource type="Resource" uid="uid://cpnxltpebnvr6" path="res://resource/environment/under_nmp.tres" id="11_7coyi"]
 [ext_resource type="PackedScene" uid="uid://dguysikyfdbkc" path="res://scenes/objects/interactive/dialogue_trigger.tscn" id="12_162ku"]
+[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="13_ui"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rw2xt"]
 render_priority = 0
@@ -128,3 +129,12 @@ environment_settings = ExtResource("11_7coyi")
 
 [node name="DialogueTrigger" parent="." instance=ExtResource("12_162ku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4113, 0, -1.39935)
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("13_ui")
+
+[node name="InteractLabel" type="Label" parent="UI"]
+offset_right = 1153.0
+offset_bottom = 651.0
+horizontal_alignment = 1
+vertical_alignment = 2
