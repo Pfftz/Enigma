@@ -9,4 +9,3 @@ techcorp_interviewer (netral): Terserah lah, Sekarang, aku bosan dengan pertanya
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-jump interview_day2_q2/

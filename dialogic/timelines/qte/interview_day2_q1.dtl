@@ -46,4 +46,3 @@ techcorp_interviewer (netral): Fufufu, Aku tahu segalanya tentang kamu MC, dan k
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-jump interview_day2_q1_timeout/

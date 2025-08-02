@@ -9,4 +9,3 @@ creative_interviewer (netral): Sekarang katakan padaku, anak muda!
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-jump interview_day3_q3/

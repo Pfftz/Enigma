@@ -18,4 +18,3 @@ creative_interviewer (netral): Sebagai calon pejuang baru, apa strategi yang aka
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-jump interview_day3_q2_timeout/

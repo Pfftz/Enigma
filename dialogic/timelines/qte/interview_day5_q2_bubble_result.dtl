@@ -1,8 +1,8 @@
 join kamu center
 
 # Day 5 Question 2 bubble result
-if {bubble_score} >= 50:
-	character (normal): Saya ingin lingkungan kerja yang kolaboratif tapi tetap memberikan kebebasan untuk berinovasi. Untuk atasan, saya mengharapkan seseorang yang bisa jadi mentor sekaligus memberi tantangan untuk berkembang.
+if {bubble_score} >= 25:
+	character (normal): saya sudah tertarik di dunia startup sejak lama. dan bila saya diterima, Saya ingin berusaha keras untuk memabangun start-up ini bersama anda.
 	set {interview_score} += 30
 	set {interview_health} += 30
 	kamu (senang): Perfect! Aku suka orang yang tahu apa yang mereka mau dan realistis!

@@ -49,4 +49,3 @@ else:
 
 set {day3_completed} = true
 set {day3_score} = {interview_score}
-[end_timeline]

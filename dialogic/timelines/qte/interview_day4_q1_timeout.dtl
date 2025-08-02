@@ -9,4 +9,3 @@ green_interviewer (netral): berikutnya
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-jump interview_day4_q2/

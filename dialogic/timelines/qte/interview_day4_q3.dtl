@@ -44,4 +44,3 @@ green_interviewer (netral): Dengar baik-baik. Para kepingan salju diluar sana su
 	set {day4_completed} = true
 	set {day4_score} = {interview_score}
 	leave green_interviewer
-[end_timeline]
