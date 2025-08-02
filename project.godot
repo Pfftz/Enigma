@@ -39,10 +39,10 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"day 4": "res://dialogic/timelines/day 4.dtl",
 "day1": "res://dialogic/timelines/day1.dtl",
 "day2": "res://dialogic/timelines/day2.dtl",
 "day3": "res://dialogic/timelines/day3.dtl",
+"day4": "res://asset/2d/hr/d5/day4.dtl",
 "day5": "res://dialogic/timelines/day5.dtl",
 "day5-C1": "res://asset/sound/ost/day5-C1.dtl",
 "day5-C2": "res://asset/sound/ost/day5-C2.dtl",

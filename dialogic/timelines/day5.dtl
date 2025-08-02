@@ -1,12 +1,5 @@
-join kamu center
-character: katanya jumat pagi... sekarang sudah siang...
-character: Sigh.. sepertinya aku di ghosting
-character: Dari hari pertama, HR-nya aneh aneh lagi
-kamu (netral): Aku lapar, tapi aku haru hemat uang makan
-character: C-CAntik
-kamu (a): Maaf, apa tadi?
-character: A-anu, apa benar ini Modern Solution?  umm saya MC, saya apply ke Mosu
-kamu (senang): OHHHHH KAMU MC? APAKAH BENAR KAMU MC? TERNYATA MALAIKAT SEPERTI KAMU ADA YA 😍😍😍
-character: Iya, M-Malaikat
-kamu (a): Ayo masuk, kita mulai Interviewnya
-leave kamu
+character (normal): katanya jumat pagi... sekarang sudah siang...
+character (normal): Sigh.. sepertinya aku di ghosting
+character (normal): Dari hari pertama, HR-nya aneh aneh lagi
+character (normal): Aku lapar, tapi aku haru hemat uang makan
+character: masih ada 1 lagi sih yang belum ku apply... offline interview ya
