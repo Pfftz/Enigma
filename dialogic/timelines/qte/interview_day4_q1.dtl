@@ -41,7 +41,3 @@ green_interviewer (netral): “Pelamar ke-456 Waktu saya terbatas. Saya harap an
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-<<<<<<< HEAD
-jump interview_day4_q1/
-=======
->>>>>>> 18c71fb1af82ff1b402490be8c7827aeea6d33d4

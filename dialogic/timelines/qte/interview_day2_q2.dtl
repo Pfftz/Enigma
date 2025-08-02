@@ -35,7 +35,3 @@ character: (!!!!!!)
 	techcorp_interviewer (marah): Jadi kamu mau menjelaskan yah?, tentu saja, silakan. Aku punya waktu sepanjang hari untuk mendengarkan usahamu yang sia-sia untuk membela diri
 	[signal arg="wrong_choice"]
 [signal arg="start_bubble_minigame"]
-<<<<<<< HEAD
-jump interview_day2_q2_timeout/
-=======
->>>>>>> 18c71fb1af82ff1b402490be8c7827aeea6d33d4

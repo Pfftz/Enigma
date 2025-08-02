@@ -1,10 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxfe0cbshi1dw"]
 
-[ext_resource type="Script" uid="uid://x[node name="CompanyHeader" type="HBoxContainer" parent="CenterContainer/InterviewPanel/VBoxContainer"]
-layout_direction = 1
-layout_mode = 2
-
-[node name="CompanyLabel" type="Label" parent="CenterContainer/InterviewPanel/VBoxContainer/CompanyHeader"]" path="res://scripts/core_game/qte/dialogic_qte_interview.gd" id="1_tni71"]
+[ext_resource type="Script" path="res://scripts/core_game/qte/dialogic_qte_interview.gd" id="1_tni71"]
 [ext_resource type="Texture2D" uid="uid://c6imcx7a1dfcm" path="res://icon/textboxres.png" id="2_thnq7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
@@ -105,12 +101,6 @@ grow_vertical = 2
 [node name="CompanyHeader" type="HBoxContainer" parent="CenterContainer/InterviewPanel/VBoxContainer"]
 layout_direction = 1
 layout_mode = 2
-
-[node name="HealthBar" type="ProgressBar" parent="CenterContainer/InterviewPanel/VBoxContainer/CompanyHeader"]
-layout_mode = 2
-size_flags_horizontal = 3
-value = 80.0
-show_percentage = false
 
 [node name="CompanyLabel" type="Label" parent="CenterContainer/InterviewPanel/VBoxContainer/CompanyHeader"]
 layout_mode = 2
