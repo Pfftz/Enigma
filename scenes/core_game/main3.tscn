@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://w4fw002nh62c" path="res://scripts/core_game/main.gd" id="1_qwfcq"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="2_ivpsk"]
 
-[node name="main" type="Node2D"]
+[node name="main2" type="Node2D"]
 script = ExtResource("1_qwfcq")
 positive_thoughts = Array[String](["a", "b", "c", "d", "f", "e"])
 trap_chance = 0.11
@@ -11,21 +11,8 @@ min_pop_respawn_delay = 1.0
 max_pop_respawn_delay = 2.0
 
 [node name="SpawnTimer" type="Timer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-process_callback = 1
 wait_time = 5.0
-one_shot = false
 autostart = true
-ignore_time_scale = false
-script = null
 
 [node name="PlayerInputLabel" type="Label" parent="."]
 anchors_preset = 15
@@ -70,38 +57,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameplayTimer" type="Timer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-process_callback = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
-ignore_time_scale = false
-script = null
 
 [node name="BubbleRespawnTimer" type="Timer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-process_callback = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
-ignore_time_scale = false
-script = null
 
 [node name="TimeLabel" type="Label" parent="."]
 offset_right = 40.0
