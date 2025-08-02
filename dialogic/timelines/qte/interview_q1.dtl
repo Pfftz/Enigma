@@ -4,31 +4,34 @@ set {interview_day} = 1
 set {company_name} = "bananazon"
 set {interview_score} = 0
 
-bananazon_interviewer (netral): Siang MC, nama saya HR Pohon
+bananazon_interviewer (netral): Siang MC
+bananazon_interviewer (netral): CV Anda sudah saya terima.
+bananazon_interviewer (netral): Mari kita mulai proses ini agar kita bisa segera berakar pada kesimpulan.
+bananazon_interviewer (netral): Bagaimana kondisi Anda hari ini?
 
 [signal arg="timer_start"]
 
-- Siang, saya juga senang bertemu anda
+- Siang. Kondisi aman terkendali.
 	set {interview_score} += 5
 	[signal arg="timer_end"]
-	bananazon_interviewer (sangat senang): senang mendengarnya
+	bananazon_interviewer (sangat senang): Baiklah kalau begitu.
 	[signal arg="correct_choice"]
 
-- itu daun kagak di cukur?
+- Masih bernapas, Pak. Sejauh ini
 	set {interview_score} -= 5
 	[signal arg="timer_end"]
-	bananazon_interviewer (marah): memangnya daunku sepanjang itu ya
+	bananazon_interviewer (marah): Humor yang gelap. Seperti kompos yang baik.
 	[signal arg="wrong_choice"]
 
 - aman pak
 	set {interview_score} += 10
 	[signal arg="timer_end"]
-	bananazon_interviewer (senang): baiklah kalau begitu
+	bananazon_interviewer (senang): Energi yang bagus. Tunas yang menjanjikan.
 	[signal arg="correct_choice"]
 
-- bapak jenis pohon apa
+- TOLONG PAK HIRE SAYA PAK, SAYA BUTUH KERJA.
 	set {interview_score} -= 10
 	[signal arg="timer_end"]
-	bananazon_interviewer (marah): hahaha, saya hanya pohon beringin tua
+	bananazon_interviewer (marah): ...Sebuah ledakan energi yang tidak terduga. Seperti tunas yang menerobos tanah secara paksa. Agresif sekali.
 	[signal arg="wrong_choice"]
 join  center

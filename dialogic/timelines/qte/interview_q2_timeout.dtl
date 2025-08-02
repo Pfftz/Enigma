@@ -3,8 +3,8 @@ join bananazon_interviewer center
 # Question 2 timeout
 set {interview_score} -= 5
 
-bananazon_interviewer: saya suka sifat anda
-bananazon_interviewer: saya akan langsung tanya ke pertanyaan terakhir
+bananazon_interviewer: Keheningan lagi. Anda sepertinya butuh pupuk untuk konsentrasi.
+Jadi......
 
 [signal arg="timeout"]
 [signal arg="timer_end"]
