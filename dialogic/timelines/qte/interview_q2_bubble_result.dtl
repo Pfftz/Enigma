@@ -1,4 +1,5 @@
 join bananazon_interviewer center
+[background arg="res://asset/2d/hr/d1/hr-1-placehold.png" fade="0.0"]
 
 # Check bubble minigame score to determine choice
 if {bubble_score} >= 50:
