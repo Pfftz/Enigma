@@ -2,20 +2,4 @@
 join creative_interviewer (netral) center
 
 creative_interviewer (netral): Sebagai calon pejuang baru, apa strategi yang akan kau ambil untuk menaklukkan sang Naga? Pikirkan baik-baik, nasib perusahaan ini ada di tanganmu!
-
-[signal arg="timer_start"]
-
-- Saya akan hadapi Naga itu secara langsung! Berikan saya akses ke sistem inti, saya akan pasang antivirus terkuat dan melawan balik firewall-nya dengan segenap kekuatan saya!
-	set {interview_score} += 15
-	creative_interviewer (senyum): Hooo Jawaban yang sangat hebat anak muda, sangat jarang seseorang yang mempunyai strategi hebat sepertimu
-	[signal arg="correct_choice"]
-- gimana kalo saya bareng naga nya mukulin bapak  ?
-	set {interview_score} += 10
-	
-	[signal arg="timer_end"]
-	creative_interviewer (marah): lagi  ?
-	[signal arg="start_bubble_minigame"]
-
-[wait time="1.0"]
-[signal arg="update_ui"]
 [signal arg="start_bubble_minigame"]
