@@ -40,7 +40,6 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"day4": "res://dialogic/timelines/monolog/day4.dtl",
 "door_confirmation": "res://dialogic/timelines/door_confirmation.dtl",
 "interview_day2_q1": "res://dialogic/timelines/qte/interview_day2_q1.dtl",
 "interview_day2_q1_timeout": "res://dialogic/timelines/qte/interview_day2_q1_timeout.dtl",
@@ -78,6 +77,7 @@ directories/dtl_directory={
 "monolog/day1": "res://dialogic/timelines/monolog/day1.dtl",
 "monolog/day2": "res://dialogic/timelines/monolog/day2.dtl",
 "monolog/day3": "res://dialogic/timelines/monolog/day3.dtl",
+"monolog/day4": "res://dialogic/timelines/monolog/day4.dtl",
 "monolog/day5": "res://dialogic/timelines/monolog/day5.dtl",
 "monolog/day5-C1": "res://dialogic/timelines/monolog/day5-C1.dtl",
 "monolog/day5-C2": "res://dialogic/timelines/monolog/day5-C2.dtl",

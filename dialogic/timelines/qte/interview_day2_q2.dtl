@@ -37,3 +37,4 @@ character: (!!!!!!)
 techcorp_interviewer: Sekarang untuk pertanyaan terakhir...
 techcorp_interviewer: Apa alasan mu untuk masuk ke perusahaan kami ?
 [signal arg="start_bubble_minigame"]
+[signal arg="update_ui"]
