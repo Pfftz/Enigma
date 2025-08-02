@@ -119,21 +119,6 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="LifetimeTimer" type="Timer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-process_callback = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
-ignore_time_scale = false
-script = null
 
 [node name="SpamIndicatorContainer" type="HBoxContainer" parent="."]
 anchors_preset = 15
