@@ -12,7 +12,7 @@
 "pitch_base": 1.0,
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
-"sound_path": "res://asset/sound/dialog/robotHRday2.wav",
+"sound_path": "res://asset/sound/dialog/dialogue_day2HR_robot.wav",
 "volume_base": 0.0,
 "volume_variance": 0.0
 }
