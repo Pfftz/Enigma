@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cntv4fpibiwsk"]
+[gd_scene load_steps=4 format=3 uid="uid://cntv4fpibiwsk"]
 
 [ext_resource type="Script" uid="uid://w4fw002nh62c" path="res://scripts/core_game/main.gd" id="1_ig7tw"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="2_0xm2m"]
+[ext_resource type="FontFile" uid="uid://d3wcojlddp1uo" path="res://asset/font/LettersinCirclesBook.ttf" id="3_11jre"]
 
 [node name="main2" type="Node2D"]
 script = ExtResource("1_ig7tw")
-positive_thoughts = Array[String](["HAH? ", "Pertanyaan apaan nih ", "Kok nanya Jakarta? ", "Mana gw tau anjir ", "Jumlah jendela? ", "Ummm... Lebih dari 3 lah ya "])
-bubble_replace_interval = 1.0
+positive_thoughts = Array[String](["a", "b", "c", "d", "e", "a"])
+number_of_bubbles = 4
+gameplay_duration = 120.0
+trap_chance = 0.0
 min_pop_respawn_delay = 1.0
 max_pop_respawn_delay = 2.0
+ultimate_spam_count = 6
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -33,10 +37,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 67.0
-offset_right = 81.0
-offset_bottom = 112.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 952.0
+offset_top = 5.0
+offset_right = 1146.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.869487, 0.667312, 1.54018e-06, 1)
+theme_override_fonts/font = ExtResource("3_11jre")
+theme_override_font_sizes/font_size = 48
+text = "22/22"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GameStatusLabel" type="Label" parent="."]
 anchors_preset = 15
@@ -63,6 +78,9 @@ vertical_alignment = 1
 [node name="TimeLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_11jre")
+theme_override_font_sizes/font_size = 45
+text = "22"
 
 [node name="UltimateAnnounceLabel" type="Label" parent="."]
 anchors_preset = 15

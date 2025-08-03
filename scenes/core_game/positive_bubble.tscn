@@ -126,6 +126,7 @@ theme_override_constants/outline_size = 16
 theme_override_constants/shadow_outline_size = 14
 theme_override_fonts/font = ExtResource("7_omgan")
 theme_override_font_sizes/font_size = 38
+text = "jangan"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -142,8 +143,10 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.294118, 0.854902, 0.996078, 1)
 theme_override_fonts/font = ExtResource("7_dgfi4")
 theme_override_font_sizes/font_size = 26
+text = "pikiran positif"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]
