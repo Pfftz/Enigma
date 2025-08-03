@@ -12,6 +12,16 @@ var bubble_game_instance = null
 @onready var timer_display: Label = $CenterContainer/InterviewPanel/VBoxContainer/TimerContainer/TimerLabel
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
+# Background Image References
+@onready var background_images: Node2D = $BackgroundImage
+@onready var day1_bg: Sprite2D = $BackgroundImage/day1
+@onready var day2_bg: Sprite2D = $BackgroundImage/day2
+@onready var day3_bg: Sprite2D = $BackgroundImage/day3
+@onready var day4_bg: Sprite2D = $BackgroundImage/day4
+@onready var day5_1_bg: Sprite2D = $BackgroundImage/day5_1
+@onready var day5_2_bg: Sprite2D = $BackgroundImage/day5_2
+@onready var day5_3_bg: Sprite2D = $BackgroundImage/day5_3
+
 # Dialogic Integration
 var current_day: int = 1
 var interview_timelines: Array[String] = [
@@ -109,6 +119,46 @@ func setup_ui() -> void:
 	update_score_display()
 	day_label.text = "DAY 1"
 	company_label.text = company_names[0]
+	
+	# Initialize background images - hide all initially
+	hide_all_backgrounds()
+
+func hide_all_backgrounds() -> void:
+	# Hide all background sprites initially
+	day1_bg.visible = false
+	day2_bg.visible = false
+	day3_bg.visible = false
+	day4_bg.visible = false
+	day5_1_bg.visible = false
+	day5_2_bg.visible = false
+	day5_3_bg.visible = false
+
+func show_background_for_day(day: int, bubble_counter: int = 0) -> void:
+	# Hide all backgrounds first
+	hide_all_backgrounds()
+	
+	# Show the appropriate background based on day and bubble counter
+	match day:
+		1:
+			day1_bg.visible = true
+		2:
+			day2_bg.visible = true
+		3:
+			day3_bg.visible = true
+		4:
+			day4_bg.visible = true
+		5:
+			# For day 5, use bubble_counter to determine which background to show
+			match bubble_counter:
+				1:
+					day5_1_bg.visible = true
+				2:
+					day5_2_bg.visible = true
+				3:
+					day5_3_bg.visible = true
+				_:
+					# Default to first background if counter is 0 or invalid
+					day5_1_bg.visible = true
 
 func setup_timer() -> void:
 	# Create timer node for QTE timing
@@ -349,6 +399,13 @@ func start_bubble_minigame():
 	# Stop any active timers
 	stop_qte_timer()
 	
+	# Show appropriate background for current day and bubble counter
+	if current_day == 5:
+		# For day 5, show background based on current bubble counter (which will be incremented in get_bubble_scene_path)
+		show_background_for_day(current_day, day5_bubble_counter + 1)
+	else:
+		show_background_for_day(current_day)
+	
 	# Sembunyikan dialog agar tidak menutupi
 	var dialog_node = find_child("Dialogic", true, false)
 	if dialog_node:
@@ -381,6 +438,9 @@ func _on_bubble_minigame_completed(minigame_score: int):
 	
 	print("DEBUG: Set bubble_score in Dialogic to: ", Dialogic.VAR.get('bubble_score'))
 	print("Bubble minigame completed with score: ", bubble_minigame_score)
+	
+	# Hide all backgrounds when minigame ends
+	hide_all_backgrounds()
 	
 	# Remove the bubble game instance
 	if bubble_game_instance and is_instance_valid(bubble_game_instance):
