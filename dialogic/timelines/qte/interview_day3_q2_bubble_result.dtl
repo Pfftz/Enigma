@@ -4,17 +4,17 @@ join creative_interviewer center
 # Check bubble minigame score to determine choice
 if {bubble_score} >= 50:
 	# Good performance - player gives correct answer
-	character (normal): Saya akan hadapi Naga itu secara langsung! Berikan saya akses ke sistem inti, [br] saya akan pasang antivirus terkuat dan melawan balik firewall-nya [br] dengan segenap kekuatan saya!
-	set {interview_score} += 15
+	character (normal): Saya akan hadapi langsung! Beri saya akses ke sistem inti, saya akan pasang antivirus terkuat !
+	set {interview_score} += 10.0
 	
-	creative_interviewer (senyum): Hooo Jawaban yang sangat hebat anak muda, sangat jarang seseorang yang mempunyai strategi hebat sepertimu
+	creative_interviewer (senyum): ooo! Jawaban yang hebat, anak muda! Maju dan hadapi ancaman itu dengan segenap jiwamu!
 	[signal arg="correct_choice"]
 else:
 	# Poor performance - player gives wrong answer  
-	character (normal): gimana kalo saya bareng naga nya mukulin bapak  ?
-	set {interview_score} -= 5
+	character (normal): Kita telepon customer service antivirusnya saja, Jenderal?
+	set {interview_score} -= 10.0
 	
-	creative_interviewer (marah): Hoho sanggup kah kamu menahan satu tebasan pedangku   ?
+	creative_interviewer (marah): [i]Customer Service?[/i] Tanggung Jawab seorang prajurit tidak bisa dilempar ke orang lain begitu saja!
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]

@@ -4,41 +4,56 @@ set {interview_day} = 3
 set {company_name} = "TechCorp"
 set {interview_score} = 0
 
-creative_interviewer (netral): Selamat siang calon prajurit
-character: Selamat Siang pak, perkenalkan saya mc yang ingin bekerja di peru-
-creative_interviewer (netral): Cukup bicara nya nak
-creative_interviewer: Aku adalah jenderal Bhaluka dan yang ku perlukan adalah bukti nyata bukan hanya sekedar omon omon belaka
-character: ( (┬┬﹏┬┬) )
-creative_interviewer (netral): Coba tunjukan kepada ku kemampuan tersembunyi apa yang kau punya
+creative_interviewer (netral): Selamat siang
+character: Selamat Siang, Pak. Perkenalkan saya MC yang ingin bekerja di—
+creative_interviewer (netral): Cukup
+creative_interviewer: Riwayat hidupmu sudah ada di hadapanku.
+character: .............................
+character: [i] (Oke... tipikal HR killer sepertinya.) [/i]
+creative_interviewer (netral): Tapi gulungan kertas itu tak ada artinya.
+creative_interviewer (netral): Aku ingin melihat... jiwa ksatria mu
+character: [i](Tunggu)[/i]
+character: [i](Baju zirah?)[/i]
+character: [i](Katana?)[/i]
+creative_interviewer (netral): Kau pikir ini hanyalah sebuah perusahaan biasa? Salah!
+creative_interviewer (netral): 'PT Keterangan Siang' hanyalah sebuah samaran...
+creative_interviewer (netral): Sebuah perisai untuk melindungi warga sipil yang tidak tahu apa-apa dari perang bayangan yang sesungguhnya!
+creative_interviewer (marah): Saat ini, dunia berada di ambang kehancuran oleh [b]“Organiasasi Kegelapan Malam’[/b] yang ingin menghapus semua informasi dari muka bumi!
+creative_interviewer (marah): Dan hanya kitalah, para Ksatria di [b]‘Benteng Keterangan Suci’[/b], yang berdiri di antara mereka dan kegelapan abadi.
+creative_interviewer: Aku, Jenderal Bhaluka, mencari [b]pendamping[/b].
+creative_interviewer: Dan yang kuperlukan adalah bukti nyata, bukan hanya sekadar omon omon belaka.
+creative_interviewer: Coba tunjukan kepadaku kemampuan tersembunyi apa yang kau punya.
+character: [i](   (┬┬﹏ ┬┬)   )[/i]
+character: [i](   (...Ah. Chuuni.   ) [/i]
 
 [signal arg="timer_start"]
 
-- Rupa ku adalah bukti kejam nya dunia menempaku
-	set {interview_score} += 12
-
+- Rupa ku adalah bukti kejam nya dunia menempaku.
+	set {interview_score} += 10.0
+	
 	[signal arg="timer_end"]
-	creative_interviewer (senyum): Hooo, aku suka dengan sorot matamu
+	creative_interviewer (senyum): Hooo, aku suka dengan sorot matamu.
 	[signal arg="correct_choice"]
 
 - Aku adalah seorang pejuang yang telah melewati banyak badai kehidupan
-	set {interview_score} += 8
-
+	set {interview_score} += 5.0
+	
 	[signal arg="timer_end"]
-	creative_interviewer (senyum): Aku bisa melihatnya hanya dari aura pada dirimu
+	creative_interviewer (senyum): Aku bisa melihatnya hanya dari aura pada dirimu.
 	[signal arg="correct_choice"]
 
-- Aku tidak mempunyai kekuatan apapun
-	set {interview_score} -= 3
-
+- Aku tidak mempunyai kekuatan apapun.
+	set {interview_score} -= 5.0
+	
 	[signal arg="timer_end"]
 	creative_interviewer (marah): Kau tidak mempunyai nya ?, berarti kau tidak pantas memasuki perusahaan kami
 	[signal arg="wrong_choice"]
 
-- erhenti bermain main cosplay, aku ingin bertemu dengan HR asli nya
+- Berhenti bermain main cosplay, aku ingin bertemu dengan HR asli nya.
 	set {interview_score} -= 10
-
+	
 	[signal arg="timer_end"]
-	creative_interviewer (marah): Cosplay ??, ini adalah pakaian perang ku dan kau mengejek nya sebagai cosplay ??
+	creative_interviewer (marah): Cosplay?? Ini adalah pakaian perang ku dan kau mengejek nya sebagai cosplay??
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]
