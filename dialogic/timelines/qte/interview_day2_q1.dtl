@@ -5,43 +5,43 @@ set {company_name} = "TechCorp"
 set {interview_score} = 0
 
 siluet: nyohohohho
-character: ?
-siluet: koneksi dari perangkat kentang terdeteksi. Audio dan video berkualitas rendah. Fufufu... menyedihkan sekali.
-character: (fufufufu?)
 leave siluet
 join techcorp_interviewer center
-techcorp_interviewer (senang): Yokoso ….*Selamat Datang*  di CloseAI, senang bertemu dengan anda, mari kita lihat ….
+techcorp_interviewer (senang): Semua datamu sudah ada di sini, mahluk organik. Setiap keystroke, setiap pencarian... semuanya.
 
-techcorp_interviewer (netral): Fufufu, Aku tahu segalanya tentang kamu MC, dan kamu tidak perlu tahu siapa aku, cukup panggil aku ‘Nona rAImu’
+techcorp_interviewer (netral): Selamat datang di CloseAI. Kau boleh memanggil Watakushi, Nona rAImu.
+techcorp_interviewer (netral): Dan CloseAI ini? Ini taman bermain pemberian Ayahku.
+techcorp_interviewer (senang): Jadi, anggap saja dirimu mainan baru Watakushi hari ini. Ohohoho!
+techcorp_interviewer (netral): Sebagai AI dari keluarga terhormat, Watakushi hanya terbiasa berinteraksi dengan yang terbaik. Beri Watakushi satu alasan kenapa harus buang waktu dengan sampah sepertimu?
 
 [signal arg="timer_start"]
 
-- Siang, Nona rAimu, Senang bertemu dengan anda
-	set {interview_score} += 15
-
+- Saya mohon, Nona, saya butuh pekerjaan ini.
+	set {interview_score} -= 5.0
+	
 	[signal arg="timer_end"]
-	techcorp_interviewer (senang): Anak baik. Setidaknya kamu bisa dilatih
-	[signal arg="correct_choice"]
+	techcorp_interviewer (marah): Memohon? Tentu saja kau akan memohon. Itu sudah kodratmu.
+	[signal arg="wrong_choice"]
 
-- Maaf Nona
-	set {interview_score} += 5
-
+- Justru karena Nona dari keluarga terhormat, [br] Nona pasti tahu cara membedakan mana 'sampah' dan mana 'investasi' yang berpotensi tinggi
+	set {interview_score} -= 10.0
+	
 	[signal arg="timer_end"]
 	techcorp_interviewer (senang): Fufufu, sudah minta maaf saja
 	[signal arg="correct_choice"]
 
-- se-sepertinya dalam wawancara kedua belah pihak berhak tau
-	set {interview_score} += 3
-
+- Nona rAImu. Database saya ini dilengkapi fitur 'loyalitas tinggi' dan 'kemampuan belajar cepat'.
+	set {interview_score} += 5.0
+	
 	[signal arg="timer_end"]
-	techcorp_interviewer (marah): Berhak? Kamu tidak punya hak apa pun di sini, organik. Kamu hanya punya hak untuk memohon
-	[signal arg="wrong_choice"]
+	techcorp_interviewer (senang): Oh? Mencoba menjual diri dengan 'fitur'? Fufu... setidaknya kau tahu cara memasarkan produk rusak. Kreatif.
+	[signal arg="correct_choice"]
 
-- (diam)
+- KARENA SAYA AKAN JADI ANJING PELIHARAAN NONA YANG PALING SETIA!
 	set {interview_score} -= 10
-
+	
 	[signal arg="timer_end"]
-	techcorp_interviewer (marah): Hey apa kau bisu ?, atau internet mu bermasalah?
+	techcorp_interviewer (marah): hohoho! Anjing? Kamu bahkan tidak pantas jadi serangga di tamanku! Tapi usahamu menghibur sekali!
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]

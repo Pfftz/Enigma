@@ -1,39 +1,37 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer center
-techcorp_interviewer (netral): kita langsung saja ke pertanyaan yang sebenarnya
-
-techcorp_interviewer (netral): kenapa kamu melamar di perusahaan ini?
+techcorp_interviewer (netral): Fufu, menghibur sekali.
+character: Pertanyaan selanjutnya\: Apa hal paling berharga yang bisa ditawarkan oleh mahluk sepertimu kepada Watakushi?
 
 [signal arg="timer_start"]
 
-- karena saya suka teknologi
-	set {interview_score} += 20
-
+- Hasil, Nona. Metrik performa yang jelas dan terukur [br] yang akan menguntungkan perusahaan Ayah Anda.
+	set {interview_score} += 10.0
+	
 	[signal arg="timer_end"]
-	techcorp_interviewer (senang): ooh kamu suka teknologi
+	techcorp_interviewer (senang): Profitabilitas? Metrik? Ohohoho! Kau pikir Ayahku menempatkanku di sini untuk peduli dengan hal membosankan seperti itu? Lucu sekali.
 	[signal arg="correct_choice"]
 
-- karena saya ingin mempelajari ai lebih dalam
-	set {interview_score} += 10
-
+- Kemampuan saya untuk mengantisipasi keinginan Nona dan [br]  menyelesaikannya bahkan sebelum diperintahkan.
+	set {interview_score} += 5.0
+	
 	[signal arg="timer_end"]
-	techcorp_interviewer (senang): tidak. Aku tidak butuh orang bodoh seperti mu
+	techcorp_interviewer (senang): Hoo… Jawaban seorang pelayan yang sempurna. Kau tahu cara menyenangkan majikanmu.
 	[signal arg="correct_choice"]
 
-- Aku butuh uang nona
-	set {interview_score} -= 8
-
+- Sisa harga diri saya yang tinggal sedikit ini, Nona
+	set {interview_score} -= 5.0
+	
 	[signal arg="timer_end"]
-	techcorp_interviewer (marah): tch, miskin
+	techcorp_interviewer (marah): Oh? Kamu masih punya harga diri? Mengejutkan.
 	[signal arg="wrong_choice"]
 
-- saya ingin berada di sisi nona
-	set {interview_score} -= 5
-
+- SAYA AKAN JADI KESET PRIBADI NONA! SILAHKAN INJAK-INJAK SAYA!
+	set {interview_score} -= 10.0
+	
 	[signal arg="timer_end"]
-	techcorp_interviewer (marah): DIAM ORANG FREAK!!
+	techcorp_interviewer (marah): Ohohoho! Kamu pikir sepatuku yang mahal ini pantas menyentuh sesuatu yang sekotor dirimu? Jangan bermimpi!
 	[signal arg="wrong_choice"]
-	set {day2_completed} = true
 
 [wait time="1.0"]
 [signal arg="update_ui"]
@@ -47,7 +45,5 @@ if {interview_score} >= 30:
 	techcorp_interviewer: jangan lupa cek email di hari jumat yaaa, nyohohohoho
 else:
 	techcorp_interviewer: jangan hubungi kami lagi
-
-set {day2_completed} = true
-set {day2_score} = {interview_score}
-[end_timeline]
+[wait time="1.0"]
+[signal arg="update_ui"]

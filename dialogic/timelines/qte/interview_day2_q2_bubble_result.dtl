@@ -1,21 +1,24 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer center
-techcorp_interviewer: Apa alasan mu untuk masuk ke perusahaan kami ?
+techcorp_interviewer: jadi bagaimana?
 
 # Check bubble minigame score to determine choice
 if {bubble_score} >= 50:
 	# Good performance - player gives correct answer
-	character: Tentu saja karena perusahaan nona merupakan perusahaan revolusioner dan saya ingin turut andil di perusahaan nona
-	set {interview_score} += 12
+	character: Justru itu riset pasar, Nona. Saya punya ide bisnis\: aplikasi yang mengubah email penolakan... menjadi saldo e-wallet. Revolusioner, bukan?
+	set {interview_score} += 10.0
 	
-	techcorp_interviewer: hoho, hebat juga kamu bisa melihat nilai dari perusahaan kami
+	techcorp_interviewer (netral): . . .
+	techcorp_interviewer (senang): Kau... mencoba menjual ide bisnismu yang paling menyedihkan kepadaku? Di tengah wawancara?
+	techcorp_interviewer (senang): Ohohoho! Dari semua respons yang ada di dataku, yang ini tidak pernah ada! Berani sekali kau!
 	[signal arg="correct_choice"]
 else:
 	# Poor performance - player gives wrong answer  
-	character (normal): Sejujurnya, Nona. Saya butuh pekerjaan dan gaji yang stabil.
-	set {interview_score} -= 8
+	character (normal): TIDAAAKK, HAPUS RIWAYAT PENCARIANKU DARI DATAMU! I-ITU... PRIVASI!
+	set {interview_score} -= 10.0
 	
-	techcorp_interviewer (marah): Setidaknya kamu tidak membungkus keputusasaanmu dengan kata-kata muluk. Tapi jangan salah, kami di sini bukan untuk amal
+	techcorp_interviewer (senang): PRIVASI? Ohohoho! Kau tidak butuh AI secanggih Watakushi untuk membobol riwayat browsermu.
+	techcorp_interviewer (netral): Anak SD yang baru belajar coding juga bisa melihat semua datamu yang menyedihkan itu.
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]

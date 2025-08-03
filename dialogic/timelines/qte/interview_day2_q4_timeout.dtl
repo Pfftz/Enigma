@@ -1,0 +1,9 @@
+[background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
+join techcorp_interviewer center
+# Day 2 Question 2 timeout
+set {interview_score} -= 5
+techcorp_interviewer (netral): Terserah lah, lagi pula aku sebenarnya tidak tahu apa apa mengenai riwayat browser mu, aku hanya ingin melihat reaksi mu saja
+[signal arg="timeout"]
+[signal arg="timer_end"]
+set {day2_completed} = true
+set {day2_score} = {interview_score}

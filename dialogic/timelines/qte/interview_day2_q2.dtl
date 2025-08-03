@@ -1,40 +1,10 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer center
 
-techcorp_interviewer (senang): Aku lihat dari riwayat pencarianmu kamu sering mencari.......\
-fufu...
-character: (!!!!!!)
-
-[signal arg="timer_start"]
-
-- (diam)
-	set {interview_score} += 12
-	
-	[signal arg="timer_end"]
-	techcorp_interviewer (senang): Fufufu, jadi aku benar, ya? Lihat, kamu bahkan malu untuk mengangkat wajahmu.
-	[signal arg="correct_choice"]
-
-- Benar, Nona. Data Anda 100% akurat. Itu bukan riwayat pencarian,[br] itu adalah bukti bahwa saya adalah kandidat paling termotivasi yang pernah Anda temui.
-	set {interview_score} += 8
-	
-	[signal arg="timer_end"]
-	techcorp_interviewer (senang): jadi... aku benar ya?
-	[signal arg="correct_choice"]
-
-- ini melanggar privasi nona!!!
-	set {interview_score} -= 5
-	
-	[signal arg="timer_end"]
-	techcorp_interviewer (marah): Privasi? Beraninya kamu menggunakan kata itu di hadapanku? Makhluk sepertimu tidak punya 'privasi
-	[signal arg="wrong_choice"]
-
-- A-Aku bisa jelaskan...
-	set {interview_score} -= 15
-	
-	[signal arg="timer_end"]
-	techcorp_interviewer (marah): Jadi kamu mau menjelaskan yah?, tentu saja, silakan. Aku punya waktu sepanjang hari untuk mendengarkan usahamu yang sia-sia untuk membela diri
-	[signal arg="wrong_choice"]
-techcorp_interviewer: Sekarang untuk pertanyaan terakhir...
-techcorp_interviewer: Apa alasan mu untuk masuk ke perusahaan kami ?
+techcorp_interviewer (marah): Hmph. Cukup basa-basinya.
+techcorp_interviewer (netral): Baiklah, mari kita lihat ‘potensi’ dirimu yang sebenarnya…
+character: [b] !!! [/b]
+techcorp_interviewer (netral): hoooo....
+Pencarian teratas di datamu\: ‘cara mengubah 50+ email tolakan kerja menjadi saldo e-wallet’. Ohohoho! Menyedihkan sekali.
 [signal arg="start_bubble_minigame"]
 [signal arg="update_ui"]
