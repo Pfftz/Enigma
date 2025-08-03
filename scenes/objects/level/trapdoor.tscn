@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://csvd32t6xnda2"]
+[gd_scene load_steps=12 format=3 uid="uid://csvd32t6xnda2"]
 
 [ext_resource type="ArrayMesh" uid="uid://dche6yocq7w0r" path="res://asset/3d/object/trapdoor.obj" id="1_bj5i6"]
 [ext_resource type="Shader" uid="uid://yrx3bttloff4" path="res://shaders/psx_lit.gdshader" id="2_fqiim"]
 [ext_resource type="ArrayMesh" uid="uid://esqcxvo7bgpd" path="res://asset/3d/object/trapdoor_door.obj" id="3_8o683"]
 [ext_resource type="Texture2D" uid="uid://cug5niin5ydjt" path="res://asset/3d/room/nmp/nmp_general_placeholder.png" id="4_g5fov"]
+[ext_resource type="Resource" uid="uid://cc8xgnj741q4b" path="res://resource/loading_preset/warp_loading.tres" id="6_ymm6c"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="9_pw6vp"]
 [ext_resource type="PackedScene" uid="uid://b7f5kqo8xnda3" path="res://scenes/objects/level/trapdoor_interact.tscn" id="10_61wdo"]
 
@@ -63,6 +64,7 @@ unique_name_in_owner = true
 transform = Transform3D(-0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0, 0, 0)
 target_scene_path = "uid://coiboxnwee2s5"
 target_spawn_name = "from_trapdoor"
+loading_preset = ExtResource("6_ymm6c")
 
 [node name="TrapdoorInteract" parent="TrapdoorMesh" instance=ExtResource("10_61wdo")]
 unique_name_in_owner = true

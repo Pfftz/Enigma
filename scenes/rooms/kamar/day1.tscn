@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bmrcqgq818ugl"]
+[gd_scene load_steps=26 format=3 uid="uid://bmrcqgq818ugl"]
 
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_4kyds"]
 [ext_resource type="Script" uid="uid://o3rp8lmwgbpw" path="res://scripts/levels/day_1.gd" id="1_u4my2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://c384tur1ojl7i" path="res://scripts/objects/interact/interact_kasur.gd" id="7_w17fx"]
 [ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="8_4488h"]
 [ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="9_x2fmh"]
+[ext_resource type="PackedScene" uid="uid://d0d23xfr4lix5" path="res://scenes/management/video_player.tscn" id="11_3josv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)
@@ -74,7 +75,7 @@ fog_depth_curve = 0.406126
 script = ExtResource("1_u4my2")
 
 [node name="Player" parent="." instance=ExtResource("1_4kyds")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258978, 0.923992, 1.96061)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.955029, 0.923992, 1.28448)
 
 [node name="LowPolyLivingRoom" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0125617, 0.284882, 0.327073)
@@ -119,7 +120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90553, -1.12477, -2.60762)
 shape = SubResource("BoxShape3D_nbk78")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.0258978, 5.2415, 6.58141)
+transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.955029, 5.2415, 5.90528)
 top_level = true
 script = ExtResource("4_00060")
 follow_mode = 5
@@ -233,6 +234,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56402, 1.63729, -0.924947)
 light_color = Color(0.901961, 0.223529, 0.27451, 1)
 omni_range = 0.2
 omni_attenuation = 2.0
+
+[node name="VideoPlayer" parent="." instance=ExtResource("11_3josv")]
 
 [connection signal="body_entered" from="interact laptop" to="interact laptop" method="_on_body_entered"]
 [connection signal="body_exited" from="interact laptop" to="interact laptop" method="_on_body_exited"]

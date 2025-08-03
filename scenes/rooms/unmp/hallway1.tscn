@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2600wj0iyryf"]
+[gd_scene load_steps=13 format=3 uid="uid://d2600wj0iyryf"]
 
 [ext_resource type="Texture2D" uid="uid://8taotsk5l0v1" path="res://asset/2d/ui/pause/imgonline-com-ua-Negative-Otk45i6oHhzr0.jpg" id="1_sqeha"]
 [ext_resource type="ArrayMesh" uid="uid://dwpoapjk2rapy" path="res://asset/3d/room/under_nmp/hallway1.obj" id="4_1l6s4"]
+[ext_resource type="Resource" uid="uid://cc8xgnj741q4b" path="res://resource/loading_preset/warp_loading.tres" id="5_m5y5d"]
 [ext_resource type="Material" uid="uid://bvy5cv0fajqeu" path="res://asset/3d/material/unmp.tres" id="5_x7pvp"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="8_airjm"]
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="8_sqeha"]
@@ -23,8 +24,6 @@ material_override = SubResource("StandardMaterial3D_m5y5d")
 mesh = ExtResource("4_1l6s4")
 surface_material_override/0 = ExtResource("5_x7pvp")
 
-[node name="TextureLoader" type="Node" parent="NiftyMesh"]
-
 [node name="CellarCollision" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape" type="CollisionShape3D" parent="CellarCollision"]
@@ -34,6 +33,7 @@ shape = SubResource("ConcavePolygonShape3D_bss10")
 transform = Transform3D(0.0388587, 0, 0.999245, 0, 1, 0, -0.999245, 0, 0.0388587, 1.46928, 0, 0)
 target_scene_path = "uid://coiboxnwee2s5"
 target_spawn_name = "from_hallway1"
+loading_preset = ExtResource("5_m5y5d")
 
 [node name="SpawnClass" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160384, 0.505, 0)
@@ -126,6 +126,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -1.5)
 transform = Transform3D(-0.0489893, 0, -0.998799, 0, 1, 0, 0.998799, 0, -0.0489893, -28, 0, 1)
 target_scene_path = "uid://dtk6he8atg17p"
 target_spawn_name = "from_hallway1"
+loading_preset = ExtResource("5_m5y5d")
 
 [node name="SpawnClass2" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0.505, 1)

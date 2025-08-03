@@ -1,12 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://4naslxko2nlk"]
+[gd_scene load_steps=5 format=3 uid="uid://d0d23xfr4lix5"]
 
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_w8se1"]
+[ext_resource type="Script" uid="uid://bjxk4yv2va7b1" path="res://scripts/manager/video_player.gd" id="1_video_script"]
+
+[sub_resource type="Gradient" id="Gradient_y6ojg"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mo2gk"]
+gradient = SubResource("Gradient_y6ojg")
+fill_from = Vector2(1, 0)
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_y6ojg"]
 
 [node name="VideoPlayer" type="Node2D"]
+script = ExtResource("1_video_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(30, 16.875)
+texture = SubResource("GradientTexture2D_mo2gk")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-stream = SubResource("VideoStreamTheora_w8se1")
+offset_left = 264.0
+offset_right = 1704.0
+offset_bottom = 1080.0
+stream = SubResource("VideoStreamTheora_y6ojg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+zoom = Vector2(0.6, 0.6)
