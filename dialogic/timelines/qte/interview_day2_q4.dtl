@@ -1,8 +1,8 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer center
 techcorp_interviewer (netral): Hmph. Kau cukup menghibur, rendahan. Mungkin ada sedikit kegunaan untukmu.
-bananazon_interviewer (senang): Baiklah, pertanyaan terakhir. Pertanyaan standar dari buku manual HR rendahan, tapi Watakushi penasaran.
-bananazon_interviewer (netral): Bagaimana caramu menangani tekanan... seperti yang kau alami sekarang, misalnya? Ohohoho!
+techcorp_interviewer (senang): Baiklah, pertanyaan terakhir. Pertanyaan standar dari buku manual HR rendahan, tapi Watakushi penasaran.
+techcorp_interviewer (netral): Bagaimana caramu menangani tekanan... seperti yang kau alami sekarang, misalnya? Ohohoho!
 
 [signal arg="timer_start"]
 
@@ -42,12 +42,12 @@ bananazon_interviewer (netral): Bagaimana caramu menangani tekanan... seperti ya
 # Final interview conclusion
 [wait time="1.0"]
 
-techcorp_interviewer: baiklah aku sudah catat semuanya
+techcorp_interviewer: Waktu bermainnya sudah habis.
 
 if {interview_score} >= 30:
-	techcorp_interviewer: jangan lupa cek email di hari jumat yaaa, nyohohohoho
+	techcorp_interviewer: “Hmph. Lumayan. Nanti akan kusampaikan pada Ayah bahwa spesimen rendahan ini ternyata cukup menghibur. Mungkin kau bisa jadi pembersih sepatuku.
 else:
-	techcorp_interviewer: jangan hubungi kami lagi
+	techcorp_interviewer: Membosankan. Kau bahkan tidak lucu saat menderita. Enyahlah dari hadapanku.”
 
 set {day2_completed} = true
 set {day2_score} = {interview_score}
