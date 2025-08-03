@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dtk6he8atg17p"]
+[gd_scene load_steps=22 format=3 uid="uid://dtk6he8atg17p"]
 
+[ext_resource type="Texture2D" uid="uid://8taotsk5l0v1" path="res://asset/2d/ui/pause/imgonline-com-ua-Negative-Otk45i6oHhzr0.jpg" id="2_j5o2k"]
 [ext_resource type="ArrayMesh" uid="uid://cl3honuhs7ip0" path="res://asset/3d/room/under_nmp/anna_office.obj" id="3_jxg7d"]
 [ext_resource type="Texture2D" uid="uid://do71k7dm1xbsi" path="res://asset/3d/room/under_nmp/office_placeholder.png" id="5_pi22m"]
 [ext_resource type="ArrayMesh" uid="uid://3w527jh0y1mp" path="res://asset/3d/room/under_nmp/anna_office_cabinet.obj" id="8_8a2gs"]
@@ -14,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="17_ysbwa"]
 [ext_resource type="Script" uid="uid://df0qpljsc040u" path="res://scripts/objects/spawn.gd" id="19_u5aud"]
 [ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="20_ui"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21w8h"]
+albedo_texture = ExtResource("2_j5o2k")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sf7hl"]
 render_priority = 0
@@ -58,7 +62,7 @@ size = Vector3(1.05383, 1, 1.02258)
 
 [node name="RoomMesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("3_jxg7d")
-surface_material_override/0 = SubResource("ShaderMaterial_sf7hl")
+surface_material_override/0 = SubResource("StandardMaterial3D_21w8h")
 
 [node name="TextureLoader" type="Node" parent="RoomMesh"]
 

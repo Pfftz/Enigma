@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2qx3usjfi4v1"
-path="res://.godot/imported/spawn.png-a40dec171c88e1baf43850f85565d937.ctex"
+uid="uid://dkihnlt686lhg"
+path="res://.godot/imported/main menu.png-6778819a11c9158a9196ebeed118a43f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon/spawn.png"
-dest_files=["res://.godot/imported/spawn.png-a40dec171c88e1baf43850f85565d937.ctex"]
+source_file="res://asset/2d/ui/pause/main menu.png"
+dest_files=["res://.godot/imported/main menu.png-6778819a11c9158a9196ebeed118a43f.ctex"]
 
 [params]
 

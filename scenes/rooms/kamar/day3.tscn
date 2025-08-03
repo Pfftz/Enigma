@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://bk88ewvc63qff"]
 
-[ext_resource type="Script" path="res://scripts/levels/day_3.gd" id="1_j4o75"]
+[ext_resource type="Script" uid="uid://bq3xtix7rky7t" path="res://scripts/levels/day_3.gd" id="1_j4o75"]
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_u1ydf"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_qslo6"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_1g0dm"]
