@@ -27,7 +27,7 @@ techcorp_interviewer (netral): Sebagai AI dari keluarga terhormat, Watakushi han
 	set {interview_score} -= 10.0
 	
 	[signal arg="timer_end"]
-	techcorp_interviewer (senang): Fufufu, sudah minta maaf saja
+	techcorp_interviewer (senang): Hoo…? Kau berani memakai logikaku untuk melawanku? Fufu... kau sedikit lebih menarik dari sampah lainnya. Sedikit.
 	[signal arg="correct_choice"]
 
 - Nona rAImu. Database saya ini dilengkapi fitur 'loyalitas tinggi' dan 'kemampuan belajar cepat'.
