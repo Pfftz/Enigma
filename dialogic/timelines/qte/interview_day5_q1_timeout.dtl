@@ -1,0 +1,10 @@
+[background arg="res://asset/2d/hr/d5/inside-interview.jpg" fade="0.0"]
+join kamu center
+# Day 5 Question 1 timeout
+set {interview_score} -= 5
+
+kamu (sedih): Oh... kamu tidak tahu ya. Tidak apa-apa, mungkin memang belum saatnya.
+
+[signal arg="timeout"]
+[signal arg="timer_end"]
+[signal arg="update_ui"]

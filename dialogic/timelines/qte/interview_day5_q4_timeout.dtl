@@ -1,0 +1,20 @@
+[background arg="res://asset/2d/hr/d5/inside-interview.jpg" fade="0.0"]
+join kamu center
+# Day 5 Question 4 timeout
+set {interview_score} -= 5
+
+kamu (sedih): Tidak ada yang ingin kamu katakan? Baiklah...
+
+[signal arg="timeout"]
+[signal arg="timer_end"]
+
+# Final interview conclusion
+kamu (a): MC, terima kasih sudah datang. Meski tidak sempat menyelesaikan semua pertanyaan, saya menghargai waktu yang kamu luangkan.
+
+if {interview_score} >= 30:
+	kamu (senang): Kamu tahu apa? Aku benar-benar melihat potensi di dirimu. Selamat datang di Modern Solution!
+else:
+	kamu (sedih): Sayangnya, saat ini saya masih belum yakin kita cocok satu sama lain. Tapi jangan menyerah ya!
+
+set {day5_completed} = true
+set {day5_score} = {interview_score}

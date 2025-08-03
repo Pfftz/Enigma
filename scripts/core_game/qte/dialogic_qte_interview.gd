@@ -222,22 +222,25 @@ func start_question_timeline(question_num: int) -> void:
 				1: timeline_name = "interview_day2_q1"
 				2: timeline_name = "interview_day2_q2"
 				3: timeline_name = "interview_day2_q3"
-				3: timeline_name = "interview_day2_q4"
+				4: timeline_name = "interview_day2_q4"
 		3:
 			match question_num:
 				1: timeline_name = "interview_day3_q1"
 				2: timeline_name = "interview_day3_q2"
 				3: timeline_name = "interview_day3_q3"
+				4: timeline_name = "interview_day3_q4"
 		4:
 			match question_num:
 				1: timeline_name = "interview_day4_q1"
 				2: timeline_name = "interview_day4_q2"
 				3: timeline_name = "interview_day4_q3"
+				4: timeline_name = "interview_day4_q4"
 		5:
 			match question_num:
 				1: timeline_name = "interview_day5_q1"
 				2: timeline_name = "interview_day5_q2"
 				3: timeline_name = "interview_day5_q3"
+				4: timeline_name = "interview_day5_q4"
 	
 	if timeline_name != "":
 		Dialogic.start(timeline_name)
@@ -264,7 +267,8 @@ func _on_dialogic_signal(argument: String) -> void:
 			kick_out_player()
 		"next_question":
 			# Check if we need to move to next question
-			if current_question < 3:
+			var max_questions = 3 if current_day == 1 else 4
+			if current_question < max_questions:
 				start_question_timeline(current_question + 1)
 			else:
 				# Day completed
@@ -309,7 +313,8 @@ func handle_timer_timeout() -> void:
 	else:
 		print("Timer expired! No timeout timeline found for question ", current_question)
 		# If no timeout timeline, move to next question directly
-		if current_question < 3:
+		var max_questions = 3 if current_day == 1 else 4
+		if current_question < max_questions:
 			await get_tree().create_timer(1.0).timeout
 			start_question_timeline(current_question + 1)
 		else:
@@ -329,22 +334,25 @@ func get_current_timeout_label() -> String:
 				1: timeout_timeline = "interview_day2_q1_timeout"
 				2: timeout_timeline = "interview_day2_q2_timeout"
 				3: timeout_timeline = "interview_day2_q3_timeout"
-				3: timeout_timeline = "interview_day2_q4_timeout"
+				4: timeout_timeline = "interview_day2_q4_timeout"
 		3:
 			match current_question:
 				1: timeout_timeline = "interview_day3_q1_timeout"
 				2: timeout_timeline = "interview_day3_q2_timeout"
 				3: timeout_timeline = "interview_day3_q3_timeout"
+				4: timeout_timeline = "interview_day3_q4_timeout"
 		4:
 			match current_question:
 				1: timeout_timeline = "interview_day4_q1_timeout"
 				2: timeout_timeline = "interview_day4_q2_timeout"
 				3: timeout_timeline = "interview_day4_q3_timeout"
+				4: timeout_timeline = "interview_day4_q4_timeout"
 		5:
 			match current_question:
 				1: timeout_timeline = "interview_day5_q1_timeout"
 				2: timeout_timeline = "interview_day5_q2_timeout"
 				3: timeout_timeline = "interview_day5_q3_timeout"
+				4: timeout_timeline = "interview_day5_q4_timeout"
 	
 	return timeout_timeline
 
@@ -478,6 +486,8 @@ func _on_bubble_minigame_completed(minigame_score: int):
 					timeline_name = "interview_day2_q2_bubble_result"
 				3:
 					timeline_name = "interview_day2_q3"
+				4:
+					timeline_name = "interview_day2_q4"
 		3:
 			match current_question:
 				1:
@@ -486,6 +496,8 @@ func _on_bubble_minigame_completed(minigame_score: int):
 					timeline_name = "interview_day3_q2_bubble_result"
 				3:
 					timeline_name = "interview_day3_q3"
+				4:
+					timeline_name = "interview_day3_q4"
 		4:
 			match current_question:
 				1:
@@ -494,6 +506,8 @@ func _on_bubble_minigame_completed(minigame_score: int):
 					timeline_name = "interview_day4_q2_bubble_result"
 				3:
 					timeline_name = "interview_day4_q3"
+				4:
+					timeline_name = "interview_day4_q4"
 		5:
 			match current_question:
 				1:
@@ -502,6 +516,8 @@ func _on_bubble_minigame_completed(minigame_score: int):
 					timeline_name = "interview_day5_q2_bubble_result"
 				3:
 					timeline_name = "interview_day5_q3"
+				4:
+					timeline_name = "interview_day5_q4"
 	
 	if timeline_name != "":
 		print("DEBUG: Starting timeline: ", timeline_name)
@@ -531,7 +547,8 @@ func _on_timeline_ended() -> void:
 	
 	# Remove the unnecessary delay - proceed immediately
 	# Check if we need to move to next question or show results
-	if current_question < 3:
+	var max_questions = 3 if current_day == 1 else 4
+	if current_question < max_questions:
 		print("DEBUG: Moving to question ", current_question + 1)
 		start_question_timeline(current_question + 1)
 	else:

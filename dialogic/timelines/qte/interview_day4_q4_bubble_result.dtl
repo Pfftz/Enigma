@@ -4,7 +4,6 @@ join character center
 
 # Check bubble minigame score to determine choice
 if {bubble_score} >= 10000000:
-	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	# Good performance - player gives correct answer
 	character (normal): icikiwir
 	set {interview_score} += 10.0
@@ -12,7 +11,6 @@ if {bubble_score} >= 10000000:
 	creative_interviewer (senyum): gg amat wok
 	[signal arg="correct_choice"]
 else:
-	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	# Poor performance - player gives wrong answer  
 	character (normal): cukup...
 	character (normal): aku sudah muak dengan caramu memandang rendah orang lain...” \
