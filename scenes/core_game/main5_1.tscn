@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv0y4vs8kemhc"]
 
-[ext_resource type="Script" uid="uid://dtdcm1q0hqf5y" path="res://scripts/core_game/love_main.gd" id="1_ik7dj"]
+[ext_resource type="Script" path="res://scripts/core_game/love_main.gd" id="1_ik7dj"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="2_lkkq6"]
 
 [node name="main" type="Node2D"]

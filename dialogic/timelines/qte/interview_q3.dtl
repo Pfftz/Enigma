@@ -50,7 +50,6 @@ bananazon_interviewer (netral): Analisa saya tentang Anda sudah cukup.
 
 if {interview_score} >= 25:
 	bananazon_interviewer (sangat senang): Anda punya potensi untuk tumbuh subur di sini. Kami akan kabari Anda di beberapa hari lagi
-	bananazon_interviewer (netral): Maaf, sepertinya akar Anda tidak cocok dengan tanah kami. Terima kasih atas waktunya
 else:
 	bananazon_interviewer (marah): Maaf, sepertinya akar Anda tidak cocok dengan tanah kami. Terima kasih atas waktunya
 

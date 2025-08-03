@@ -3,7 +3,6 @@ join character center
 [background arg="res://asset/2d/hr/d1/hr-1-placehold.png" fade="0.0"]
 
 # Check bubble minigame score to determine choice
-bananazon_interviewer (netral): Berapa jumlah jendela di gedung yang ada di jakarta
 if {bubble_score} >= 50:
 	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	# Good performance - player gives correct answer
