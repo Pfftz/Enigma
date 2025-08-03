@@ -159,6 +159,12 @@ offset_bottom = 651.0
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="InformationLabel" type="Label" parent="UI"]
+offset_right = 1153.0
+offset_bottom = 651.0
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../PhantomCamera3D2/Camera3D")
 
