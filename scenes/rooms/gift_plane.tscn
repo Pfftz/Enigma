@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dv0wjicfyhie5" path="res://asset/3d/object/building/RENDER 1.png" id="1_yklvt"]
 [ext_resource type="ArrayMesh" uid="uid://bkbjy1ky475px" path="res://asset/3d/object/building/Calisma2.obj" id="2_ob3qw"]
-[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="9_lbpat"]
+[ext_resource type="Script" path="res://scripts/ui/interaksi_label.gd" id="9_lbpat"]
 [ext_resource type="ArrayMesh" uid="uid://bg2idb63iwanj" path="res://asset/3d/object/ImageToStl.com_low-poly+scene/low-poly scene.obj" id="10_hoo7f"]
 [ext_resource type="Script" uid="uid://b1re0jv8gob8p" path="res://scripts/objects/interact/interact_gedung.gd" id="10_yklvt"]
 [ext_resource type="PackedScene" uid="uid://dnydq7jk6xp00" path="res://scenes/objects/player/player_cam.tscn" id="11_yklvt"]
