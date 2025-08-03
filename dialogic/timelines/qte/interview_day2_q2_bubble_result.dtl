@@ -1,5 +1,6 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer center
+join character center
 techcorp_interviewer: jadi bagaimana?
 
 # Check bubble minigame score to determine choice
