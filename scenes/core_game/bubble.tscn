@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="3_4a276"]
 [ext_resource type="AudioStream" uid="uid://3mupqhju58m6" path="res://asset/sound/intrusive_mashkey_ultimate.wav" id="3_pyugt"]
 [ext_resource type="Texture2D" uid="uid://dp5g470gnmxy1" path="res://asset/2d/core game/negative1.png" id="5_241cy"]
-[ext_resource type="FontFile" uid="uid://c0wq785bswte" path="res://asset/font/UchronyCircle-Light-FFP.ttf" id="6_pyugt"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_c2d40"]
+[ext_resource type="FontFile" uid="uid://n40mbgvi4xff" path="res://asset/font/UchronyCircle-Bold-FFP.ttf" id="7_pyugt"]
 
 [sub_resource type="Animation" id="Animation_y2db8"]
 length = 0.001
@@ -106,25 +106,6 @@ process_material = SubResource("ParticleProcessMaterial_y2db8")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-[node name="TypingLabel" type="Label" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -69.0
-offset_top = 105.0
-offset_right = 93.0
-offset_bottom = 144.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.517647, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("6_pyugt")
-theme_override_font_sizes/font_size = 38
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="ThoughtLabel" type="Label" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,5 +124,26 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="LifetimeTimer" type="Timer" parent="."]
+
+[node name="TypingLabel" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = 98.0
+offset_right = 87.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.517647, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 14
+theme_override_fonts/font = ExtResource("7_pyugt")
+theme_override_font_sizes/font_size = 38
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]

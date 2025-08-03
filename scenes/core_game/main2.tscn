@@ -5,20 +5,9 @@
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_aksll")
-positive_thoughts = null
-trap_thoughts = null
-number_of_bubbles = null
-gameplay_duration = null
-bubble_replace_interval = null
 trap_chance = 0.082
 min_pop_respawn_delay = 1.0
 max_pop_respawn_delay = 2.0
-ultimate_score_threshold = null
-ultimate_spam_count = null
-horizontal_margin_percent = null
-vertical_margin_percent = null
-middle_bubble_offset = null
-outer_bubble_offset = null
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
