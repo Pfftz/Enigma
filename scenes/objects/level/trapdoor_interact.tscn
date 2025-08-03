@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://xwv61ajrklte" path="res://scripts/objects/interact/trapdoor_interact.gd" id="1_interact"]
 [ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="2_symbol"]
 
-
 [node name="TrapdoorInteract" type="Marker3D"]
 script = ExtResource("1_interact")
 interaction_text = Array[String](["Press E to open trapdoor"])

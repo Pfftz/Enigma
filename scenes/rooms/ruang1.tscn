@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="10_7coyi"]
 [ext_resource type="Resource" uid="uid://cpnxltpebnvr6" path="res://resource/environment/under_nmp.tres" id="11_7coyi"]
 [ext_resource type="PackedScene" uid="uid://dguysikyfdbkc" path="res://scenes/objects/interactive/dialogue_trigger.tscn" id="12_162ku"]
-[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="13_ui"]
+[ext_resource type="Script" path="res://scripts/ui/interaksi_label.gd" id="13_ui"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rw2xt"]
 render_priority = 0

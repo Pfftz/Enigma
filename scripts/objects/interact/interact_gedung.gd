@@ -5,7 +5,7 @@ var player_in_area := false
 
 # --- Konfigurasi Scene ---
 const INTERVIEW_SCENE_PATH = "res://scenes/ui/dialogic_qte_interview.tscn" # <-- Sesuaikan path ini jika perlu
-const DAY5_INTRO_TIMELINE = "day5" # Timeline untuk day5.dtl
+const DAY5_INTRO_TIMELINE = "monolog/day5-C1" # Timeline untuk day5.dtl
 var day5_intro_played := false
 var waiting_for_day5_timeline := false
 

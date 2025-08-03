@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjr8vgn3qr8yh"]
 
-[ext_resource type="Script" path="res://scripts/endings/bad_ending.gd" id="1_2hnv4"]
+[ext_resource type="Script" uid="uid://bhe7r7aoumy35" path="res://scripts/endings/bad_ending.gd" id="1_2hnv4"]
 [ext_resource type="LabelSettings" uid="uid://cb1c82a2dubgn" path="res://resource/theme/font/default.tres" id="2_6j3xd"]
 
 [node name="BadEnding" type="Control"]
