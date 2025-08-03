@@ -1,7 +1,7 @@
 [background arg="res://asset/2d/hr/d5/bg-d5.jpg" fade="0.0"]
 join mc-luar center
 character (normal): Aduh, kuat gak ya ikut interview ini, gw lemes banget njir
-character (normal): Nanti kalo pingsan giman... Hanying silau?
+character (normal): Nanti kalo pingsan giman... Hanying silau!!!
 update mc-luar leftmost
 join kamu rightmost
 kamu (netral): Ada yg bisa saya bantu?
