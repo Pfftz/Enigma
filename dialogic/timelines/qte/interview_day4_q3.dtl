@@ -1,6 +1,6 @@
 [background arg="res://asset/2d/hr/d4/img-d4.png" fade="0.0"]
 join green_interviewer center
-join green_interviewer center
+join character center
 
 green_interviewer (netral): Di database saya, riwayatmu adalah data yang gagal
 green_interviewer: Ratusan lamaran yang di ghosting, puluhan lamaran yang di tolak

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://5odoms4vx448"]
 
-[ext_resource type="Script" path="res://scripts/core_game/love_main.gd" id="1_scafo"]
+[ext_resource type="Script" uid="uid://dtdcm1q0hqf5y" path="res://scripts/core_game/love_main.gd" id="1_scafo"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="2_qgwsn"]
 [ext_resource type="FontFile" uid="uid://d3wcojlddp1uo" path="res://asset/font/LettersinCirclesBook.ttf" id="3_73ifb"]
 
