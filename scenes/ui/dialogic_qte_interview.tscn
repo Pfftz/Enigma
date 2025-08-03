@@ -36,6 +36,7 @@ grow_vertical = 2
 color = Color(0.00308358, 0.0617439, 0.139001, 1)
 
 [node name="GameplayLabel" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -103,6 +104,7 @@ layout_direction = 1
 layout_mode = 2
 
 [node name="CompanyLabel" type="Label" parent="CenterContainer/InterviewPanel/VBoxContainer/CompanyHeader"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -126,7 +128,7 @@ size_flags_horizontal = 0
 
 [node name="TimerLabel" type="Label" parent="CenterContainer/InterviewPanel/VBoxContainer/TimerContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 50
 text = "12s"
 
 [node name="DialogicContainer" type="Control" parent="CenterContainer/InterviewPanel/VBoxContainer"]

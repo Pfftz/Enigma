@@ -1,5 +1,8 @@
 [background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer (netral) center
 
-creative_interviewer (netral): Sebagai calon pejuang baru, apa strategi yang akan kau ambil untuk menaklukkan sang Naga? Pikirkan baik-baik, nasib perusahaan ini ada di tanganmu!
+creative_interviewer (marah): CUKUP BASA-BASINYA! SEKARANG FOKUS!
+creative_interviewer: Gawat! Aku merasakan aura kegelapan! Benteng kita akan diserang! Aku bisa merasakannya
+creative_interviewer: Server utama kita ‘Inti Matahari’ akan dirusak oleh penyusup kiriman [b]‘Organisasi Kegelapan Malam’[/b]!
+creative_interviewer: Sebagai calon prajurit, apa strategi pertamamu?!
 [signal arg="start_bubble_minigame"]
