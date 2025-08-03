@@ -1,0 +1,2 @@
+[background arg="res://asset/2d/hr/d1/hancur.png" fade="0.0" transition="Push Down"]
+[background arg="res://asset/2d/hr/d1/jangan-hancur.png" fade="0.0" transition="Push Down"]
