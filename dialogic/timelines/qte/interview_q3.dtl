@@ -46,12 +46,9 @@ bananazon_interviewer (netral): Analisa saya tentang Anda sudah cukup.
 
 if {interview_score} >= 25:
 	bananazon_interviewer (sangat senang): Anda punya potensi untuk tumbuh subur di sini. Kami akan kabari Anda di beberapa hari lagi
-elif {interview_score} >= 10:
-	bananazon_interviewer (netral): Masih ada yang perlu diperbaiki, tapi terima kasih sudah datang.
-elif {interview_score} >= 0:
 	bananazon_interviewer (netral): Maaf, sepertinya akar Anda tidak cocok dengan tanah kami. Terima kasih atas waktunya
 else:
 	bananazon_interviewer (marah): Maaf, sepertinya akar Anda tidak cocok dengan tanah kami. Terima kasih atas waktunya
-
-set {day1_completed} = true
-set {day1_score} = {interview_score}
+	
+	set {day1_completed} = true
+	set {day1_score} = {interview_score}
