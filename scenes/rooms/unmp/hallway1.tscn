@@ -126,7 +126,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -1.5)
 transform = Transform3D(-0.0489893, 0, -0.998799, 0, 1, 0, 0.998799, 0, -0.0489893, -28, 0, 1)
 target_scene_path = "uid://dtk6he8atg17p"
 target_spawn_name = "from_hallway1"
-loading_preset = ExtResource("5_m5y5d")
 
 [node name="SpawnClass2" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0.505, 1)

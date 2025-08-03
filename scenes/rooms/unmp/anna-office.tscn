@@ -6,7 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://3w527jh0y1mp" path="res://asset/3d/room/under_nmp/anna_office_cabinet.obj" id="8_8a2gs"]
 [ext_resource type="ArrayMesh" uid="uid://dwl3j6dab3shl" path="res://asset/3d/room/under_nmp/office_table.obj" id="10_qfqj5"]
 [ext_resource type="Shader" uid="uid://cdmbno3xmc4uw" path="res://shaders/psx_lit_alpha.gdshader" id="11_0xl1g"]
-[ext_resource type="Resource" path="res://resource/loading_preset/warp_loading.tres" id="11_21w8h"]
+[ext_resource type="Resource" uid="uid://cc8xgnj741q4b" path="res://resource/loading_preset/warp_loading.tres" id="11_21w8h"]
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="12_hn1em"]
 [ext_resource type="ArrayMesh" uid="uid://cnv66cn4me1ri" path="res://asset/3d/room/under_nmp/anna_office_chair.obj" id="13_6uags"]
 [ext_resource type="Resource" uid="uid://cpnxltpebnvr6" path="res://resource/environment/under_nmp.tres" id="13_j5o2k"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://vth0ydbdcwng" path="res://scenes/objects/interactive/phone.tscn" id="15_3bmv8"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="17_ysbwa"]
 [ext_resource type="Script" uid="uid://df0qpljsc040u" path="res://scripts/objects/spawn.gd" id="19_u5aud"]
-[ext_resource type="Script" path="res://scripts/ui/interaksi_label.gd" id="20_ui"]
+[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="20_ui"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21w8h"]
 albedo_texture = ExtResource("2_j5o2k")
