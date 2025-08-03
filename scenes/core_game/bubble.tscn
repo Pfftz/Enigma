@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="3_4a276"]
 [ext_resource type="AudioStream" uid="uid://3mupqhju58m6" path="res://asset/sound/intrusive_mashkey_ultimate.wav" id="3_pyugt"]
 [ext_resource type="Texture2D" uid="uid://dp5g470gnmxy1" path="res://asset/2d/core game/negative1.png" id="5_241cy"]
-[ext_resource type="FontFile" uid="uid://d3wcojlddp1uo" path="res://asset/font/LettersinCirclesBook.ttf" id="6_pyugt"]
+[ext_resource type="FontFile" uid="uid://c0wq785bswte" path="res://asset/font/UchronyCircle-Light-FFP.ttf" id="6_pyugt"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_c2d40"]
 
 [sub_resource type="Animation" id="Animation_y2db8"]
@@ -87,7 +87,6 @@ typing_sounds = Array[AudioStream]([ExtResource("2_qktc3")])
 pop_sound = ExtResource("3_pyugt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.592157)
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.859375, 0.859375)
 texture = ExtResource("5_241cy")
@@ -108,16 +107,21 @@ process_material = SubResource("ParticleProcessMaterial_y2db8")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="TypingLabel" type="Label" parent="."]
-offset_left = -18.0
-offset_top = 64.0
-offset_right = 22.0
-offset_bottom = 87.0
-theme_override_colors/font_color = Color(0.834502, 0.678928, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = 105.0
+offset_right = 93.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.517647, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("6_pyugt")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 38
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -125,9 +129,9 @@ vertical_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -100.0
+offset_left = -102.0
 offset_top = -64.0
-offset_right = 114.0
+offset_right = 112.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
