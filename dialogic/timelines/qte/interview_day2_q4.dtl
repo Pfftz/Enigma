@@ -1,5 +1,6 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer center
+join character center
 techcorp_interviewer (netral): Hmph. Kau cukup menghibur, rendahan. Mungkin ada sedikit kegunaan untukmu.
 techcorp_interviewer (senang): Baiklah, pertanyaan terakhir. Pertanyaan standar dari buku manual HR rendahan, tapi Watakushi penasaran.
 techcorp_interviewer (netral): Bagaimana caramu menangani tekanan... seperti yang kau alami sekarang, misalnya? Ohohoho!

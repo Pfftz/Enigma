@@ -1,5 +1,6 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer (netral) center
+join character center
 techcorp_interviewer (netral): Fufu, menghibur sekali.
 techcorp_interviewer (netral): Pertanyaan selanjutnya\: Apa hal paling berharga yang bisa ditawarkan oleh mahluk sepertimu kepada Watakushi?
 
