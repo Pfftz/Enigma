@@ -19,33 +19,23 @@
 },
 "style": ""
 },
-&"default_portrait": "New portrait",
+&"default_portrait": "normal",
 &"description": "",
 &"display_name": "Aku",
 &"mirror": false,
 &"nicknames": ["Jawa"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, -215),
 &"portraits": {
-"New portrait": {
-"export_overrides": {
-"image": "\"res://asset/2d/sprite/player/gen_1.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1.0,
-"scene": "",
-"sound_mood": "Mood 1"
-},
 "normal": {
 "export_overrides": {
-"image": ""
+"image": "\"res://asset/2d/MC/mc-normal.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(0, -250),
+"scale": 0.4,
 "scene": "",
 "sound_mood": "Mood 1"
 }
 },
-&"scale": 1.0
+&"scale": 0.5
 }
