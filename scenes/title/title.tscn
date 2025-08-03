@@ -1,22 +1,23 @@
-[gd_scene load_steps=46 format=3 uid="uid://b1kab4d8sry8a"]
+[gd_scene load_steps=41 format=3 uid="uid://b1kab4d8sry8a"]
 
 [ext_resource type="Script" uid="uid://d2qykwnj5swwx" path="res://scripts/levels/title.gd" id="1_ys1qf"]
 [ext_resource type="Resource" uid="uid://bce0a1ltuxpat" path="res://resource/loading_preset/new_game_loading.tres" id="2_qp135"]
-[ext_resource type="Shader" uid="uid://dtsf8q7phrnxo" path="res://shaders/psx_lit_nofog.gdshader" id="3_60g01"]
-[ext_resource type="ArrayMesh" uid="uid://dq3rc0ouigxgd" path="res://asset/3d/title/logo.obj" id="3_mxee1"]
 [ext_resource type="Resource" uid="uid://fqixpor1kacn" path="res://resource/loading_preset/default.tres" id="3_qb06g"]
 [ext_resource type="Shader" uid="uid://cfkaktpfj4ha4" path="res://shaders/psx_lit_noenv.gdshader" id="4_2bndm"]
 [ext_resource type="Shader" uid="uid://b0jbi3my83n12" path="res://shaders/psx_unlit_blank.gdshader" id="4_ghmid"]
-[ext_resource type="Texture2D" uid="uid://byisj38galtxp" path="res://asset/2d/sprite/title/gift.png" id="6_bfg8e"]
 [ext_resource type="Texture2D" uid="uid://c5r116iqnwip2" path="res://asset/2d/ui/title/press_start.png" id="7_j73lr"]
 [ext_resource type="Texture2D" uid="uid://dyqdq3bocpikr" path="res://asset/2d/ui/title/file_frame.png" id="8_hgps8"]
+[ext_resource type="Texture2D" uid="uid://bv115dw4sc0s5" path="res://asset/2d/title/Untitled473_20250803214251.png" id="8_qb06g"]
 [ext_resource type="LabelSettings" uid="uid://cb1c82a2dubgn" path="res://resource/theme/font/default.tres" id="9_2brh2"]
 [ext_resource type="Shader" uid="uid://1n7hd1pd71t8" path="res://shaders/transparency.gdshader" id="9_hmdf2"]
 [ext_resource type="Texture2D" uid="uid://dlohalr4erewr" path="res://asset/2d/sprite/player/guardian.png" id="10_g8lf8"]
 [ext_resource type="Texture2D" uid="uid://spnyrwx3rosx" path="res://asset/2d/ui/title/panic.png" id="10_lli8y"]
 [ext_resource type="Texture2D" uid="uid://ryssvf1pireo" path="res://asset/2d/ui/title/title_piece.png" id="11_b3kyf"]
-[ext_resource type="Texture2D" uid="uid://bjpl673weodmi" path="res://asset/2d/ui/psx_buttons.png" id="13_61pkf"]
+[ext_resource type="Texture2D" uid="uid://bo544phuhv3ky" path="res://asset/2d/title/space-atas.png" id="14_qb06g"]
 [ext_resource type="FontFile" uid="uid://dtabqugvs5qj6" path="res://asset/2d/font/ttf/PetscopTall.ttf" id="15_1qjog"]
+[ext_resource type="Texture2D" uid="uid://dtoiu6g5r6nn8" path="res://asset/2d/title/space-bawah.png" id="15_xuxxd"]
+[ext_resource type="Texture2D" uid="uid://d3kewqy6pcgl7" path="res://asset/2d/title/C-atas.png" id="16_lq4su"]
+[ext_resource type="Texture2D" uid="uid://ccr5ffvyigp2g" path="res://asset/2d/title/c-bawah.png" id="17_iftfp"]
 [ext_resource type="AudioStream" uid="uid://bf0e6hfsjvudv" path="res://sfx/title_screen/press_start.wav" id="17_q7emt"]
 [ext_resource type="AudioStream" uid="uid://cxqsh40sckwcr" path="res://music/petscop.ogg" id="18_ua51s"]
 [ext_resource type="AudioStream" uid="uid://cf5ioohi6c4sl" path="res://sfx/title_screen/whistle.wav" id="19_pydtj"]
@@ -26,29 +27,11 @@
 [ext_resource type="Texture2D" uid="uid://b617s71g30arh" path="res://asset/3d/room/gift/texture.png" id="24_0jas5"]
 [ext_resource type="PackedScene" uid="uid://cv7edlpe3aguh" path="res://scenes/management/fog_focus.tscn" id="25_00iv3"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y7r7o"]
-render_priority = 0
-shader = ExtResource("3_60g01")
-shader_parameter/modulate_color = Color(0.658824, 0.321569, 1, 1)
-shader_parameter/uv_scale = Vector2(1, 1)
-shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/uv_pan_velocity = Vector2(0, 0)
-shader_parameter/alpha_color = Color(1, 0, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4r4qs"]
-render_priority = 0
-shader = ExtResource("3_60g01")
-shader_parameter/modulate_color = Color(1, 0.537255, 1, 1)
-shader_parameter/uv_scale = Vector2(1, 1)
-shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/uv_pan_velocity = Vector2(0, 0)
-shader_parameter/alpha_color = Color(1, 0, 1, 1)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_286tk"]
 render_priority = 0
 shader = ExtResource("4_ghmid")
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
-shader_parameter/albedoTex = ExtResource("6_bfg8e")
+shader_parameter/albedoTex = ExtResource("8_qb06g")
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_pan_velocity = Vector2(0, 0)
@@ -109,44 +92,28 @@ animations = [{
 font = ExtResource("15_1qjog")
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ibh5m"]
-atlas = ExtResource("13_61pkf")
-region = Rect2(0, 34, 34, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ge7r2"]
-atlas = ExtResource("13_61pkf")
-region = Rect2(136, 34, 34, 34)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_bobwt"]
 animations = [{
 "frames": [{
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_ibh5m")
+"duration": 1.0,
+"texture": ExtResource("14_qb06g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ge7r2")
+"texture": ExtResource("15_xuxxd")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r6ycf"]
-atlas = ExtResource("13_61pkf")
-region = Rect2(102, 34, 34, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vr88f"]
-atlas = ExtResource("13_61pkf")
-region = Rect2(238, 34, 34, 34)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_6x4yc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r6ycf")
+"texture": ExtResource("16_lq4su")
 }, {
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_vr88f")
+"duration": 1.0,
+"texture": ExtResource("17_iftfp")
 }],
 "loop": true,
 "name": &"default",
@@ -190,17 +157,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.921, 3.092, 8.487)
 [node name="LogoMesh" type="MeshInstance3D" parent="LogoOrigin"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00300002, 0, -0.000999928)
-mesh = ExtResource("3_mxee1")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_y7r7o")
-surface_material_override/1 = SubResource("ShaderMaterial_4r4qs")
 
 [node name="LogoGift" type="Sprite3D" parent="LogoOrigin"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, 0.003, -0.028, -0.206)
+transform = Transform3D(0.3, 0, 0, 0, 0.285317, 0.0927051, 0, -0.0927051, 0.285317, 0.003, -0.028, -0.206)
 material_override = SubResource("ShaderMaterial_286tk")
 pixel_size = 0.002
-texture = ExtResource("6_bfg8e")
+texture = ExtResource("8_qb06g")
 
 [node name="LogoSpot" type="SpotLight3D" parent="LogoOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00300002, 0.235, 0.58)
@@ -243,7 +207,8 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "© 1997 Garalina"
+text = "© 2025 Gedagedi Game Studio
+"
 label_settings = ExtResource("9_2brh2")
 horizontal_alignment = 1
 
@@ -282,9 +247,9 @@ texture = ExtResource("10_lli8y")
 [node name="FileName" type="Label" parent="FileSelect/Files/File"]
 texture_filter = 1
 offset_left = 64.0
-offset_top = 45.0
-offset_right = 140.0
-offset_bottom = 68.0
+offset_top = 42.0
+offset_right = 206.0
+offset_bottom = 74.0
 text = "New Game"
 label_settings = ExtResource("9_2brh2")
 
@@ -336,10 +301,10 @@ texture = ExtResource("10_lli8y")
 
 [node name="FileName" type="Label" parent="FileSelect/Files/File2"]
 texture_filter = 1
-offset_left = 51.0
-offset_top = 45.0
-offset_right = 138.0
-offset_bottom = 68.0
+offset_left = 13.0
+offset_top = 47.3333
+offset_right = 187.0
+offset_bottom = 79.3333
 text = "Empty Game"
 label_settings = ExtResource("9_2brh2")
 horizontal_alignment = 2
@@ -389,10 +354,10 @@ texture = ExtResource("10_lli8y")
 
 [node name="FileName" type="Label" parent="FileSelect/Files/File3"]
 texture_filter = 1
-offset_left = 64.0
-offset_top = 45.0
-offset_right = 140.0
-offset_bottom = 68.0
+offset_left = 64.6667
+offset_top = 42.0
+offset_right = 188.667
+offset_bottom = 74.0
 text = "Settings"
 label_settings = ExtResource("9_2brh2")
 
@@ -444,10 +409,10 @@ flip_h = true
 
 [node name="FileName" type="Label" parent="FileSelect/Files/File4"]
 texture_filter = 1
-offset_left = 60.0
-offset_top = 45.0
-offset_right = 136.0
-offset_bottom = 68.0
+offset_left = 13.0
+offset_top = 46.0
+offset_right = 161.0
+offset_bottom = 78.0
 text = "Quit Game"
 label_settings = ExtResource("9_2brh2")
 
@@ -476,7 +441,8 @@ texture_filter = 1
 position = Vector2(-6.15385, 73.8462)
 
 [node name="CrossButton" type="AnimatedSprite2D" parent="FileSelect/FileSelectButtons2"]
-position = Vector2(56, 205)
+position = Vector2(30.1539, 222.154)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_bobwt")
 autoplay = "default"
 frame = 1
@@ -490,15 +456,16 @@ text = "Select"
 label_settings = ExtResource("9_2brh2")
 
 [node name="TriangleButton" type="AnimatedSprite2D" parent="FileSelect/FileSelectButtons2"]
-position = Vector2(217, 205)
+position = Vector2(227.487, 222.154)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_6x4yc")
 autoplay = "default"
 
 [node name="GoBack" type="Label" parent="FileSelect/FileSelectButtons2"]
-offset_left = 225.0
-offset_top = 204.0
-offset_right = 301.0
-offset_bottom = 227.0
+offset_left = 260.154
+offset_top = 206.154
+offset_right = 382.154
+offset_bottom = 238.154
 text = "Go Back"
 label_settings = ExtResource("9_2brh2")
 
