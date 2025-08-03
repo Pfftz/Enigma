@@ -1,42 +1,47 @@
 [background arg="res://asset/2d/hr/d4/img-d4.png" fade="0.0"]
 [music path="res://asset/sound/ost/DosenKillerDay4.wav" fade="0.0" volume="0.0"]
 join green_interviewer center
+join character center
 set {interview_day} = 4
 set {company_name} = "GreenCorp"
 set {interview_score} = 0
 
-character (normal): Permisi pak
+green_interviewer (netral): Selamat pagi. Saya Pinggu, dari Arcticaz
 
-green_interviewer (netral): “Pelamar ke-456 Waktu saya terbatas. Saya harap anda sudah siap
+green_interviewer: Perusahaan kami adalah inti dari server paling dingin di dunia.
+green_interviewer: Fokus kami hanya pada klien yang memiliki potensi investasi yang terjamin.
+green_interviewer: Dengan kata lain... orang-orang yang sudah jelas bisa menghasilkan uang.
+green_interviewer: Konteks tadi juga berlaku untuk calon pekerja
+green_interviewer: Anda adalah pelamar ke-456, kami. Waktu saya terbatas. Saya harap Anda tidak membuang-buang waktu saya.
 
 [signal arg="timer_start"]
 
-- (diam)*mengaangguk
-	set {interview_score} += 18
-
+- Setuju pak, waktu itu berharga.
+	set {interview_score} += 5.0
+	
 	[signal arg="timer_end"]
-	green_interviewer (senang): baik. Saya suka itu
+	green_interviewer (senang): Bagus. Saya menghargai yang efisien. Pertanyaan pertama.
 	[signal arg="correct_choice"]
 
-- setuju pak, waktu itu berharga
-	set {interview_score} += 5
-
+- (gulp) mengangguk
+	set {interview_score} += 10.0
+	
 	[signal arg="timer_end"]
-	green_interviewer (senang): Bagus kalau Anda sadar.
+	green_interviewer (senang): Baik. Sedikit bicara, banyak bekerja. Pertanyaan pertama.
 	[signal arg="correct_choice"]
 
-- Sudah 456 orang yg mendaftar?
-	set {interview_score} -= 20
-
+- Maaf, Pak. Koneksi saya agak lambat. Tadi Bapak bilang pelamar ke berapa?
+	set {interview_score} -= 5.0
+	
 	[signal arg="timer_end"]
-	green_interviewer (marah): [b]fokus[/b]. Itu tidak relevan
+	green_interviewer (marah): Pelamar ke-456. Dan barusan Anda membuang 5 detik waktu saya untuk mengulanginya.
 	[signal arg="wrong_choice"]
 
-- gak sabaran banget pak
+- Wow, 456 pelamar? Bapak pasti lelah ya, kelihatan tegang sekali.
 	set {interview_score} -= 10
-
+	
 	[signal arg="timer_end"]
-	green_interviewer (marah): Maaf? Sikap Anda kami catat. Mari kita lihat apakah kemampuan anda bisa menutupi itu
+	green_interviewer (marah): Saya tidak butuh simpati. Saya butuh hasil.
 	[signal arg="wrong_choice"]
 
 [wait time="1.0"]

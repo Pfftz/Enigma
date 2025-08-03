@@ -1,5 +1,6 @@
 [background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer center
+join character center
 creative_interviewer (netral): Oke kita lihat bagaimana kamu menjawab pertanyaan mental ini
 creative_interviewer: Setiap prajurit harus bisa berjuang bersama. Ceritakan padaku, bagaimana kau menghadapi seorang rekan seperjuangan yang tidak sejalan denganmu?
 [signal arg="timer_start"]

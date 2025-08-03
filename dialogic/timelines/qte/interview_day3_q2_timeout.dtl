@@ -1,9 +1,10 @@
 [background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer center
+join character center
 # Day 3 Question 2 timeout
 set {interview_score} -= 5
 
-creative_interviewer (netral): Tidak punya apa-apa untuk dipersembahkan? Sudah kuduga.
+creative_interviewer (marah): hmmmmm menyedihkan........
 
 [signal arg="timeout"]
 [signal arg="timer_end"]

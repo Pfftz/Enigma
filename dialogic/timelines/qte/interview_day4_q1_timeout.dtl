@@ -1,9 +1,10 @@
 [background arg="res://asset/2d/hr/d4/img-d4.png" fade="0.0"]
 join green_interviewer center
+join character center
 # Day 4 Question 1 timeout
 set {interview_score} -= 5
 
-green_interviewer (netral): berikutnya
+green_interviewer (netral): berikutnya....
 
 [signal arg="timeout"]
 [signal arg="timer_end"]
