@@ -1,6 +1,7 @@
 [background arg="res://asset/2d/hr/d1/hr-1-placehold.png" fade="0.0"]
 join bananazon_interviewer center
-bananazon_interviewer (netral): Baiklah, pertanyaan terakhir untuk melihat visi jangka panjang Anda
+join character center
+bananazon_interviewer (sangat senang): Baiklah, pertanyaan terakhir untuk melihat visi jangka panjang Anda
 
 bananazon_interviewer (netral): dimana anda melihat diri anda 5 tahun keepan?
 

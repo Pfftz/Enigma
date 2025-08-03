@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxfe0cbshi1dw"]
+[gd_scene load_steps=8 format=3 uid="uid://dxfe0cbshi1dw"]
 
 [ext_resource type="Script" uid="uid://xdf8j0lvtnq3" path="res://scripts/core_game/qte/dialogic_qte_interview.gd" id="1_tni71"]
+[ext_resource type="Texture2D" uid="uid://wah28v5l6c3q" path="res://asset/2d/background/WhatsApp Image 2025-07-31 at 23.47.37_c4fe4e7d.jpg" id="2_635j5"]
 [ext_resource type="Texture2D" uid="uid://c6imcx7a1dfcm" path="res://icon/textboxres.png" id="2_thnq7"]
+[ext_resource type="Texture2D" uid="uid://ddmykwapn8wwm" path="res://asset/2d/hr/d2/bg-place-hr-d2.png" id="3_qpied"]
+[ext_resource type="Texture2D" uid="uid://cjlf6k7eocdyi" path="res://asset/2d/background/outline-meet-Sheet-ye.png" id="4_rhep8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
 bg_color = Color(0.2, 0.2, 0.2, 0.8)
@@ -34,6 +37,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.00308358, 0.0617439, 0.139001, 1)
+
+[node name="BackgroundImage" type="Node2D" parent="."]
+
+[node name="day1" type="Sprite2D" parent="BackgroundImage"]
+position = Vector2(594, 324)
+scale = Vector2(5.0625, 4.9375)
+texture = ExtResource("2_635j5")
+
+[node name="day2" type="Sprite2D" parent="BackgroundImage"]
+visible = false
+position = Vector2(575, 304)
+texture = ExtResource("3_qpied")
+
+[node name="day3" type="Sprite2D" parent="BackgroundImage"]
+visible = false
+position = Vector2(584, 288)
+texture = ExtResource("4_rhep8")
+
+[node name="day4" type="Sprite2D" parent="BackgroundImage"]
+visible = false
+
+[node name="day5_1" type="Sprite2D" parent="BackgroundImage"]
+visible = false
+
+[node name="day5_2" type="Sprite2D" parent="BackgroundImage"]
+visible = false
+
+[node name="day5_3" type="Sprite2D" parent="BackgroundImage"]
+visible = false
 
 [node name="GameplayLabel" type="Label" parent="."]
 visible = false

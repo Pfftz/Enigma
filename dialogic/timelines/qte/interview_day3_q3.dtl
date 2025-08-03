@@ -1,5 +1,6 @@
 [background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
-join creative_interviewer center
+join creative_interviewer (netral) center
+join character center
 
 creative_interviewer (netral): Pertarungan tadi menguji refleksmu. Sekarang, aku ingin melihat fondasi-mu.
 creative_interviewer (netral): Setiap prajurit hidup dengan sebuah kredo. Sebuah prinsip yang tidak akan pernah ia langgar. Apa 'Prinsip Bushido'-mu, anak muda?
@@ -37,3 +38,4 @@ creative_interviewer (netral): Setiap prajurit hidup dengan sebuah kredo. Sebuah
 
 [wait time="1.0"]
 [signal arg="update_ui"]
+[signal arg="next_question"]

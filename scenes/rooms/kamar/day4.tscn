@@ -168,6 +168,7 @@ script = ExtResource("7_a11lb")
 [node name="InteractLabel" type="Label" parent="UI"]
 offset_right = 1153.0
 offset_bottom = 651.0
+theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -192,6 +193,7 @@ min_distance = 3.0
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 30
 text = "Day 4"
 
 [node name="interact kasur" type="Area3D" parent="."]

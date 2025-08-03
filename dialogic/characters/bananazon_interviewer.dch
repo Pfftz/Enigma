@@ -28,7 +28,7 @@
 &"portraits": {
 "marah": {
 "export_overrides": {
-"image": "\"res://asset/2d/hr/d1/dgn meja/kecewa.png\""
+"image": "\"res://asset/2d/hr/d1/1920x1080/1_kecewa.png\""
 },
 "mirror": false,
 "offset": Vector2(0, -15),
@@ -38,35 +38,35 @@
 },
 "netral": {
 "export_overrides": {
-"image": "\"res://asset/2d/hr/d1/dgn meja/netral.png\""
+"image": "\"res://asset/2d/hr/d1/1920x1080/1_netral.png\""
 },
 "ignore_char_scale": false,
 "mirror": false,
 "offset": Vector2(0, -15),
-"scale": 1.0,
+"scale": 0.9,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn",
 "sound_mood": "Mood 1"
 },
 "sangat senang": {
 "export_overrides": {
-"image": "\"res://asset/2d/hr/d1/dgn meja/senang bgt.png\""
+"image": "\"res://asset/2d/hr/d1/1920x1080/1_senangbgt.png\""
 },
 "mirror": false,
 "offset": Vector2(0, -15),
-"scale": 1.0,
+"scale": 0.9,
 "scene": "",
 "sound_mood": "Mood 1"
 },
 "senang": {
 "export_overrides": {
-"image": "\"res://asset/2d/hr/d1/dgn meja/senang.png\""
+"image": "\"res://asset/2d/hr/d1/1920x1080/1_senang.png\""
 },
 "mirror": false,
 "offset": Vector2(0, -15),
-"scale": 1,
+"scale": 0.9,
 "scene": "",
 "sound_mood": "Mood 1"
 }
 },
-&"scale": 0.6
+&"scale": 0.8
 }

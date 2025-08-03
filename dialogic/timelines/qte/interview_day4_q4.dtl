@@ -1,0 +1,9 @@
+[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
+join green_interviewer (netral) center
+join character center
+creative_interviewer (netral): pertanyaan terakhir....
+creative_interviewer: Dengar baik-baik.
+creative_interviewer: Para kepingan salju diluar sana sudah apply di posisi yg sama sepertimu. Bagi saya... semuanya sama.
+character: !!!!!!!
+creative_interviewer: Sekarang, beri aku satu alasan... kenapa kepingan yang satu ini, yaitu kau, layak kami simpan?
+[signal arg="start_bubble_minigame"]

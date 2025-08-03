@@ -1,5 +1,6 @@
 [background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer center
+join character center
 creative_interviewer (netral): Oke kita lihat bagaimana kamu menjawab pertanyaan mental ini
 creative_interviewer: Setiap prajurit harus bisa berjuang bersama. Ceritakan padaku, bagaimana kau menghadapi seorang rekan seperjuangan yang tidak sejalan denganmu?
 [signal arg="timer_start"]
@@ -24,4 +25,11 @@ creative_interviewer: Setiap prajurit harus bisa berjuang bersama. Ceritakan pad
 	creative_interviewer (marah): “Menghajar rekan sendiri? Itu perbuatan pengecut! Kau merusak persatuan pasukan kita!
 	[signal arg="wrong_choice"]
 [wait time="1.0"]
-[signal arg="update_ui"]
+# Final interview conclusion
+creative_interviewer (netral): Sesuai dengan apa yang sudah ku duga...
+if {interview_score} >= 15:
+	creative_interviewer (senyum): Benteng kami menerima semua pejuang yang mempunyai dedikasi tinggi seperti dirimu, tunggu pesan kami mencapai mu dalam beberapa hari lagi
+else:
+	creative_interviewer (marah): Kami tidak butuh orang orang dengan jiwa kotor sepertimu
+set {day3_completed} = true
+set {day3_score} = {interview_score}

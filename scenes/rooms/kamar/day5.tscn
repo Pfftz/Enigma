@@ -159,6 +159,12 @@ offset_bottom = 651.0
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="InformationLabel" type="Label" parent="UI"]
+offset_right = 1153.0
+offset_bottom = 651.0
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../PhantomCamera3D2/Camera3D")
 
@@ -176,6 +182,7 @@ fov = 28.0
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 30
 text = "Day 5"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

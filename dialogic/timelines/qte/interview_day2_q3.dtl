@@ -1,5 +1,5 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
-join techcorp_interviewer center
+join techcorp_interviewer (netral) center
 techcorp_interviewer (netral): Fufu, menghibur sekali.
 character: Pertanyaan selanjutnya\: Apa hal paling berharga yang bisa ditawarkan oleh mahluk sepertimu kepada Watakushi?
 
@@ -32,18 +32,5 @@ character: Pertanyaan selanjutnya\: Apa hal paling berharga yang bisa ditawarkan
 	[signal arg="timer_end"]
 	techcorp_interviewer (marah): Ohohoho! Kamu pikir sepatuku yang mahal ini pantas menyentuh sesuatu yang sekotor dirimu? Jangan bermimpi!
 	[signal arg="wrong_choice"]
-
-[wait time="1.0"]
-[signal arg="update_ui"]
-
-# Final interview conclusion
-[wait time="1.0"]
-
-techcorp_interviewer: baiklah aku sudah catat semuanya
-
-if {interview_score} >= 30:
-	techcorp_interviewer: jangan lupa cek email di hari jumat yaaa, nyohohohoho
-else:
-	techcorp_interviewer: jangan hubungi kami lagi
 [wait time="1.0"]
 [signal arg="update_ui"]
