@@ -1,6 +1,8 @@
-[background arg="res://asset/2d/background/1.png" fade="0.0"]
+[background arg="res://asset/2d/font/background/1.png" fade="0.0"]
+[wait time="1.0"]
 character (no-mc): katanya jumat pagi... sekarang sudah siang...
 character (no-mc): Sigh.. sepertinya aku di ghosting
+[background arg="res://asset/2d/MC/Day5.png" fade="0.0"]
 character (no-mc): Dari hari pertama, HR-nya aneh aneh lagi
 character (no-mc): Aku lapar, tapi aku haru hemat uang makan
 character (no-mc): masih ada 1 lagi sih yang belum ku apply... offline interview ya

@@ -8,26 +8,15 @@ var TrapBubbleScene = preload("res://scenes/core_game/positive_bubble.tscn")
 var GoldenBubbleScene = preload("res://scenes/core_game/golden_bubble.tscn")
 
 # (DARI MAIN.GD) Masukkan semua "pikiran" Anda di sini lewat Inspector!
-@export var positive_thoughts: Array[String] = [
-	"Kamu bisa melakukan ini",
-	"Tenang, semua akan baik-baik saja", 
-	"Kamu sudah melakukan yang terbaik",
-	"Fokus pada yang bisa kamu kontrol",
-	"Rileks dan tarik napas dalam",
-	"Kamu lebih kuat dari yang kamu kira",
-	"Sabar, proses ini butuh waktu",
-	"Kamu tidak sendirian dalam ini"
-]
+@export var positive_thoughts: Array[String] = []
 
 @export var trap_thoughts: Array[String] = [
-	"Kamu tidak akan pernah bisa",
-	"Semua orang lebih baik darimu",
-	"Kamu selalu gagal",
-	"Tidak ada yang peduli denganmu", 
-	"Kamu terlalu lemah untuk ini",
-	"Menyerah saja, percuma",
-	"Kamu pembohong dan penipu",
-	"Kamu hanya beban bagi orang lain"
+	"Nilai saya tidak ditentukan oleh uang, tapi oleh usaha saya",
+	"Aku bukan kepingan salju yang sama, aku punya cerita unikku",
+	"Setiap penolakan adalah pelajaran, bukan kegagalan",
+	"Aku pantas mendapatkan kesempatan, dan aku akan membuktikannya", 
+	"Aku adalah sebuah cerita, bukan sebaris data",
+	"Mungkin aku lelah, tapi aku tidak akan menyerah",
 ]
 
 # (DARI MAIN.GD) Kata-kata untuk diketik sekarang terpisah dan tetap.
@@ -386,7 +375,7 @@ func get_bubble_positions() -> Array:
 	return positions
 
 func update_score_display():
-	score_label.text = "Skor: %d / %d" % [score, ultimate_score_threshold]
+	score_label.text = " %d / %d" % [score, ultimate_score_threshold]
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
