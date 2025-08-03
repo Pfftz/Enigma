@@ -81,7 +81,7 @@ damping_min = 20.0
 damping_max = 20.0
 color_ramp = SubResource("GradientTexture1D_c2d40")
 
-[node name="Bubble" type="Node2D"]
+[node name="Bubble2" type="Node2D"]
 script = ExtResource("1_vxhmn")
 typing_sounds = Array[AudioStream]([ExtResource("2_bwbo5")])
 pop_sound = ExtResource("3_omgan")

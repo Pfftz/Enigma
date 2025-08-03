@@ -10,7 +10,7 @@ green_interviewer: Apa yang membuat Anda berpikir, setelah semua bukti itu, anda
 
 [signal arg="timer_start"]
 
-- Karena nilai saya tidak ditentukan oleh penolakan mereka, tapi oleh apa yang bisa saya buktikan. Beri saya kesempatan, dan Anda akan lihat.
+- Karena nilai saya tidak ditentukan oleh penolakan mereka, tapi oleh apa yang bisa saya buktikan. [br] Beri saya kesempatan, dan Anda akan lihat.
 	set {interview_score} += 10.0
 	
 	[signal arg="timer_end"]

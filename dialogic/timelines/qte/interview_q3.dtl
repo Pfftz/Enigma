@@ -49,6 +49,6 @@ if {interview_score} >= 25:
 	bananazon_interviewer (netral): Maaf, sepertinya akar Anda tidak cocok dengan tanah kami. Terima kasih atas waktunya
 else:
 	bananazon_interviewer (marah): Maaf, sepertinya akar Anda tidak cocok dengan tanah kami. Terima kasih atas waktunya
-	
-	set {day1_completed} = true
-	set {day1_score} = {interview_score}
+
+set {day1_completed} = true
+set {day1_score} = {interview_score}

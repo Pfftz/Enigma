@@ -1,5 +1,6 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join siluet center
+join character center
 set {interview_day} = 2
 set {company_name} = "TechCorp"
 set {interview_score} = 0
