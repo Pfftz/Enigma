@@ -1,0 +1,11 @@
+[background arg="res://asset/2d/hr/d4/img-d4.png" fade="0.0"]
+join green_interviewer center
+join character center
+# Day 4 Question 3 timeout
+set {interview_score} -= 5
+
+green_interviewer (netral): Tidak ada yang bisa dikatakan? Sudah saya duga.
+
+[signal arg="timeout"]
+[signal arg="timer_end"]
+[signal arg="update_ui"]

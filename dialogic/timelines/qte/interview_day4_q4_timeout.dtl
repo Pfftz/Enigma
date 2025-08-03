@@ -1,0 +1,21 @@
+[background arg="res://asset/2d/hr/d4/img-d4.png" fade="0.0"]
+join green_interviewer center
+join character center
+# Day 4 Question 4 timeout
+set {interview_score} -= 5
+
+green_interviewer (netral): Waktu habis. Saya kira itu sudah cukup.
+
+[signal arg="timeout"]
+[signal arg="timer_end"]
+
+# Final interview conclusion  
+green_interviewer (netral): Baiklah, mari kita akhiri interview ini.
+
+if {interview_score} >= 15:
+	green_interviewer (senang): Meskipun ada beberapa kesulitan, Anda menunjukkan potensi. Kami akan mempertimbangkan aplikasi Anda.
+else:
+	green_interviewer (marah): Maaf, tapi performance Anda hari ini tidak memenuhi standar kami.
+
+set {day4_completed} = true
+set {day4_score} = {interview_score}
