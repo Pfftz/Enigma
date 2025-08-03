@@ -1,2 +1,4 @@
 join character (no-mc) leftmost
+[background arg="res://asset/2d/MC/Day1.png" fade="0.0"]
+character (no-mc): Aku pasti bisa dapat pekerjaan......
 [end_timeline]

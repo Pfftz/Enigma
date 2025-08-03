@@ -1,8 +1,9 @@
 join character (no-mc) leftmost
-[background arg="res://asset/2d/background/1.png" fade="0.0"]
+[background arg="res://asset/2d/font/background/1.png" fade="0.0"]
 character (no-mc): haduhh uang ku sudah semakin sedikit.....
 character (no-mc): Semoga saja interview hari ini lebih normal dibanding yang kemarin
 character (no-mc): hmmmm....
+[background arg="res://asset/2d/MC/Day3.png" fade="0.0"]
 character (no-mc): Pt Keterangan Siang ?
 character (no-mc): .......
 [end_timeline]
