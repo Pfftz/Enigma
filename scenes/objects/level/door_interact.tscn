@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cubey8ie3lvit"]
+[gd_scene load_steps=3 format=3 uid="uid://bg3aibvpqvaa0"]
 
-[ext_resource type="Script" path="res://scripts/objects/interact/door_interact.gd" id="1_interact"]
+[ext_resource type="Script" uid="uid://b8do587hstedi" path="res://scripts/objects/interact/door_interact.gd" id="1_interact"]
 [ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="2_symbol"]
 
 [node name="DoorInteract" type="Marker3D"]

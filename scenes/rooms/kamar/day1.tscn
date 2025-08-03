@@ -74,7 +74,7 @@ fog_depth_curve = 0.406126
 script = ExtResource("1_u4my2")
 
 [node name="Player" parent="." instance=ExtResource("1_4kyds")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258978, 0.923992, 0.366977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258978, 0.923992, 1.96061)
 
 [node name="LowPolyLivingRoom" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0125617, 0.284882, 0.327073)
@@ -119,7 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90553, -1.12477, -2.60762)
 shape = SubResource("BoxShape3D_nbk78")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.0258978, 5.2415, 4.98778)
+transform = Transform3D(1, 0, 0, 0, 0.751264, 0.660002, 0, -0.660002, 0.751264, 0.0258978, 5.2415, 6.58141)
 top_level = true
 script = ExtResource("4_00060")
 follow_mode = 5
@@ -188,7 +188,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Camera3D" type="Camera3D" parent="PhantomCamera3D2"]
 physics_interpolation_mode = 1
-transform = Transform3D(0.999737, -0.0228719, 0.00162076, 0.0227041, 0.997327, 0.0694506, -0.00320494, -0.0693953, 0.997584, -0.219504, -0.0134786, -0.371357)
+transform = Transform3D(0.828889, 0.185835, -0.527643, -0.154107, 0.982569, 0.103967, 0.537767, -0.00486376, 0.843079, -0.200308, 0.0142701, 0.839422)
 fov = 28.0
 
 [node name="InteractionSymbol" parent="." instance=ExtResource("9_x2fmh")]

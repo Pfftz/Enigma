@@ -1,18 +1,18 @@
-join  0
+join  center
 character: "Serius mau keluar?"
-- bolehh
+- Iya
 	[signal arg="door_yes"]
-	character: "Oke gass."
-- Entar dulu deh....
+	character: "Keluar lah, gak mungkin di kamar selamanya."
+- Nanti aja....
 	[signal arg="door_no"]
 	character: "kayak nya ntar dulu deh...."
-	character: "Are you really sure you don't want to go outside? This might be your last chance."
-	- kayaknya emang beneran harus keluar sekarang
+	character: "Apakah kamu yakin tidak ingin keluar rumah?"
+	- Keluar aja deh...
 		[signal arg="door_yes"]
-		character: "gass dahhh."
-	- gak deh, aseli serem banget
+		character: "Suka tidak suka kita harus keluar untuk tetap bertahan hidup."
+	- bagaimana kalau besok ?.......
 		[signal arg="door_no"]
-		character: "yah mau gimanapun kau tidak akan bisa tingaal disini selamanya......"
-		character: "Waktunya keluar suka tidak suka........"
+		character: "Meskipun gitu... kita tidak bisa tinggal disini selamanya..."
+		character: "Waktunya keluar suka tidak suka...."
 		[signal arg="door_force_teleport"]
 leave 

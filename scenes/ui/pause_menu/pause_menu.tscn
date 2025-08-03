@@ -1,6 +1,7 @@
-[gd_scene load_steps=45 format=3 uid="uid://np18ry1q0d5d"]
+[gd_scene load_steps=46 format=3 uid="uid://np18ry1q0d5d"]
 
 [ext_resource type="Script" uid="uid://cj41lrjf64jww" path="res://scripts/ui/pause_menu/pause_main.gd" id="1_ak7a2"]
+[ext_resource type="Texture2D" uid="uid://beyi8hkjgjpok" path="res://asset/2d/ui/pause/pause-fix.png" id="2_bcoja"]
 [ext_resource type="Texture2D" uid="uid://cycmumsy0jkii" path="res://asset/2d/ui/pause/button.png" id="4_3c1iw"]
 [ext_resource type="Texture2D" uid="uid://bmy2xiroq4574" path="res://asset/2d/ui/pause/frame.png" id="4_vw432"]
 [ext_resource type="FontFile" uid="uid://cyxr5lh4f46dq" path="res://asset/2d/font/fnt/number.fnt" id="7_ngcyg"]
@@ -9,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dkihnlt686lhg" path="res://asset/2d/ui/pause/main menu.png" id="10_j3em1"]
 [ext_resource type="Texture2D" uid="uid://bjpl673weodmi" path="res://asset/2d/ui/psx_buttons.png" id="10_rnp0l"]
 [ext_resource type="LabelSettings" uid="uid://cb1c82a2dubgn" path="res://resource/theme/font/default.tres" id="11_4gcpi"]
-[ext_resource type="AudioStream" uid="uid://c7l7ke0jhodw0" path="res://sounds/textboxdialogue.wav" id="11_cu8y1"]
+[ext_resource type="AudioStream" uid="uid://c7xbu88id3fq2" path="res://sounds/SFX/intrusive_mashkey_higherpitched_successendofcombo.wav" id="11_cu8y1"]
 [ext_resource type="AudioStream" uid="uid://bcm8r3c5yung3" path="res://sounds/SFX/click_yes_mainmenu_pause.wav" id="14_ytg4u"]
 [ext_resource type="AudioStream" uid="uid://e6rnbwyu6ovy" path="res://sounds/SFX/intrusive_mashkey.wav" id="15_es57r"]
 [ext_resource type="AudioStream" uid="uid://dg520va2oo5ju" path="res://sounds/textboxcontinue.wav" id="16_3c1iw"]
@@ -241,7 +242,7 @@ layout_mode = 0
 offset_right = 2548.0
 offset_bottom = 1359.0
 scale = Vector2(0.48, 0.48)
-texture = ExtResource("10_j3em1")
+texture = ExtResource("2_bcoja")
 stretch_mode = 1
 
 [node name="Main" type="Control" parent="."]
