@@ -364,9 +364,10 @@ mesh = ExtResource("16_n2k5p")
 skeleton = NodePath("../../..")
 
 [node name="PlayerCam" parent="." instance=ExtResource("11_yklvt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7048, 0.528381, -17.0622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.951078, 0.528381, 0.251362)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="PlayerCam"]
+light_color = Color(0.813258, 0.813258, 0.813258, 1)
 light_energy = 0.5
 light_indirect_energy = 2.0
 light_volumetric_fog_energy = 2.0

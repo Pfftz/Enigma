@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="8_ig7rg"]
 [ext_resource type="Script" uid="uid://c384tur1ojl7i" path="res://scripts/objects/interact/interact_kasur.gd" id="9_lwnby"]
 [ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="10_hw70d"]
-[ext_resource type="Resource" uid="uid://bce0a1ltuxpat" path="res://resource/loading_preset/new_game_loading.tres" id="11_72qmx"]
+[ext_resource type="Resource" path="res://resource/loading_preset/new_game_loading.tres" id="11_72qmx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)

@@ -58,6 +58,7 @@ grow_vertical = 2
 script = ExtResource("1_6480o")
 
 [node name="Background2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 2548.0
 offset_bottom = 1359.0
 scale = Vector2(0.48, 0.48)
