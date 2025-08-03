@@ -222,6 +222,7 @@ func start_question_timeline(question_num: int) -> void:
 				1: timeline_name = "interview_day2_q1"
 				2: timeline_name = "interview_day2_q2"
 				3: timeline_name = "interview_day2_q3"
+				3: timeline_name = "interview_day2_q4"
 		3:
 			match question_num:
 				1: timeline_name = "interview_day3_q1"
@@ -328,6 +329,7 @@ func get_current_timeout_label() -> String:
 				1: timeout_timeline = "interview_day2_q1_timeout"
 				2: timeout_timeline = "interview_day2_q2_timeout"
 				3: timeout_timeline = "interview_day2_q3_timeout"
+				3: timeout_timeline = "interview_day2_q4_timeout"
 		3:
 			match current_question:
 				1: timeout_timeline = "interview_day3_q1_timeout"
