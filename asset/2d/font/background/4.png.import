@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjlf6k7eocdyi"
-path="res://.godot/imported/outline-meet-Sheet-ye.png-c2da97d5d70a3c3cba9ca8ee938769a5.ctex"
+uid="uid://2uceohjr8g6c"
+path="res://.godot/imported/4.png-eaac8b09711afbe5907ea35d557e04b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/2d/background/outline-meet-Sheet-ye.png"
-dest_files=["res://.godot/imported/outline-meet-Sheet-ye.png-c2da97d5d70a3c3cba9ca8ee938769a5.ctex"]
+source_file="res://asset/2d/font/background/4.png"
+dest_files=["res://.godot/imported/4.png-eaac8b09711afbe5907ea35d557e04b2.ctex"]
 
 [params]
 

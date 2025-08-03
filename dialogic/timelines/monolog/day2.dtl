@@ -1,3 +1,5 @@
 join character (no-mc) leftmost
-[background arg="res://asset/2d/background/1.png" fade="0.0"]
+[background arg="res://asset/2d/font/background/1.png" fade="0.0"]
+[wait time="1.0"]
+[background arg="res://asset/2d/MC/Day2.png" fade="0.0"]
 character: Aku benar benar butuh pekerjaan bila ingin tetap hidup
