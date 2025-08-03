@@ -7,7 +7,8 @@ green_interviewer: Jelaskan pada saya, apa saja kegiatan produktif yang kamu lak
 
 [signal arg="timer_start"]
 
-- Saya mengasah keahlian baru, Pak. Mengambil kursus online dan mengerjakan proyek pribadi untuk memastikan saya tidak hanya menunggu, tapi berkembang.
+- Saya mengasah keahlian baru, Pak. Mengambil kursus online dan [br] mengerjakan proyek pribadi untuk memastikan saya tidak hanya menunggu, tapi berkembang.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 10.0
 	
 	[signal arg="timer_end"]
@@ -15,6 +16,7 @@ green_interviewer: Jelaskan pada saya, apa saja kegiatan produktif yang kamu lak
 	[signal arg="correct_choice"]
 
 - Saya fokus penuh mencari pekerjaan yang paling sesuai dengan kualifikasi saya.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 5.0
 	
 	[signal arg="timer_end"]
@@ -22,6 +24,7 @@ green_interviewer: Jelaskan pada saya, apa saja kegiatan produktif yang kamu lak
 	[signal arg="correct_choice"]
 
 - Sejujurnya, saya lebih banyak istirahat dan evaluasi diri, Pak. Proses cari kerja cukup melelahkan.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} += 5.0
 	
 	[signal arg="timer_end"]
@@ -29,6 +32,7 @@ green_interviewer: Jelaskan pada saya, apa saja kegiatan produktif yang kamu lak
 	[signal arg="wrong_choice"]
 
 - Memangnya kenapa kalau saya tidak produktif? Mencari kerja itu sendiri sudah pekerjaan penuh waktu.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 10.0
 	
 	[signal arg="timer_end"]

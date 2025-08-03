@@ -10,7 +10,8 @@ green_interviewer: Apa yang membuat Anda berpikir, setelah semua bukti itu, anda
 
 [signal arg="timer_start"]
 
-- Karena nilai saya tidak ditentukan oleh penolakan mereka, tapi oleh apa yang bisa saya buktikan. Beri saya kesempatan, dan Anda akan lihat.
+- Karena nilai saya tidak ditentukan oleh penolakan mereka, tapi oleh apa yang bisa saya buktikan. [br] Beri saya kesempatan, dan Anda akan lihat.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} += 10.0
 	
 	[signal arg="timer_end"]
@@ -20,6 +21,7 @@ green_interviewer: Apa yang membuat Anda berpikir, setelah semua bukti itu, anda
 	set {day4_score} = {interview_score}
 
 - Saya percaya pada proses dan kesempatan. Suatu saat pasti ada yang cocok.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} += 5.0
 	
 	[signal arg="timer_end"]
@@ -29,6 +31,7 @@ green_interviewer: Apa yang membuat Anda berpikir, setelah semua bukti itu, anda
 	set {day4_score} = {interview_score}
 
 - Saya... saya hanya butuh pekerjaan, Pak. Saya akan lakukan apa saja.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 5
 	
 	[signal arg="timer_end"]
@@ -38,6 +41,7 @@ green_interviewer: Apa yang membuat Anda berpikir, setelah semua bukti itu, anda
 	set {day4_score} = {interview_score}
 
 - Mungkin masalahnya bukan di saya, tapi di perusahaan yang tidak bisa melihat potensi?
+	[sound path="res://sounds/SFX/Mood_Down_New.wav" volume="0.0"]
 	set {interview_score} -= 15
 	
 	[signal arg="timer_end"]

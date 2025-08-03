@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://32x8xunni05w" path="res://asset/2d/core game/positive1.png" id="2_fkxtn"]
 [ext_resource type="AudioStream" uid="uid://3mupqhju58m6" path="res://asset/sound/intrusive_mashkey_ultimate.wav" id="3_omgan"]
 [ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="6_bjo7o"]
-[ext_resource type="FontFile" uid="uid://d3wcojlddp1uo" path="res://asset/font/LettersinCirclesBook.ttf" id="6_omgan"]
+[ext_resource type="FontFile" uid="uid://n40mbgvi4xff" path="res://asset/font/UchronyCircle-Bold-FFP.ttf" id="7_omgan"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_pjg2p"]
 
 [sub_resource type="Animation" id="Animation_y2db8"]
@@ -81,13 +81,12 @@ damping_min = 20.0
 damping_max = 20.0
 color_ramp = SubResource("GradientTexture1D_c2d40")
 
-[node name="Bubble" type="Node2D"]
+[node name="Bubble2" type="Node2D"]
 script = ExtResource("1_vxhmn")
 typing_sounds = Array[AudioStream]([ExtResource("2_bwbo5")])
 pop_sound = ExtResource("3_omgan")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.592157)
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.859375, 0.859375)
 texture = ExtResource("2_fkxtn")
@@ -107,20 +106,6 @@ process_material = SubResource("ParticleProcessMaterial_y2db8")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-[node name="TypingLabel" type="Label" parent="."]
-offset_left = -18.0
-offset_top = 64.0
-offset_right = 22.0
-offset_bottom = 87.0
-theme_override_colors/font_color = Color(0.834502, 0.678928, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("6_omgan")
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="LifetimeTimer" type="Timer" parent="."]
 
 [node name="ThoughtLabel" type="Label" parent="."]
@@ -139,5 +124,26 @@ theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="TypingLabel" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = 98.0
+offset_right = 87.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.294118, 0.854902, 0.996078, 1)
+theme_override_constants/line_spacing = 2
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 14
+theme_override_fonts/font = ExtResource("7_omgan")
+theme_override_font_sizes/font_size = 38
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]

@@ -4,6 +4,7 @@ techcorp_interviewer: jadi bagaimana?
 
 # Check bubble minigame score to determine choice
 if {bubble_score} >= 50:
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	# Good performance - player gives correct answer
 	character: Justru itu riset pasar, Nona. Saya punya ide bisnis\: aplikasi yang mengubah email penolakan... menjadi saldo e-wallet. Revolusioner, bukan?
 	set {interview_score} += 10.0
@@ -13,6 +14,7 @@ if {bubble_score} >= 50:
 	techcorp_interviewer (senang): Ohohoho! Dari semua respons yang ada di dataku, yang ini tidak pernah ada! Berani sekali kau!
 	[signal arg="correct_choice"]
 else:
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	# Poor performance - player gives wrong answer  
 	character (normal): TIDAAAKK, HAPUS RIWAYAT PENCARIANKU DARI DATAMU! I-ITU... PRIVASI!
 	set {interview_score} -= 10.0

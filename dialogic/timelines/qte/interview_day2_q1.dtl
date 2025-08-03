@@ -1,5 +1,6 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join siluet center
+join character center
 set {interview_day} = 2
 set {company_name} = "TechCorp"
 set {interview_score} = 0
@@ -18,6 +19,7 @@ techcorp_interviewer (netral): Sebagai AI dari keluarga terhormat, Watakushi han
 [signal arg="timer_start"]
 
 - Saya mohon, Nona, saya butuh pekerjaan ini.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 5.0
 	
 	[signal arg="timer_end"]
@@ -25,6 +27,7 @@ techcorp_interviewer (netral): Sebagai AI dari keluarga terhormat, Watakushi han
 	[signal arg="wrong_choice"]
 
 - Justru karena Nona dari keluarga terhormat, [br] Nona pasti tahu cara membedakan mana 'sampah' dan mana 'investasi' yang berpotensi tinggi
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} -= 10.0
 	
 	[signal arg="timer_end"]
@@ -32,6 +35,7 @@ techcorp_interviewer (netral): Sebagai AI dari keluarga terhormat, Watakushi han
 	[signal arg="correct_choice"]
 
 - Nona rAImu. Database saya ini dilengkapi fitur 'loyalitas tinggi' dan 'kemampuan belajar cepat'.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 5.0
 	
 	[signal arg="timer_end"]
@@ -39,6 +43,7 @@ techcorp_interviewer (netral): Sebagai AI dari keluarga terhormat, Watakushi han
 	[signal arg="correct_choice"]
 
 - KARENA SAYA AKAN JADI ANJING PELIHARAAN NONA YANG PALING SETIA!
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 10
 	
 	[signal arg="timer_end"]

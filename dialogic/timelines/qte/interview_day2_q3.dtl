@@ -1,11 +1,12 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer (netral) center
 techcorp_interviewer (netral): Fufu, menghibur sekali.
-character: Pertanyaan selanjutnya\: Apa hal paling berharga yang bisa ditawarkan oleh mahluk sepertimu kepada Watakushi?
+techcorp_interviewer: Pertanyaan selanjutnya\: Apa hal paling berharga yang bisa ditawarkan oleh mahluk sepertimu kepada Watakushi?
 
 [signal arg="timer_start"]
 
 - Hasil, Nona. Metrik performa yang jelas dan terukur [br] yang akan menguntungkan perusahaan Ayah Anda.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 10.0
 	
 	[signal arg="timer_end"]
@@ -13,6 +14,7 @@ character: Pertanyaan selanjutnya\: Apa hal paling berharga yang bisa ditawarkan
 	[signal arg="correct_choice"]
 
 - Kemampuan saya untuk mengantisipasi keinginan Nona dan [br]  menyelesaikannya bahkan sebelum diperintahkan.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 5.0
 	
 	[signal arg="timer_end"]
@@ -20,6 +22,7 @@ character: Pertanyaan selanjutnya\: Apa hal paling berharga yang bisa ditawarkan
 	[signal arg="correct_choice"]
 
 - Sisa harga diri saya yang tinggal sedikit ini, Nona
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 5.0
 	
 	[signal arg="timer_end"]
@@ -27,6 +30,7 @@ character: Pertanyaan selanjutnya\: Apa hal paling berharga yang bisa ditawarkan
 	[signal arg="wrong_choice"]
 
 - SAYA AKAN JADI KESET PRIBADI NONA! SILAHKAN INJAK-INJAK SAYA!
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 10.0
 	
 	[signal arg="timer_end"]

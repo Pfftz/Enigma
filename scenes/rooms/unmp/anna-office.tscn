@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://vth0ydbdcwng" path="res://scenes/objects/interactive/phone.tscn" id="15_3bmv8"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="17_ysbwa"]
 [ext_resource type="Script" uid="uid://df0qpljsc040u" path="res://scripts/objects/spawn.gd" id="19_u5aud"]
-[ext_resource type="Script" path="res://scripts/ui/interaksi_label.gd" id="20_ui"]
+[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="20_ui"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sf7hl"]
 render_priority = 0

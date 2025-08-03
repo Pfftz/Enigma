@@ -410,6 +410,7 @@ func handle_typing(event):
 				target_bubble.play_typing_feedback()
 				bubble_respawn_timer.start()
 				return
+
 	else:
 		if not is_instance_valid(target_bubble):
 			reset_typing()

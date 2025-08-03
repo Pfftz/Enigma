@@ -12,8 +12,11 @@ func _ready():
 		# Jika kedua kondisi terpenuhi, tampilkan tutorial
 		show_tutorial()
 	else:
-		# Jika bukan hari pertama atau tutorial sudah pernah ditampilkan, langsung jalankan dialogic
-		Dialogic.start("day1")
+		# Check if monolog has already been played for this day
+		if not GameState.is_monolog_played(1):
+			# Jika monolog belum dimainkan, jalankan dialogic dan tandai sebagai sudah dimainkan
+			GameState.mark_monolog_played(1)
+			Dialogic.start("monolog/day1")
 
 func show_tutorial():
 	# 1. Tandai bahwa tutorial sudah akan ditampilkan, agar tidak muncul lagi
@@ -32,5 +35,6 @@ func show_tutorial():
 
 func _on_tutorial_closed():
 	# Fungsi ini dipanggil saat tutorial ditutup
-	# Jalankan dialogic timeline setelah tutorial selesai
-	Dialogic.start("day1")
+	# Jalankan dialogic timeline setelah tutorial selesai dan tandai sebagai sudah dimainkan
+	GameState.mark_monolog_played(1)
+	Dialogic.start("monolog/day1")
