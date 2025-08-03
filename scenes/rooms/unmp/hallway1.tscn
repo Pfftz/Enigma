@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://8taotsk5l0v1" path="res://asset/2d/ui/pause/imgonline-com-ua-Negative-Otk45i6oHhzr0.jpg" id="1_sqeha"]
 [ext_resource type="ArrayMesh" uid="uid://dwpoapjk2rapy" path="res://asset/3d/room/under_nmp/hallway1.obj" id="4_1l6s4"]
-[ext_resource type="Resource" uid="uid://cc8xgnj741q4b" path="res://resource/loading_preset/warp_loading.tres" id="5_m5y5d"]
+[ext_resource type="Resource" path="res://resource/loading_preset/warp_loading.tres" id="5_m5y5d"]
 [ext_resource type="Material" uid="uid://bvy5cv0fajqeu" path="res://asset/3d/material/unmp.tres" id="5_x7pvp"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="8_airjm"]
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="8_sqeha"]

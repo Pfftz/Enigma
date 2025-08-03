@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://yrx3bttloff4" path="res://shaders/psx_lit.gdshader" id="2_fqiim"]
 [ext_resource type="ArrayMesh" uid="uid://esqcxvo7bgpd" path="res://asset/3d/object/trapdoor_door.obj" id="3_8o683"]
 [ext_resource type="Texture2D" uid="uid://cug5niin5ydjt" path="res://asset/3d/room/nmp/nmp_general_placeholder.png" id="4_g5fov"]
-[ext_resource type="Resource" uid="uid://cc8xgnj741q4b" path="res://resource/loading_preset/warp_loading.tres" id="6_ymm6c"]
+[ext_resource type="Resource" path="res://resource/loading_preset/warp_loading.tres" id="6_ymm6c"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="9_pw6vp"]
 [ext_resource type="PackedScene" uid="uid://b7f5kqo8xnda3" path="res://scenes/objects/level/trapdoor_interact.tscn" id="10_61wdo"]
 
