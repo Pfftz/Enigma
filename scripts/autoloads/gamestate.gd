@@ -12,6 +12,9 @@ var tutorial_shown: bool = false
 # Interview completion tracking - tracks which days have completed interviews
 var completed_interviews: Array[int] = []
 
+# Monolog tracking - tracks which days have already played their monolog
+var played_monologs: Array[int] = []
+
 # Game completion tracking
 var good_ending: bool = false
 var bad_ending: bool = false
@@ -43,6 +46,16 @@ func mark_interview_completed(day: int) -> void:
 func is_interview_completed(day: int) -> bool:
 	"""Check if an interview has already been completed for the specified day"""
 	return completed_interviews.has(day)
+
+func mark_monolog_played(day: int) -> void:
+	"""Mark a monolog as played for the specified day"""
+	if not played_monologs.has(day):
+		played_monologs.append(day)
+		print("Monolog played for day ", day)
+
+func is_monolog_played(day: int) -> bool:
+	"""Check if a monolog has already been played for the specified day"""
+	return played_monologs.has(day)
 
 func get_current_room_scene() -> String:
 	var day_index = current_day - 1
