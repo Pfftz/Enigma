@@ -6,4 +6,12 @@ set {interview_score} -= 5
 creative_interviewer (marah): Tidak punya prinsip? Kau hanyalah bilah pedang tanpa gagang.”
 [signal arg="timeout"]
 [signal arg="timer_end"]
-[signal arg="update_ui"]
+[wait time="1.0"]
+# Final interview conclusion
+creative_interviewer (netral): Sesuai dengan apa yang sudah ku duga...
+if {interview_score} >= 15:
+	creative_interviewer (senyum): Benteng kami menerima semua pejuang yang mempunyai dedikasi tinggi seperti dirimu, tunggu pesan kami mencapai mu dalam beberapa hari lagi
+else:
+	creative_interviewer (marah): Kami tidak butuh orang orang dengan jiwa kotor sepertimu
+set {day3_completed} = true
+set {day3_score} = {interview_score}
