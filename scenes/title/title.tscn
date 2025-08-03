@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://fqixpor1kacn" path="res://resource/loading_preset/default.tres" id="3_qb06g"]
 [ext_resource type="Shader" uid="uid://cfkaktpfj4ha4" path="res://shaders/psx_lit_noenv.gdshader" id="4_2bndm"]
 [ext_resource type="Shader" uid="uid://b0jbi3my83n12" path="res://shaders/psx_unlit_blank.gdshader" id="4_ghmid"]
-[ext_resource type="Texture2D" uid="uid://c5r116iqnwip2" path="res://asset/2d/ui/title/press_start.png" id="7_j73lr"]
+[ext_resource type="Texture2D" uid="uid://bne7oleb456cr" path="res://asset/2d/title/enter-ue.png" id="6_qb06g"]
 [ext_resource type="Texture2D" uid="uid://dyqdq3bocpikr" path="res://asset/2d/ui/title/file_frame.png" id="8_hgps8"]
 [ext_resource type="Texture2D" uid="uid://bv115dw4sc0s5" path="res://asset/2d/title/Untitled473_20250803214251.png" id="8_qb06g"]
 [ext_resource type="LabelSettings" uid="uid://cb1c82a2dubgn" path="res://resource/theme/font/default.tres" id="9_2brh2"]
@@ -198,9 +198,9 @@ size_flags_vertical = 4
 [node name="StartButton" type="Sprite2D" parent="Title/VBoxContainer/Control"]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(2, 2)
-texture = ExtResource("7_j73lr")
-vframes = 2
+position = Vector2(4.76837e-07, -20)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_qb06g")
 
 [node name="Copyright" type="Label" parent="Title/VBoxContainer"]
 texture_filter = 1

@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Enigma"
+config/name="Lima hari lagi"
 run/main_scene="uid://b1kab4d8sry8a"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://c3u2s13t5fhso"
 
 [autoload]
 
