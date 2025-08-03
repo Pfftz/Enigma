@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0wv5pye72lvy"
-path="res://.godot/imported/level.png-0d42d8353a3a859b29c1d29c030bf514.ctex"
+uid="uid://dqs1yfst2wsrb"
+path="res://.godot/imported/hancur.png-a839db66bcf2ee94e437d53bc9201033.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon/level.png"
-dest_files=["res://.godot/imported/level.png-0d42d8353a3a859b29c1d29c030bf514.ctex"]
+source_file="res://asset/2d/hr/d1/hancur.png"
+dest_files=["res://.godot/imported/hancur.png-a839db66bcf2ee94e437d53bc9201033.ctex"]
 
 [params]
 

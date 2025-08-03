@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2ab5svx4su8p"]
 
 [ext_resource type="Script" uid="uid://dqd3mfujvajiq" path="res://scripts/ui/pause_menu/quit_buttons.gd" id="1_y0xeu"]
-[ext_resource type="Texture2D" uid="uid://0m8l44pwsobm" path="res://asset/2d/ui/pause/quit_button.png" id="2_lowrk"]
+[ext_resource type="Texture2D" uid="uid://cnr3leg3vntm2" path="res://asset/2d/ui/pause/exit.png" id="2_pjr3e"]
 [ext_resource type="AudioStream" uid="uid://mmkhc5kb3o70" path="res://sfx/pause/select1.wav" id="4_6yf1h"]
 [ext_resource type="AudioStream" uid="uid://b3ptbmyyksd43" path="res://sfx/pause/select2.wav" id="5_d2hie"]
 
@@ -17,21 +17,21 @@ script = ExtResource("1_y0xeu")
 
 [node name="Dont" type="Sprite2D" parent="."]
 position = Vector2(30, 0)
-scale = Vector2(3, 3)
-texture = ExtResource("2_lowrk")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_pjr3e")
 centered = false
 hframes = 2
-vframes = 3
-frame = 1
+vframes = 11
+frame = 8
 
 [node name="Quit" type="Sprite2D" parent="."]
 position = Vector2(20, 53)
-scale = Vector2(3, 3)
-texture = ExtResource("2_lowrk")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_pjr3e")
 centered = false
 hframes = 2
-vframes = 3
-frame = 4
+vframes = 11
+frame = 10
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

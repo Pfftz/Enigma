@@ -1,14 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://4me8yyhhjy42"]
+[gd_scene load_steps=11 format=3 uid="uid://4me8yyhhjy42"]
 
 [ext_resource type="ArrayMesh" uid="uid://bvoytwwvqkwh" path="res://asset/3d/room/nmp/grass.obj" id="1_otb4p"]
 [ext_resource type="Texture2D" uid="uid://b1ir1inksa4g4" path="res://asset/2d/sprite/grass.png" id="4_28pfr"]
 [ext_resource type="Shader" uid="uid://yrx3bttloff4" path="res://shaders/psx_lit.gdshader" id="5_gmsef"]
-[ext_resource type="ArrayMesh" uid="uid://maqyhbv0cnx2" path="res://asset/3d/room/nmp/entrance.obj" id="8_w73q4"]
-[ext_resource type="Shader" uid="uid://cdmbno3xmc4uw" path="res://shaders/psx_lit_alpha.gdshader" id="9_jmul8"]
-[ext_resource type="Texture2D" uid="uid://cug5niin5ydjt" path="res://asset/3d/room/nmp/nmp_general_placeholder.png" id="10_71mw1"]
 [ext_resource type="Script" uid="uid://b22kmd14546ou" path="res://scripts/manager/LevelEnvironmentManager.gd" id="12_2bc2u"]
 [ext_resource type="PackedScene" uid="uid://dnydq7jk6xp00" path="res://scenes/objects/player/player_cam.tscn" id="12_28pfr"]
-[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="13_ahkim"]
+[ext_resource type="Script" path="res://scripts/ui/interaksi_label.gd" id="13_ahkim"]
 [ext_resource type="ArrayMesh" uid="uid://d3q5rkufu6jr6" path="res://asset/3d/room/nmp/entrance_open.obj" id="13_h4y7t"]
 [ext_resource type="Resource" uid="uid://v3gcw1nk78p2" path="res://resource/environment/nmp.tres" id="13_vkhyk"]
 [ext_resource type="Script" uid="uid://df0qpljsc040u" path="res://scripts/objects/spawn.gd" id="16_f3ile"]
@@ -22,37 +19,6 @@ shader_parameter/albedoTex = ExtResource("4_28pfr")
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_pan_velocity = Vector2(0, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3fy6b"]
-render_priority = 0
-shader = ExtResource("9_jmul8")
-shader_parameter/use_fog = true
-shader_parameter/modulate_color = Color(1, 1, 1, 1)
-shader_parameter/albedoTex = ExtResource("10_71mw1")
-shader_parameter/alpha_color = Color(1, 0, 1, 1)
-shader_parameter/uv_scale = Vector2(1, 1)
-shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/uv_pan_velocity = Vector2(0, 0)
-shader_parameter/tile_mode = false
-shader_parameter/tile = Vector2i(0, 0)
-shader_parameter/per_quad_depth = false
-shader_parameter/adjustable_depth = false
-shader_parameter/depth_offset = Vector3(0, 0, 0)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_746c8"]
-size = Vector3(6, 1, 3.5)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5m6y"]
-render_priority = 0
-shader = ExtResource("5_gmsef")
-shader_parameter/modulate_color = Color(1, 1, 1, 1)
-shader_parameter/albedoTex = ExtResource("10_71mw1")
-shader_parameter/uv_scale = Vector2(1, 1)
-shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/uv_pan_velocity = Vector2(0, 0)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7jjse"]
-data = PackedVector3Array(-1.25, 1, -0.5, -1.25, 0, -0.5, -1.25, 1, -3.5, -1.25, 1, -3.5, -1.25, 0, -0.5, -1.25, 0, -3.5, 2.5, 0, -0.5, 2.5, 1, -0.5, 2.5, 0, -4, 2.5, 0, -4, 2.5, 1, -0.5, 2.5, 1, -4, 2.5, 0, -4, 2.5, 1, -4, -3.5, 0, -4, -3.5, 0, -4, 2.5, 1, -4, -3.5, 1, -4, -3.5, 0, 0.5, -3.5, 0, -4, -3.5, 1, 0.5, -3.5, 1, 0.5, -3.5, 0, -4, -3.5, 1, -4, -3.5, 0, 0.5, -3.5, 1, 0.5, -2.5, 0, 0.5, -2.5, 0, 0.5, -3.5, 1, 0.5, -2.5, 1, 0.5, 2.5, 1, -0.5, 2.5, 0, -0.5, -1.25, 1, -0.5, -1.25, 1, -0.5, 2.5, 0, -0.5, -1.25, 0, -0.5, -2.5, 0, -3.5, -2.5, 0, 0.5, -2.5, 1, -3.5, -2.5, 1, -3.5, -2.5, 0, 0.5, -2.5, 1, 0.5)
 
 [node name="Plane" type="Node3D"]
 
@@ -159,39 +125,14 @@ visibility_range_end = 50.0
 mesh = ExtResource("1_otb4p")
 surface_material_override/0 = SubResource("ShaderMaterial_p61yp")
 
-[node name="GenSpecific" type="Node" parent="."]
-
-[node name="EntranceMesh" type="MeshInstance3D" parent="GenSpecific"]
-mesh = ExtResource("8_w73q4")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_3fy6b")
-
-[node name="EntranceCollision" type="StaticBody3D" parent="GenSpecific"]
-
-[node name="CollisionObject" type="CollisionShape3D" parent="GenSpecific/EntranceCollision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -2.25)
-shape = SubResource("BoxShape3D_746c8")
-
 [node name="SpawnClass" type="Marker3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.505, 1.00837)
 script = ExtResource("16_f3ile")
 spawn_name = "default"
 
-[node name="GenSpecific2" type="Node" parent="."]
-
-[node name="EntranceMesh" type="MeshInstance3D" parent="GenSpecific2"]
-mesh = ExtResource("13_h4y7t")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_w5m6y")
-
-[node name="EntranceCollision" type="StaticBody3D" parent="GenSpecific2"]
-
-[node name="LevelCollision" type="CollisionShape3D" parent="GenSpecific2/EntranceCollision"]
-shape = SubResource("ConcavePolygonShape3D_7jjse")
-
 [node name="Trapdoor" parent="." instance=ExtResource("17_imlju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36093, 0, -3.64117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.51698, 0, -20.8131)
 
 [node name="EnvironmentManager" type="Node3D" parent="."]
 script = ExtResource("12_2bc2u")

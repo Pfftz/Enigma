@@ -1,5 +1,6 @@
 [background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
 join techcorp_interviewer center
+join character center
 
 techcorp_interviewer (marah): Hmph. Cukup basa-basinya.
 techcorp_interviewer (netral): Baiklah, mari kita lihat ‘potensi’ dirimu yang sebenarnya…

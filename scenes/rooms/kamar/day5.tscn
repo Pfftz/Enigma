@@ -1,17 +1,18 @@
-[gd_scene load_steps=27 format=3 uid="uid://biq31bh8d770w"]
+[gd_scene load_steps=28 format=3 uid="uid://biq31bh8d770w"]
 
-[ext_resource type="Script" path="res://scripts/levels/day_5.gd" id="1_4h7wx"]
+[ext_resource type="Script" uid="uid://7yj6juwpugw3" path="res://scripts/levels/day_5.gd" id="1_4h7wx"]
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_ls1dj"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_kkv7f"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_khery"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_4h7wx"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_wcdy2"]
 [ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="7_piisr"]
-[ext_resource type="Resource" path="res://resource/loading_preset/warp_loading.tres" id="9_wcdy2"]
+[ext_resource type="Resource" uid="uid://cc8xgnj741q4b" path="res://resource/loading_preset/warp_loading.tres" id="9_wcdy2"]
 [ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="10_4h7wx"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="10_khery"]
-[ext_resource type="PackedScene" path="res://scenes/objects/level/door_interact.tscn" id="11_door"]
+[ext_resource type="PackedScene" uid="uid://csgnf4cue72sf" path="res://scenes/objects/level/door_interact.tscn" id="11_door"]
 [ext_resource type="PackedScene" uid="uid://dsxxl5c5l02lc" path="res://scenes/objects/level/kumpulan_sampah.tscn" id="11_wcdy2"]
+[ext_resource type="PackedScene" uid="uid://d0d23xfr4lix5" path="res://scenes/management/video_player.tscn" id="13_vltbn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)
@@ -255,3 +256,5 @@ transform = Transform3D(0.139876, 0, 0.195025, 0, 0.24, 0, -0.195025, 0, 0.13987
 
 [node name="KumpulanSampah2" parent="Node3D" instance=ExtResource("11_wcdy2")]
 transform = Transform3D(-0.102902, 0, -0.216821, 0, 0.24, 0, 0.216821, 0, -0.102902, -0.343259, 0.33496, -0.152332)
+
+[node name="VideoPlayer" parent="." instance=ExtResource("13_vltbn")]

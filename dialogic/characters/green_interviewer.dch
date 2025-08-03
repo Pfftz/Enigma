@@ -32,7 +32,7 @@
 },
 "mirror": false,
 "offset": Vector2(0, -10),
-"scale": 0.5,
+"scale": 1.0,
 "scene": "",
 "sound_mood": "normal"
 },

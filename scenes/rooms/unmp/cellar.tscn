@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://coiboxnwee2s5"]
 
-[ext_resource type="Texture2D" uid="uid://wah28v5l6c3q" path="res://asset/2d/background/WhatsApp Image 2025-07-31 at 23.47.37_c4fe4e7d.jpg" id="1_jys24"]
+[ext_resource type="Texture2D" uid="uid://8taotsk5l0v1" path="res://asset/2d/ui/pause/imgonline-com-ua-Negative-Otk45i6oHhzr0.jpg" id="1_jys24"]
 [ext_resource type="ArrayMesh" uid="uid://bviou8v6v2t1v" path="res://asset/3d/room/under_nmp/cellar.obj" id="3_210qx"]
 [ext_resource type="Resource" uid="uid://cpnxltpebnvr6" path="res://resource/environment/under_nmp.tres" id="3_to2g2"]
 [ext_resource type="Shader" uid="uid://cdmbno3xmc4uw" path="res://shaders/psx_lit_alpha.gdshader" id="4_g00ew"]
@@ -38,6 +38,7 @@ size = Vector3(1.05383, 1, 1.02258)
 [node name="cellar" type="Node3D"]
 
 [node name="NiftyMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.287374, 0.583403, -0.308411)
 material_override = SubResource("StandardMaterial3D_kjv4m")
 mesh = ExtResource("3_210qx")
 surface_material_override/0 = SubResource("ShaderMaterial_bt114")
@@ -56,7 +57,7 @@ shape = SubResource("ConcavePolygonShape3D_nxaqf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -3.5)
 
 [node name="PieceArea2" parent="." instance=ExtResource("12_xbmq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.57952)
 
 [node name="PieceArea3" parent="." instance=ExtResource("12_xbmq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.5)

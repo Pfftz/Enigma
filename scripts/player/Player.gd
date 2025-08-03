@@ -24,10 +24,10 @@ func _ready():
 
 func _physics_process(delta):
 	# Check if any movement key is currently being held down
-	var is_moving = Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")
-	
+	var is_moving = Input.is_action_pressed("pressed_left") or Input.is_action_pressed("pressed_right") or Input.is_action_pressed("pressed_up") or Input.is_action_pressed("pressed_down")
+
 	if is_moving:
-		var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		var input_dir = Input.get_vector("pressed_left", "pressed_right", "pressed_up", "pressed_down")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if direction.length() > 0:
