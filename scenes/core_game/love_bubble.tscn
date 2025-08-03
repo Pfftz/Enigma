@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://3mupqhju58m6" path="res://asset/sound/intrusive_mashkey_ultimate.wav" id="3_3f6pw"]
 [ext_resource type="Texture2D" uid="uid://wlirhhx4j33s" path="res://asset/2d/core game/Love.png" id="4_qnp0b"]
 [ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="5_3xa3e"]
-[ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_4ooe0"]
+[ext_resource type="FontFile" uid="uid://bf8cola71c2np" path="res://asset/font/InvulnerableBB-Bold.ttf" id="6_qnp0b"]
 [ext_resource type="FontFile" uid="uid://n40mbgvi4xff" path="res://asset/font/UchronyCircle-Bold-FFP.ttf" id="7_qnp0b"]
 
 [sub_resource type="Animation" id="Animation_y2db8"]
@@ -116,9 +116,9 @@ offset_right = 114.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_4ooe0")
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.996078, 0, 0.431373, 1)
+theme_override_fonts/font = ExtResource("6_qnp0b")
+theme_override_font_sizes/font_size = 26
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -143,7 +143,6 @@ theme_override_constants/outline_size = 16
 theme_override_constants/shadow_outline_size = 14
 theme_override_fonts/font = ExtResource("7_qnp0b")
 theme_override_font_sizes/font_size = 38
-text = "AAS"
 horizontal_alignment = 1
 vertical_alignment = 1
 

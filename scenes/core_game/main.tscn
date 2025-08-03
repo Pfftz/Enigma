@@ -5,7 +5,7 @@
 
 [node name="main2" type="Node2D"]
 script = ExtResource("1_ig7tw")
-positive_thoughts = Array[String](["Aigo", "yayaya", "Hitam", "jogja"])
+positive_thoughts = Array[String](["HAH? ", "Pertanyaan apaan nih ", "Kok nanya Jakarta? ", "Mana gw tau anjir ", "Jumlah jendela? ", "Ummm... Lebih dari 3 lah ya "])
 trap_thoughts = null
 number_of_bubbles = 4
 gameplay_duration = null
