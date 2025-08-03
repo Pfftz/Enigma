@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://brcud2fqc7fk8"]
+[gd_scene load_steps=4 format=3 uid="uid://brcud2fqc7fk8"]
 
 [ext_resource type="Script" uid="uid://w4fw002nh62c" path="res://scripts/core_game/main.gd" id="1_ewaa5"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="2_xfuw1"]
+[ext_resource type="FontFile" uid="uid://d3wcojlddp1uo" path="res://asset/font/LettersinCirclesBook.ttf" id="3_xfuw1"]
 
 [node name="main2" type="Node2D"]
 script = ExtResource("1_ewaa5")
-trap_chance = 0.156
+positive_thoughts = Array[String](["Ini taruhan terakhirku. Gimana kalau dia benar?", "Sialan ini daritadi bikin emosi", "Kenapa dia merasa superior sekali", "make ni orang", "Apa aku benar tidak memiliki nilai... ", "Aku benar-benar butuh pekerjaan ini."])
+gameplay_duration = 60.0
+trap_chance = 0.458
 min_pop_respawn_delay = 1.0
 max_pop_respawn_delay = 2.0
+ultimate_score_threshold = 1000000000
+ultimate_spam_count = 100000000
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -30,12 +35,7 @@ theme_override_fonts/font = ExtResource("2_xfuw1")
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 67.0
-offset_right = 81.0
-offset_bottom = 112.0
+metadata/_edit_use_anchors_ = true
 
 [node name="GameStatusLabel" type="Label" parent="."]
 anchors_preset = 15
@@ -54,14 +54,11 @@ theme_override_fonts/font = ExtResource("2_xfuw1")
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="GameplayTimer" type="Timer" parent="."]
 
 [node name="BubbleRespawnTimer" type="Timer" parent="."]
-
-[node name="TimeLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="UltimateAnnounceLabel" type="Label" parent="."]
 anchors_preset = 15
@@ -80,6 +77,7 @@ theme_override_fonts/font = ExtResource("2_xfuw1")
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="MashSpace" type="Label" parent="."]
 anchors_preset = 15
@@ -98,6 +96,7 @@ theme_override_fonts/font = ExtResource("2_xfuw1")
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="InstructionLabel" type="Label" parent="."]
 anchors_preset = 15
@@ -116,6 +115,28 @@ theme_override_fonts/font = ExtResource("2_xfuw1")
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 952.0
+offset_top = 5.0
+offset_right = 1146.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.869487, 0.667312, 1.54018e-06, 1)
+theme_override_fonts/font = ExtResource("3_xfuw1")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_xfuw1")
+theme_override_font_sizes/font_size = 45
 
 [connection signal="timeout" from="GameplayTimer" to="." method="_on_gameplay_timer_timeout"]
 [connection signal="timeout" from="BubbleRespawnTimer" to="." method="_on_bubble_respawn_timer_timeout"]

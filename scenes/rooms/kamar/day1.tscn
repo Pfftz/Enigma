@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://c384tur1ojl7i" path="res://scripts/objects/interact/interact_kasur.gd" id="7_w17fx"]
 [ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="8_4488h"]
 [ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="9_x2fmh"]
-[ext_resource type="PackedScene" uid="uid://d0d23xfr4lix5" path="res://scenes/management/video_player.tscn" id="11_3josv"]
+[ext_resource type="PackedScene" path="res://scenes/management/video_player.tscn" id="11_3josv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)

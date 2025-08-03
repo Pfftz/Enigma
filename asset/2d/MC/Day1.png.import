@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ywkqc1chjso"
-valid=false
+uid="uid://blldd0biv0anh"
+path="res://.godot/imported/Day1.png-bdd2e41ab5333571a5da2aaa079cdb8c.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://asset/2d/background/bg-placeholder-hr-fix.jpg"
+source_file="res://asset/2d/MC/Day1.png"
+dest_files=["res://.godot/imported/Day1.png-bdd2e41ab5333571a5da2aaa079cdb8c.ctex"]
 
 [params]
 

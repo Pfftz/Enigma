@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfc77ktw72qi"]
+[gd_scene load_steps=4 format=3 uid="uid://dfc77ktw72qi"]
 
-[ext_resource type="Script" path="res://scripts/core_game/love_main.gd" id="1_8pv3u"]
+[ext_resource type="Script" uid="uid://dtdcm1q0hqf5y" path="res://scripts/core_game/love_main.gd" id="1_8pv3u"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="2_214xh"]
+[ext_resource type="FontFile" uid="uid://d3wcojlddp1uo" path="res://asset/font/LettersinCirclesBook.ttf" id="3_pe0il"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_8pv3u")
+gameplay_duration = 60.0
+trap_chance = 0.052
+ultimate_score_threshold = 80
+ultimate_spam_count = 18
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -28,12 +33,6 @@ theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 67.0
-offset_right = 81.0
-offset_bottom = 112.0
-
 [node name="GameStatusLabel" type="Label" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,10 +54,6 @@ vertical_alignment = 1
 [node name="GameplayTimer" type="Timer" parent="."]
 
 [node name="BubbleRespawnTimer" type="Timer" parent="."]
-
-[node name="TimeLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="UltimateAnnounceLabel" type="Label" parent="."]
 anchors_preset = 15
@@ -113,6 +108,28 @@ theme_override_fonts/font = ExtResource("2_214xh")
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 952.0
+offset_top = 5.0
+offset_right = 1146.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.869487, 0.667312, 1.54018e-06, 1)
+theme_override_fonts/font = ExtResource("3_pe0il")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_pe0il")
+theme_override_font_sizes/font_size = 45
 
 [connection signal="timeout" from="GameplayTimer" to="." method="_on_gameplay_timer_timeout"]
 [connection signal="timeout" from="BubbleRespawnTimer" to="." method="_on_bubble_respawn_timer_timeout"]
