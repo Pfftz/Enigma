@@ -6,9 +6,7 @@
 [node name="main2" type="Node2D"]
 script = ExtResource("1_ig7tw")
 positive_thoughts = Array[String](["HAH? ", "Pertanyaan apaan nih ", "Kok nanya Jakarta? ", "Mana gw tau anjir ", "Jumlah jendela? ", "Ummm... Lebih dari 3 lah ya "])
-number_of_bubbles = 4
 bubble_replace_interval = 1.0
-trap_chance = 0.0
 min_pop_respawn_delay = 1.0
 max_pop_respawn_delay = 2.0
 
