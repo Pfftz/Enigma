@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxx5ac22siaqb"
+path="res://.godot/imported/InterviewDay123revisi.wav-9d81c61423d021305e0dd85175728819.sample"
+
+[deps]
+
+source_file="res://sounds/OST/Arsip (OST Lama)/InterviewDay123revisi.wav"
+dest_files=["res://.godot/imported/InterviewDay123revisi.wav-9d81c61423d021305e0dd85175728819.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq8ihg23q75pp"]
+[gd_scene load_steps=15 format=3 uid="uid://bq8ihg23q75pp"]
 
 [ext_resource type="Script" uid="uid://bkq7in5yy8gfy" path="res://scripts/core_game/golden_bubble.gd" id="1_ervom"]
 [ext_resource type="Texture2D" uid="uid://bjfs0qlnjw6hu" path="res://asset/2d/core game/Golden.png" id="2_2w1i7"]
 [ext_resource type="AudioStream" uid="uid://3mupqhju58m6" path="res://asset/sound/intrusive_mashkey_ultimate.wav" id="2_pv1mx"]
+[ext_resource type="AudioStream" uid="uid://csv3o5wi87wjs" path="res://sounds/SFX/MOOD_UP.wav" id="3_kwkgv"]
 [ext_resource type="FontFile" uid="uid://d3wcojlddp1uo" path="res://asset/font/LettersinCirclesBook.ttf" id="5_g3yry"]
 [ext_resource type="Texture2D" uid="uid://coqbu713sfxn4" path="res://asset/2d/core game/air-pollution.png" id="6_4vvuy"]
 [ext_resource type="FontFile" uid="uid://do2e1fvtjl0so" path="res://asset/font/Minecraftia-Regular.ttf" id="7_evqlh"]
@@ -71,7 +72,7 @@ color_ramp = SubResource("GradientTexture1D_c2d40")
 [node name="Bubble" type="Node2D"]
 script = ExtResource("1_ervom")
 spam_sounds = Array[AudioStream]([ExtResource("2_pv1mx")])
-pop_sound = ExtResource("2_pv1mx")
+pop_sound = ExtResource("3_kwkgv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 3.8147e-06)

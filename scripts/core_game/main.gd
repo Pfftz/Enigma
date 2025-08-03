@@ -31,8 +31,8 @@ var GoldenBubbleScene = preload("res://scenes/core_game/golden_bubble.tscn")
 ]
 
 # (DARI MAIN.GD) Kata-kata untuk diketik sekarang terpisah dan tetap.
-var positive_type_words = ["bisa", "okay", "kuat", "maju", "relax", "fokus", "sabar", "tenang"]
-var trap_type_words = ["nyerah", "gusar", "takut", "lemah", "pasrah", "curang", "bicik", "iri"]
+var positive_type_words = ["BISA", "OKAY", "KUAT", "MAJU", "RELAX", "FOKUS", "SABAR", "TENANG"]
+var trap_type_words = ["NYERAH", "GUSAR", "TAKUT", "LEMAH", "PASRAH", "CURANG", "BICIK", "IRI"]
 
 var active_bubbles = []
 var target_bubble = null
@@ -400,16 +400,16 @@ func handle_typing(event):
 				target_bubble.register_spam()
 		return
 
-var key_typed = OS.get_keycode_string(event.keycode)
-
-if target_bubble == null:
-	for bubble in active_bubbles:
-		if is_instance_valid(bubble) and bubble.positive_affirmation.to_lower().begins_with(key_typed.to_lower()):
-			target_bubble = bubble
-			current_typed_string = key_typed
-			player_input_label.text = current_typed_string
-			target_bubble.play_typing_feedback()
-			bubble_respawn_timer.start()
+	var key_typed = OS.get_keycode_string(event.keycode).to_upper()
+	if target_bubble == null:
+		for bubble in active_bubbles:
+			if is_instance_valid(bubble) and bubble.positive_affirmation.begins_with(key_typed):
+				target_bubble = bubble
+				current_typed_string = key_typed
+				player_input_label.text = current_typed_string
+				target_bubble.play_typing_feedback()
+				bubble_respawn_timer.start()
+				return
 
 	else:
 		if not is_instance_valid(target_bubble):

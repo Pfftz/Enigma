@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://com0vv44ub6dj"
+path="res://.godot/imported/DosenKillerDay4IntrusiveFIX.wav-4989634553d0617763b9b3f0f95cac3c.sample"
+
+[deps]
+
+source_file="res://sounds/OST/Arsip (OST Lama)/DosenKillerDay4IntrusiveFIX.wav"
+dest_files=["res://.godot/imported/DosenKillerDay4IntrusiveFIX.wav-4989634553d0617763b9b3f0f95cac3c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
