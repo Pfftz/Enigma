@@ -12,7 +12,10 @@ var bubble_game_instance = null
 @onready var timer_display: Label = $CenterContainer/InterviewPanel/VBoxContainer/TimerContainer/TimerLabel
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
-# Background Image References
+# (BARU) Tambahkan variabel untuk path musik
+const NORMAL_INTERVIEW_OST = preload("res://sounds/OST/Interview_Fix.wav") # <-- GANTI PATH INI
+const DAY4_INTERVIEW_OST = preload("res://sounds/OST/Day4_Pingu.wav")
+const DAY5_INTERVIEW_OST = preload("res://sounds/OST/Day5_Interview.wav") 
 @onready var background_images: Node2D = $BackgroundImage
 @onready var day1_bg: Sprite2D = $BackgroundImage/day1
 @onready var day2_bg: Sprite2D = $BackgroundImage/day2
@@ -96,10 +99,15 @@ func _ready() -> void:
 	# 3. Hubungkan sinyal dari Dialogic ke fungsi di skrip ini
 	setup_dialogic_signals()
 	
+	audio_player.finished.connect(_on_music_finished)
 	# 4. CARA BARU & PALING STABIL:
 	# Tunda pemanggilan start_interview_sequence() sesaat (satu frame)
 	# untuk memberi waktu pada Dialogic untuk siap sepenuhnya.
 	get_tree().create_timer(0.01, false).timeout.connect(start_interview_sequence)
+
+func _on_music_finished():
+	# Cukup putar ulang musiknya dari awal
+	audio_player.play()
 
 func setup_dialogic_signals() -> void:
 	# Connect to Dialogic signals
@@ -173,15 +181,27 @@ func start_interview_sequence():
 	start_interview_day(day_from_gamestate)
 
 func start_interview_day(day: int) -> void:
-	if day > interview_timelines.size():
+	if day > company_names.size() or game_over:
 		complete_all_interviews()
 		return
 	
-	if game_over:
-		return
-	
 	current_day = day
-	current_question = 1 # Reset question counter for new day
+	current_question = 1
+	
+	# (BARU) Logika untuk memilih dan memainkan musik
+	# Hentikan musik yang mungkin sedang berjalan
+	audio_player.stop()
+	
+	# Pilih musik berdasarkan hari
+	if current_day == 4:
+		audio_player.stream = DAY4_INTERVIEW_OST
+	elif current_day == 5:
+		audio_player.stream = DAY5_INTERVIEW_OST
+	else:
+		audio_player.stream = NORMAL_INTERVIEW_OST
+	
+	# Mainkan musik yang sudah dipilih
+	audio_player.play()
 	
 	# Reset day 5 bubble counter when starting a new day
 	if day == 5:
@@ -377,6 +397,8 @@ func kick_out_player() -> void:
 	
 	print(game_over_message)
 	
+	audio_player.stop()
+
 	# Stop the current timeline
 	Dialogic.end_timeline()
 	
@@ -570,6 +592,7 @@ func show_interview_results() -> void:
 	completion_message += "Score this day: " + str(day_score)
 	print(completion_message)
 	
+	audio_player.stop()
 	# Mark this day's interview as completed
 	GameState.mark_interview_completed(current_day)
 	
