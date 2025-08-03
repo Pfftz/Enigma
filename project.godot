@@ -33,6 +33,7 @@ directories/dch_directory={
 "creative_interviewer": "res://dialogic/characters/creative_interviewer.dch",
 "green_interviewer": "res://dialogic/characters/green_interviewer.dch",
 "kamu": "res://dialogic/characters/kamu.dch",
+"mc-luar": "res://dialogic/characters/mc-luar.dch",
 "mega_interviewer": "res://dialogic/characters/mega_interviewer.dch",
 "player": "res://dialogic/characters/player.dch",
 "siluet": "res://asset/2d/hr/d2/siluet.dch",
