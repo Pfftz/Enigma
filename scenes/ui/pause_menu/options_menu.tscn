@@ -93,31 +93,31 @@ scale = Vector2(2, 2)
 
 [node name="CrossButton" type="AnimatedSprite2D" parent="InfoButtonsOrigin"]
 unique_name_in_owner = true
-position = Vector2(152, 228)
+position = Vector2(108.9, 256.4)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ca1xm")
 autoplay = "default"
 
 [node name="SelectPet" type="Label" parent="InfoButtonsOrigin"]
-offset_left = 192.0
-offset_top = 212.0
-offset_right = 286.0
-offset_bottom = 244.0
+offset_left = 148.9
+offset_top = 240.4
+offset_right = 242.9
+offset_bottom = 272.4
 text = "Select"
 label_settings = ExtResource("5_fial3")
 
 [node name="TriangleButton" type="AnimatedSprite2D" parent="InfoButtonsOrigin"]
 unique_name_in_owner = true
-position = Vector2(348, 228)
+position = Vector2(306.4, 257.9)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_cdyug")
 autoplay = "default"
 
 [node name="GoBack" type="Label" parent="InfoButtonsOrigin"]
-offset_left = 384.0
-offset_top = 212.0
-offset_right = 506.0
-offset_bottom = 244.0
+offset_left = 342.4
+offset_top = 241.9
+offset_right = 464.4
+offset_bottom = 273.9
 text = "Go Back"
 label_settings = ExtResource("5_fial3")
 

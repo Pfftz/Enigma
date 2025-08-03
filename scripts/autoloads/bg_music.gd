@@ -6,7 +6,7 @@ const _TRACKS: Array[String] = [
 	"res://music/gift_plane",
 	"res://music/level1",
 	"res://music/level2",
-	"res://music/petscop"
+	"res://sounds/OST/Kosan.wav"
 ]
 
 func _ready():
