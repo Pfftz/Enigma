@@ -4,6 +4,6 @@ join character center
 green_interviewer (netral): pertanyaan terakhir....
 green_interviewer (netral): Dengar baik-baik.
 green_interviewer (netral): Para kepingan salju diluar sana sudah apply di posisi yg sama sepertimu. Bagi saya... semuanya sama.
-green_interviewer (marah): !!!!!!!
+character: !!!!!!!
 green_interviewer (netral): Sekarang, beri aku satu alasan... kenapa kepingan yang satu ini, yaitu kau, layak kami simpan?
 [signal arg="start_bubble_minigame"]
