@@ -2,17 +2,17 @@
 join kamu center
 
 # Day 5 Question 2 bubble result
-if {bubble_score} >= 25:
-	character (normal): saya sudah tertarik di dunia startup sejak lama. dan bila saya diterima, Saya ingin berusaha keras untuk memabangun start-up ini bersama anda.
+if {bubble_score} >= 50:
+	character (normal): Untuk atasan, saya mendambakan seseorang yang suportif, punya visi yang jelas, dan bisa menjadi panutan yang baik bagi timnya
 	set {interview_score} += 30
-
-	kamu (senang): Perfect! Aku suka orang yang tahu apa yang mereka mau dan realistis!
+	
+	kamu (senang): WAH, ITU AKU BANGET! Deskripsimu persis seperti nilai-nilai yang ingin aku bangun di sini!
 	[signal arg="correct_choice"]
 else:
-	character (normal): Yang... yang penting nyaman aja sih. Atasan yang baik hati dan tidak galak.
+	character (normal): Saya suka atasan yang... ramah, bu. Dan... murah senyum. Menurut saya, itu bisa sangat meningkatkan semangat kerja.
 	set {interview_score} += 15
-
-	kamu (a): Aww, jawaban yang sweet! Tapi di startup kadang kita butuh pressure untuk tumbuh ya!
+	
+	kamu (a): SETUJU! Senyuman itu penting! Aku juga suka kalau timku nanti bahagia!
 	[signal arg="correct_choice"]
 kamu (a): Sejauh ini aku suka semua jawaban mu
 

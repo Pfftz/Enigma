@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://bk88ewvc63qff"]
 
-[ext_resource type="Script" path="res://scripts/levels/day_3.gd" id="1_j4o75"]
+[ext_resource type="Script" uid="uid://bq3xtix7rky7t" path="res://scripts/levels/day_3.gd" id="1_j4o75"]
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/objects/player/player.tscn" id="1_u1ydf"]
 [ext_resource type="ArrayMesh" uid="uid://cnywfvfjlsbg8" path="res://asset/3d/room/low_poly_living_room/low_poly_living_room.obj" id="2_qslo6"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_1g0dm"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cklrsj73ts2kt" path="res://scenes/objects/interactive/interaction_symbol.tscn" id="8_ud21y"]
 [ext_resource type="Script" uid="uid://c384tur1ojl7i" path="res://scripts/objects/interact/interact_kasur.gd" id="9_qslo6"]
 [ext_resource type="PackedScene" uid="uid://3i2nr14u21q1" path="res://scenes/objects/level/sampah_sebiji.tscn" id="10_1g0dm"]
-[ext_resource type="Resource" path="res://resource/loading_preset/sleep_loading.tres" id="11_rvnac"]
+[ext_resource type="Resource" uid="uid://3ky1itf0nqxn" path="res://resource/loading_preset/sleep_loading.tres" id="11_rvnac"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkbd2"]
 size = Vector3(0.567505, 1, 4.24658)

@@ -7,7 +7,8 @@
 script = ExtResource("1_ig7tw")
 positive_thoughts = Array[String](["aigoo", "yayaya", "Hitam", "jogja"])
 number_of_bubbles = 4
-trap_chance = 0.161
+bubble_replace_interval = 1.0
+trap_chance = 0.0
 min_pop_respawn_delay = 1.0
 max_pop_respawn_delay = 2.0
 

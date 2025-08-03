@@ -3,6 +3,7 @@ join siluet center
 set {interview_day} = 2
 set {company_name} = "TechCorp"
 set {interview_score} = 0
+[voice path="res://asset/sound/dialog/NYOHO.wav" volume="0.0"]
 
 siluet: nyohohohho
 leave siluet
