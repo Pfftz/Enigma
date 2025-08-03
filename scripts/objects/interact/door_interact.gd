@@ -72,6 +72,8 @@ func _on_dialogic_signal(argument: String):
 		"door_yes":
 			# Player chose to go out - delete collision to reveal warp behind door
 			_delete_collision_and_finish()
+			# Show information label specifically for day 5
+			_show_day5_information_if_needed()
 		"door_no":
 			# Player chose not to go out
 			confirmation_count += 1
@@ -134,3 +136,17 @@ func _force_close_textbox():
 	if is_textbox_open:
 		Dialogic.end_timeline()
 		is_textbox_open = false
+
+func _show_day5_information_if_needed():
+	"""Show information label specifically for day 5"""
+	# Check if this is day 5 by checking the current scene name or GameState
+	var current_scene = get_tree().current_scene
+	if current_scene and current_scene.name == "Day5":
+		# Find and show the information label
+		var ui_node = current_scene.get_node_or_null("UI")
+		if ui_node:
+			var info_label = ui_node.get_node_or_null("InformationLabel")
+			if info_label:
+				info_label.text = "keluarlah menuju cahaya"
+				info_label.visible = true
+				print("DEBUG: Day 5 information label shown")
