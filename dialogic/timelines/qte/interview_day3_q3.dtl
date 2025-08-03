@@ -1,51 +1,39 @@
 [background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer center
 
-creative_interviewer: Apa alasanmu menghunus pedangmu di hadapanku?  Apa tujuan utamamu?
+creative_interviewer (netral): Pertarungan tadi menguji refleksmu. Sekarang, aku ingin melihat fondasi-mu.
+creative_interviewer (netral): Setiap prajurit hidup dengan sebuah kredo. Sebuah prinsip yang tidak akan pernah ia langgar. Apa 'Prinsip Bushido'-mu, anak muda?
 
 [signal arg="timer_start"]
 
-- Untuk melindungi mereka yang berharga bagi saya, Jenderal
-	set {interview_score} += 18
+- Mengabdi pada kewajiban di atas segalanya, Jenderal.
+	set {interview_score} += 10.0
 	
 	
 	[signal arg="timer_end"]
-	creative_interviewer (senyum): Hooo... sebuah alasan yang mulia. Bukan untuk ketenaran, bukan untuk emas, tapi untuk menjadi perisai.
+	creative_interviewer (senyum): Jawaban seorang samurai sejati! Kewajiban adalah napas kita!
 	[signal arg="correct_choice"]
 
-- Untuk membuktikan nilai diri saya, Jenderal.
-	set {interview_score} += 12
+- Kesetiaan pada rekan dan atasan saya.
+	set {interview_score} += 5.0
 	[signal arg="timer_end"]
 	
-	creative_interviewer (senyum): Ambisi untuk menjadi lebih kuat! Keinginan untuk menempa diri! Itu adalah semangat yang bagus.
+	creative_interviewer (senyum): Kesetiaan adalah lem yang merekatkan pasukan. Prinsip yang bagus.
 	[signal arg="correct_choice"]
-	
-- Karena dari semua lamaran yang saya kirim, hanya perusahaan ini [br] yang memanggil saya untuk wawancara. Gajinya juga sepertinya lumayan
-	set {interview_score} -= 15
-	
-	[signal arg="timer_end"]
-	creative_interviewer (marah): Kau merendahkan perjuangan kami! Kau tidak melihat kehormatan bergabung dengan pasukan ini, kau hanya melihat angka di slip gaji!
-		[signal arg="wrong_choice"]
-	
-- Tentu saja nyari uang pak
-	set {interview_score} -= 20
+
+- Bertahan hidup adalah prinsip utama saya.
+	set {interview_score} -= 5.0
 	
 	[signal arg="timer_end"]
-	creative_interviewer (marah): Uang... bertahan hidup... Alasan yang sangat... duniawi
-		[signal arg="wrong_choice"]
+	creative_interviewer (marah): Hanya bertahan hidup? Seekor kelinci pun bisa melakukannya. Di mana kehormatanmu?
+	[signal arg="wrong_choice"]
+
+- Prinsip saya: selesaikan misi, dapatkan bayaran.
+	set {interview_score} -= 10.0
+	
+	[signal arg="timer_end"]
+	creative_interviewer (marah): Kau seorang prajurit bayaran? Jiwamu kosong dan hanya terikat pada emas.
+	[signal arg="wrong_choice"]
 
 [wait time="1.0"]
 [signal arg="update_ui"]
-
-# Final interview conclusion
-[wait time="1.0"]
-
-creative_interviewer (netral): Sesuai dengan apa yang sudah ku duga...
-
-if {interview_score} >= 15:
-	creative_interviewer (senyum): Benteng kami menerima semua pejuang yang mempunyai dedikasi tinggi seperti dirimu, tunggu pesan kami mencapai mu dalam beberapa hari lagi
-else:
-	creative_interviewer (marah): Kami tidak butuh orang orang dengan jiwa kotor sepertimu
-
-set {day3_completed} = true
-set {day3_score} = {interview_score}
