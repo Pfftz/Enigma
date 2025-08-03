@@ -26,6 +26,15 @@
 &"nicknames": ["Jawa"],
 &"offset": Vector2(0, -215),
 &"portraits": {
+"no-mc": {
+"export_overrides": {
+"image": ""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
 "normal": {
 "export_overrides": {
 "image": "\"res://asset/2d/MC/mc-normal.png\""
