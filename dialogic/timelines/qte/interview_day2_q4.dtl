@@ -1,0 +1,53 @@
+[background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
+join techcorp_interviewer center
+techcorp_interviewer (netral): Hmph. Kau cukup menghibur, rendahan. Mungkin ada sedikit kegunaan untukmu.
+techcorp_interviewer (senang): Baiklah, pertanyaan terakhir. Pertanyaan standar dari buku manual HR rendahan, tapi Watakushi penasaran.
+techcorp_interviewer (netral): Bagaimana caramu menangani tekanan... seperti yang kau alami sekarang, misalnya? Ohohoho!
+
+[signal arg="timer_start"]
+
+- Saya ingat sisa uang saya tinggal untuk 3 hari lagi. Itu membuat tekanan dari [br]  interview ini terasa... tidak signifikan.
+	set {interview_score} += 10.0
+	
+	[signal arg="timer_end"]
+	techcorp_interviewer (senang): . . .
+	techcorp_interviewer (netral): Kau... membandingkan tes psikologisku dengan... kelaparan?
+	techcorp_interviewer (senang): Data yang menarik. Ternyata ada level penderitaan di bawah standarku.
+	[signal arg="correct_choice"]
+
+- Saya coba nikmati saja, Nona. Jarang-jarang saya bisa jadi hiburan untuk AI secanggih Anda.
+	set {interview_score} += 5.0
+	
+	[signal arg="timer_end"]
+	techcorp_interviewer (senang): Ohohoho! Jawaban yang paling akurat sejauh ini! Kau sadar posisimu adalah sebagai hiburan. Bagus!
+	[signal arg="correct_choice"]
+
+- Sejujurnya saya kurang suka tekanan. Saya lebih suka lingkungan kerja yang tenang.
+	set {interview_score} -= 5.0
+	
+	[signal arg="timer_end"]
+	techcorp_interviewer (marah): Ohohoho! Tidak suka tekanan? Lalu untuk apa kau di sini, di perusahaan Ayahku? Mencari tempat penitipan anak?
+	[signal arg="wrong_choice"]
+
+- SAYA AKAN JADI KESET PRIBADI NONA! SILAHKAN INJAK-INJAK SAYA!
+	set {interview_score} -= 10.0
+	
+	[signal arg="timer_end"]
+	techcorp_interviewer (marah): Jawaban standar dari seminar motivasi. Sangat... biasa. Kau bahkan tidak orisinal saat mencoba menjilat.
+	[signal arg="wrong_choice"]
+
+[wait time="1.0"]
+[signal arg="update_ui"]
+
+# Final interview conclusion
+[wait time="1.0"]
+
+techcorp_interviewer: Waktu bermainnya sudah habis.
+
+if {interview_score} >= 30:
+	techcorp_interviewer: “Hmph. Lumayan. Nanti akan kusampaikan pada Ayah bahwa spesimen rendahan ini ternyata cukup menghibur. Mungkin kau bisa jadi pembersih sepatuku.
+else:
+	techcorp_interviewer: Membosankan. Kau bahkan tidak lucu saat menderita. Enyahlah dari hadapanku.”
+
+set {day2_completed} = true
+set {day2_score} = {interview_score}

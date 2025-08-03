@@ -1,18 +1,8 @@
-[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
-join creative_interviewer (netral) center
-# Question 3 timeout
+join creative_interviewer center
+# Day 3 Question 2 timeout
 set {interview_score} -= 5
-
-creative_interviewer (netral): ok
-
+creative_interviewer (netral): Tidak punya apa-apa untuk dipersembahkan? Sudah kuduga.
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-creative_interviewer (netral): Sesuai dengan apa yang sudah ku duga...
-if {interview_score} >= 15:
-	creative_interviewer (senyum): Benteng kami menerima semua pejuang yang mempunyai dedikasi tinggi seperti dirimu, tunggu pesan kami mencapai mu dalam beberapa hari lagi
-else:
-	creative_interviewer (marah): Kami tidak butuh orang orang dengan jiwa kotor
-	
-	set {day2_completed} = true
-	set {day2_score} = {interview_score}
+[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]

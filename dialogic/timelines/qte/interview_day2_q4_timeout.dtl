@@ -1,0 +1,16 @@
+[background arg="res://asset/2d/hr/d2/bg-place-hr-d2.png" fade="0.0"]
+join techcorp_interviewer center
+# Day 2 Question 2 timeout
+set {interview_score} -= 5
+
+techcorp_interviewer: Waktu bermainnya sudah habis.
+
+if {interview_score} >= 30:
+	techcorp_interviewer: “Hmph. Lumayan. Nanti akan kusampaikan pada Ayah bahwa spesimen rendahan ini ternyata cukup menghibur. Mungkin kau bisa jadi pembersih sepatuku.
+else:
+	techcorp_interviewer: Membosankan. Kau bahkan tidak lucu saat menderita. Enyahlah dari hadapanku.”
+
+[signal arg="timeout"]
+[signal arg="timer_end"]
+set {day2_completed} = true
+set {day2_score} = {interview_score}
