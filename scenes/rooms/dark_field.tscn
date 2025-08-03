@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://c8lsw8dhkavwq" path="res://shaders/psx_unlit.gdshader" id="4_7hmr4"]
 [ext_resource type="Texture2D" uid="uid://b1ir1inksa4g4" path="res://asset/2d/sprite/grass.png" id="4_dhghc"]
 [ext_resource type="Script" uid="uid://bkghu7oiaubsr" path="res://scripts/objects/interact/interact.gd" id="6_ap2vy"]
-[ext_resource type="Script" uid="uid://d214x88xldhn" path="res://scripts/ui/interaksi_label.gd" id="7_ui"]
+[ext_resource type="Script" path="res://scripts/ui/interaksi_label.gd" id="7_ui"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1d2k2"]
 render_priority = 0

@@ -59,7 +59,6 @@ directories/dtl_directory={
 "interview_day3_q3_timeout": "res://asset/2d/hr/d2/interview_day3_q3_timeout.dtl",
 "interview_day3_q4": "res://dialogic/timelines/qte/interview_day3_q4.dtl",
 "interview_day3_q4_timeout": "res://dialogic/timelines/qte/interview_day3_q4_timeout.dtl",
-"interview_day3_q5": "res://dialogic/timelines/qte/interview_day3_q5.dtl",
 "interview_day4_q1": "res://dialogic/timelines/qte/interview_day4_q1.dtl",
 "interview_day4_q1_timeout": "res://dialogic/timelines/qte/interview_day4_q1_timeout.dtl",
 "interview_day4_q2": "res://dialogic/timelines/qte/interview_day4_q2.dtl",

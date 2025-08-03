@@ -1,4 +1,4 @@
-[background arg="res://asset/2d/hr/d5/bg-d5.jpg" fade="0.0"]
+[background arg="res://asset/2d/hr/d5/inside-interview.jpg" fade="0.0"]
 join kamu center
 kamu (a): Sebagai perusahaan rintisan, saya butuh orang yang punya visi ke depan! Jadi, di mana kamu melihat dirimu dalam 5 tahun ke depan bersama Modern Solution?
 [signal arg="start_bubble_minigame"]
