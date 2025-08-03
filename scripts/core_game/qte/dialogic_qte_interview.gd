@@ -507,7 +507,7 @@ func _on_bubble_minigame_completed(minigame_score: int):
 				3:
 					timeline_name = "interview_day4_q3"
 				4:
-					timeline_name = "interview_day4_q4"
+					timeline_name = "interview_day4_q4_bubble_result"
 		5:
 			match current_question:
 				1:
@@ -515,9 +515,7 @@ func _on_bubble_minigame_completed(minigame_score: int):
 				2:
 					timeline_name = "interview_day5_q2_bubble_result"
 				3:
-					timeline_name = "interview_day5_q3"
-				4:
-					timeline_name = "interview_day5_q4"
+					timeline_name = "interview_day5_q3_bubble_result"
 	
 	if timeline_name != "":
 		print("DEBUG: Starting timeline: ", timeline_name)
