@@ -386,7 +386,7 @@ func get_bubble_positions() -> Array:
 	return positions
 
 func update_score_display():
-	score_label.text = "Skor: %d / %d" % [score, ultimate_score_threshold]
+	score_label.text = "%d / %d" % [score, ultimate_score_threshold]
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
