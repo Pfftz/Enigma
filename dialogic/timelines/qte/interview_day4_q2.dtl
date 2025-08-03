@@ -1,35 +1,38 @@
 [background arg="res://asset/2d/hr/d4/img-d4.png" fade="0.0"]
 join green_interviewer center
+join character center
 
-green_interviewer (netral): apa kelemahan terbesar anda
+green_interviewer (netral): Saya lihat ada jeda yang cukup panjang di riwayat kerjamu.
+green_interviewer: Jelaskan pada saya, apa saja kegiatan produktif yang kamu lakukan selama menganggur, selain mengirim lamaran secara membabi buta?
 
 [signal arg="timer_start"]
 
-- saya tidak suka basa-basi
-	set {interview_score} += 15
-
+- Saya mengasah keahlian baru, Pak. Mengambil kursus online dan mengerjakan proyek pribadi untuk memastikan saya tidak hanya menunggu, tapi berkembang.
+	set {interview_score} += 10.0
+	
 	[signal arg="timer_end"]
-	green_interviewer (senang): Bagi saya itu adalah hal normal
+	green_interviewer (senang): Jawaban yang sudah disiapkan. Saya tidak menyangka Anda berusaha terlihat bagus.
 	[signal arg="correct_choice"]
 
-- Mungkin saya tidak bisa menyerah?
-	set {interview_score} += 8
-
+- Saya fokus penuh mencari pekerjaan yang paling sesuai dengan kualifikasi saya.
+	set {interview_score} += 5.0
+	
 	[signal arg="timer_end"]
-	green_interviewer (senang): saya mengerti, meskipun itu tidak berguna untuk saya
+	green_interviewer (senang): bahkan setelah fokus kau, tak ada satupun perusahaan yang menerima mu?
 	[signal arg="correct_choice"]
 
-- Tebak dong hehe
-	set {interview_score} += 10
-
+- Sejujurnya, saya lebih banyak istirahat dan evaluasi diri, Pak. Proses cari kerja cukup melelahkan.
+	set {interview_score} += 5.0
+	
 	[signal arg="timer_end"]
-	green_interviewer (marah): saya bukan cenayang
+	green_interviewer (marah): Melelahkan? Dunia kerja yang sebenarnya akan menghancurkanmu kalau begitu.
 	[signal arg="wrong_choice"]
 
-- mudah lapar
-	set {interview_score} -= 15
-
+- Memangnya kenapa kalau saya tidak produktif? Mencari kerja itu sendiri sudah pekerjaan penuh waktu.
+	set {interview_score} -= 10.0
+	
 	[signal arg="timer_end"]
-	green_interviewer (marah): ...
+	green_interviewer (marah): Begitu saja sudah defensif. Jadi, Anda hanya duduk menunggu keajaiban.
 	[signal arg="wrong_choice"]
-[signal arg="start_bubble_minigame"]
+[wait time="1.0"]
+[signal arg="update_ui"]

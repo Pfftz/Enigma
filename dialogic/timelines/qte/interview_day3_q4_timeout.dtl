@@ -1,8 +1,9 @@
 # Day 3 Question 3 timeout
+[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
+join character center
+join creative_interviewer center
 set {interview_score} -= 5
 creative_interviewer (marah): Tidak punya prinsip? Kau hanyalah bilah pedang tanpa gagang.”
 [signal arg="timeout"]
 [signal arg="timer_end"]
 [signal arg="update_ui"]
-[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
-join creative_interviewer center

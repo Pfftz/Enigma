@@ -1,4 +1,8 @@
+[background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
+join character center
+join creative_interviewer center
 [wait time="1.0"]
+# Final interview conclusion
 creative_interviewer (netral): Sesuai dengan apa yang sudah ku duga...
 if {interview_score} >= 15:
 	creative_interviewer (senyum): Benteng kami menerima semua pejuang yang mempunyai dedikasi tinggi seperti dirimu, tunggu pesan kami mencapai mu dalam beberapa hari lagi
@@ -6,4 +10,3 @@ else:
 	creative_interviewer (marah): Kami tidak butuh orang orang dengan jiwa kotor sepertimu
 set {day3_completed} = true
 set {day3_score} = {interview_score}
-# Final interview conclusion

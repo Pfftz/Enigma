@@ -1,47 +1,49 @@
 [background arg="res://asset/2d/hr/d4/img-d4.png" fade="0.0"]
 join green_interviewer center
+join green_interviewer center
 
-green_interviewer (netral): Dengar baik-baik. Para kepingan salju diluar sana sudah apply di posisi yg sama sepertimu. Bagi saya... semuanya sama.
+green_interviewer (netral): Di database saya, riwayatmu adalah data yang gagal
+green_interviewer: Ratusan lamaran yang di ghosting, puluhan lamaran yang di tolak
+green_interviewer: satu hal yang bisa mendeskripsikan anda
+green_interviewer: [b]Kegagalan[/b]
+green_interviewer: Apa yang membuat Anda berpikir, setelah semua bukti itu, anda berhak untuk tetap di hire?
 
 [signal arg="timer_start"]
 
-- KEPINGAN SALJU DI BUMI ITU TIDAK ADA YANG SAMA
-	set {interview_score} += 20
-
+- Karena nilai saya tidak ditentukan oleh penolakan mereka, tapi oleh apa yang bisa saya buktikan. Beri saya kesempatan, dan Anda akan lihat.
+	set {interview_score} += 10.0
+	
 	[signal arg="timer_end"]
-	green_interviewer (marah): ...
+	green_interviewer (marah): Kepercayaan diri yang menarik
 	[signal arg="correct_choice"]
 	set {day4_completed} = true
 	set {day4_score} = {interview_score}
-	leave green_interviewer
 
-- SETIAP KEPINGAN SALJU ITU MEMILIKI POLA UNIKNYA SENDIRI
-	set {interview_score} += 12
-
+- Saya percaya pada proses dan kesempatan. Suatu saat pasti ada yang cocok.
+	set {interview_score} += 5.0
+	
 	[signal arg="timer_end"]
-	green_interviewer (marah): ...
+	green_interviewer (marah): Harapan adalah strategi orang malas. Anda hanya menunggu, bukan berjuang.
 	[signal arg="correct_choice"]
 	set {day4_completed} = true
 	set {day4_score} = {interview_score}
-	leave green_interviewer
 
-- SAYA ADALAH SAYA, MEREKA ADALAH MEREKA
+- Saya... saya hanya butuh pekerjaan, Pak. Saya akan lakukan apa saja.
 	set {interview_score} -= 5
-
+	
 	[signal arg="timer_end"]
-	green_interviewer (marah): ...
+	green_interviewer (marah): Keputusasaan. Menjijikan, Saya tidak mempekerjakan orang yang putus asa.
 	[signal arg="wrong_choice"]
 	set {day4_completed} = true
 	set {day4_score} = {interview_score}
-	leave green_interviewer
 
-- JANGAN MEREMEHKAN KAMI KEPINGAN SALJU
+- Mungkin masalahnya bukan di saya, tapi di perusahaan yang tidak bisa melihat potensi?
 	set {interview_score} -= 15
-
+	
 	[signal arg="timer_end"]
-	green_interviewer (marah): ...
+	green_interviewer (netral): menyalahkan sistem ya, kamu memiliki mentalitas seorang korban ternyata.
 	[signal arg="wrong_choice"]
 	set {day4_completed} = true
 	set {day4_score} = {interview_score}
-	leave green_interviewer
-[end_timeline]
+[wait time="1.0"]
+[signal arg="update_ui"]

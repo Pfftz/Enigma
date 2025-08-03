@@ -1,8 +1,10 @@
 [background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer (netral) center
+join character center
 
 creative_interviewer (marah): CUKUP BASA-BASINYA! SEKARANG FOKUS!
 creative_interviewer: Gawat! Aku merasakan aura kegelapan! Benteng kita akan diserang! Aku bisa merasakannya
 creative_interviewer: Server utama kita ‘Inti Matahari’ akan dirusak oleh penyusup kiriman [b]‘Organisasi Kegelapan Malam’[/b]!
 creative_interviewer: Sebagai calon prajurit, apa strategi pertamamu?!
 [signal arg="start_bubble_minigame"]
+[signal arg="update_ui"]

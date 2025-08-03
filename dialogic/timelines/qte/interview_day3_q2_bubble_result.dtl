@@ -1,5 +1,6 @@
 [background arg="res://asset/2d/hr/d3/bg-place.png" fade="0.0"]
 join creative_interviewer center
+join character center
 
 # Check bubble minigame score to determine choice
 if {bubble_score} >= 50:
