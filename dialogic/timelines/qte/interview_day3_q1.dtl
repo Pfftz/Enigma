@@ -30,6 +30,7 @@ character: [i](   (...Ah. Chuuni.   ) [/i]
 [signal arg="timer_start"]
 
 - Rupa ku adalah bukti kejam nya dunia menempaku.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 10.0
 	
 	[signal arg="timer_end"]
@@ -37,6 +38,7 @@ character: [i](   (...Ah. Chuuni.   ) [/i]
 	[signal arg="correct_choice"]
 
 - Aku adalah seorang pejuang yang telah melewati banyak badai kehidupan
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 5.0
 	
 	[signal arg="timer_end"]
@@ -44,6 +46,7 @@ character: [i](   (...Ah. Chuuni.   ) [/i]
 	[signal arg="correct_choice"]
 
 - Aku tidak mempunyai kekuatan apapun.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 5.0
 	
 	[signal arg="timer_end"]
@@ -51,6 +54,7 @@ character: [i](   (...Ah. Chuuni.   ) [/i]
 	[signal arg="wrong_choice"]
 
 - Berhenti bermain main cosplay, aku ingin bertemu dengan HR asli nya.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 10
 	
 	[signal arg="timer_end"]

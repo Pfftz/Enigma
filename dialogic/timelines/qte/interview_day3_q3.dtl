@@ -8,6 +8,7 @@ creative_interviewer (netral): Setiap prajurit hidup dengan sebuah kredo. Sebuah
 [signal arg="timer_start"]
 
 - Mengabdi pada kewajiban di atas segalanya, Jenderal.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 10.0
 	
 	
@@ -16,6 +17,7 @@ creative_interviewer (netral): Setiap prajurit hidup dengan sebuah kredo. Sebuah
 	[signal arg="correct_choice"]
 
 - Kesetiaan pada rekan dan atasan saya.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 5.0
 	[signal arg="timer_end"]
 	
@@ -23,6 +25,7 @@ creative_interviewer (netral): Setiap prajurit hidup dengan sebuah kredo. Sebuah
 	[signal arg="correct_choice"]
 
 - Bertahan hidup adalah prinsip utama saya.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 5.0
 	
 	[signal arg="timer_end"]
@@ -30,6 +33,7 @@ creative_interviewer (netral): Setiap prajurit hidup dengan sebuah kredo. Sebuah
 	[signal arg="wrong_choice"]
 
 - Prinsip saya: selesaikan misi, dapatkan bayaran.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 10.0
 	
 	[signal arg="timer_end"]

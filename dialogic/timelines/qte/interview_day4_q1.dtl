@@ -17,6 +17,7 @@ green_interviewer: Anda adalah pelamar ke-456, kami. Waktu saya terbatas. Saya h
 [signal arg="timer_start"]
 
 - Setuju pak, waktu itu berharga.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 5.0
 	
 	[signal arg="timer_end"]
@@ -24,6 +25,7 @@ green_interviewer: Anda adalah pelamar ke-456, kami. Waktu saya terbatas. Saya h
 	[signal arg="correct_choice"]
 
 - (gulp) mengangguk
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 10.0
 	
 	[signal arg="timer_end"]
@@ -31,6 +33,7 @@ green_interviewer: Anda adalah pelamar ke-456, kami. Waktu saya terbatas. Saya h
 	[signal arg="correct_choice"]
 
 - Maaf, Pak. Koneksi saya agak lambat. Tadi Bapak bilang pelamar ke berapa?
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 5.0
 	
 	[signal arg="timer_end"]
@@ -38,6 +41,7 @@ green_interviewer: Anda adalah pelamar ke-456, kami. Waktu saya terbatas. Saya h
 	[signal arg="wrong_choice"]
 
 - Wow, 456 pelamar? Bapak pasti lelah ya, kelihatan tegang sekali.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 10
 	
 	[signal arg="timer_end"]

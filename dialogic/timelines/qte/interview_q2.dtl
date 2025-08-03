@@ -8,24 +8,28 @@ bananazon_interviewer (netral): Kenapa Anda tertarik untuk mendaftar ke Eco Sigm
 [signal arg="timer_start"]
 
 - Ingin membantu melestarikan alam.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 8
 	[signal arg="timer_end"]
 	bananazon_interviewer (senang): Tujuan yang sangat mulia.
 	[signal arg="correct_choice"]
 
 - Jujur ya, Pak. Saya udah sebar lamaran ke 50 perusahaan. Bapak yang pertama balas.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 3
 	[signal arg="timer_end"]
 	bananazon_interviewer (marah): Statistik yang menyedihkan. Tapi efisien. Anda tidak membuang waktu saya.
 	[signal arg="wrong_choice"]
 
 - Saya punya value yang bapak inginkan.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 12
 	[signal arg="timer_end"]
 	bananazon_interviewer (sangat senang): Jawaban yang berbobot. Anda fokus pada nilai.
 	[signal arg="correct_choice"]
 
 - SAYA AKAN LAKUKAN APAPUN PAK! MENYIRAM BAPAK SETIAP HARI JUGA SAYA MAU!
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 8
 	[signal arg="timer_end"]
 	bananazon_interviewer (marah): disiram... setiap hari?. Menarik.

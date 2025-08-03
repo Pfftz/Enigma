@@ -6,11 +6,19 @@
 [node name="main2" type="Node2D"]
 script = ExtResource("1_ig7tw")
 positive_thoughts = Array[String](["Aigo", "yayaya", "Hitam", "jogja"])
+trap_thoughts = null
 number_of_bubbles = 4
+gameplay_duration = null
 bubble_replace_interval = 1.0
 trap_chance = 0.0
 min_pop_respawn_delay = 1.0
 max_pop_respawn_delay = 2.0
+ultimate_score_threshold = null
+ultimate_spam_count = null
+horizontal_margin_percent = null
+vertical_margin_percent = null
+middle_bubble_offset = null
+outer_bubble_offset = null
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0

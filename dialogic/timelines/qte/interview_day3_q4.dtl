@@ -5,21 +5,25 @@ creative_interviewer (netral): Oke kita lihat bagaimana kamu menjawab pertanyaan
 creative_interviewer: Setiap prajurit harus bisa berjuang bersama. Ceritakan padaku, bagaimana kau menghadapi seorang rekan seperjuangan yang tidak sejalan denganmu?
 [signal arg="timer_start"]
 - Saya akan ajak bicara baik-baik untuk menyamakan visi, karena kemenangan adalah tujuan bersama.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 10.0
 	[signal arg="timer_end"]
 	creative_interviewer (senyum): Hoo! Kebijaksanaan sejati. Hanya dengan persatuan, sebuah pasukan bisa meraih kemenangan!
 	[signal arg="correct_choice"]
 - Saya akan tunjukkan dengan kerja keras saya, Jenderal, sehingga ia terinspirasi untuk mengikuti.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 5.0
 	[signal arg="timer_end"]
 	creative_interviewer (senyum): Contoh adalah pedang paling tajam. Taktik yang bagus
 	[signal arg="correct_choice"]
 - Lebih baik saya menghindari konflik, Jenderal. Saya akan fokus pada tugas saya sendiri.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 5.0
 	[signal arg="timer_end"]
 	creative_interviewer (marah): Menghindari konflik? Itu bukanlah cara seorang prajurit. Kau membiarkan musuh dalam selimut berkembang.
 	[signal arg="wrong_choice"]
 - SAYA AKAN HAJAR DIA DULU, SETELAH ITU BARU BERDISKUSI!
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 10.0
 	[signal arg="timer_end"]
 	creative_interviewer (marah): “Menghajar rekan sendiri? Itu perbuatan pengecut! Kau merusak persatuan pasukan kita!

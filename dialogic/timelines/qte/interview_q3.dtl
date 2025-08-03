@@ -8,6 +8,7 @@ bananazon_interviewer (netral): dimana anda melihat diri anda 5 tahun keepan?
 [signal arg="timer_start"]
 
 - Menjadi pupuk terbaik bagi Anda.
+	[sound path="res://sounds/SFX/Mood_Down_New.wav" volume="0.0"]
 	set {interview_score} += 15.0
 	
 	[signal arg="timer_end"]
@@ -15,6 +16,7 @@ bananazon_interviewer (netral): dimana anda melihat diri anda 5 tahun keepan?
 	[signal arg="correct_choice"]
 
 - 5 tahun? Pak, tagihan internet saya jatuh tempo besok.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 5
 	
 	[signal arg="timer_end"]
@@ -22,6 +24,7 @@ bananazon_interviewer (netral): dimana anda melihat diri anda 5 tahun keepan?
 	[signal arg="correct_choice"]
 
 - Memberi dampak positif di sini
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 10.0
 	
 	[signal arg="timer_end"]
@@ -29,6 +32,7 @@ bananazon_interviewer (netral): dimana anda melihat diri anda 5 tahun keepan?
 	[signal arg="wrong_choice"]
 
 - DI MANA SAJA ASALKAN BUKAN DI JALANAN PAK! TOLONG PAK RUMAH SAYA MAU DISEGEL!
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 10
 	
 	[signal arg="timer_end"]

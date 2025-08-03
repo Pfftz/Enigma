@@ -13,24 +13,28 @@ bananazon_interviewer (netral): Bagaimana kondisi Anda hari ini?
 [signal arg="timer_start"]
 
 - Siang. Kondisi aman terkendali.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 5
 	[signal arg="timer_end"]
 	bananazon_interviewer (sangat senang): Baiklah kalau begitu.
 	[signal arg="correct_choice"]
 
 - Masih bernapas, Pak. Sejauh ini
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 5
 	[signal arg="timer_end"]
 	bananazon_interviewer (marah): Humor yang gelap. Seperti kompos yang baik.
 	[signal arg="wrong_choice"]
 
 - aman pak
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 10
 	[signal arg="timer_end"]
 	bananazon_interviewer (senang): Energi yang bagus. Tunas yang menjanjikan.
 	[signal arg="correct_choice"]
 
 - TOLONG PAK HIRE SAYA PAK, SAYA BUTUH KERJA.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 10
 	[signal arg="timer_end"]
 	bananazon_interviewer (marah): ...Sebuah ledakan energi yang tidak terduga. Seperti tunas yang menerobos tanah secara paksa. Agresif sekali.

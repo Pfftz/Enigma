@@ -3,12 +3,14 @@ join kamu center
 
 # Day 5 Question 2 bubble result
 if {bubble_score} >= 25:
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	character (normal): Dalam 5 tahun, saya berharap saya bukan hanya sekadar karyawan, tapi sudah menjadi salah satu pilar utama yang membantu Modern Solution tumbuh besar dan menjadi pemimpin di industrinya.
 	set {interview_score} += 30
 	set {interview_health} += 30
 	kamu (senang): Pilar utama! Aku suka visi itu! Aku butuh orang sepertimu! apa yang mereka mau dan realistis!
 	[signal arg="correct_choice"]
 else:
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	character (normal): Saya melihat diri saya... masih di sini. Terus berkembang menjadi lebih baik... bersama-sama dengan perusahaan ini, tentunya.
 	set {interview_score} += 15
 	set {interview_health} += 15

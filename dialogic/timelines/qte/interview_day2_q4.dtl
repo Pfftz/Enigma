@@ -7,6 +7,7 @@ techcorp_interviewer (netral): Bagaimana caramu menangani tekanan... seperti yan
 [signal arg="timer_start"]
 
 - Saya ingat sisa uang saya tinggal untuk 3 hari lagi. Itu membuat tekanan dari [br]  interview ini terasa... tidak signifikan.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 10.0
 	
 	[signal arg="timer_end"]
@@ -16,6 +17,7 @@ techcorp_interviewer (netral): Bagaimana caramu menangani tekanan... seperti yan
 	[signal arg="correct_choice"]
 
 - Saya coba nikmati saja, Nona. Jarang-jarang saya bisa jadi hiburan untuk AI secanggih Anda.
+	[sound path="res://sounds/SFX/MOOD_UP.wav" volume="0.0"]
 	set {interview_score} += 5.0
 	
 	[signal arg="timer_end"]
@@ -23,6 +25,7 @@ techcorp_interviewer (netral): Bagaimana caramu menangani tekanan... seperti yan
 	[signal arg="correct_choice"]
 
 - Sejujurnya saya kurang suka tekanan. Saya lebih suka lingkungan kerja yang tenang.
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 5.0
 	
 	[signal arg="timer_end"]
@@ -30,6 +33,7 @@ techcorp_interviewer (netral): Bagaimana caramu menangani tekanan... seperti yan
 	[signal arg="wrong_choice"]
 
 - SAYA AKAN JADI KESET PRIBADI NONA! SILAHKAN INJAK-INJAK SAYA!
+	[sound path="res://sounds/SFX/MOOD_DOWN.wav" volume="0.0"]
 	set {interview_score} -= 10.0
 	
 	[signal arg="timer_end"]
