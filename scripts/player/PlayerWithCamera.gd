@@ -40,6 +40,14 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+# === DIRECTION SYSTEM ===
+
+func set_direction(direction: int) -> void:
+	"""Set the player's facing direction (0=UP, 1=RIGHT, 2=DOWN, 3=LEFT)"""
+	# This can be expanded later if you need the player to face specific directions
+	# For now, just store it or use it for animation states
+	pass
+
 # === CAMERA FUNCTIONS ===
 
 # Expose camera controller untuk external access

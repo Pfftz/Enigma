@@ -1,7 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://b1kab4d8sry8a"]
+[gd_scene load_steps=40 format=3 uid="uid://b1kab4d8sry8a"]
 
 [ext_resource type="Script" uid="uid://d2qykwnj5swwx" path="res://scripts/levels/title.gd" id="1_ys1qf"]
-[ext_resource type="Resource" uid="uid://bce0a1ltuxpat" path="res://resource/loading_preset/new_game_loading.tres" id="2_qp135"]
+[ext_resource type="Resource" path="res://resource/loading_preset/new_game_loading.tres" id="2_qp135"]
 [ext_resource type="Resource" uid="uid://fqixpor1kacn" path="res://resource/loading_preset/default.tres" id="3_qb06g"]
 [ext_resource type="Shader" uid="uid://cfkaktpfj4ha4" path="res://shaders/psx_lit_noenv.gdshader" id="4_2bndm"]
 [ext_resource type="Shader" uid="uid://b0jbi3my83n12" path="res://shaders/psx_unlit_blank.gdshader" id="4_ghmid"]
@@ -19,11 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://d3kewqy6pcgl7" path="res://asset/2d/title/C-atas.png" id="16_lq4su"]
 [ext_resource type="Texture2D" uid="uid://ccr5ffvyigp2g" path="res://asset/2d/title/c-bawah.png" id="17_iftfp"]
 [ext_resource type="AudioStream" uid="uid://bf0e6hfsjvudv" path="res://sfx/title_screen/press_start.wav" id="17_q7emt"]
-[ext_resource type="AudioStream" uid="uid://cxqsh40sckwcr" path="res://music/petscop.ogg" id="18_ua51s"]
-[ext_resource type="AudioStream" uid="uid://cf5ioohi6c4sl" path="res://sfx/title_screen/whistle.wav" id="19_pydtj"]
-[ext_resource type="AudioStream" uid="uid://dj7o8l0ta2ci" path="res://sfx/title_screen/choose_file.wav" id="20_iupuy"]
+[ext_resource type="AudioStream" uid="uid://cec04sqmj83dp" path="res://sounds/OST/Kosan.wav" id="19_qp135"]
+[ext_resource type="AudioStream" uid="uid://bcm8r3c5yung3" path="res://sounds/SFX/click_yes_mainmenu_pause.wav" id="20_qb06g"]
 [ext_resource type="ArrayMesh" uid="uid://cby7a0jxj2rfj" path="res://asset/3d/room/title/rail.obj" id="21_aaa3k"]
-[ext_resource type="AudioStream" uid="uid://cnako5upv2f80" path="res://sfx/title_screen/next_file.wav" id="21_bh006"]
+[ext_resource type="AudioStream" uid="uid://bjve42vvkfcfr" path="res://sounds/SFX/click_yes_dialogue.wav" id="21_xuxxd"]
 [ext_resource type="Texture2D" uid="uid://b617s71g30arh" path="res://asset/3d/room/gift/texture.png" id="24_0jas5"]
 [ext_resource type="PackedScene" uid="uid://cv7edlpe3aguh" path="res://scenes/management/fog_focus.tscn" id="25_00iv3"]
 
@@ -498,17 +497,17 @@ color = Color(1, 1, 1, 0)
 stream = ExtResource("17_q7emt")
 
 [node name="Song" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_ua51s")
+stream = ExtResource("19_qp135")
 
 [node name="Whistle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_pydtj")
+stream = ExtResource("20_qb06g")
 volume_db = -2.0
 
 [node name="FileSelected" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_iupuy")
+stream = ExtResource("20_qb06g")
 
 [node name="FileSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("21_bh006")
+stream = ExtResource("21_xuxxd")
 
 [node name="CardTimer" type="Timer" parent="."]
 

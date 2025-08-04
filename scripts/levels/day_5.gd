@@ -14,6 +14,10 @@ func play_day5_video():
 		video_player.play_video("res://asset/videos/Day5_intro.ogv", _on_day5_video_finished)
 
 func _on_day5_video_finished():
+	# Disable the video player's camera after video finishes
+	if video_player and video_player.camera_2d:
+		video_player.camera_2d.enabled = false
+	
 	# After Day 5 video, play monolog and mark as played
 	GameState.mark_monolog_played(5)
 	Dialogic.start("monolog/day5")

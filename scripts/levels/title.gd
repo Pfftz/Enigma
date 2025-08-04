@@ -67,7 +67,7 @@ func _ready() -> void:
 	
 	# Setup audio dan environment
 	$Song.play()
-	if AudioManager.get_current_bg_track() != "res://music/petscop.ogg":
+	if AudioManager.get_current_bg_track() != "res://sounds/OST/Kosan.wav":
 		AudioManager.pause_bg_music()
 	
 	get_tree().paused = false
@@ -399,7 +399,7 @@ func _update_animations(delta: float) -> void:
 		logo_timer += delta
 		logo_mesh.rotation.z = - sin(1.5 * logo_timer * PI) * cos(logo_timer * PI / 5) * 0.25
 		logo_mesh.rotation.y = - cos(1.5 * (logo_timer + 0.25) * PI) * sin(logo_timer * PI / 5) * 0.4
-		logo_gift.rotation.z = cos(2.5 * logo_timer * PI) * 0.2
+		logo_gift.rotation.z = cos(0.5 * logo_timer * PI) * 0.2
 	
 	road_mesh.position.x -= delta * 2
 	if road_mesh.position.x <= -12:
