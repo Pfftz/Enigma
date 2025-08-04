@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bjpl673weodmi" path="res://asset/2d/ui/psx_buttons.png" id="10_rnp0l"]
 [ext_resource type="LabelSettings" uid="uid://cb1c82a2dubgn" path="res://resource/theme/font/default.tres" id="11_4gcpi"]
 [ext_resource type="AudioStream" uid="uid://c7xbu88id3fq2" path="res://sounds/SFX/intrusive_mashkey_higherpitched_successendofcombo.wav" id="11_cu8y1"]
+[ext_resource type="AudioStream" uid="uid://cvncw7e2hu7mw" path="res://sounds/SFX/interview_wrong_option.wav" id="14_bcoja"]
 [ext_resource type="AudioStream" uid="uid://bcm8r3c5yung3" path="res://sounds/SFX/click_yes_mainmenu_pause.wav" id="14_ytg4u"]
 [ext_resource type="AudioStream" uid="uid://e6rnbwyu6ovy" path="res://sounds/SFX/intrusive_mashkey.wav" id="15_es57r"]
-[ext_resource type="AudioStream" uid="uid://dg520va2oo5ju" path="res://sounds/textboxcontinue.wav" id="16_3c1iw"]
 
 [sub_resource type="Gradient" id="Gradient_wu3tr"]
 colors = PackedColorArray(0.992157, 0.894118, 0.988235, 0, 0.992157, 0.894118, 0.988235, 1)
@@ -419,5 +419,5 @@ stream = ExtResource("15_es57r")
 bus = &"HUD_SFX"
 
 [node name="LeaveSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_3c1iw")
+stream = ExtResource("14_bcoja")
 bus = &"HUD_SFX"

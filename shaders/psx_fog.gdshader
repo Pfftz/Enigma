@@ -23,7 +23,7 @@ uniform float alpha_scissor : hint_range(0, 1) = 0.1;
 uniform bool fog = false;
 global uniform vec4 fog_color;
 global uniform float sphere_size;
-global uniform vec3 player_pos; 
+global uniform vec3 player_pos;
 
 varying vec3 world_vertex;
 

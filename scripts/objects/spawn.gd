@@ -34,30 +34,38 @@ func _check_spawn() -> void:
 
 func _spawn_player_here() -> void:
 	print("Spawning player at: '", spawn_name, "'")
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		print("Found player, current position: ", player.global_position)
-		print("Setting position to spawn: ", global_position)
-		
-		# Use a small delay to ensure player is fully added to scene
-		await get_tree().process_frame
-		player.global_position = global_position
-		
-		# Ensure player is on ground level
-		if player.has_method("move_and_slide"):
-			player.move_and_slide()
-		
-		# Set player direction if the method exists
-		if player.has_method("set_direction"):
-			player.set_direction(int(player_direction))
-		
-		print("Player spawned successfully at: ", player.global_position)
-		print("Player direction set to: ", Direction.keys()[player_direction])
-		
-		# Clear spawn info
-		Global.target_spawn_name = ""
-	else:
-		print("ERROR: No player found in 'player' group!")
-		# Try again after a short delay
-		await get_tree().create_timer(0.1).timeout
-		_spawn_player_here()
+	
+	# Wait for player to be available with multiple retries
+	var max_attempts = 20  # Try for up to 2 seconds
+	var attempt = 0
+	
+	while attempt < max_attempts:
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			print("Found player, current position: ", player.global_position)
+			print("Setting position to spawn: ", global_position)
+			
+			# Use a small delay to ensure player is fully added to scene
+			await get_tree().process_frame
+			player.global_position = global_position
+			
+			# Ensure player is on ground level
+			if player.has_method("move_and_slide"):
+				player.move_and_slide()
+			
+			# Set player direction if the method exists
+			if player.has_method("set_direction"):
+				player.set_direction(int(player_direction))
+			
+			print("Player spawned successfully at: ", player.global_position)
+			print("Player direction set to: ", Direction.keys()[player_direction])
+			
+			# Clear spawn info
+			Global.target_spawn_name = ""
+			return
+		else:
+			attempt += 1
+			print("Attempt ", attempt, "/", max_attempts, ": No player found, waiting...")
+			await get_tree().create_timer(0.1).timeout
+	
+	print("ERROR: Failed to find player after ", max_attempts, " attempts!")

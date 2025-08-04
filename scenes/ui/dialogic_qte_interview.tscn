@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxfe0cbshi1dw"]
+[gd_scene load_steps=12 format=3 uid="uid://dxfe0cbshi1dw"]
 
 [ext_resource type="Script" uid="uid://xdf8j0lvtnq3" path="res://scripts/core_game/qte/dialogic_qte_interview.gd" id="1_tni71"]
-[ext_resource type="Texture2D" uid="uid://wah28v5l6c3q" path="res://asset/2d/font/background/WhatsApp Image 2025-07-31 at 23.47.37_c4fe4e7d.jpg" id="2_635j5"]
+[ext_resource type="Texture2D" uid="uid://dsnv3ysky6sbi" path="res://asset/2d/font/background/Screenshot 2025-08-04 021708.png" id="2_635j5"]
 [ext_resource type="Texture2D" uid="uid://c6imcx7a1dfcm" path="res://icon/textboxres.png" id="2_thnq7"]
-[ext_resource type="Texture2D" uid="uid://ddmykwapn8wwm" path="res://asset/2d/hr/d2/bg-place-hr-d2.png" id="3_qpied"]
-[ext_resource type="Texture2D" uid="uid://cjlf6k7eocdyi" path="res://asset/2d/font/background/outline-meet-Sheet-ye.png" id="4_rhep8"]
+[ext_resource type="Texture2D" uid="uid://i358k7140172" path="res://asset/2d/font/background/Screenshot 2025-08-04 022030.png" id="3_qpied"]
+[ext_resource type="Texture2D" uid="uid://xydiufciyvhc" path="res://asset/2d/font/background/Screenshot 2025-08-04 022412.png" id="4_635j5"]
+[ext_resource type="Texture2D" uid="uid://bmorhc8fhnb7w" path="res://asset/2d/font/background/Screenshot 2025-08-04 022918.png" id="5_qpied"]
+[ext_resource type="Texture2D" uid="uid://bt2o13msb3hiq" path="res://asset/2d/font/background/Screenshot 2025-08-04 023914.png" id="6_hoo1e"]
+[ext_resource type="Texture2D" uid="uid://dr0s2rrnv0ljs" path="res://asset/2d/font/background/Screenshot 2025-08-04 023156.png" id="7_5q7ah"]
+[ext_resource type="Texture2D" uid="uid://c02o4bigco5g1" path="res://asset/2d/font/background/Screenshot 2025-08-04 023120.png" id="7_05301"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
 bg_color = Color(0.2, 0.2, 0.2, 0.8)
@@ -41,31 +45,52 @@ color = Color(0.00308358, 0.0617439, 0.139001, 1)
 [node name="BackgroundImage" type="Node2D" parent="."]
 
 [node name="day1" type="Sprite2D" parent="BackgroundImage"]
-position = Vector2(594, 324)
-scale = Vector2(5.0625, 4.9375)
+visible = false
+position = Vector2(594, 324.15)
+scale = Vector2(0.485, 0.473)
 texture = ExtResource("2_635j5")
+offset = Vector2(11.81, 0)
 
 [node name="day2" type="Sprite2D" parent="BackgroundImage"]
 visible = false
 position = Vector2(575, 304)
+scale = Vector2(0.47, 0.47)
 texture = ExtResource("3_qpied")
+offset = Vector2(1.375, 36.795)
 
 [node name="day3" type="Sprite2D" parent="BackgroundImage"]
 visible = false
-position = Vector2(584, 288)
-texture = ExtResource("4_rhep8")
+position = Vector2(588.555, 296.42)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("4_635j5")
+offset = Vector2(-19.43, 74.955)
 
 [node name="day4" type="Sprite2D" parent="BackgroundImage"]
 visible = false
+position = Vector2(607, 345)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("5_qpied")
+offset = Vector2(-63.755, -40.265)
 
 [node name="day5_1" type="Sprite2D" parent="BackgroundImage"]
 visible = false
+position = Vector2(587, 333)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("6_hoo1e")
+offset = Vector2(-19.395, -12.21)
 
 [node name="day5_2" type="Sprite2D" parent="BackgroundImage"]
 visible = false
+position = Vector2(590, 373)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("7_05301")
+offset = Vector2(-31.955, -99.135)
 
 [node name="day5_3" type="Sprite2D" parent="BackgroundImage"]
-visible = false
+position = Vector2(580, 322)
+scale = Vector2(0.474, 0.474)
+texture = ExtResource("7_5q7ah")
+offset = Vector2(-3.8, 7.68)
 
 [node name="GameplayLabel" type="Label" parent="."]
 visible = false

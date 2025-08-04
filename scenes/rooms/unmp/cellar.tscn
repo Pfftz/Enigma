@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://coiboxnwee2s5"]
+[gd_scene load_steps=15 format=3 uid="uid://coiboxnwee2s5"]
 
 [ext_resource type="Texture2D" uid="uid://8taotsk5l0v1" path="res://asset/2d/ui/pause/imgonline-com-ua-Negative-Otk45i6oHhzr0.jpg" id="1_jys24"]
 [ext_resource type="ArrayMesh" uid="uid://bviou8v6v2t1v" path="res://asset/3d/room/under_nmp/cellar.obj" id="3_210qx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://df0qpljsc040u" path="res://scripts/objects/spawn.gd" id="9_i6q6g"]
 [ext_resource type="PackedScene" uid="uid://dn6hdyapwjmyp" path="res://scenes/objects/level/warp.tscn" id="11_2cxv2"]
 [ext_resource type="PackedScene" uid="uid://db50wvqb2n0b8" path="res://scenes/objects/interactive/piece.tscn" id="12_xbmq8"]
+[ext_resource type="PackedScene" uid="uid://dnydq7jk6xp00" path="res://scenes/objects/player/player_cam.tscn" id="13_28pfr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjv4m"]
 albedo_texture = ExtResource("1_jys24")
@@ -38,7 +39,6 @@ size = Vector3(1.05383, 1, 1.02258)
 [node name="cellar" type="Node3D"]
 
 [node name="NiftyMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.287374, 0.583403, -0.308411)
 material_override = SubResource("StandardMaterial3D_kjv4m")
 mesh = ExtResource("3_210qx")
 surface_material_override/0 = SubResource("ShaderMaterial_bt114")
@@ -91,6 +91,9 @@ player_direction = 1
 [node name="EnvironmentManager" type="Node3D" parent="."]
 script = ExtResource("7_jys24")
 environment_settings = ExtResource("3_to2g2")
+
+[node name="PlayerCam" parent="." instance=ExtResource("13_28pfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.488101, 0.351376, -1.69349)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.48083, 0.489149, -2.99955)

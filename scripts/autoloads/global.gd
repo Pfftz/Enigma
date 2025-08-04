@@ -124,15 +124,26 @@ func _add_player_to_new_scene() -> void:
 	await get_tree().create_timer(0.1).timeout
 	
 	print("Attempting to add player to new scene")
+	var scene_has_player = get_tree().get_first_node_in_group("player") != null
+	
 	if player_node and get_tree().current_scene:
-		get_tree().current_scene.add_child(player_node)
-		print("Player added to new scene")
+		if not scene_has_player:
+			# Only add player if scene doesn't already have one
+			get_tree().current_scene.add_child(player_node)
+			print("Player added to new scene")
+		else:
+			# Scene already has a player, free the stored one
+			print("Scene already has player, freeing stored player node")
+			player_node.queue_free()
+		
+		# Wait another frame to ensure player is fully in the scene tree
+		await get_tree().process_frame
 		
 		# Player spawning is now handled by spawn points themselves
-		player_node = null # Clear reference after adding
+		player_node = null # Clear reference after handling
 	else:
 		if not player_node:
-			print("ERROR: No player node to add")
+			print("No stored player node (scene likely has its own player)")
 		if not get_tree().current_scene:
 			print("ERROR: Current scene is null")
 

@@ -42,6 +42,11 @@ func go_to_next_day():
 
 	print("Player pergi tidur...")
 
+	# Disable video player camera if it's still active (especially on day 1)
+	var video_player = get_tree().current_scene.find_child("VideoPlayer", true, false)
+	if video_player and video_player.has_method("get") and video_player.camera_2d:
+		video_player.camera_2d.enabled = false
+
 	# 1. Maju ke hari berikutnya
 	GameState.advance_to_next_day()
 
