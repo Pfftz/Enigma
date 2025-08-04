@@ -283,7 +283,7 @@ func _process(_delta):
 	if not gameplay_timer.is_stopped(): update_time_label()
 
 func update_time_label():
-	time_label.text = "Waktu: %.1f" % gameplay_timer.time_left
+	time_label.text = "Waktu tersisa %.1f" % gameplay_timer.time_left
 
 func _on_gameplay_timer_timeout():
 	game_over()

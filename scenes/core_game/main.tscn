@@ -6,7 +6,7 @@
 
 [node name="main2" type="Node2D"]
 script = ExtResource("1_ig7tw")
-positive_thoughts = Array[String](["a", "b", "c", "d", "e", "a"])
+positive_thoughts = Array[String](["HAH? ", "bPertanyaan apaan nih ", "Jumlah jendela? ", "Kok nanya Jakarta? ", "eMana gw tau anjir ", "Lebih dari 3 lah ya "])
 number_of_bubbles = 4
 gameplay_duration = 120.0
 trap_chance = 0.0
@@ -47,6 +47,8 @@ offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.869487, 0.667312, 1.54018e-06, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
 theme_override_fonts/font = ExtResource("3_11jre")
 theme_override_font_sizes/font_size = 48
 text = "22/22"
